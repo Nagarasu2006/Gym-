@@ -1,179 +1,86 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elite Fitness</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
+<title>Elite Fitness App</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-
-body{
-background:#0b0f1a;
-color:white;
-}
-
-/* HERO */
-.hero{
-background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
-url('https://images.unsplash.com/photo-1554284126-aa88f22d8b74');
-background-size:cover;
-padding:100px 20px;
-text-align:center;
-}
-
-.hero h1{font-size:42px;color:#00ffae;}
-.hero p{color:#ccc;margin-top:10px;}
-
-/* CARD */
-.card{
-max-width:420px;
-margin:40px auto;
-background:rgba(17,24,39,0.95);
-padding:25px;
-border-radius:15px;
-box-shadow:0 10px 40px rgba(0,0,0,0.5);
-}
-
-input,select{
-width:100%;
-padding:12px;
-margin:10px 0;
-border-radius:10px;
-border:none;
-}
-
-/* BUTTON */
-button{
-width:100%;
-padding:14px;
-border:none;
-border-radius:30px;
-background:linear-gradient(45deg,#00ffae,#007bff);
-color:white;
-font-size:16px;
-cursor:pointer;
-}
-
-/* PLAN */
-.plan{
-background:#1f2937;
-padding:15px;
-margin-top:15px;
-border-radius:10px;
-}
-
-.price{
-color:#00ffae;
-font-size:26px;
-font-weight:bold;
-}
-
-/* RESULT */
-.result{
-display:none;
-margin-top:20px;
-background:#111827;
-padding:15px;
-border-radius:10px;
-}
+body{font-family:Arial;background:#0b0f1a;color:white;margin:0}
+.container{padding:20px}
+input,button{width:100%;padding:12px;margin:10px 0;border-radius:8px;border:none}
+button{background:#00c853;color:white;font-weight:bold}
+.hidden{display:none}
+.nav{display:flex;gap:10px;margin-top:20px}
+.nav button{flex:1;background:#1e2a3a}
+.card{background:#111827;padding:20px;border-radius:10px;margin-top:20px}
 </style>
 </head>
+<body><div class="container"><!-- LOGIN / REGISTER --><div id="auth">
+<h2>Join Elite Fitness</h2>
+<input id="name" placeholder="Name">
+<input id="email" placeholder="Email">
+<input id="weight" placeholder="Weight (kg)">
+<input id="height" placeholder="Height (cm)">
+<button onclick="login()">Start Free Plan</button>
+</div><!-- DASHBOARD --><div id="dashboard" class="hidden">
+<h2>Welcome <span id="userName"></span></h2><div class="nav">
+<button onclick="showPage('workout')">Workout</button>
+<button onclick="showPage('diet')">Diet</button>
+<button onclick="showPage('monitor')">Progress</button>
+<button onclick="showPage('profile')">Profile</button>
+</div><!-- WORKOUT --><div id="workout" class="card">
+<h3>Workout Plan</h3>
+<p id="workoutPlan"></p>
+</div><!-- DIET --><div id="diet" class="card hidden">
+<h3>Diet Plan</h3>
+<p id="dietPlan"></p>
+</div><!-- MONITOR --><div id="monitor" class="card hidden">
+<h3>Progress</h3>
+<p>Track your weight weekly.</p>
+</div><!-- PROFILE --><div id="profile" class="card hidden">
+<h3>Your Info</h3>
+<p id="profileData"></p>
+<button onclick="upgrade()">Upgrade to Premium ₹499</button>
+</div></div></div><script>
+let user={};
 
-<body>
+function login(){
+user.name=document.getElementById('name').value;
+user.email=document.getElementById('email').value;
+user.weight=parseInt(document.getElementById('weight').value);
+user.height=parseInt(document.getElementById('height').value);
 
-<section class="hero">
-<h1>Elite Fitness 💪</h1>
-<p>Get your personalized workout plan</p>
-</section>
+if(!user.name||!user.email){alert('Fill details');return;}
 
-<div class="card">
+document.getElementById('auth').classList.add('hidden');
+document.getElementById('dashboard').classList.remove('hidden');
+document.getElementById('userName').innerText=user.name;
 
-<h2>Enter Your Details</h2>
-
-<input type="text" id="name" placeholder="Your Name">
-<input type="number" id="height" placeholder="Height (cm)">
-<input type="number" id="weight" placeholder="Weight (kg)">
-
-<select id="goal">
-<option value="">Select Goal</option>
-<option value="loss">Weight Loss</option>
-<option value="gain">Muscle Gain</option>
-<option value="fit">Fitness</option>
-</select>
-
-<button onclick="generate()">Get Free Plan</button>
-
-<div class="result" id="result"></div>
-
-<div class="plan">
-<h3>Premium Plan 🚀</h3>
-<p class="price">₹499 / Month</p>
-<p>✔ Personal Workout<br>✔ Diet Plan<br>✔ WhatsApp Support</p>
-
-<button onclick="payNow()">Upgrade Now</button>
-</div>
-
-</div>
-
-<script>
-function generate(){
-
-let name=document.getElementById("name").value;
-let height=document.getElementById("height").value;
-let weight=document.getElementById("weight").value;
-let goal=document.getElementById("goal").value;
-
-if(!name || !height || !weight || !goal){
-alert("Fill all details");
-return;
+// simple logic
+if(user.weight>80){
+document.getElementById('workoutPlan').innerText='Fat Loss Plan: Cardio + HIIT';
+document.getElementById('dietPlan').innerText='Low carb diet + protein';
+}else{
+document.getElementById('workoutPlan').innerText='Muscle Gain Plan: Strength training';
+document.getElementById('dietPlan').innerText='High protein + calorie surplus';
 }
 
-let bmi = weight / ((height/100)*(height/100));
-let plan="";
-
-if(goal=="loss"){
-plan="Cardio + Fat Burn + Diet Control";
-}
-else if(goal=="gain"){
-plan="Weight Training + High Protein Diet";
-}
-else{
-plan="Full Body Workout + Balanced Diet";
+// profile
+ document.getElementById('profileData').innerText=
+ 'Name: '+user.name+' | Weight: '+user.weight+'kg | Height: '+user.height+'cm';
 }
 
-document.getElementById("result").style.display="block";
-document.getElementById("result").innerHTML=
-"🔥 Hi "+name+"<br>Your BMI: "+bmi.toFixed(1)+"<br><br>"+plan;
+function showPage(page){
+document.getElementById('workout').classList.add('hidden');
+document.getElementById('diet').classList.add('hidden');
+document.getElementById('monitor').classList.add('hidden');
+document.getElementById('profile').classList.add('hidden');
+
+document.getElementById(page).classList.remove('hidden');
 }
 
-/* PAYMENT */
-function payNow(){
-
-let name=document.getElementById("name").value;
-let phone="";
-
-if(!name){
-alert("Enter name first");
-return;
-}
-
-/* UPI LINK */
+function upgrade(){
 let upi="upi://pay?pa=9080985296@ybl&pn=EliteFitness&am=499&cu=INR";
-
-/* OPEN UPI */
 window.location.href=upi;
-
-/* AFTER PAYMENT (manual redirect) */
-setTimeout(()=>{
-let msg="Hi I paid ₹499 for gym plan. Name: "+name;
-window.location.href="https://wa.me/919080985296?text="+encodeURIComponent(msg);
-},5000);
-
 }
-</script>
-
-</body>
+</script></body>
 </html>
