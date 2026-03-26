@@ -1,56 +1,219 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nagaraj | Premium Web Developer</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"><style>
+<title>Nagaraj | Web Developer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+
 body{background:#050816;color:#fff}
 
-nav{display:flex;justify-content:space-between;align-items:center;padding:15px 20px;background:#000;position:sticky;top:0;z-index:1000}
+/* NAVBAR */
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 20px;
+background:#000;
+position:sticky;
+top:0;
+z-index:1000;
+}
 nav h1{color:#00f5c4}
 nav a{color:#ccc;margin-left:15px;text-decoration:none;font-size:14px}
 
-.hero{padding:80px 15px;text-align:center}
+/* HERO */
+.hero{
+padding:80px 15px;
+text-align:center;
+}
 .hero h1{font-size:32px}
 .hero span{color:#00f5c4}
-.btn{padding:12px 25px;background:#00f5c4;color:#000;border-radius:25px;text-decoration:none}
-
-.section{padding:60px 15px;text-align:center}
-.grid{display:grid;grid-template-columns:1fr;gap:15px}
-.card{background:#0f172a;padding:20px;border-radius:12px}
-
-.pricing{padding:60px 15px}
-.price-card{background:#0f172a;padding:25px;border-radius:15px}
-.price{font-size:30px;color:#00f5c4;margin:10px 0}
-.pay-btn{width:100%;padding:12px;border:none;border-radius:25px;background:#00f5c4;color:#000}
-
-.contact input,.contact textarea{width:100%;padding:12px;margin:8px 0;border-radius:8px;border:none}
-
-footer{text-align:center;padding:20px;background:#000}
-
-@media(min-width:768px){
-.grid{grid-template-columns:repeat(2,1fr)}
+.hero p{margin:10px 0;color:#aaa}
+.btn{
+padding:12px 25px;
+background:#00f5c4;
+color:#000;
+border-radius:25px;
+text-decoration:none;
+display:inline-block;
 }
-</style></head><body><nav>
-<h1>Naga.dev</h1>
+
+/* SECTION */
+.section{
+padding:60px 15px;
+text-align:center;
+}
+.section h2{margin-bottom:20px}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:1fr;
+gap:15px;
+}
+
+/* CARD */
+.card{
+background:#0f172a;
+padding:20px;
+border-radius:12px;
+}
+
+/* PROJECT */
+.project img{
+width:100%;
+border-radius:10px;
+height:150px;
+object-fit:cover;
+}
+
+/* PRICING */
+.pricing{
+padding:60px 15px;
+}
+.price-card{
+background:#0f172a;
+padding:25px;
+border-radius:15px;
+}
+.price{
+font-size:30px;
+color:#00f5c4;
+margin:10px 0;
+}
+.pay-btn{
+width:100%;
+padding:12px;
+border:none;
+border-radius:25px;
+background:#00f5c4;
+color:#000;
+cursor:pointer;
+}
+
+/* CONTACT */
+.contact input,.contact textarea{
+width:100%;
+padding:12px;
+margin:8px 0;
+border-radius:8px;
+border:none;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:20px;
+background:#000;
+margin-top:30px;
+}
+
+/* DESKTOP */
+@media(min-width:768px){
+.grid{
+grid-template-columns:repeat(2,1fr);
+}
+.hero h1{font-size:48px}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+<h1>website builder</h1>
 <div>
 <a href="#services">Services</a>
 <a href="#projects">Projects</a>
 <a href="#pricing">Pricing</a>
 <a href="#contact">Contact</a>
 </div>
-</nav><section class="hero">
-<h1>I Build <span>Premium Websites</span></h1>
-<a href="#contact" class="btn">Start Project</a>
-</section><section class="section contact" id="contact">
-<h2>Start Your Project</h2><input id="name" placeholder="Your Name">
-<input id="email" placeholder="Your Email">
-<textarea id="msg" placeholder="Project Details"></textarea><button class="btn" onclick="sendWhatsApp()">Submit</button>
+</nav>
 
-</section><footer>
+<!-- HERO -->
+<section class="hero">
+<h1>I Build <span>Premium Websites</span></h1>
+<p>Professional, fast & modern websites for your business</p>
+<a href="#contact" class="btn">Start Project</a>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+<h2>Services</h2>
+<div class="grid">
+<div class="card">Business Websites</div>
+<div class="card">Portfolio Websites</div>
+<div class="card">E-commerce Websites</div>
+<div class="card">Landing Pages</div>
+</div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section" id="projects">
+<h2>Projects</h2>
+<div class="grid">
+
+<div class="card project">
+<img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a">
+<p>Gym Website</p>
+</div>
+
+<div class="card project">
+<img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71">
+<p>Agency Website</p>
+</div>
+
+<div class="card project">
+<img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f">
+<p>E-commerce Website</p>
+</div>
+
+</div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+<div class="price-card">
+<h3>Website Development</h3>
+<div class="price">₹10,000</div>
+<p>✔ Premium Design<br>✔ Mobile Friendly<br>✔ Fast Loading<br>✔ SEO Ready</p>
+<button class="pay-btn" onclick="payNow()">Pay Now</button>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="contact">
+<h2>Start Your Project</h2>
+
+<input id="name" placeholder="Your Name">
+<input id="email" placeholder="Your Email">
+<textarea id="msg" placeholder="Project Details"></textarea>
+
+<button class="btn" onclick="sendWhatsApp()">Submit</button>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
 <p>© 2026 Nagaraj</p>
-</footer><script>
+</footer>
+
+<script>
+
+/* PAYMENT */
+function payNow(){
+let upi="upi://pay?pa=9080985296@ybl&pn=Nagaraj&am=10000&cu=INR";
+window.location.href=upi;
+}
+
+/* WHATSAPP */
 function sendWhatsApp(){
 let name=document.getElementById('name').value;
 let email=document.getElementById('email').value;
@@ -65,5 +228,8 @@ let text=`Hi Nagaraj, I want a website.%0AName: ${name}%0AEmail: ${email}%0AMess
 
 window.open("https://wa.me/919080985296?text="+text,"_blank");
 }
-</script></body>
+
+</script>
+
+</body>
 </html>
