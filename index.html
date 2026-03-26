@@ -3,17 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elite Fitness Gym</title>
+<title>Elite Fitness</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 
 body{
 background:#0b0f1a;
@@ -29,44 +24,31 @@ padding:100px 20px;
 text-align:center;
 }
 
-.hero h1{
-font-size:42px;
-color:#00ffae;
-}
+.hero h1{font-size:42px;color:#00ffae;}
+.hero p{color:#ccc;margin-top:10px;}
 
-.hero p{
-margin:15px 0;
-color:#ccc;
-}
-
-/* SECTION */
-.section{
-padding:50px 20px;
-text-align:center;
-}
-
-/* FORM CARD */
+/* CARD */
 .card{
-max-width:400px;
-margin:auto;
-background:#111827;
+max-width:420px;
+margin:40px auto;
+background:rgba(17,24,39,0.95);
 padding:25px;
 border-radius:15px;
-box-shadow:0 10px 30px rgba(0,0,0,0.5);
+box-shadow:0 10px 40px rgba(0,0,0,0.5);
 }
 
-input, select{
+input,select{
 width:100%;
 padding:12px;
 margin:10px 0;
 border-radius:10px;
 border:none;
-outline:none;
 }
 
+/* BUTTON */
 button{
 width:100%;
-padding:15px;
+padding:14px;
 border:none;
 border-radius:30px;
 background:linear-gradient(45deg,#00ffae,#007bff);
@@ -77,81 +59,72 @@ cursor:pointer;
 
 /* PLAN */
 .plan{
-margin-top:20px;
-padding:15px;
 background:#1f2937;
+padding:15px;
+margin-top:15px;
 border-radius:10px;
 }
 
-.highlight{
+.price{
 color:#00ffae;
-font-size:28px;
+font-size:26px;
 font-weight:bold;
 }
 
 /* RESULT */
 .result{
-margin-top:20px;
-padding:15px;
-background:#111827;
-border-radius:10px;
 display:none;
+margin-top:20px;
+background:#111827;
+padding:15px;
+border-radius:10px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
 <section class="hero">
-<h1>Transform Your Body 💪</h1>
-<p>Personalized workout & fitness plans just for you</p>
+<h1>Elite Fitness 💪</h1>
+<p>Get your personalized workout plan</p>
 </section>
 
-<!-- FORM -->
-<section class="section">
 <div class="card">
 
-<h2>Start Your Fitness Journey</h2>
+<h2>Enter Your Details</h2>
 
 <input type="text" id="name" placeholder="Your Name">
-<input type="number" id="age" placeholder="Age">
 <input type="number" id="height" placeholder="Height (cm)">
 <input type="number" id="weight" placeholder="Weight (kg)">
 
 <select id="goal">
 <option value="">Select Goal</option>
-<option value="weightloss">Weight Loss</option>
-<option value="muscle">Muscle Gain</option>
-<option value="fit">General Fitness</option>
+<option value="loss">Weight Loss</option>
+<option value="gain">Muscle Gain</option>
+<option value="fit">Fitness</option>
 </select>
 
-<div class="plan">
-<h3>Basic Plan</h3>
-<p class="highlight">₹499 / Month</p>
-<p>✔ Workout Plan<br>✔ Diet Suggestion</p>
-</div>
+<button onclick="generate()">Get Free Plan</button>
+
+<div class="result" id="result"></div>
 
 <div class="plan">
 <h3>Premium Plan 🚀</h3>
-<p class="highlight">₹999 / Month</p>
-<p>✔ Personal Trainer<br>✔ Weekly Tracking<br>✔ Online Coaching</p>
+<p class="price">₹499 / Month</p>
+<p>✔ Personal Workout<br>✔ Diet Plan<br>✔ WhatsApp Support</p>
+
+<button onclick="payNow()">Upgrade Now</button>
 </div>
 
-<button onclick="generatePlan()">Get My Plan</button>
-
-<div class="result" id="resultBox"></div>
-
 </div>
-</section>
 
 <script>
-function generatePlan(){
+function generate(){
 
-let name = document.getElementById("name").value;
-let height = document.getElementById("height").value;
-let weight = document.getElementById("weight").value;
-let goal = document.getElementById("goal").value;
+let name=document.getElementById("name").value;
+let height=document.getElementById("height").value;
+let weight=document.getElementById("weight").value;
+let goal=document.getElementById("goal").value;
 
 if(!name || !height || !weight || !goal){
 alert("Fill all details");
@@ -159,25 +132,46 @@ return;
 }
 
 let bmi = weight / ((height/100)*(height/100));
-let plan = "";
+let plan="";
 
-if(goal=="weightloss"){
-plan = "🏃 Cardio 30 mins + Fat burn workout + Calorie deficit diet";
+if(goal=="loss"){
+plan="Cardio + Fat Burn + Diet Control";
 }
-else if(goal=="muscle"){
-plan = "🏋️ Heavy weight training + High protein diet";
+else if(goal=="gain"){
+plan="Weight Training + High Protein Diet";
 }
 else{
-plan = "🤸 Full body workout + Balanced diet";
+plan="Full Body Workout + Balanced Diet";
 }
 
-document.getElementById("resultBox").style.display="block";
+document.getElementById("result").style.display="block";
+document.getElementById("result").innerHTML=
+"🔥 Hi "+name+"<br>Your BMI: "+bmi.toFixed(1)+"<br><br>"+plan;
+}
 
-document.getElementById("resultBox").innerHTML =
-"🔥 Hello "+name+"<br><br>" +
-"Your BMI: "+bmi.toFixed(1)+"<br><br>" +
-"Recommended Plan:<br>"+plan +
-"<br><br><b>Upgrade to Premium for personal coaching 🚀</b>";
+/* PAYMENT */
+function payNow(){
+
+let name=document.getElementById("name").value;
+let phone="";
+
+if(!name){
+alert("Enter name first");
+return;
+}
+
+/* UPI LINK */
+let upi="upi://pay?pa=9080985296@ybl&pn=EliteFitness&am=499&cu=INR";
+
+/* OPEN UPI */
+window.location.href=upi;
+
+/* AFTER PAYMENT (manual redirect) */
+setTimeout(()=>{
+let msg="Hi I paid ₹499 for gym plan. Name: "+name;
+window.location.href="https://wa.me/919080985296?text="+encodeURIComponent(msg);
+},5000);
+
 }
 </script>
 
