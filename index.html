@@ -2,65 +2,108 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nagaraj | Web Developer</title><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"><style>
-body{margin:0;font-family:'Poppins',sans-serif;background:#0b0f1a;color:white}
-header{padding:20px;display:flex;justify-content:space-between;align-items:center}
-.logo{font-weight:600;font-size:20px}
-nav a{margin:0 10px;color:white;text-decoration:none}
-.hero{text-align:center;padding:80px 20px}
-.hero h1{font-size:36px}
-.hero span{color:#00c853}
-.btn{padding:12px 25px;background:#00c853;border:none;border-radius:25px;color:white}
-.section{padding:60px 20px;text-align:center}
-.cards{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-.card{background:#111827;padding:20px;border-radius:10px}
-.footer{text-align:center;padding:30px;background:#111}
-</style></head>
-<body><header>
-<div class="logo">Naga Dev</div>
-<nav>
-<a href="#">Home</a>
-<a href="#about">About</a>
-<a href="#projects">Projects</a>
-<a href="#contact">Contact</a>
-</nav>
-</header><section class="hero">
-<h1>Hi, I'm <span>Nagaraj</span> 👋</h1>
-<p>I build websites that generate leads & sales 🚀</p>
-<button class="btn" onclick="whatsapp()">Hire Me</button>
-</section><section id="about" class="section">
-<h2>About Me</h2>
-<p>I am a digital marketer & web developer helping businesses grow online using websites, ads & funnels.</p>
-</section><section id="projects" class="section">
-<h2>My Projects</h2>
-<div class="cards">
-<div class="card">
-<h3>Gym Website</h3>
-<p>Fitness tracking web app with plans.</p>
-</div>
-<div class="card">
-<h3>E-commerce Store</h3>
-<p>Flipkart style shopping website.</p>
-</div>
-<div class="card">
-<h3>Marketing Agency</h3>
-<p>Lead generation landing page.</p>
-</div>
-<div class="card">
-<h3>Client Funnel</h3>
-<p>High converting funnel system.</p>
-</div>
-</div>
-</section><section id="contact" class="section">
-<h2>Contact Me</h2>
-<p>📞 9080985296</p>
-<p>📧 naganaga2196@gmail.com</p>
-<button class="btn" onclick="whatsapp()">Message on WhatsApp</button>
-</section><div class="footer">
-<p>© 2026 Nagaraj | All Rights Reserved</p>
-</div><script>
-function whatsapp(){
-window.open("https://wa.me/919080985296?text=Hi%20I%20want%20website","_blank");
+<title>Nagaraj | Growth & Web Expert</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"><style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#0b0f1a;color:#fff}
+
+/* NAVBAR */
+nav{
+display:flex;justify-content:space-between;align-items:center;
+padding:20px 40px;background:rgba(0,0,0,0.6);
+position:sticky;top:0;backdrop-filter:blur(10px)
 }
-</script></body>
+nav h1{color:#00ffcc}
+nav a{color:#fff;margin-left:20px;text-decoration:none}
+
+/* HERO */
+.hero{
+padding:100px 20px;text-align:center;
+background:linear-gradient(135deg,#000,#0b0f1a,#001f3f)
+}
+.hero h1{font-size:50px}
+.hero span{color:#00ffcc}
+.hero p{margin:20px 0;color:#ccc}
+.btn{
+padding:14px 30px;background:#00ffcc;color:#000;
+border-radius:30px;text-decoration:none;font-weight:600
+}
+
+/* SECTION */
+.section{padding:80px 20px;text-align:center}
+.section h2{font-size:36px;margin-bottom:20px}
+
+/* SERVICES */
+.grid{
+display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px
+}
+.card{
+background:#111827;padding:25px;border-radius:15px;
+box-shadow:0 0 20px rgba(0,255,204,0.1);
+transition:0.3s
+}
+.card:hover{transform:translateY(-10px)}
+
+/* PROJECTS */
+.project img{width:100%;border-radius:10px}
+
+/* TESTIMONIAL */
+.testimonial{
+background:#111827;padding:20px;border-radius:10px;color:#ccc
+}
+
+/* CONTACT */
+.contact input, .contact textarea{
+width:100%;padding:12px;margin:10px 0;border-radius:10px;border:none
+}
+
+/* FOOTER */
+footer{text-align:center;padding:30px;background:#000}
+</style></head><body><nav>
+<h1>Naga.dev</h1>
+<div>
+<a href="#">Home</a>
+<a href="#">Services</a>
+<a href="#">Projects</a>
+<a href="#">Contact</a>
+</div>
+</nav><section class="hero">
+<h1>I Build <span>High Converting Websites</span></h1>
+<p>Helping businesses generate leads & sales using modern digital systems</p>
+<a href="https://wa.me/919080985296" class="btn">Hire Me 🚀</a>
+</section><section class="section">
+<h2>Services</h2>
+<div class="grid">
+<div class="card">Landing Pages that convert</div>
+<div class="card">Meta Ads Lead Generation</div>
+<div class="card">E-commerce Websites</div>
+<div class="card">Funnels & Automation</div>
+</div>
+</section><section class="section">
+<h2>Projects</h2>
+<div class="grid">
+<div class="card project">
+<img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a">
+<p>Gym Website + Lead Funnel</p>
+</div>
+<div class="card project">
+<img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71">
+<p>Marketing Agency Website</p>
+</div>
+</div>
+</section><section class="section">
+<h2>Client Results</h2>
+<div class="grid">
+<div class="testimonial">Generated 300+ leads in 30 days</div>
+<div class="testimonial">₹5L revenue using ads funnel</div>
+</div>
+</section><section class="section contact">
+<h2>Contact Me</h2>
+<input placeholder="Your Name">
+<input placeholder="Your Email">
+<textarea placeholder="Your Message"></textarea>
+<a href="https://wa.me/919080985296" class="btn">Send Message</a>
+</section><footer>
+<p>© 2026 Nagaraj | Growth Expert</p>
+</footer></body>
 </html>
