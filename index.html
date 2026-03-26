@@ -2,85 +2,75 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elite Fitness App</title>
+<title>Naga Store</title>
 <style>
-body{font-family:Arial;background:#0b0f1a;color:white;margin:0}
-.container{padding:20px}
-input,button{width:100%;padding:12px;margin:10px 0;border-radius:8px;border:none}
-button{background:#00c853;color:white;font-weight:bold}
-.hidden{display:none}
-.nav{display:flex;gap:10px;margin-top:20px}
-.nav button{flex:1;background:#1e2a3a}
-.card{background:#111827;padding:20px;border-radius:10px;margin-top:20px}
+body{margin:0;font-family:Arial;background:#f1f3f6}
+header{background:#2874f0;color:white;padding:15px;display:flex;justify-content:space-between}
+header input{width:50%;padding:8px;border-radius:5px;border:none}
+.container{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px}
+.card{background:white;padding:10px;border-radius:8px;text-align:center}
+.card img{width:100%;height:120px;object-fit:cover}
+button{padding:10px;background:#fb641b;color:white;border:none;border-radius:5px;margin-top:5px}
+.cart{position:fixed;bottom:10px;right:10px;background:#2874f0;color:white;padding:15px;border-radius:50%}
+#cartPage{display:none;padding:20px}
 </style>
 </head>
-<body><div class="container"><!-- LOGIN / REGISTER --><div id="auth">
-<h2>Join Elite Fitness</h2>
-<input id="name" placeholder="Name">
-<input id="email" placeholder="Email">
-<input id="weight" placeholder="Weight (kg)">
-<input id="height" placeholder="Height (cm)">
-<button onclick="login()">Start Free Plan</button>
-</div><!-- DASHBOARD --><div id="dashboard" class="hidden">
-<h2>Welcome <span id="userName"></span></h2><div class="nav">
-<button onclick="showPage('workout')">Workout</button>
-<button onclick="showPage('diet')">Diet</button>
-<button onclick="showPage('monitor')">Progress</button>
-<button onclick="showPage('profile')">Profile</button>
-</div><!-- WORKOUT --><div id="workout" class="card">
-<h3>Workout Plan</h3>
-<p id="workoutPlan"></p>
-</div><!-- DIET --><div id="diet" class="card hidden">
-<h3>Diet Plan</h3>
-<p id="dietPlan"></p>
-</div><!-- MONITOR --><div id="monitor" class="card hidden">
-<h3>Progress</h3>
-<p>Track your weight weekly.</p>
-</div><!-- PROFILE --><div id="profile" class="card hidden">
-<h3>Your Info</h3>
-<p id="profileData"></p>
-<button onclick="upgrade()">Upgrade to Premium ₹499</button>
-</div></div></div><script>
-let user={};
+<body><header>
+<h2>Naga Store</h2>
+<input type="text" placeholder="Search products...">
+</header><div id="home" class="container"></div><div id="cartPage">
+<h2>Your Cart</h2>
+<div id="cartItems"></div>
+<h3 id="total"></h3>
+<button onclick="payNow()">Pay Now</button>
+</div><div class="cart" onclick="openCart()">🛒</div><script>
+let products=[
+{name:'Shoes',price:999,img:'https://images.unsplash.com/photo-1542291026-7eec264c27ff'},
+{name:'Watch',price:1999,img:'https://images.unsplash.com/photo-1519741497674-611481863552'},
+{name:'Phone',price:15000,img:'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9'},
+{name:'Headphones',price:1299,img:'https://images.unsplash.com/photo-1518441902113-cdf8b7e6d92c'}
+];
 
-function login(){
-user.name=document.getElementById('name').value;
-user.email=document.getElementById('email').value;
-user.weight=parseInt(document.getElementById('weight').value);
-user.height=parseInt(document.getElementById('height').value);
+let cart=[];
 
-if(!user.name||!user.email){alert('Fill details');return;}
-
-document.getElementById('auth').classList.add('hidden');
-document.getElementById('dashboard').classList.remove('hidden');
-document.getElementById('userName').innerText=user.name;
-
-// simple logic
-if(user.weight>80){
-document.getElementById('workoutPlan').innerText='Fat Loss Plan: Cardio + HIIT';
-document.getElementById('dietPlan').innerText='Low carb diet + protein';
-}else{
-document.getElementById('workoutPlan').innerText='Muscle Gain Plan: Strength training';
-document.getElementById('dietPlan').innerText='High protein + calorie surplus';
+function loadProducts(){
+let html='';
+products.forEach((p,i)=>{
+html+=`<div class='card'>
+<img src='${p.img}'>
+<h4>${p.name}</h4>
+<p>₹${p.price}</p>
+<button onclick='addToCart(${i})'>Add to Cart</button>
+</div>`;
+});
+document.getElementById('home').innerHTML=html;
 }
 
-// profile
- document.getElementById('profileData').innerText=
- 'Name: '+user.name+' | Weight: '+user.weight+'kg | Height: '+user.height+'cm';
+function addToCart(i){
+cart.push(products[i]);
+alert('Added to cart');
 }
 
-function showPage(page){
-document.getElementById('workout').classList.add('hidden');
-document.getElementById('diet').classList.add('hidden');
-document.getElementById('monitor').classList.add('hidden');
-document.getElementById('profile').classList.add('hidden');
+function openCart(){
+document.getElementById('home').style.display='none';
+document.getElementById('cartPage').style.display='block';
 
-document.getElementById(page).classList.remove('hidden');
+let html='';
+let total=0;
+cart.forEach(p=>{
+html+=`<p>${p.name} - ₹${p.price}</p>`;
+total+=p.price;
+});
+
+document.getElementById('cartItems').innerHTML=html;
+document.getElementById('total').innerText='Total: ₹'+total;
 }
 
-function upgrade(){
-let upi="upi://pay?pa=9080985296@ybl&pn=EliteFitness&am=499&cu=INR";
+function payNow(){
+let upi="upi://pay?pa=9080985296@ybl&pn=NagaStore&am=100&cu=INR";
 window.location.href=upi;
 }
+
+loadProducts();
 </script></body>
 </html>
