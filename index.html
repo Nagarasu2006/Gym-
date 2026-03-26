@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elite Fitness</title>
+<title>Elite Fitness Gym</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -25,13 +25,13 @@ color:white;
 background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
 url('https://images.unsplash.com/photo-1554284126-aa88f22d8b74');
 background-size:cover;
-background-position:center;
-text-align:center;
 padding:100px 20px;
+text-align:center;
 }
 
 .hero h1{
 font-size:42px;
+color:#00ffae;
 }
 
 .hero p{
@@ -39,121 +39,63 @@ margin:15px 0;
 color:#ccc;
 }
 
-.btn{
-display:inline-block;
-padding:14px 30px;
-background:#00c853;
-border-radius:30px;
-color:white;
-text-decoration:none;
-margin-top:15px;
-}
-
 /* SECTION */
 .section{
-padding:60px 20px;
+padding:50px 20px;
 text-align:center;
 }
 
-.section h2{
-font-size:32px;
-margin-bottom:20px;
-}
-
-/* SERVICES */
-.services{
-display:grid;
-gap:20px;
-}
-
+/* FORM CARD */
 .card{
+max-width:400px;
+margin:auto;
 background:#111827;
-padding:20px;
+padding:25px;
 border-radius:15px;
-box-shadow:0 5px 20px rgba(0,0,0,0.4);
-}
-
-.card img{
-width:100%;
-border-radius:10px;
-}
-
-.card h3{
-margin-top:10px;
-}
-
-/* PRICING */
-.pricing{
-display:flex;
-justify-content:center;
-}
-
-.pricing-card{
-background: rgba(255,255,255,0.05);
-padding:30px;
-border-radius:20px;
-backdrop-filter: blur(10px);
-width:300px;
 box-shadow:0 10px 30px rgba(0,0,0,0.5);
 }
 
-.pricing-card h2{
-margin-bottom:10px;
-color:#fff;
-}
-
-.price{
-font-size:32px;
-color:#00e676;
-margin:15px 0;
-}
-
-.pricing-card input{
+input, select{
 width:100%;
 padding:12px;
 margin:10px 0;
-border:none;
 border-radius:10px;
+border:none;
+outline:none;
 }
 
-.pay-btn{
+button{
 width:100%;
-padding:14px;
-background:#00c853;
+padding:15px;
 border:none;
 border-radius:30px;
+background:linear-gradient(45deg,#00ffae,#007bff);
 color:white;
 font-size:16px;
+cursor:pointer;
 }
 
-/* CONTACT */
-.contact input{
-width:100%;
-padding:12px;
-margin:10px 0;
-border-radius:10px;
-border:none;
-}
-
-/* FOOTER */
-.footer{
-text-align:center;
-padding:30px;
-background:#020617;
-margin-top:40px;
-}
-
-/* WHATSAPP BUTTON */
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
+/* PLAN */
+.plan{
+margin-top:20px;
 padding:15px;
-border-radius:50%;
-color:white;
-text-decoration:none;
-font-size:20px;
+background:#1f2937;
+border-radius:10px;
+}
+
+.highlight{
+color:#00ffae;
+font-size:28px;
+font-weight:bold;
+}
+
+/* RESULT */
+.result{
+margin-top:20px;
+padding:15px;
+background:#111827;
+border-radius:10px;
+display:none;
 }
 </style>
 </head>
@@ -163,75 +105,79 @@ font-size:20px;
 <!-- HERO -->
 <section class="hero">
 <h1>Transform Your Body 💪</h1>
-<p>Join Elite Fitness & achieve your dream physique</p>
-<a href="#pricing" class="btn">Join Now</a>
+<p>Personalized workout & fitness plans just for you</p>
 </section>
 
-<!-- SERVICES -->
+<!-- FORM -->
 <section class="section">
-<h2>Our Programs</h2>
-
-<div class="services">
-
 <div class="card">
-<img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e">
-<h3>Weight Loss</h3>
-<p>Lose fat with expert guidance</p>
+
+<h2>Start Your Fitness Journey</h2>
+
+<input type="text" id="name" placeholder="Your Name">
+<input type="number" id="age" placeholder="Age">
+<input type="number" id="height" placeholder="Height (cm)">
+<input type="number" id="weight" placeholder="Weight (kg)">
+
+<select id="goal">
+<option value="">Select Goal</option>
+<option value="weightloss">Weight Loss</option>
+<option value="muscle">Muscle Gain</option>
+<option value="fit">General Fitness</option>
+</select>
+
+<div class="plan">
+<h3>Basic Plan</h3>
+<p class="highlight">₹499 / Month</p>
+<p>✔ Workout Plan<br>✔ Diet Suggestion</p>
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1517960413843-0aee8e2b3285">
-<h3>Muscle Gain</h3>
-<p>Build strength & size</p>
+<div class="plan">
+<h3>Premium Plan 🚀</h3>
+<p class="highlight">₹999 / Month</p>
+<p>✔ Personal Trainer<br>✔ Weekly Tracking<br>✔ Online Coaching</p>
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd">
-<h3>Personal Training</h3>
-<p>1-on-1 expert coaching</p>
-</div>
+<button onclick="generatePlan()">Get My Plan</button>
+
+<div class="result" id="resultBox"></div>
 
 </div>
 </section>
-
-<!-- PRICING -->
-<section class="section pricing" id="pricing">
-<div class="pricing-card">
-
-<h2>Premium Plan</h2>
-<p>Best for serious transformation</p>
-
-<div class="price">₹10,000 / Month</div>
-
-<input type="text" placeholder="Your Name">
-<input type="email" placeholder="Your Email">
-<input type="tel" placeholder="Your Phone">
-
-<button class="pay-btn" onclick="payNow()">Pay Now 🚀</button>
-
-</div>
-</section>
-
-<!-- CONTACT -->
-<section class="section contact">
-<h2>Contact Us</h2>
-<p>Phone: +91 9080985296</p>
-
-<input type="text" placeholder="Your Name">
-<input type="email" placeholder="Your Email">
-</section>
-
-<!-- FOOTER -->
-<div class="footer">
-<p>© 2025 Elite Fitness</p>
-</div>
-
-<!-- WHATSAPP -->
-<a class="whatsapp" href="https://wa.me/919080985296">💬</a>
 
 <script>
-function payNow(){
-window.location.href="upi://pay?pa=9080985296@ybl&pn=EliteFitness&am=10000&cu=INR";
+function generatePlan(){
+
+let name = document.getElementById("name").value;
+let height = document.getElementById("height").value;
+let weight = document.getElementById("weight").value;
+let goal = document.getElementById("goal").value;
+
+if(!name || !height || !weight || !goal){
+alert("Fill all details");
+return;
+}
+
+let bmi = weight / ((height/100)*(height/100));
+let plan = "";
+
+if(goal=="weightloss"){
+plan = "🏃 Cardio 30 mins + Fat burn workout + Calorie deficit diet";
+}
+else if(goal=="muscle"){
+plan = "🏋️ Heavy weight training + High protein diet";
+}
+else{
+plan = "🤸 Full body workout + Balanced diet";
+}
+
+document.getElementById("resultBox").style.display="block";
+
+document.getElementById("resultBox").innerHTML =
+"🔥 Hello "+name+"<br><br>" +
+"Your BMI: "+bmi.toFixed(1)+"<br><br>" +
+"Recommended Plan:<br>"+plan +
+"<br><br><b>Upgrade to Premium for personal coaching 🚀</b>";
 }
 </script>
 
