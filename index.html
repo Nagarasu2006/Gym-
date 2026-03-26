@@ -2,53 +2,80 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Naga Store</title>
-<style>
+<title>Naga Flipkart UI</title><style>
 body{margin:0;font-family:Arial;background:#f1f3f6}
-header{background:#2874f0;color:white;padding:15px;display:flex;justify-content:space-between}
-header input{width:50%;padding:8px;border-radius:5px;border:none}
-.container{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px}
-.card{background:white;padding:10px;border-radius:8px;text-align:center}
+
+/* HEADER */
+.header{background:#2874f0;color:white;padding:10px;position:sticky;top:0}
+.header input{width:100%;padding:10px;border-radius:8px;border:none}
+
+/* CATEGORY BAR */
+.categories{display:flex;overflow:auto;background:white;padding:10px;gap:15px}
+.cat{text-align:center;font-size:12px}
+.cat img{width:40px;height:40px}
+
+/* BANNER */
+.banner img{width:100%;border-radius:10px}
+
+/* PRODUCTS */
+.products{display:grid;grid-template-columns:1fr 1fr;padding:10px;gap:10px}
+.card{background:white;padding:10px;border-radius:10px}
 .card img{width:100%;height:120px;object-fit:cover}
-button{padding:10px;background:#fb641b;color:white;border:none;border-radius:5px;margin-top:5px}
-.cart{position:fixed;bottom:10px;right:10px;background:#2874f0;color:white;padding:15px;border-radius:50%}
+.price{color:#388e3c;font-weight:bold}
+button{width:100%;padding:8px;background:#fb641b;color:white;border:none;border-radius:5px;margin-top:5px}
+
+/* BOTTOM NAV */
+.nav{position:fixed;bottom:0;width:100%;background:white;display:flex;justify-content:space-around;padding:10px 0}
+
+/* CART */
 #cartPage{display:none;padding:20px}
-</style>
-</head>
-<body><header>
-<h2>Naga Store</h2>
-<input type="text" placeholder="Search products...">
-</header><div id="home" class="container"></div><div id="cartPage">
+</style></head>
+<body><div class="header">
+<input placeholder="Search for products, brands...">
+</div><!-- CATEGORY --><div class="categories">
+<div class="cat"><img src="https://img.icons8.com/color/96/t-shirt.png"><br>Fashion</div>
+<div class="cat"><img src="https://img.icons8.com/color/96/smartphone.png"><br>Mobiles</div>
+<div class="cat"><img src="https://img.icons8.com/color/96/laptop.png"><br>Electronics</div>
+<div class="cat"><img src="https://img.icons8.com/color/96/shopping-basket.png"><br>Grocery</div>
+<div class="cat"><img src="https://img.icons8.com/color/96/shoes.png"><br>Shoes</div>
+</div><!-- BANNER --><div class="banner">
+<img src="https://images.unsplash.com/photo-1607083206968-13611e3d76db">
+</div><!-- PRODUCTS --><div id="home" class="products"></div><!-- CART PAGE --><div id="cartPage">
 <h2>Your Cart</h2>
 <div id="cartItems"></div>
 <h3 id="total"></h3>
 <button onclick="payNow()">Pay Now</button>
-</div><div class="cart" onclick="openCart()">🛒</div><script>
+</div><!-- NAV --><div class="nav">
+<div onclick="goHome()">🏠 Home</div>
+<div onclick="openCart()">🛒 Cart</div>
+<div>👤 Account</div>
+</div><script>
 let products=[
+{name:'T-Shirt',price:499,img:'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab'},
 {name:'Shoes',price:999,img:'https://images.unsplash.com/photo-1542291026-7eec264c27ff'},
 {name:'Watch',price:1999,img:'https://images.unsplash.com/photo-1519741497674-611481863552'},
-{name:'Phone',price:15000,img:'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9'},
-{name:'Headphones',price:1299,img:'https://images.unsplash.com/photo-1518441902113-cdf8b7e6d92c'}
+{name:'Headphone',price:1299,img:'https://images.unsplash.com/photo-1518441902113-cdf8b7e6d92c'},
+{name:'Phone',price:15000,img:'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9'}
 ];
 
 let cart=[];
 
-function loadProducts(){
+function load(){
 let html='';
 products.forEach((p,i)=>{
 html+=`<div class='card'>
 <img src='${p.img}'>
 <h4>${p.name}</h4>
-<p>₹${p.price}</p>
-<button onclick='addToCart(${i})'>Add to Cart</button>
+<p class='price'>₹${p.price}</p>
+<button onclick='add(${i})'>Add to Cart</button>
 </div>`;
 });
 document.getElementById('home').innerHTML=html;
 }
 
-function addToCart(i){
+function add(i){
 cart.push(products[i]);
-alert('Added to cart');
+alert('Added');
 }
 
 function openCart(){
@@ -63,7 +90,12 @@ total+=p.price;
 });
 
 document.getElementById('cartItems').innerHTML=html;
-document.getElementById('total').innerText='Total: ₹'+total;
+document.getElementById('total').innerText='Total ₹'+total;
+}
+
+function goHome(){
+document.getElementById('home').style.display='grid';
+document.getElementById('cartPage').style.display='none';
 }
 
 function payNow(){
@@ -71,6 +103,6 @@ let upi="upi://pay?pa=9080985296@ybl&pn=NagaStore&am=100&cu=INR";
 window.location.href=upi;
 }
 
-loadProducts();
+load();
 </script></body>
 </html>
