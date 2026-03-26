@@ -7,71 +7,103 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
 body{background:#0b0f1a;color:#fff}
 
-/* NAVBAR */
-nav{
-display:flex;justify-content:space-between;align-items:center;
-padding:20px 40px;background:rgba(0,0,0,0.6);
-position:sticky;top:0;backdrop-filter:blur(10px)
-}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 40px;background:rgba(0,0,0,0.6);position:sticky;top:0;backdrop-filter:blur(10px)}
 nav h1{color:#00ffcc}
-nav a{color:#fff;margin-left:20px;text-decoration:none}
+nav a{color:#fff;margin-left:20px;text-decoration:none;font-weight:500}
 
-/* HERO */
-.hero{
-padding:100px 20px;text-align:center;
-background:linear-gradient(135deg,#000,#0b0f1a,#001f3f)
-}
-.hero h1{font-size:50px}
+.hero{padding:100px 20px;text-align:center;background:linear-gradient(135deg,#000,#0b0f1a,#001f3f)}
+.hero h1{font-size:52px;line-height:1.2}
 .hero span{color:#00ffcc}
-.hero p{margin:20px 0;color:#ccc}
-.btn{
-padding:14px 30px;background:#00ffcc;color:#000;
-border-radius:30px;text-decoration:none;font-weight:600
-}
+.hero p{margin:20px 0;color:#aaa;font-size:18px}
+.btn{padding:14px 30px;background:#00ffcc;color:#000;border-radius:30px;text-decoration:none;font-weight:600;display:inline-block}
 
-/* SECTION */
 .section{padding:80px 20px;text-align:center}
-.section h2{font-size:36px;margin-bottom:20px}
+.section h2{font-size:36px;margin-bottom:40px}
 
-/* SERVICES */
-.grid{
-display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px
-}
-.card{
-background:#111827;padding:25px;border-radius:15px;
-box-shadow:0 0 20px rgba(0,255,204,0.1);
-transition:0.3s
-}
-.card:hover{transform:translateY(-10px)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px}
+.card{background:#111827;padding:30px;border-radius:15px;box-shadow:0 0 25px rgba(0,255,204,0.08);transition:0.3s}
+.card:hover{transform:translateY(-8px)}
 
-/* PROJECTS */
-.project img{width:100%;border-radius:10px}
+.project img{width:100%;border-radius:12px;margin-bottom:10px}
 
-/* TESTIMONIAL */
-.testimonial{
-background:#111827;padding:20px;border-radius:10px;color:#ccc
-}
+.testimonial{background:#111827;padding:25px;border-radius:12px;color:#ccc}
 
-/* CONTACT */
-.contact input, .contact textarea{
-width:100%;padding:12px;margin:10px 0;border-radius:10px;border:none
+.contact input, .contact textarea{width:100%;padding:14px;margin:10px 0;border-radius:10px;border:none}
+
+footer{text-align:center;padding:30px;background:#000;color:#777}
+
+/* NEW PREMIUM PRICING SECTION */
+.pricing{
+padding:100px 20px;
+background:linear-gradient(135deg,#001f3f,#000);
+text-align:center;
 }
 
-/* FOOTER */
-footer{text-align:center;padding:30px;background:#000}
+.price-card{
+max-width:400px;
+margin:auto;
+background:rgba(255,255,255,0.05);
+padding:40px 30px;
+border-radius:20px;
+backdrop-filter:blur(15px);
+box-shadow:0 0 40px rgba(0,255,204,0.15);
+}
+
+.price-card h3{
+font-size:26px;
+margin-bottom:10px;
+color:#fff;
+}
+
+.price{
+font-size:48px;
+color:#00ffcc;
+margin:20px 0;
+font-weight:700;
+}
+
+.features{
+text-align:left;
+margin:20px 0;
+color:#ccc;
+}
+
+.features li{
+margin:10px 0;
+}
+
+.pay-btn{
+width:100%;
+padding:15px;
+border:none;
+border-radius:30px;
+background:linear-gradient(45deg,#00ffcc,#00c3ff);
+color:#000;
+font-weight:700;
+font-size:16px;
+cursor:pointer;
+}
+
+.upi-link{
+display:block;
+margin-top:15px;
+color:#00ffcc;
+text-decoration:underline;
+}
 </style></head><body><nav>
 <h1>Naga.dev</h1>
 <div>
 <a href="#">Home</a>
-<a href="#">Services</a>
-<a href="#">Projects</a>
-<a href="#">Contact</a>
+<a href="#services">Services</a>
+<a href="#projects">Projects</a>
+<a href="#pricing">Pricing</a>
+<a href="#contact">Contact</a>
 </div>
 </nav><section class="hero">
 <h1>I Build <span>High Converting Websites</span></h1>
 <p>Helping businesses generate leads & sales using modern digital systems</p>
 <a href="https://wa.me/919080985296" class="btn">Hire Me 🚀</a>
-</section><section class="section">
+</section><section class="section" id="services">
 <h2>Services</h2>
 <div class="grid">
 <div class="card">Landing Pages that convert</div>
@@ -79,7 +111,7 @@ footer{text-align:center;padding:30px;background:#000}
 <div class="card">E-commerce Websites</div>
 <div class="card">Funnels & Automation</div>
 </div>
-</section><section class="section">
+</section><section class="section" id="projects">
 <h2>Projects</h2>
 <div class="grid">
 <div class="card project">
@@ -97,7 +129,19 @@ footer{text-align:center;padding:30px;background:#000}
 <div class="testimonial">Generated 300+ leads in 30 days</div>
 <div class="testimonial">₹5L revenue using ads funnel</div>
 </div>
-</section><section class="section contact">
+</section><!-- 🔥 PREMIUM PRICING SECTION --><section class="pricing" id="pricing">
+<div class="price-card">
+<h3>Marketing Growth Plan</h3>
+<div class="price">₹10,000 / Month</div>
+<ul class="features">
+<li>✔ Lead Generation System</li>
+<li>✔ Website + Funnel</li>
+<li>✔ Meta Ads Setup</li>
+<li>✔ Monthly Optimization</li>
+</ul><button class="pay-btn" onclick="payNow()">Pay Now 🚀</button> <a class="upi-link" href="#" onclick="payNow()">Or Pay via UPI</a>
+
+</div>
+</section><section class="section contact" id="contact">
 <h2>Contact Me</h2>
 <input placeholder="Your Name">
 <input placeholder="Your Email">
@@ -105,5 +149,10 @@ footer{text-align:center;padding:30px;background:#000}
 <a href="https://wa.me/919080985296" class="btn">Send Message</a>
 </section><footer>
 <p>© 2026 Nagaraj | Growth Expert</p>
-</footer></body>
+</footer><script>
+function payNow(){
+let upi = "upi://pay?pa=9080985296@ybl&pn=Nagaraj&am=10000&cu=INR";
+window.location.href = upi;
+}
+</script></body>
 </html>
