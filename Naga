@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elite Fitness</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#0b0f1a;
+color:white;
+}
+
+/* HERO */
+.hero{
+background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
+url('https://images.unsplash.com/photo-1554284126-aa88f22d8b74');
+background-size:cover;
+background-position:center;
+text-align:center;
+padding:100px 20px;
+}
+
+.hero h1{
+font-size:42px;
+}
+
+.hero p{
+margin:15px 0;
+color:#ccc;
+}
+
+.btn{
+display:inline-block;
+padding:14px 30px;
+background:#00c853;
+border-radius:30px;
+color:white;
+text-decoration:none;
+margin-top:15px;
+}
+
+/* SECTION */
+.section{
+padding:60px 20px;
+text-align:center;
+}
+
+.section h2{
+font-size:32px;
+margin-bottom:20px;
+}
+
+/* SERVICES */
+.services{
+display:grid;
+gap:20px;
+}
+
+.card{
+background:#111827;
+padding:20px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,0.4);
+}
+
+.card img{
+width:100%;
+border-radius:10px;
+}
+
+.card h3{
+margin-top:10px;
+}
+
+/* PRICING */
+.pricing{
+display:flex;
+justify-content:center;
+}
+
+.pricing-card{
+background: rgba(255,255,255,0.05);
+padding:30px;
+border-radius:20px;
+backdrop-filter: blur(10px);
+width:300px;
+box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+.pricing-card h2{
+margin-bottom:10px;
+color:#fff;
+}
+
+.price{
+font-size:32px;
+color:#00e676;
+margin:15px 0;
+}
+
+.pricing-card input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:none;
+border-radius:10px;
+}
+
+.pay-btn{
+width:100%;
+padding:14px;
+background:#00c853;
+border:none;
+border-radius:30px;
+color:white;
+font-size:16px;
+}
+
+/* CONTACT */
+.contact input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:10px;
+border:none;
+}
+
+/* FOOTER */
+.footer{
+text-align:center;
+padding:30px;
+background:#020617;
+margin-top:40px;
+}
+
+/* WHATSAPP BUTTON */
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+padding:15px;
+border-radius:50%;
+color:white;
+text-decoration:none;
+font-size:20px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+<h1>Transform Your Body 💪</h1>
+<p>Join Elite Fitness & achieve your dream physique</p>
+<a href="#pricing" class="btn">Join Now</a>
+</section>
+
+<!-- SERVICES -->
+<section class="section">
+<h2>Our Programs</h2>
+
+<div class="services">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e">
+<h3>Weight Loss</h3>
+<p>Lose fat with expert guidance</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1517960413843-0aee8e2b3285">
+<h3>Muscle Gain</h3>
+<p>Build strength & size</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd">
+<h3>Personal Training</h3>
+<p>1-on-1 expert coaching</p>
+</div>
+
+</div>
+</section>
+
+<!-- PRICING -->
+<section class="section pricing" id="pricing">
+<div class="pricing-card">
+
+<h2>Premium Plan</h2>
+<p>Best for serious transformation</p>
+
+<div class="price">₹10,000 / Month</div>
+
+<input type="text" placeholder="Your Name">
+<input type="email" placeholder="Your Email">
+<input type="tel" placeholder="Your Phone">
+
+<button class="pay-btn" onclick="payNow()">Pay Now 🚀</button>
+
+</div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact">
+<h2>Contact Us</h2>
+<p>Phone: +91 9080985296</p>
+
+<input type="text" placeholder="Your Name">
+<input type="email" placeholder="Your Email">
+</section>
+
+<!-- FOOTER -->
+<div class="footer">
+<p>© 2025 Elite Fitness</p>
+</div>
+
+<!-- WHATSAPP -->
+<a class="whatsapp" href="https://wa.me/919080985296">💬</a>
+
+<script>
+function payNow(){
+window.location.href="upi://pay?pa=9080985296@ybl&pn=EliteFitness&am=10000&cu=INR";
+}
+</script>
+
+</body>
+</html>
