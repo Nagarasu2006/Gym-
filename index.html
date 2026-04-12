@@ -3,124 +3,146 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nagaraj | Web Developer</title>
+<title>IronPeak Gym</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
 
-body{background:#050816;color:#fff}
+body{
+  background:#0a0a0a;
+  color:#fff;
+}
 
 /* NAVBAR */
 nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 20px;
-background:#000;
-position:sticky;
-top:0;
-z-index:1000;
+  display:flex;
+  justify-content:space-between;
+  padding:20px 50px;
+  background:#000;
+  position:sticky;
+  top:0;
 }
-nav h1{color:#00f5c4}
-nav a{color:#ccc;margin-left:15px;text-decoration:none;font-size:14px}
+
+nav h1{
+  color:#ff5a00;
+}
+
+nav ul{
+  display:flex;
+  gap:20px;
+  list-style:none;
+}
+
+nav a{
+  color:#fff;
+  text-decoration:none;
+}
+
+.btn{
+  background:#ff5a00;
+  padding:10px 20px;
+  color:#fff;
+  border:none;
+  cursor:pointer;
+}
 
 /* HERO */
 .hero{
-padding:80px 15px;
-text-align:center;
-}
-.hero h1{font-size:32px}
-.hero span{color:#00f5c4}
-.hero p{margin:10px 0;color:#aaa}
-.btn{
-padding:12px 25px;
-background:#00f5c4;
-color:#000;
-border-radius:25px;
-text-decoration:none;
-display:inline-block;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  padding:50px;
 }
 
-/* SECTION */
-.section{
-padding:60px 15px;
-text-align:center;
+.hero h1{
+  font-size:80px;
+  font-family:'Anton';
 }
-.section h2{margin-bottom:20px}
 
-/* GRID */
+.orange{
+  color:#ff5a00;
+}
+
+/* STATS */
+.stats{
+  display:flex;
+  justify-content:space-around;
+  padding:40px;
+  border-top:1px solid #333;
+}
+
+.stats div{
+  text-align:center;
+}
+
+/* PROGRAMS */
+.programs{
+  padding:50px;
+}
+
 .grid{
-display:grid;
-grid-template-columns:1fr;
-gap:15px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
 }
 
-/* CARD */
 .card{
-background:#0f172a;
-padding:20px;
-border-radius:12px;
+  border:1px solid #222;
+  padding:20px;
+  transition:0.3s;
 }
 
-/* PROJECT */
-.project img{
-width:100%;
-border-radius:10px;
-height:150px;
-object-fit:cover;
+.card:hover{
+  border-color:#ff5a00;
 }
 
 /* PRICING */
 .pricing{
-padding:60px 15px;
+  padding:50px;
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
 }
+
 .price-card{
-background:#0f172a;
-padding:25px;
-border-radius:15px;
+  flex:1;
+  border:1px solid #222;
+  padding:20px;
 }
-.price{
-font-size:30px;
-color:#00f5c4;
-margin:10px 0;
-}
-.pay-btn{
-width:100%;
-padding:12px;
-border:none;
-border-radius:25px;
-background:#00f5c4;
-color:#000;
-cursor:pointer;
+
+.highlight{
+  border:2px solid #ff5a00;
 }
 
 /* CONTACT */
-.contact input,.contact textarea{
-width:100%;
-padding:12px;
-margin:8px 0;
-border-radius:8px;
-border:none;
+.contact{
+  padding:50px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
 }
 
-/* FOOTER */
+input, textarea{
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+  background:#111;
+  border:1px solid #333;
+  color:#fff;
+}
+
 footer{
-text-align:center;
-padding:20px;
-background:#000;
-margin-top:30px;
+  text-align:center;
+  padding:20px;
+  background:#000;
 }
-
-/* DESKTOP */
-@media(min-width:768px){
-.grid{
-grid-template-columns:repeat(2,1fr);
-}
-.hero h1{font-size:48px}
-}
-
 </style>
 </head>
 
@@ -128,107 +150,92 @@ grid-template-columns:repeat(2,1fr);
 
 <!-- NAVBAR -->
 <nav>
-<h1>website builder</h1>
-<div>
-<a href="#services">Services</a>
-<a href="#projects">Projects</a>
-<a href="#pricing">Pricing</a>
-<a href="#contact">Contact</a>
-</div>
+  <h1>IRONPEAK</h1>
+  <ul>
+    <li><a href="#">Programs</a></li>
+    <li><a href="#">Pricing</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+  <button class="btn">Join Now</button>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-<h1>I Build <span>Premium Websites</span></h1>
-<p>Professional, fast & modern websites for your business</p>
-<a href="#contact" class="btn">Start Project</a>
+  <div>
+    <h1>BUILD <span class="orange">BEYOND</span> LIMITS</h1>
+    <button class="btn" onclick="scrollToForm()">Start Free Trial</button>
+  </div>
 </section>
 
-<!-- SERVICES -->
-<section class="section" id="services">
-<h2>Services</h2>
-<div class="grid">
-<div class="card">Business Websites</div>
-<div class="card">Portfolio Websites</div>
-<div class="card">E-commerce Websites</div>
-<div class="card">Landing Pages</div>
-</div>
+<!-- STATS -->
+<section class="stats">
+  <div><h2>300+</h2><p>Members</p></div>
+  <div><h2>8</h2><p>Trainers</p></div>
+  <div><h2>6+</h2><p>Years</p></div>
+  <div><h2>6</h2><p>Programs</p></div>
 </section>
 
-<!-- PROJECTS -->
-<section class="section" id="projects">
-<h2>Projects</h2>
-<div class="grid">
-
-<div class="card project">
-<img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a">
-<p>Gym Website</p>
-</div>
-
-<div class="card project">
-<img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71">
-<p>Agency Website</p>
-</div>
-
-<div class="card project">
-<img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f">
-<p>E-commerce Website</p>
-</div>
-
-</div>
+<!-- PROGRAMS -->
+<section class="programs">
+  <h2>Our Programs</h2>
+  <div class="grid">
+    <div class="card">Strength Training</div>
+    <div class="card">Boxing</div>
+    <div class="card">HIIT</div>
+    <div class="card">Yoga</div>
+    <div class="card">Personal Training</div>
+    <div class="card">Bodybuilding</div>
+  </div>
 </section>
 
 <!-- PRICING -->
-<section class="pricing" id="pricing">
-<div class="price-card">
-<h3>Website Development</h3>
-<div class="price">₹10,000</div>
-<p>✔ Premium Design<br>✔ Mobile Friendly<br>✔ Fast Loading<br>✔ SEO Ready</p>
-<button class="pay-btn" onclick="payNow()">Pay Now</button>
-</div>
+<section class="pricing">
+  <div class="price-card">
+    <h3>Starter</h3>
+    <h1>₹999</h1>
+  </div>
+
+  <div class="price-card highlight">
+    <h3>Pro</h3>
+    <h1>₹1799</h1>
+  </div>
+
+  <div class="price-card">
+    <h3>Elite</h3>
+    <h1>₹3499</h1>
+  </div>
 </section>
 
 <!-- CONTACT -->
-<section class="section contact" id="contact">
-<h2>Start Your Project</h2>
-
-<input id="name" placeholder="Your Name">
-<input id="email" placeholder="Your Email">
-<textarea id="msg" placeholder="Project Details"></textarea>
-
-<button class="btn" onclick="sendWhatsApp()">Submit</button>
-
+<section class="contact" id="form">
+  <div style="flex:1">
+    <h2>Join Today</h2>
+    <input type="text" id="name" placeholder="Your Name">
+    <input type="tel" id="phone" placeholder="Phone">
+    <textarea id="goal" placeholder="Your Goal"></textarea>
+    <button class="btn" onclick="sendWhatsApp()">Send & Get Trial</button>
+  </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-<p>© 2026 Nagaraj</p>
+  <p>© 2026 IronPeak Gym</p>
 </footer>
 
 <script>
-
-/* PAYMENT */
-function payNow(){
-let upi="upi://pay?pa=9080985296@ybl&pn=Nagaraj&am=10000&cu=INR";
-window.location.href=upi;
+function scrollToForm(){
+  document.getElementById("form").scrollIntoView({behavior:"smooth"});
 }
 
-/* WHATSAPP */
+// WhatsApp integration
 function sendWhatsApp(){
-let name=document.getElementById('name').value;
-let email=document.getElementById('email').value;
-let msg=document.getElementById('msg').value;
+  let name = document.getElementById("name").value;
+  let phone = document.getElementById("phone").value;
+  let goal = document.getElementById("goal").value;
 
-if(!name||!email||!msg){
-alert("Please fill all details");
-return;
+  let message = `Hi, I'm ${name}%0APhone: ${phone}%0AGoal: ${goal}`;
+
+  window.open(`https://wa.me/919XXXXXXXXX?text=${message}`, "_blank");
 }
-
-let text=`Hi Nagaraj, I want a website.%0AName: ${name}%0AEmail: ${email}%0AMessage: ${msg}`;
-
-window.open("https://wa.me/919080985296?text="+text,"_blank");
-}
-
 </script>
 
 </body>
