@@ -1,242 +1,121 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IronPeak Gym</title>
+const express = require('express');
+const app = express();
 
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+app.use(express.json());
 
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
-}
+// Dummy data
+const users = [
+  { voterId: "123", name: "Arun", constituency: "Salem" },
+  { voterId: "456", name: "Kumar", constituency: "Chennai" }
+];
 
-body{
-  background:#0a0a0a;
-  color:#fff;
-}
+const candidates = {
+  Salem: ["Candidate A", "Candidate B"],
+  Chennai: ["Candidate X", "Candidate Y"]
+};
 
-/* NAVBAR */
-nav{
-  display:flex;
-  justify-content:space-between;
-  padding:20px 50px;
-  background:#000;
-  position:sticky;
-  top:0;
-}
+let votes = [];
 
-nav h1{
-  color:#ff5a00;
-}
+// Serve frontend
+app.get('/', (req, res) => {
+  res.send(`
+  <!DOCTYPE html>
+  <html>
+  <body>
+    <h2>Digital Voting System</h2>
 
-nav ul{
-  display:flex;
-  gap:20px;
-  list-style:none;
-}
+    <input id="voterId" placeholder="Enter Voter ID"/>
+    <button onclick="login()">Login</button>
 
-nav a{
-  color:#fff;
-  text-decoration:none;
-}
+    <div id="voteSection" style="display:none;">
+      <h3 id="const"></h3>
+      <div id="candidates"></div>
+    </div>
 
-.btn{
-  background:#ff5a00;
-  padding:10px 20px;
-  color:#fff;
-  border:none;
-  cursor:pointer;
-}
+    <script>
+      let user;
 
-/* HERO */
-.hero{
-  height:100vh;
-  display:flex;
-  align-items:center;
-  padding:50px;
-}
+      async function login() {
+        const voterId = document.getElementById("voterId").value;
 
-.hero h1{
-  font-size:80px;
-  font-family:'Anton';
-}
+        const res = await fetch('/login', {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify({ voterId })
+        });
 
-.orange{
-  color:#ff5a00;
-}
+        if (!res.ok) {
+          alert("Invalid Voter ID");
+          return;
+        }
 
-/* STATS */
-.stats{
-  display:flex;
-  justify-content:space-around;
-  padding:40px;
-  border-top:1px solid #333;
-}
+        user = await res.json();
 
-.stats div{
-  text-align:center;
-}
+        document.getElementById("voteSection").style.display = "block";
+        document.getElementById("const").innerText = "Constituency: " + user.constituency;
 
-/* PROGRAMS */
-.programs{
-  padding:50px;
-}
+        loadCandidates();
+      }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
+      async function loadCandidates() {
+        const res = await fetch('/candidates/' + user.constituency);
+        const list = await res.json();
 
-.card{
-  border:1px solid #222;
-  padding:20px;
-  transition:0.3s;
-}
+        const div = document.getElementById("candidates");
+        div.innerHTML = "";
 
-.card:hover{
-  border-color:#ff5a00;
-}
+        list.forEach(c => {
+          const btn = document.createElement("button");
+          btn.innerText = c;
+          btn.onclick = () => vote(c);
+          div.appendChild(btn);
+        });
+      }
 
-/* PRICING */
-.pricing{
-  padding:50px;
-  display:flex;
-  gap:20px;
-  flex-wrap:wrap;
-}
+      async function vote(candidate) {
+        const res = await fetch('/vote', {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify({
+            voterId: user.voterId,
+            candidate
+          })
+        });
 
-.price-card{
-  flex:1;
-  border:1px solid #222;
-  padding:20px;
-}
+        const msg = await res.text();
+        alert(msg);
+      }
+    </script>
+  </body>
+  </html>
+  `);
+});
 
-.highlight{
-  border:2px solid #ff5a00;
-}
+// Login API
+app.post('/login', (req, res) => {
+  const { voterId } = req.body;
+  const user = users.find(u => u.voterId === voterId);
 
-/* CONTACT */
-.contact{
-  padding:50px;
-  display:flex;
-  flex-wrap:wrap;
-  gap:20px;
-}
+  if (!user) return res.status(404).send("Invalid ID");
 
-input, textarea{
-  width:100%;
-  padding:10px;
-  margin:10px 0;
-  background:#111;
-  border:1px solid #333;
-  color:#fff;
-}
+  res.json(user);
+});
 
-footer{
-  text-align:center;
-  padding:20px;
-  background:#000;
-}
-</style>
-</head>
+// Get candidates
+app.get('/candidates/:constituency', (req, res) => {
+  res.json(candidates[req.params.constituency] || []);
+});
 
-<body>
+// Vote API
+app.post('/vote', (req, res) => {
+  const { voterId, candidate } = req.body;
 
-<!-- NAVBAR -->
-<nav>
-  <h1>IRONPEAK</h1>
-  <ul>
-    <li><a href="#">Programs</a></li>
-    <li><a href="#">Pricing</a></li>
-    <li><a href="#">Contact</a></li>
-  </ul>
-  <button class="btn">Join Now</button>
-</nav>
+  const already = votes.find(v => v.voterId === voterId);
+  if (already) return res.status(400).send("Already voted");
 
-<!-- HERO -->
-<section class="hero">
-  <div>
-    <h1>BUILD <span class="orange">BEYOND</span> LIMITS</h1>
-    <button class="btn" onclick="scrollToForm()">Start Free Trial</button>
-  </div>
-</section>
+  votes.push({ voterId, candidate });
 
-<!-- STATS -->
-<section class="stats">
-  <div><h2>300+</h2><p>Members</p></div>
-  <div><h2>8</h2><p>Trainers</p></div>
-  <div><h2>6+</h2><p>Years</p></div>
-  <div><h2>6</h2><p>Programs</p></div>
-</section>
+  res.send("Vote recorded successfully");
+});
 
-<!-- PROGRAMS -->
-<section class="programs">
-  <h2>Our Programs</h2>
-  <div class="grid">
-    <div class="card">Strength Training</div>
-    <div class="card">Boxing</div>
-    <div class="card">HIIT</div>
-    <div class="card">Yoga</div>
-    <div class="card">Personal Training</div>
-    <div class="card">Bodybuilding</div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section class="pricing">
-  <div class="price-card">
-    <h3>Starter</h3>
-    <h1>₹999</h1>
-  </div>
-
-  <div class="price-card highlight">
-    <h3>Pro</h3>
-    <h1>₹1799</h1>
-  </div>
-
-  <div class="price-card">
-    <h3>Elite</h3>
-    <h1>₹3499</h1>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact" id="form">
-  <div style="flex:1">
-    <h2>Join Today</h2>
-    <input type="text" id="name" placeholder="Your Name">
-    <input type="tel" id="phone" placeholder="Phone">
-    <textarea id="goal" placeholder="Your Goal"></textarea>
-    <button class="btn" onclick="sendWhatsApp()">Send & Get Trial</button>
-  </div>
-</section>
-
-<footer>
-  <p>© 2026 IronPeak Gym</p>
-</footer>
-
-<script>
-function scrollToForm(){
-  document.getElementById("form").scrollIntoView({behavior:"smooth"});
-}
-
-// WhatsApp integration
-function sendWhatsApp(){
-  let name = document.getElementById("name").value;
-  let phone = document.getElementById("phone").value;
-  let goal = document.getElementById("goal").value;
-
-  let message = `Hi, I'm ${name}%0APhone: ${phone}%0AGoal: ${goal}`;
-
-  window.open(`https://wa.me/919XXXXXXXXX?text=${message}`, "_blank");
-}
-</script>
-
-</body>
-</html>
+app.listen(3000, () => console.log("Server running on port 3000"));
