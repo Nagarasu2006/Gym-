@@ -1,146 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Digital Voting Portal</title>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Secure Digital Vote Portal</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,Arial}
-body{background:linear-gradient(180deg,#031126,#081d4d,#07101d);color:#fff}
-header{display:flex;justify-content:space-between;align-items:center;padding:18px 25px;background:#081935;border-bottom:1px solid #1e3f74;position:sticky;top:0}
-.logo{display:flex;gap:12px;align-items:center}
-.logo span{background:#d4af37;width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px}
-.container{max-width:900px;margin:auto;padding:25px}
-.card{background:#0d1d44;border:1px solid #284a8e;padding:30px;border-radius:24px;box-shadow:0 10px 40px rgba(0,0,0,.35)}
-.hero{text-align:center;padding:50px 20px}
-.heroicon{width:120px;height:120px;border:4px solid gold;border-radius:50%;margin:auto;display:flex;align-items:center;justify-content:center;font-size:60px}
-h1{font-size:54px;margin:25px 0}
-p{color:#cbd5ff}
-.btn{background:#2f64ff;border:none;color:#fff;padding:17px 34px;border-radius:16px;font-size:20px;font-weight:700;cursor:pointer}
-.full{width:100%;margin-top:20px}
-input{width:100%;padding:17px;background:#122858;color:#fff;border:none;border-radius:14px;margin-top:16px}
-.step{display:none}.show{display:block}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
-.party{background:#132957;border:2px solid #335fa9;border-radius:22px;padding:22px;text-align:center;cursor:pointer}
-.party.active{border-color:#22c55e;background:#103e2a}
-.party .photo{font-size:75px}
-.party .symbol{font-size:55px;margin:10px 0}
-.badge{background:#102550;padding:10px 18px;border-radius:30px;display:inline-block;margin-top:20px;color:#ffd56a}
-.success{font-size:90px;color:#22c55e}
-@media(max-width:600px){h1{font-size:38px}}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Inter,Arial}
+body{background:linear-gradient(180deg,#041126,#0a2158,#07101d);color:#fff;min-height:100vh}
+.wrap{max-width:950px;margin:auto;padding:20px}
+.card{background:#0e1d43;border:1px solid #274a8a;border-radius:28px;padding:28px;box-shadow:0 12px 40px rgba(0,0,0,.35)}
+.hidden{display:none}
+h1{font-size:48px;margin:18px 0} h2{margin-bottom:18px}
+p{color:#c7d2fe}
+input{width:100%;padding:16px;margin-top:14px;border:none;border-radius:14px;background:#142858;color:#fff}
+button{background:#2d63ff;color:#fff;border:none;padding:16px 28px;border-radius:14px;font-weight:700;cursor:pointer}
+button.full{width:100%;margin-top:18px} button:disabled{opacity:.5}
+.center{text-align:center}.hero{padding:60px 20px}
+.ball{width:120px;height:120px;border-radius:50%;border:4px solid gold;display:flex;align-items:center;justify-content:center;font-size:58px;margin:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:20px}
+.party{padding:22px;border-radius:24px;border:2px solid #3c63ad;background:#122a5b;cursor:pointer;text-align:center}
+.party.active{border-color:#22c55e;background:#123d2c}
+.photo{font-size:70px}.symbol{font-size:50px;margin:10px 0}
+.badge{display:inline-block;background:#13254e;padding:10px 18px;border-radius:30px;color:#ffd86d;margin-top:18px}
+.top{display:flex;justify-content:space-between;align-items:center;padding:16px 0}
+.small{font-size:14px;color:#93c5fd;margin-top:10px}
+.ok{color:#4ade80}.warn{color:#fbbf24}
 </style>
 </head>
 <body>
-<header>
-<div class='logo'>
-<span>🗳</span>
-<div>
-<h3>Digital Vote System</h3>
-<small>Election Commission</small>
+<div class='wrap'>
+<div class='top'>
+<div><h2>Digital Vote System</h2><p>Election Commission Secure Portal</p></div>
+<button>தமிழ்</button>
 </div>
-</div>
-<button class='btn' style='padding:10px 18px'>தமிழ்</button>
-</header>
 
-<div class='container'>
-
-<section id='s1' class='step show'>
-<div class='card hero'>
-<div class='heroicon'>🗳</div>
-<div class='badge'>🔒 Secured & Encrypted Election</div>
+<section id='s1' class='card center'>
+<div class='hero'>
+<div class='ball'>🗳</div>
+<div class='badge'>Secured & Encrypted Election</div>
 <h1>Cast Your Vote Digitally</h1>
-<p>Aadhaar verified online voting system</p><br>
-<button class='btn' onclick='go(2)'>Start Voting</button>
+<p>OTP + Identity + Biometric verified voting</p><br><br>
+<button onclick='gotoStep(2)'>Start Voting</button>
 </div>
 </section>
 
-<section id='s2' class='step'>
-<div class='card'>
-<h1 style='font-size:42px'>Voter Login</h1>
-<input placeholder='Voter ID Number'>
-<input placeholder='Mobile Number'>
-<button class='btn full' onclick='go(3)'>Send OTP</button>
+<section id='s2' class='card hidden'>
+<h1 style='font-size:38px'>Voter Identity Check</h1>
+<input id='voterId' placeholder='Enter Voter ID (try TN1001)'>
+<input id='mobile' placeholder='Enter Mobile Number'>
+<p class='small'>Demo voter ids: TN1001 / TN1002</p>
+<button class='full' onclick='sendOtp()'>Send OTP</button>
+<div id='otpBox' class='hidden'>
+<input id='otpInput' placeholder='Enter OTP received'>
+<p id='demoOtp' class='warn'></p>
+<button class='full' onclick='verifyOtp()'>Verify OTP</button>
 </div>
 </section>
 
-<section id='s3' class='step'>
-<div class='card'>
-<h1 style='font-size:42px'>OTP Verification</h1>
-<input placeholder='Enter OTP'>
-<button class='btn full' onclick='go(4)'>Verify OTP</button>
-</div>
+<section id='s3' class='card hidden center'>
+<h1 style='font-size:38px'>Face Recognition</h1>
+<div class='ball'>👤</div>
+<p id='faceStatus'>Click scan to match Aadhaar photo</p><br>
+<button onclick='faceScan()'>Scan Face</button>
 </section>
 
-<section id='s4' class='step'>
-<div class='card' style='text-align:center'>
-<h1 style='font-size:42px'>Face Recognition</h1>
-<div class='heroicon'>👤</div>
-<br><p>Face matched with Aadhaar ✓</p>
-<button class='btn full' onclick='go(5)'>Continue</button>
-</div>
+<section id='s4' class='card hidden center'>
+<h1 style='font-size:38px'>Fingerprint Verification</h1>
+<div class='ball'>🔐</div>
+<p id='fpStatus'>Authenticate fingerprint</p><br>
+<button onclick='fingerScan()'>Verify Fingerprint</button>
 </section>
 
-<section id='s5' class='step'>
-<div class='card' style='text-align:center'>
-<h1 style='font-size:42px'>Fingerprint Match</h1>
-<div class='heroicon'>🔐</div>
-<br><p>Fingerprint verified ✓</p>
-<button class='btn full' onclick='go(6)'>Open Ballot</button>
-</div>
-</section>
-
-<section id='s6' class='step'>
-<div class='card'>
-<h1 style='font-size:42px;text-align:center'>Select Candidate</h1>
+<section id='s5' class='card hidden'>
+<h1 style='font-size:38px;text-align:center'>Official Ballot</h1>
 <div class='grid'>
-<div class='party' onclick="pick(this,'TVK')">
-<div class='photo'>🧑</div><h2>TVK</h2><div class='symbol'>🔥</div><p>Vijay</p>
+<div class='party' onclick="pick(this,'TVK')"><div class='photo'>🧑</div><h2>TVK</h2><div class='symbol'>🔥</div><p>Vijay</p></div>
+<div class='party' onclick="pick(this,'DMK')"><div class='photo'>👨</div><h2>DMK</h2><div class='symbol'>☀️</div><p>Stalin</p></div>
+<div class='party' onclick="pick(this,'ADMK')"><div class='photo'>👤</div><h2>ADMK</h2><div class='symbol'>🍃</div><p>EPS</p></div>
+<div class='party' onclick="pick(this,'NTK')"><div class='photo'>🧔</div><h2>NTK</h2><div class='symbol'>🎤</div><p>Seeman</p></div>
 </div>
-<div class='party' onclick="pick(this,'DMK')">
-<div class='photo'>👨</div><h2>DMK</h2><div class='symbol'>☀️</div><p>Stalin</p>
-</div>
-<div class='party' onclick="pick(this,'ADMK')">
-<div class='photo'>👤</div><h2>ADMK</h2><div class='symbol'>🍃</div><p>EPS</p>
-</div>
-<div class='party' onclick="pick(this,'NTK')">
-<div class='photo'>🧔</div><h2>NTK</h2><div class='symbol'>🎤</div><p>Seeman</p>
-</div>
-</div>
-<button class='btn full' onclick='submitVote()'>Submit Vote</button>
-</div>
+<button class='full' onclick='castVote()'>Submit Vote</button>
 </section>
 
-<section id='s7' class='step'>
-<div class='card hero'>
-<div class='success'>✔</div>
-<h1 style='font-size:45px'>Vote Successfully Cast</h1>
-<p id='voteDone'></p><br>
-<p>Auto logout completed</p><br>
-<button class='btn' onclick='location.reload()'>Exit Portal</button>
-</div>
+<section id='s6' class='card hidden center'>
+<div style='font-size:90px;color:#4ade80'>✔</div>
+<h1 style='font-size:40px'>Vote Successfully Cast</h1>
+<p id='receipt'></p><br>
+<p class='ok'>Auto logout in 5 seconds...</p>
 </section>
-
 </div>
 
 <script>
-let chosen='';
-function go(n){
-document.querySelectorAll('.step').forEach(x=>x.classList.remove('show'));
-document.getElementById('s'+n).classList.add('show');
+const voters={
+'TN1001':{name:'Demo Voter 1',mobile:'9876543210'},
+'TN1002':{name:'Demo Voter 2',mobile:'9123456780'}
+};
+let generatedOtp='';
+let selected='';
+let voter='';
+
+function gotoStep(n){
+for(let i=1;i<=6;i++){
+ let el=document.getElementById('s'+i);
+ if(el) el.classList.add('hidden');
+}
+document.getElementById('s'+n).classList.remove('hidden');
 window.scrollTo(0,0);
 }
+
+function sendOtp(){
+const id=document.getElementById('voterId').value.trim();
+const mob=document.getElementById('mobile').value.trim();
+if(!voters[id]) return alert('Voter ID not found');
+if(localStorage.getItem('voted_'+id)) return alert('Vote already cast for this voter');
+if(mob!==voters[id].mobile) return alert('Mobile does not match voter record');
+voter=id;
+generatedOtp=Math.floor(100000+Math.random()*900000)+'';
+document.getElementById('otpBox').classList.remove('hidden');
+document.getElementById('demoOtp').innerText='Demo OTP: '+generatedOtp;
+}
+
+function verifyOtp(){
+if(document.getElementById('otpInput').value.trim()!==generatedOtp){
+alert('Invalid OTP'); return;
+}
+gotoStep(3)
+}
+
+function faceScan(){
+let t=document.getElementById('faceStatus');
+t.innerText='Scanning...';
+setTimeout(()=>{t.innerHTML='Aadhaar Face Match Successful ✓';setTimeout(()=>gotoStep(4),1200)},1800)
+}
+
+function fingerScan(){
+let t=document.getElementById('fpStatus');
+t.innerText='Matching fingerprint...';
+setTimeout(()=>{t.innerHTML='Fingerprint Verified ✓';setTimeout(()=>gotoStep(5),1200)},1800)
+}
+
 function pick(el,name){
 document.querySelectorAll('.party').forEach(p=>p.classList.remove('active'));
 el.classList.add('active');
-chosen=name;
+selected=name;
 }
-function submitVote(){
-if(!chosen){alert('Select candidate');return;}
-document.getElementById('voteDone').innerHTML='Vote recorded for '+chosen+'<br>Receipt ID: TN284751';
-go(7);
-setTimeout(()=>alert('Logged out automatically'),3000)
+
+function castVote(){
+if(!selected) return alert('Select a candidate');
+localStorage.setItem('voted_'+voter,'yes');
+document.getElementById('receipt').innerHTML='Recorded vote for '+selected+'<br>Receipt: TN-'+Math.floor(Math.random()*999999);
+gotoStep(6);
+setTimeout(()=>location.reload(),5000);
 }
 </script>
-
 </body>
 </html>
