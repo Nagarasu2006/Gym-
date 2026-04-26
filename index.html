@@ -1,219 +1,125 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Digital Vote System</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-body{
-background:linear-gradient(#031129,#071d49,#08101f);
-color:#fff;
-min-height:100vh;
-}
-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 40px;
-border-bottom:1px solid #17356d;
-}
-.logo{display:flex;gap:15px;align-items:center}
-.logo-circle{
-width:55px;height:55px;border-radius:50%;
-background:#d4af37;
-display:flex;justify-content:center;align-items:center;
-font-size:28px;
-}
-.lang{
-border:1px solid #294f9d;
-padding:12px 20px;
-border-radius:15px;
-background:#0d1f44;
-color:white;
-}
-.container{max-width:900px;margin:auto;padding:30px}
-.card{
-background:#0c1c43;
-padding:30px;
-border-radius:25px;
-margin-top:30px;
-border:1px solid #1c418a;
-box-shadow:0 10px 30px rgba(0,0,0,.4)
-}
-.center{text-align:center}
-.vote-icon{
-width:130px;height:130px;
-margin:auto;
-border-radius:50%;
-border:4px solid gold;
-display:flex;justify-content:center;align-items:center;
-font-size:60px;
-}
-h1{font-size:58px;margin:30px 0}
-p{color:#cbd5ff}
-.start-btn,.btn{
-background:#1e4fff;
-padding:18px 40px;
-border:none;
-color:white;
-border-radius:18px;
-font-size:22px;
-margin-top:30px;
-cursor:pointer;
-}
-.btn{width:100%}
-.green{background:#11a949}
-.gold{background:#d4af37;color:#000}
-input{
-width:100%;
-padding:18px;
-margin-top:20px;
-background:#102551;
-border:none;
-border-radius:15px;
-color:white;
-font-size:18px
-}
-.candidate{
-padding:25px;
-background:#102551;
-border:2px solid #335ca8;
-border-radius:20px;
-margin-top:20px;
-cursor:pointer;
-}
-.candidate.active{
-border-color:#22c55e;
-background:#123d2a
-}
-.step{display:none}
-.show{display:block}
-.success{
-font-size:90px;
-color:#22c55e;
-}
-</style>
-</head>
-<body>
+import React, { useState } from 'react'; import { Shield, Landmark, Fingerprint, ScanFace, UserCheck, CheckCircle2, Lock, Vote } from 'lucide-react'; import { Card, CardContent } from '@/components/ui/card'; import { Button } from '@/components/ui/button'; import { motion } from 'framer-motion';
 
-<header>
-<div class="logo">
-<div class="logo-circle">🗳</div>
+export default function ElectionPortal(){ const [step,setStep]=useState(0) const [selected,setSelected]=useState(null) const parties=[ {name:'TVK',leader:'Vijay',symbol:'🔥'}, {name:'DMK',leader:'M.K. Stalin',symbol:'☀️'}, {name:'ADMK',leader:'Edappadi',symbol:'🍃'}, {name:'NTK',leader:'Seeman',symbol:'🎤'}, ]
+
+const panel='max-w-5xl mx-auto p-6'
+
+if(step===6){ return(
+
+<div className='min-h-screen bg-slate-950 flex items-center justify-center p-6'>
+<Card className='bg-slate-900 border-green-600 rounded-[32px] w-full max-w-3xl shadow-2xl'>
+<CardContent className='p-14 text-center'>
+<CheckCircle2 className='mx-auto w-28 h-28 text-green-400'/>
+<h1 className='text-5xl font-bold text-white mt-6'>Vote Successfully Recorded</h1>
+<p className='text-slate-300 mt-5 text-xl'>Encrypted receipt generated • Session auto logout enabled</p>
+<div className='mt-8 p-6 rounded-3xl bg-slate-800 text-green-400 text-2xl font-bold'>Receipt: TN-SECURE-284751</div>
+</CardContent>
+</Card>
+</div>
+)
+}return(
+
+<div className='min-h-screen bg-gradient-to-b from-slate-950 via-blue-950 to-slate-900'>
+<header className='border-b border-slate-800'>
+<div className='max-w-7xl mx-auto flex justify-between items-center p-6'>
+<div className='flex items-center gap-4'>
+<div className='bg-yellow-500 p-4 rounded-full'><Landmark className='w-8 h-8'/></div>
 <div>
-<h3>DIGITAL VOTE SYSTEM</h3>
-<small>Election Commission</small>
+<h1 className='text-white text-2xl font-bold'>Digital Election Commission Portal</h1>
+<p className='text-slate-400'>End-to-End Encrypted Voting Platform</p>
 </div>
 </div>
-<button class="lang">தமிழ்</button>
-</header>
+<div className='px-5 py-3 rounded-2xl bg-slate-800 text-white'>தமிழ்</div>
+</div>
+</header>{step===0 && (
 
-<div class="container">
+<div className={panel}>
+<motion.div initial={{opacity:0,y:40}} animate={{opacity:1,y:0}}>
+<Card className='bg-slate-900 border-slate-700 rounded-[36px] mt-14 shadow-2xl'>
+<CardContent className='p-16 text-center'>
+<div className='mx-auto w-36 h-36 rounded-full border-4 border-yellow-500 flex items-center justify-center'>
+<Vote className='w-20 h-20 text-blue-400'/>
+</div>
+<div className='mt-8 inline-block px-6 py-3 rounded-full bg-blue-950 text-yellow-400'>Secured National Voting System</div>
+<h2 className='text-7xl font-bold text-white mt-8'>Cast Your Vote Digitally</h2>
+<p className='text-slate-300 mt-6 text-2xl'>Biometric verified secure online voting with Aadhaar authentication.</p>
+<Button onClick={()=>setStep(1)} className='mt-10 text-2xl px-14 py-8 rounded-3xl'>Start Voting</Button>
+</CardContent>
+</Card>
+</motion.div>
+</div>
+)}{step===1 && (
 
-<!-- HOME -->
-<div id="step1" class="step show">
-<div class="center">
-<div class="vote-icon">🗳</div>
-<br>
-<h1>General Election<br>Cast Your Vote</h1>
-<p>Secure encrypted anonymous voting system</p>
-<button onclick="nextStep(2)" class="start-btn">Start Voting</button>
+<div className={panel}>
+<Card className='bg-slate-900 rounded-[32px] mt-16 border-slate-700'>
+<CardContent className='p-14'>
+<UserCheck className='w-24 h-24 text-blue-400 mx-auto'/>
+<h2 className='text-white text-5xl text-center font-bold mt-5'>Voter Authentication</h2>
+<input className='w-full mt-8 p-6 rounded-3xl bg-slate-800 text-white text-xl' placeholder='Voter ID Number'/>
+<input className='w-full mt-5 p-6 rounded-3xl bg-slate-800 text-white text-xl' placeholder='Mobile Number Linked With Aadhaar'/>
+<Button onClick={()=>setStep(2)} className='w-full mt-8 p-7 text-xl rounded-3xl'>Send OTP</Button>
+</CardContent>
+</Card>
 </div>
+)}{step===2 && (
 
-<div class="card">
-<h2>Election Details</h2>
-<br>
-<p>📅 Date : Nov 15 2026</p><br>
-<p>⏰ 7:00 AM - 6:00 PM</p><br>
-<p>✅ Results Nov 16</p>
+<div className={panel}>
+<Card className='bg-slate-900 rounded-[32px] mt-16 border-slate-700'>
+<CardContent className='p-14 text-center'>
+<Lock className='w-24 h-24 text-green-400 mx-auto'/>
+<h2 className='text-white text-5xl font-bold mt-5'>OTP Verification</h2>
+<input className='w-full mt-8 p-6 rounded-3xl bg-slate-800 text-white text-xl' placeholder='Enter OTP'/>
+<Button onClick={()=>setStep(3)} className='w-full mt-8 p-7 text-xl rounded-3xl'>Verify OTP</Button>
+</CardContent>
+</Card>
 </div>
-</div>
+)}{step===3 && (
 
-<!-- VERIFY -->
-<div id="step2" class="step">
-<div class="card center">
-<h1>Voter Verification</h1>
-<input placeholder="Enter Voter ID">
-<input placeholder="Enter OTP">
-<button onclick="nextStep(3)" class="btn">Verify & Continue</button>
+<div className={panel}>
+<Card className='bg-slate-900 rounded-[32px] mt-16 border-slate-700'>
+<CardContent className='p-14 text-center'>
+<ScanFace className='w-28 h-28 text-blue-400 mx-auto'/>
+<h2 className='text-white text-5xl font-bold mt-6'>Face Recognition</h2>
+<div className='bg-slate-800 rounded-3xl mt-8 p-10 text-2xl text-green-400'>Aadhaar Face Match Successful ✓</div>
+<Button onClick={()=>setStep(4)} className='mt-8 text-xl rounded-3xl px-12 py-6'>Continue</Button>
+</CardContent>
+</Card>
 </div>
-</div>
+)}{step===4 && (
 
-<!-- BIOMETRIC -->
-<div id="step3" class="step">
-<div class="card center">
-<h1>Fingerprint Verification</h1>
-<h2>✅ Face Verified</h2>
-<br>
-<h2>✅ Fingerprint Verified</h2>
-<button onclick="nextStep(4)" class="btn green">Proceed To Ballot</button>
+<div className={panel}>
+<Card className='bg-slate-900 rounded-[32px] mt-16 border-slate-700'>
+<CardContent className='p-14 text-center'>
+<Fingerprint className='w-28 h-28 text-yellow-400 mx-auto'/>
+<h2 className='text-white text-5xl font-bold mt-6'>Fingerprint Verification</h2>
+<div className='bg-slate-800 rounded-3xl mt-8 p-10 text-2xl text-green-400'>Biometric Match Confirmed ✓</div>
+<Button onClick={()=>setStep(5)} className='mt-8 text-xl rounded-3xl px-12 py-6'>Open Ballot</Button>
+</CardContent>
+</Card>
 </div>
-</div>
+)}{step===5 && (
 
-<!-- CANDIDATES -->
-<div id="step4" class="step">
-<div class="card">
-<h1 class="center">Select Candidate</h1>
-
-<div class="candidate" onclick="pick(this,'Candidate A')">
-<h2>Candidate A</h2>
-<p>Progress Party</p>
+<div className={panel}>
+<h2 className='text-center text-white text-6xl font-bold mt-12 mb-12'>Official Ballot</h2>
+<div className='grid md:grid-cols-2 gap-8'>
+{parties.map((p,i)=>(
+<motion.div whileHover={{scale:1.03}} key={i}>
+<Card onClick={()=>setSelected(p.name)} className={`cursor-pointer rounded-[32px] ${selected===p.name?'border-green-500':'border-slate-700'} bg-slate-900`}>
+<CardContent className='p-12 text-center'>
+<div className='text-8xl'>👤</div>
+<h3 className='text-white text-5xl font-bold mt-5'>{p.name}</h3>
+<div className='text-7xl mt-5'>{p.symbol}</div>
+<p className='text-slate-300 mt-4 text-xl'>{p.leader}</p>
+</CardContent>
+</Card>
+</motion.div>
+))}
 </div>
-
-<div class="candidate" onclick="pick(this,'Candidate B')">
-<h2>Candidate B</h2>
-<p>People Front</p>
-</div>
-
-<div class="candidate" onclick="pick(this,'Candidate C')">
-<h2>Candidate C</h2>
-<p>National Union</p>
-</div>
-
-<button onclick="nextStep(5)" class="btn gold">Confirm Vote</button>
+<div className='text-center'>
+<Button disabled={!selected} onClick={()=>setStep(6)} className='mt-12 text-2xl rounded-3xl px-16 py-8'>Submit Vote</Button>
 </div>
 </div>
-
-<!-- CONFIRM -->
-<div id="step5" class="step">
-<div class="card center">
-<h1>Final Confirmation</h1>
-<h2 id="chosenCandidate"></h2>
-<button onclick="nextStep(6)" class="btn green">Submit Vote</button>
+)}<footer className='text-center text-slate-500 py-10'>256-bit Encryption • Biometric Secured • Auto Logout Enabled</footer>
 </div>
-</div>
-
-<!-- SUCCESS -->
-<div id="step6" class="step">
-<div class="card center">
-<div class="success">✔</div>
-<h1>Vote Cast Successfully</h1>
-<h2>Receipt ID: TN847251</h2>
-<br>
-<p>Blockchain secured vote recorded</p>
-<button onclick="location.reload()" class="btn">Restart Demo</button>
-</div>
-</div>
-
-</div>
-
-<script>
-function nextStep(n){
-document.querySelectorAll('.step').forEach(s=>{
-s.classList.remove('show')
-})
-document.getElementById('step'+n).classList.add('show')
-window.scrollTo(0,0)
+)
 }
-
-function pick(el,name){
-document.querySelectorAll('.candidate').forEach(c=>{
-c.classList.remove('active')
-})
-el.classList.add('active')
-document.getElementById('chosenCandidate').innerText=name
-}
-</script>
-
-</body>
-</html>
