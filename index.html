@@ -1,121 +1,116 @@
-const express = require('express');
-const app = express();
+import React, { useState } from "react"; import { motion } from "framer-motion"; import { ShieldCheck, Lock, Fingerprint, ScanFace, Vote, BarChart3 } from "lucide-react";
 
-app.use(express.json());
+export default function DigitalVotingWebsite(){ const [page,setPage]=useState('home'); const [selected,setSelected]=useState(null); const [voted,setVoted]=useState(false);
 
-// Dummy data
-const users = [
-  { voterId: "123", name: "Arun", constituency: "Salem" },
-  { voterId: "456", name: "Kumar", constituency: "Chennai" }
-];
+const candidates=[ {name:'Candidate A',party:'Reform Party',symbol:'🌾'}, {name:'Candidate B',party:'People Party',symbol:'🪷'}, {name:'Candidate C',party:'Unity Party',symbol:'☀️'}, ]
 
-const candidates = {
-  Salem: ["Candidate A", "Candidate B"],
-  Chennai: ["Candidate X", "Candidate Y"]
-};
+if(voted){ return (
 
-let votes = [];
+<div className='min-h-screen flex items-center justify-center bg-slate-100'>
+<div className='bg-white rounded-[30px] shadow-2xl p-10 text-center max-w-xl'>
+<h1 className='text-5xl font-bold mb-4'>Vote Submitted ✅</h1>
+<p className='text-xl mb-6'>You have already completed voting.</p>
+<button className='bg-black text-white px-8 py-4 rounded-2xl'>Session Closed</button>
+</div>
+</div>
+)
+}return(
 
-// Serve frontend
-app.get('/', (req, res) => {
-  res.send(`
-  <!DOCTYPE html>
-  <html>
-  <body>
-    <h2>Digital Voting System</h2>
+<div className='bg-slate-50 min-h-screen'><nav className='flex justify-between items-center p-6 shadow bg-white'>
+<h1 className='text-3xl font-bold'>DigitalVote</h1>
+<div className='space-x-4'>
+<button className='px-5 py-2 rounded-xl border'>Security</button>
+<button className='px-5 py-2 rounded-xl bg-black text-white'>Login</button>
+</div>
+</nav>{page==='home' && ( <>
 
-    <input id="voterId" placeholder="Enter Voter ID"/>
-    <button onclick="login()">Login</button>
+<section className='grid md:grid-cols-2 gap-12 items-center p-12'>
+<div>
+<motion.h1 initial={{opacity:0,y:30}} animate={{opacity:1,y:0}}
+className='text-7xl font-bold leading-tight'>
+Secure Digital Voting Platform
+</motion.h1>
+<p className='mt-6 text-xl'>Biometric authentication based election platform with one-person-one-vote security.</p>
+<div className='mt-8 flex gap-4'>
+<button onClick={()=>setPage('login')} className='bg-black text-white px-8 py-4 rounded-2xl'>Start Voting</button>
+<button className='border px-8 py-4 rounded-2xl'>Learn More</button>
+</div>
+</div><div className='grid grid-cols-2 gap-6'>
+{[
+['Biometric',Fingerprint],
+['Encryption',Lock],
+['Identity',ScanFace],
+['Audit',BarChart3]
+].map(([t,Icon],i)=>(
+<div key={i} className='bg-white p-8 rounded-3xl shadow-lg'>
+<Icon className='w-12 h-12 mb-4'/>
+<h3 className='text-2xl font-bold'>{t}</h3>
+</div>
+))}
+</div>
+</section><section className='p-12 grid md:grid-cols-3 gap-8'>
+<div className='bg-white rounded-3xl p-8 shadow-xl'>
+<ShieldCheck className='w-14 h-14 mb-4'/>
+<h2 className='text-3xl font-bold'>Verified Login</h2>
+<p>Voter ID + OTP verification</p>
+</div>
+<div className='bg-white rounded-3xl p-8 shadow-xl'>
+<Fingerprint className='w-14 h-14 mb-4'/>
+<h2 className='text-3xl font-bold'>Biometric Access</h2>
+<p>Face and fingerprint authorization</p>
+</div>
+<div className='bg-white rounded-3xl p-8 shadow-xl'>
+<Vote className='w-14 h-14 mb-4'/>
+<h2 className='text-3xl font-bold'>One Vote Only</h2>
+<p>Duplicate voting prevention</p>
+</div>
+</section>
+</>
+)}{page==='login' && (
 
-    <div id="voteSection" style="display:none;">
-      <h3 id="const"></h3>
-      <div id="candidates"></div>
-    </div>
+<div className='max-w-2xl mx-auto mt-16 bg-white p-10 rounded-[35px] shadow-2xl'>
+<h2 className='text-5xl font-bold mb-8'>Voter Authentication</h2>
+<input className='w-full p-5 border rounded-2xl mb-5' placeholder='Voter ID Number'/>
+<input className='w-full p-5 border rounded-2xl mb-5' placeholder='Mobile OTP'/>
+<button onClick={()=>setPage('biometric')} className='w-full bg-black text-white p-5 rounded-2xl'>Continue Verification</button>
+</div>
+)}{page==='biometric' && (
 
-    <script>
-      let user;
+<div className='max-w-5xl mx-auto mt-16 grid md:grid-cols-2 gap-10'>
+<div className='bg-white rounded-[35px] p-10 shadow-xl text-center'>
+<ScanFace className='w-20 h-20 mx-auto mb-6'/>
+<h2 className='text-4xl font-bold mb-6'>Face Verification</h2>
+<button className='bg-black text-white px-8 py-4 rounded-2xl'>Verify Face</button>
+</div>
+<div className='bg-white rounded-[35px] p-10 shadow-xl text-center'>
+<Fingerprint className='w-20 h-20 mx-auto mb-6'/>
+<h2 className='text-4xl font-bold mb-6'>Fingerprint Scan</h2>
+<button onClick={()=>setPage('vote')} className='bg-black text-white px-8 py-4 rounded-2xl'>Authenticate</button>
+</div>
+</div>
+)}{page==='vote' && (
 
-      async function login() {
-        const voterId = document.getElementById("voterId").value;
+<div className='p-12'>
+<h1 className='text-6xl font-bold text-center mb-12'>Cast Your Vote</h1>
+<div className='grid md:grid-cols-3 gap-8'>
+{candidates.map((c,i)=>(
+<div key={i}
+onClick={()=>setSelected(i)}
+className={`bg-white p-10 rounded-[35px] shadow-xl cursor-pointer ${selected===i?'ring-4 ring-black':''}`}>
+<div className='text-8xl text-center mb-6'>{c.symbol}</div>
+<h2 className='text-3xl font-bold text-center'>{c.name}</h2>
+<p className='text-center mt-4 text-xl'>{c.party}</p>
+</div>
+))}
+</div>{selected!==null && (
 
-        const res = await fetch('/login', {
-          method: 'POST',
-          headers: {'Content-Type':'application/json'},
-          body: JSON.stringify({ voterId })
-        });
-
-        if (!res.ok) {
-          alert("Invalid Voter ID");
-          return;
-        }
-
-        user = await res.json();
-
-        document.getElementById("voteSection").style.display = "block";
-        document.getElementById("const").innerText = "Constituency: " + user.constituency;
-
-        loadCandidates();
-      }
-
-      async function loadCandidates() {
-        const res = await fetch('/candidates/' + user.constituency);
-        const list = await res.json();
-
-        const div = document.getElementById("candidates");
-        div.innerHTML = "";
-
-        list.forEach(c => {
-          const btn = document.createElement("button");
-          btn.innerText = c;
-          btn.onclick = () => vote(c);
-          div.appendChild(btn);
-        });
-      }
-
-      async function vote(candidate) {
-        const res = await fetch('/vote', {
-          method: 'POST',
-          headers: {'Content-Type':'application/json'},
-          body: JSON.stringify({
-            voterId: user.voterId,
-            candidate
-          })
-        });
-
-        const msg = await res.text();
-        alert(msg);
-      }
-    </script>
-  </body>
-  </html>
-  `);
-});
-
-// Login API
-app.post('/login', (req, res) => {
-  const { voterId } = req.body;
-  const user = users.find(u => u.voterId === voterId);
-
-  if (!user) return res.status(404).send("Invalid ID");
-
-  res.json(user);
-});
-
-// Get candidates
-app.get('/candidates/:constituency', (req, res) => {
-  res.json(candidates[req.params.constituency] || []);
-});
-
-// Vote API
-app.post('/vote', (req, res) => {
-  const { voterId, candidate } = req.body;
-
-  const already = votes.find(v => v.voterId === voterId);
-  if (already) return res.status(400).send("Already voted");
-
-  votes.push({ voterId, candidate });
-
-  res.send("Vote recorded successfully");
-});
-
-app.listen(3000, () => console.log("Server running on port 3000"));
+<div className='text-center mt-12'>
+<button onClick={()=>setVoted(true)} className='bg-black text-white px-12 py-5 rounded-2xl text-xl'>Confirm Vote</button>
+</div>
+)}
+</div>
+)}<footer className='mt-24 p-10 bg-black text-white text-center'>
+<p>National Secure Digital Voting Infrastructure Prototype</p>
+</footer></div>
+)
+}/* DEPLOY npx create-next-app digital-vote npm install framer-motion lucide-react Replace app/page.js with this code Push GitHub -> Deploy in Vercel */
