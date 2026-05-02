@@ -3,175 +3,221 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ELITE PHYSIQUE | Premium Coaching</title>
+    <title>ELITE PHYSIQUE | Pro High-Performance Coaching</title>
     
-    <!-- External Libraries (Need Internet to Load) -->
-    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Premium Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
-        /* CSS NEENGA THANIYA SAVE PANNA THEVAI ILLAI - IVARAIYUM INGA SERTHUTTEN */
         :root {
-            --accent: #e63946;
-            --bg: #050505;
-            --card-bg: #111111;
-            --text-main: #ffffff;
-            --text-dim: #a0a0a0;
+            --primary: #ff0033; /* Crimson Red */
+            --bg-dark: #000000;
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+            --text: #ffffff;
         }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            background-color: var(--bg);
-            color: var(--text-main);
-            font-family: 'Inter', sans-serif;
-            margin: 0;
+            background-color: var(--bg-dark);
+            color: var(--text);
+            font-family: 'Montserrat', sans-serif;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-        /* Modern Navbar */
-        .navbar {
+        /* --- Custom Scrollbar --- */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
+
+        /* --- Header --- */
+        header {
+            position: fixed;
+            width: 100%;
+            padding: 20px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 8%;
-            position: fixed;
-            width: 100%;
-            z-index: 100;
+            z-index: 1000;
             background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(10px);
-            box-sizing: border-box;
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border);
         }
+        .logo { font-family: 'Syncopate', sans-serif; font-size: 1.5rem; letter-spacing: 4px; }
+        .logo span { color: var(--primary); }
 
-        .logo { font-family: 'Syncopate', sans-serif; font-weight: 700; letter-spacing: 2px; }
-        .logo span { color: var(--accent); }
-
-        .nav-menu a {
-            color: var(--text-main);
-            text-decoration: none;
-            margin-left: 20px;
-            font-size: 12px;
-            text-transform: uppercase;
-        }
-
-        /* Hero Section */
+        /* --- Hero Section --- */
         .hero {
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1920&q=80');
+            background: linear-gradient(rgba(0,0,0,0.5), #000), 
+                        url('https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
         }
-
-        .hero h1 {
+        .hero-box h1 {
             font-family: 'Syncopate', sans-serif;
-            font-size: clamp(2rem, 8vw, 5rem);
+            font-size: clamp(2.5rem, 10vw, 7rem);
+            line-height: 0.9;
             margin-bottom: 20px;
         }
+        .outline-text { -webkit-text-stroke: 1.5px #fff; color: transparent; }
 
-        .text-stroke {
-            -webkit-text-stroke: 1px white;
-            color: transparent;
+        /* --- Stats Section --- */
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            padding: 50px 10%;
+            background: var(--primary);
+            color: #000;
+            font-weight: 900;
+            text-transform: uppercase;
         }
 
-        .btn-main {
-            background: var(--accent);
-            color: white;
-            padding: 15px 35px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            display: inline-block;
-        }
-
-        /* Pricing & Cards */
-        .pricing { padding: 80px 8%; text-align: center; }
-        .pricing-grid {
+        /* --- Pricing & UPI Payment --- */
+        .pricing { padding: 100px 8%; }
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
         }
-
         .price-card {
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 15px;
-            border: 1px solid rgba(255,255,255,0.1);
+            background: var(--glass);
+            padding: 50px 30px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+        .price-card:hover { border-color: var(--primary); transform: translateY(-15px); }
+        .price-card.featured { border: 2px solid var(--primary); }
+        
+        .price { font-size: 4rem; font-weight: 900; margin: 20px 0; }
+        .price span { font-size: 1rem; color: #aaa; }
+
+        .btn-pay {
+            display: inline-block;
+            width: 100%;
+            padding: 15px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            font-weight: 900;
+            border-radius: 10px;
+            text-transform: uppercase;
+            margin-top: 20px;
         }
 
-        .price-card h3 { color: var(--accent); margin-bottom: 10px; }
-        .amount { font-size: 2.5rem; font-weight: 700; margin-bottom: 20px; }
+        /* --- Info Section --- */
+        .info-section { padding: 100px 8%; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .info-content h2 { font-family: 'Syncopate'; font-size: 2.5rem; margin-bottom: 20px; color: var(--primary); }
+        .info-img img { width: 100%; border-radius: 20px; filter: grayscale(100%) contrast(1.2); }
 
-        /* WhatsApp Button */
-        .whatsapp-btn {
+        /* --- WhatsApp Floating --- */
+        .whatsapp-float {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 40px;
+            right: 40px;
             background: #25d366;
             color: white;
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 30px;
+            font-size: 35px;
             z-index: 1000;
-            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            transition: 0.3s;
         }
+        .whatsapp-float:hover { transform: scale(1.1); }
 
         @media (max-width: 768px) {
-            .nav-menu { display: none; }
+            .info-section { grid-template-columns: 1fr; }
+            .hero-box h1 { font-size: 3.5rem; }
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar">
+    <header>
         <div class="logo">ELITE<span>PHYSIQUE</span></div>
-        <div class="nav-menu">
-            <a href="#home">Home</a>
-            <a href="#pricing">Pricing</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
+    </header>
 
-    <section id="home" class="hero">
-        <div data-aos="fade-up">
-            <h1>EVOLVE BEYOND <br> <span class="text-stroke">LIMITS</span></h1>
-            <p>Premium Fitness Coaching for Transformation.</p>
-            <a href="#pricing" class="btn-main">View Programs</a>
+    <section class="hero">
+        <div class="hero-box" data-aos="zoom-out">
+            <p style="letter-spacing: 5px; margin-bottom: 10px;">TRAIN WITH NAGARAJ</p>
+            <h1>SHATTER <br> <span class="outline-text">THE LIMITS</span></h1>
+            <a href="#plans" class="btn-pay" style="width: auto; padding: 15px 50px; margin-top: 30px;">Start Transformation</a>
         </div>
     </section>
 
-    <section id="pricing" class="pricing">
-        <h2 style="font-family: 'Syncopate';">CHOOSE YOUR PATH</h2>
-        <div class="pricing-grid">
+    <div class="stats">
+        <div>100% Results</div>
+        <div>Expert Diet</div>
+        <div>Elite Workouts</div>
+    </div>
+
+    <section id="plans" class="pricing">
+        <h2 style="text-align: center; font-family: 'Syncopate'; font-size: 2.5rem;">TRANSFORMATION PLANS</h2>
+        <div class="grid">
+            <!-- Plan 1 -->
             <div class="price-card" data-aos="fade-up">
-                <h3>STARTER</h3>
-                <div class="amount">₹2,999</div>
-                <p>Perfect for beginners starting their gym journey.</p>
+                <h3>90 DAYS SHRED</h3>
+                <div class="price">₹4,999</div>
+                <p>Personalized Macro Plan + Workout Routine</p>
+                <!-- Direct UPI Payment Link -->
+                <a href="upi://pay?pa=9080985296@ybl&pn=Nagaraj&am=4999&cu=INR" class="btn-pay">Pay & Join Now</a>
             </div>
-            <div class="price-card" data-aos="fade-up" data-aos-delay="100" style="border-color: var(--accent);">
-                <h3>ELITE</h3>
-                <div class="amount">₹7,499</div>
-                <p>90-day complete body transformation program.</p>
+            
+            <!-- Plan 2 -->
+            <div class="price-card featured" data-aos="fade-up" data-aos-delay="200">
+                <div style="background: var(--primary); font-size: 10px; padding: 5px; position: absolute; top: 10px; right: 10px;">MOST POPULAR</div>
+                <h3>1-ON-1 ELITE</h3>
+                <div class="price">₹9,999</div>
+                <p>Daily Check-ins + Video Call Coaching</p>
+                <a href="upi://pay?pa=9080985296@ybl&pn=Nagaraj&am=9999&cu=INR" class="btn-pay">Pay & Join Now</a>
             </div>
         </div>
     </section>
 
-    <a href="https://wa.me/91XXXXXXXXXX" class="whatsapp-btn" target="_blank">
+    <section class="info-section">
+        <div class="info-img" data-aos="fade-right">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80" alt="Training">
+        </div>
+        <div class="info-content" data-aos="fade-left">
+            <h2>WHY CHOOSE ME?</h2>
+            <p>I don't just give you a PDF. I provide a complete lifestyle overhaul. My artificial intelligence background helps me calculate your progress with 100% accuracy.</p>
+            <ul style="margin-top: 20px; list-style: none;">
+                <li><i class="fas fa-check-circle" style="color: var(--primary);"></i> Science-Based Training</li>
+                <li><i class="fas fa-check-circle" style="color: var(--primary);"></i> 24/7 WhatsApp Access</li>
+                <li><i class="fas fa-check-circle" style="color: var(--primary);"></i> Custom Diet Plans (Veg/Non-Veg)</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp API -->
+    <a href="https://wa.me/919080985296?text=I%20want%20to%20join%20your%20training!" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Scripts -->
+    <footer style="text-align: center; padding: 50px; border-top: 1px solid var(--border);">
+        <p>&copy; 2026 ELITE PHYSIQUE | DESIGNED BY NAGARAJ</p>
+    </footer>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 1000, once: true });
+        AOS.init({ duration: 1200, once: true });
     </script>
 </body>
 </html>
