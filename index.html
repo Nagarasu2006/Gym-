@@ -4,90 +4,174 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ELITE PHYSIQUE | Premium Coaching</title>
+    
+    <!-- External Libraries (Need Internet to Load) -->
     <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* CSS NEENGA THANIYA SAVE PANNA THEVAI ILLAI - IVARAIYUM INGA SERTHUTTEN */
+        :root {
+            --accent: #e63946;
+            --bg: #050505;
+            --card-bg: #111111;
+            --text-main: #ffffff;
+            --text-dim: #a0a0a0;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* Modern Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+            box-sizing: border-box;
+        }
+
+        .logo { font-family: 'Syncopate', sans-serif; font-weight: 700; letter-spacing: 2px; }
+        .logo span { color: var(--accent); }
+
+        .nav-menu a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero h1 {
+            font-family: 'Syncopate', sans-serif;
+            font-size: clamp(2rem, 8vw, 5rem);
+            margin-bottom: 20px;
+        }
+
+        .text-stroke {
+            -webkit-text-stroke: 1px white;
+            color: transparent;
+        }
+
+        .btn-main {
+            background: var(--accent);
+            color: white;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        /* Pricing & Cards */
+        .pricing { padding: 80px 8%; text-align: center; }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .price-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .price-card h3 { color: var(--accent); margin-bottom: 10px; }
+        .amount { font-size: 2.5rem; font-weight: 700; margin-bottom: 20px; }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            z-index: 1000;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+        }
+    </style>
 </head>
 <body>
-
-    <!-- Custom Cursor -->
-    <div class="cursor"></div>
 
     <nav class="navbar">
         <div class="logo">ELITE<span>PHYSIQUE</span></div>
         <div class="nav-menu">
             <a href="#home">Home</a>
-            <a href="#about">The Coach</a>
-            <a href="#services">Services</a>
             <a href="#pricing">Pricing</a>
-            <a href="#contact" class="nav-cta">Apply Now</a>
+            <a href="#contact">Contact</a>
         </div>
     </nav>
 
-    <!-- Hero Section with Overlay -->
-    <section id="home" class="hero-pro">
-        <div class="overlay"></div>
-        <div class="hero-content" data-aos="fade-up">
-            <span class="badge">Limited Slots for May 2026</span>
-            <h1>EVOLVE <br> BEYOND <span class="text-stroke">LIMITS</span></h1>
-            <p>High-performance coaching for those who demand excellence.</p>
-            <div class="hero-actions">
-                <a href="#contact" class="btn-main">Get Started <i class="fas fa-arrow-right"></i></a>
-                <a href="https://instagram.com" class="btn-outline"><i class="fab fa-instagram"></i> Follow Results</a>
-            </div>
+    <section id="home" class="hero">
+        <div data-aos="fade-up">
+            <h1>EVOLVE BEYOND <br> <span class="text-stroke">LIMITS</span></h1>
+            <p>Premium Fitness Coaching for Transformation.</p>
+            <a href="#pricing" class="btn-main">View Programs</a>
         </div>
     </section>
 
-    <!-- Professional Stats -->
-    <section class="stats">
-        <div class="stat-item"><h2>500+</h2><p>Lives Transformed</p></div>
-        <div class="stat-item"><h2>10+</h2><p>Years Experience</p></div>
-        <div class="stat-item"><h2>24/7</h2><p>Support</p></div>
-    </section>
-
-    <!-- Pricing Table (Pro Feature) -->
     <section id="pricing" class="pricing">
-        <h2 class="section-heading">Choose Your Path</h2>
+        <h2 style="font-family: 'Syncopate';">CHOOSE YOUR PATH</h2>
         <div class="pricing-grid">
             <div class="price-card" data-aos="fade-up">
-                <h3>Base</h3>
-                <div class="amount">₹2,999<span>/mo</span></div>
-                <ul>
-                    <li><i class="fas fa-check"></i> Custom Workout Plan</li>
-                    <li><i class="fas fa-check"></i> Basic Meal Guide</li>
-                    <li><i class="fas fa-xmark"></i> Weekly Check-ins</li>
-                </ul>
-                <button class="btn-buy">Select Plan</button>
+                <h3>STARTER</h3>
+                <div class="amount">₹2,999</div>
+                <p>Perfect for beginners starting their gym journey.</p>
             </div>
-            <div class="price-card featured" data-aos="fade-up" data-aos-delay="100">
-                <div class="popular">Most Popular</div>
-                <h3>Elite Transformation</h3>
-                <div class="amount">₹7,499<span>/90 Days</span></div>
-                <ul>
-                    <li><i class="fas fa-check"></i> 1-on-1 Video Calls</li>
-                    <li><i class="fas fa-check"></i> Personalized Macro Plan</li>
-                    <li><i class="fas fa-check"></i> WhatsApp Support</li>
-                </ul>
-                <button class="btn-buy">Join the Elite</button>
+            <div class="price-card" data-aos="fade-up" data-aos-delay="100" style="border-color: var(--accent);">
+                <h3>ELITE</h3>
+                <div class="amount">₹7,499</div>
+                <p>90-day complete body transformation program.</p>
             </div>
         </div>
     </section>
 
-    <!-- WhatsApp and Social Footer -->
-    <footer class="pro-footer">
-        <div class="footer-grid">
-            <div class="footer-info">
-                <h3>ELITE PHYSIQUE</h3>
-                <p>Premium Fitness & Lifestyle Coaching.</p>
-            </div>
-            <div class="footer-links">
-                <a href="https://wa.me/91XXXXXXXXXX" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
-            </div>
-        </div>
-    </footer>
+    <a href="https://wa.me/91XXXXXXXXXX" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
+    <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="script.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+    </script>
 </body>
 </html>
