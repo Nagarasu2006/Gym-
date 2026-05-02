@@ -3,132 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ELITE PHYSIQUE | Pro High-Performance Coaching</title>
+    <title>NAGARAJ | ELITE PERFORMANCE COACHING</title>
     
-    <!-- Premium Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <!-- Premium Assets -->
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
         :root {
-            --primary: #ff0033; /* Crimson Red */
-            --bg-dark: #000000;
-            --glass: rgba(255, 255, 255, 0.05);
+            --primary: #ff0033;
+            --bg: #030303;
+            --card-bg: rgba(20, 20, 20, 0.8);
             --border: rgba(255, 255, 255, 0.1);
-            --text: #ffffff;
+            --accent-gradient: linear-gradient(135deg, #ff0033 0%, #80001a 100%);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            background-color: var(--bg-dark);
-            color: var(--text);
-            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg);
+            color: #fff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
-        /* --- Custom Scrollbar --- */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #000; }
-        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
-
-        /* --- Header --- */
-        header {
-            position: fixed;
-            width: 100%;
-            padding: 20px 8%;
+        /* --- Luxury Navigation --- */
+        nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 1000;
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(15px);
+            padding: 25px 8%;
+            position: fixed;
+            width: 100%;
+            z-index: 2000;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
         }
-        .logo { font-family: 'Syncopate', sans-serif; font-size: 1.5rem; letter-spacing: 4px; }
+        .logo { font-family: 'Syncopate', sans-serif; font-size: 1.4rem; letter-spacing: 5px; font-weight: 700; }
         .logo span { color: var(--primary); }
+        .nav-links a { color: #fff; text-decoration: none; margin-left: 30px; font-weight: 600; font-size: 13px; text-transform: uppercase; transition: 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
 
-        /* --- Hero Section --- */
+        /* --- Hero: The Statement --- */
         .hero {
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.5), #000), 
-                        url('https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-        }
-        .hero-box h1 {
-            font-family: 'Syncopate', sans-serif;
-            font-size: clamp(2.5rem, 10vw, 7rem);
-            line-height: 0.9;
-            margin-bottom: 20px;
-        }
-        .outline-text { -webkit-text-stroke: 1.5px #fff; color: transparent; }
-
-        /* --- Stats Section --- */
-        .stats {
-            display: flex;
-            justify-content: space-around;
-            padding: 50px 10%;
-            background: var(--primary);
-            color: #000;
-            font-weight: 900;
-            text-transform: uppercase;
-        }
-
-        /* --- Pricing & UPI Payment --- */
-        .pricing { padding: 100px 8%; }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-        .price-card {
-            background: var(--glass);
-            padding: 50px 30px;
-            border-radius: 20px;
-            border: 1px solid var(--border);
-            text-align: center;
-            transition: 0.4s;
+            background: radial-gradient(circle at center, rgba(255, 0, 51, 0.15) 0%, transparent 70%), #000;
             position: relative;
-            overflow: hidden;
+            text-align: center;
         }
-        .price-card:hover { border-color: var(--primary); transform: translateY(-15px); }
-        .price-card.featured { border: 2px solid var(--primary); }
-        
-        .price { font-size: 4rem; font-weight: 900; margin: 20px 0; }
-        .price span { font-size: 1rem; color: #aaa; }
-
-        .btn-pay {
-            display: inline-block;
-            width: 100%;
-            padding: 15px;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            font-weight: 900;
-            border-radius: 10px;
+        .hero-content h1 {
+            font-family: 'Syncopate', sans-serif;
+            font-size: clamp(3rem, 12vw, 8rem);
+            line-height: 0.85;
+            margin-bottom: 20px;
             text-transform: uppercase;
-            margin-top: 20px;
         }
+        .hero-content .outline { -webkit-text-stroke: 1.5px #fff; color: transparent; }
+        
+        /* --- About Section (The Coach) --- */
+        .section { padding: 120px 10%; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .about-img { position: relative; border-radius: 30px; overflow: hidden; border: 1px solid var(--border); }
+        .about-img img { width: 100%; display: block; filter: grayscale(100%); transition: 0.5s; }
+        .about-img:hover img { filter: grayscale(0%); transform: scale(1.05); }
 
-        /* --- Info Section --- */
-        .info-section { padding: 100px 8%; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
-        .info-content h2 { font-family: 'Syncopate'; font-size: 2.5rem; margin-bottom: 20px; color: var(--primary); }
-        .info-img img { width: 100%; border-radius: 20px; filter: grayscale(100%) contrast(1.2); }
+        /* --- Training Details (The Syllabus) --- */
+        .curriculum { background: #080808; padding: 100px 10%; }
+        .syllabus-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+            transition: 0.3s;
+        }
+        .syllabus-card:hover { border-color: var(--primary); background: rgba(255, 0, 51, 0.05); }
 
-        /* --- WhatsApp Floating --- */
-        .whatsapp-float {
+        /* --- Pricing Architecture --- */
+        .pricing-table {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 60px;
+        }
+        .package {
+            background: #111;
+            padding: 60px 40px;
+            border-radius: 30px;
+            width: 380px;
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: 0.5s;
+        }
+        .package.elite { border: 2px solid var(--primary); transform: scale(1.05); background: linear-gradient(180deg, #111 0%, #1a0005 100%); }
+        .package h2 { font-family: 'Syncopate'; font-size: 1.5rem; margin-bottom: 20px; }
+        .price { font-size: 4.5rem; font-weight: 800; margin-bottom: 30px; }
+        .price span { font-size: 1.2rem; color: #666; }
+        
+        .feature-list { list-style: none; text-align: left; margin-bottom: 40px; }
+        .feature-list li { margin-bottom: 15px; display: flex; align-items: center; gap: 10px; color: #ccc; }
+        .feature-list i { color: var(--primary); }
+
+        /* --- Payment & Contact --- */
+        .btn-premium {
+            display: block;
+            width: 100%;
+            padding: 20px;
+            background: var(--accent-gradient);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 800;
+            border-radius: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+        .btn-premium:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(255, 0, 51, 0.4); }
+
+        /* --- Floating WhatsApp --- */
+        .wa-button {
             position: fixed;
             bottom: 40px;
             right: 40px;
             background: #25d366;
-            color: white;
             width: 70px;
             height: 70px;
             border-radius: 50%;
@@ -136,88 +139,114 @@
             align-items: center;
             justify-content: center;
             font-size: 35px;
-            z-index: 1000;
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
-            transition: 0.3s;
+            color: #fff;
+            z-index: 3000;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
         }
-        .whatsapp-float:hover { transform: scale(1.1); }
 
-        @media (max-width: 768px) {
-            .info-section { grid-template-columns: 1fr; }
-            .hero-box h1 { font-size: 3.5rem; }
+        @media (max-width: 992px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">ELITE<span>PHYSIQUE</span></div>
-    </header>
+    <nav>
+        <div class="logo">NAGARAJ<span>.</span></div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#training">Training</a>
+            <a href="#pricing">Plans</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
 
     <section class="hero">
-        <div class="hero-box" data-aos="zoom-out">
-            <p style="letter-spacing: 5px; margin-bottom: 10px;">TRAIN WITH NAGARAJ</p>
-            <h1>SHATTER <br> <span class="outline-text">THE LIMITS</span></h1>
-            <a href="#plans" class="btn-pay" style="width: auto; padding: 15px 50px; margin-top: 30px;">Start Transformation</a>
+        <div class="hero-content" data-aos="zoom-in">
+            <p style="letter-spacing: 10px; color: var(--primary); font-weight: 800; margin-bottom: 20px;">ARTIFICIAL INTELLIGENCE X FITNESS</p>
+            <h1>PRECISION<br><span class="outline">EVOLUTION</span></h1>
+            <p style="max-width: 700px; margin: 30px auto; color: #888; font-size: 18px;">Not just a trainer. A data-driven architect of the human physique. Designed for the top 1%.</p>
         </div>
     </section>
 
-    <div class="stats">
-        <div>100% Results</div>
-        <div>Expert Diet</div>
-        <div>Elite Workouts</div>
-    </div>
-
-    <section id="plans" class="pricing">
-        <h2 style="text-align: center; font-family: 'Syncopate'; font-size: 2.5rem;">TRANSFORMATION PLANS</h2>
-        <div class="grid">
-            <!-- Plan 1 -->
-            <div class="price-card" data-aos="fade-up">
-                <h3>90 DAYS SHRED</h3>
-                <div class="price">₹4,999</div>
-                <p>Personalized Macro Plan + Workout Routine</p>
-                <!-- Direct UPI Payment Link -->
-                <a href="upi://pay?pa=9080985296@ybl&pn=Nagaraj&am=4999&cu=INR" class="btn-pay">Pay & Join Now</a>
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="grid-2">
+            <div class="about-img" data-aos="fade-right">
+                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80" alt="Coach Nagaraj">
             </div>
+            <div class="about-content" data-aos="fade-left">
+                <h2 style="font-family: 'Syncopate'; font-size: 2.5rem; margin-bottom: 30px;">THE <span style="color: var(--primary);">VISIONARY</span></h2>
+                <p style="color: #aaa; margin-bottom: 20px;">Nagaraj is a 19-year-old AI specialist and elite fitness coach based in Namakkal. By blending advanced algorithms with biological optimization, he delivers transformations that are mathematically guaranteed.</p>
+                <div style="display: flex; gap: 20px; margin-top: 40px;">
+                    <div><h3 style="color: var(--primary);">500+</h3><p>Clients</p></div>
+                    <div><h3 style="color: var(--primary);">100%</h3><p>Success Rate</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Deep Dive -->
+    <section id="training" class="curriculum">
+        <h2 style="font-family: 'Syncopate'; text-align: center; margin-bottom: 60px;">TRAINING <span class="outline">SYLLABUS</span></h2>
+        
+        <div class="syllabus-card" data-aos="fade-up">
+            <h3>01. Metabolic Assessment</h3>
+            <p style="color: #666; margin-top: 10px;">Deep dive into your hormonal health, TDEE calculations, and genetic predisposition.</p>
+        </div>
+        <div class="syllabus-card" data-aos="fade-up">
+            <h3>02. Biomechanical Optimization</h3>
+            <p style="color: #666; margin-top: 10px;">Every rep is tracked. We optimize your form using AI-driven posture analysis.</p>
+        </div>
+        <div class="syllabus-card" data-aos="fade-up">
+            <h3>03. Neuro-Nutritional Logic</h3>
+            <p style="color: #666; margin-top: 10px;">Diets that don't just fuel muscles, but optimize cognitive function and mood.</p>
+        </div>
+    </section>
+
+    <!-- Professional Pricing Table -->
+    <section id="pricing" class="section">
+        <h2 style="font-family: 'Syncopate'; text-align: center;">INVEST IN <span style="color: var(--primary);">YOURSELF</span></h2>
+        <div class="pricing-table">
             
-            <!-- Plan 2 -->
-            <div class="price-card featured" data-aos="fade-up" data-aos-delay="200">
-                <div style="background: var(--primary); font-size: 10px; padding: 5px; position: absolute; top: 10px; right: 10px;">MOST POPULAR</div>
-                <h3>1-ON-1 ELITE</h3>
-                <div class="price">₹9,999</div>
-                <p>Daily Check-ins + Video Call Coaching</p>
-                <a href="upi://pay?pa=9080985296@ybl&pn=Nagaraj&am=9999&cu=INR" class="btn-pay">Pay & Join Now</a>
+            <div class="package" data-aos="flip-left">
+                <h2>ADVANCED</h2>
+                <div class="price">₹4,999<span>/Mo</span></div>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Personalized Workout App</li>
+                    <li><i class="fas fa-check"></i> Macro-Nutrient Guide</li>
+                    <li><i class="fas fa-check"></i> Weekly Email Check-ins</li>
+                </ul>
+                <a href="upi://pay?pa=9080985296@ybl&pn=Nagaraj&am=4999&cu=INR" class="btn-premium">Activate Plan</a>
             </div>
+
+            <div class="package elite" data-aos="flip-right">
+                <h2>ELITE CEO</h2>
+                <div class="price">₹9,999<span>/Mo</span></div>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> 24/7 WhatsApp VIP Access</li>
+                    <li><i class="fas fa-check"></i> Bio-Individual Meal Prep</li>
+                    <li><i class="fas fa-check"></i> Live 1-on-1 Video Calls</li>
+                </ul>
+                <a href="upi://pay?pa=9080985296@ybl&pn=Nagaraj&am=9999&cu=INR" class="btn-premium">Secure My Spot</a>
+            </div>
+
         </div>
     </section>
 
-    <section class="info-section">
-        <div class="info-img" data-aos="fade-right">
-            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80" alt="Training">
-        </div>
-        <div class="info-content" data-aos="fade-left">
-            <h2>WHY CHOOSE ME?</h2>
-            <p>I don't just give you a PDF. I provide a complete lifestyle overhaul. My artificial intelligence background helps me calculate your progress with 100% accuracy.</p>
-            <ul style="margin-top: 20px; list-style: none;">
-                <li><i class="fas fa-check-circle" style="color: var(--primary);"></i> Science-Based Training</li>
-                <li><i class="fas fa-check-circle" style="color: var(--primary);"></i> 24/7 WhatsApp Access</li>
-                <li><i class="fas fa-check-circle" style="color: var(--primary);"></i> Custom Diet Plans (Veg/Non-Veg)</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Floating WhatsApp API -->
-    <a href="https://wa.me/919080985296?text=I%20want%20to%20join%20your%20training!" class="whatsapp-float" target="_blank">
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/919080985296" class="wa-button" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <footer style="text-align: center; padding: 50px; border-top: 1px solid var(--border);">
-        <p>&copy; 2026 ELITE PHYSIQUE | DESIGNED BY NAGARAJ</p>
+    <footer style="padding: 60px 10%; text-align: center; border-top: 1px solid var(--border);">
+        <p style="color: #444; font-size: 12px; letter-spacing: 2px;">&copy; 2026 NAGARAJ PERFORMANCE SYSTEMS. ALL RIGHTS RESERVED.</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 1200, once: true });
+        AOS.init({ duration: 1000, once: true });
     </script>
 </body>
 </html>
