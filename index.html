@@ -1,157 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Secure Digital Vote Portal</title>
-<style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:Inter,Arial}
-body{background:linear-gradient(180deg,#041126,#0a2158,#07101d);color:#fff;min-height:100vh}
-.wrap{max-width:950px;margin:auto;padding:20px}
-.card{background:#0e1d43;border:1px solid #274a8a;border-radius:28px;padding:28px;box-shadow:0 12px 40px rgba(0,0,0,.35)}
-.hidden{display:none}
-h1{font-size:48px;margin:18px 0} h2{margin-bottom:18px}
-p{color:#c7d2fe}
-input{width:100%;padding:16px;margin-top:14px;border:none;border-radius:14px;background:#142858;color:#fff}
-button{background:#2d63ff;color:#fff;border:none;padding:16px 28px;border-radius:14px;font-weight:700;cursor:pointer}
-button.full{width:100%;margin-top:18px} button:disabled{opacity:.5}
-.center{text-align:center}.hero{padding:60px 20px}
-.ball{width:120px;height:120px;border-radius:50%;border:4px solid gold;display:flex;align-items:center;justify-content:center;font-size:58px;margin:auto}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:20px}
-.party{padding:22px;border-radius:24px;border:2px solid #3c63ad;background:#122a5b;cursor:pointer;text-align:center}
-.party.active{border-color:#22c55e;background:#123d2c}
-.photo{font-size:70px}.symbol{font-size:50px;margin:10px 0}
-.badge{display:inline-block;background:#13254e;padding:10px 18px;border-radius:30px;color:#ffd86d;margin-top:18px}
-.top{display:flex;justify-content:space-between;align-items:center;padding:16px 0}
-.small{font-size:14px;color:#93c5fd;margin-top:10px}
-.ok{color:#4ade80}.warn{color:#fbbf24}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IRON WILL | Professional Personal Training</title>
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class='wrap'>
-<div class='top'>
-<div><h2>Digital Vote System</h2><p>Election Commission Secure Portal</p></div>
-<button>தமிழ்</button>
-</div>
 
-<section id='s1' class='card center'>
-<div class='hero'>
-<div class='ball'>🗳</div>
-<div class='badge'>Secured & Encrypted Election</div>
-<h1>Cast Your Vote Digitally</h1>
-<p>OTP + Identity + Biometric verified voting</p><br><br>
-<button onclick='gotoStep(2)'>Start Voting</button>
-</div>
-</section>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">IRON<span>WILL</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#programs">Programs</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
 
-<section id='s2' class='card hidden'>
-<h1 style='font-size:38px'>Voter Identity Check</h1>
-<input id='voterId' placeholder='Enter Voter ID (try TN1001)'>
-<input id='mobile' placeholder='Enter Mobile Number'>
-<p class='small'>Demo voter ids: TN1001 / TN1002</p>
-<button class='full' onclick='sendOtp()'>Send OTP</button>
-<div id='otpBox' class='hidden'>
-<input id='otpInput' placeholder='Enter OTP received'>
-<p id='demoOtp' class='warn'></p>
-<button class='full' onclick='verifyOtp()'>Verify OTP</button>
-</div>
-</section>
+    <!-- Hero Section -->
+    <header id="home" class="hero">
+        <div class="hero-content" data-aos="fade-up">
+            <h1>TRANSFORM YOUR BODY IN <span class="highlight">90 DAYS</span></h1>
+            <p>Expert coaching for weight loss, muscle gain, and elite performance.</p>
+            <div class="hero-btns">
+                <a href="#contact" class="btn-primary">Book Consultation</a>
+                <a href="#programs" class="btn-secondary">View Programs</a>
+            </div>
+        </div>
+    </header>
 
-<section id='s3' class='card hidden center'>
-<h1 style='font-size:38px'>Face Recognition</h1>
-<div class='ball'>👤</div>
-<p id='faceStatus'>Click scan to match Aadhaar photo</p><br>
-<button onclick='faceScan()'>Scan Face</button>
-</section>
+    <!-- Transformations -->
+    <section class="transformations">
+        <h2 class="section-title">Real Results</h2>
+        <div class="gallery">
+            <div class="card" data-aos="zoom-in">
+                <div class="before-after">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=400&q=80" alt="Before/After">
+                    <p>Weight Loss: -15kg in 12 Weeks</p>
+                </div>
+            </div>
+            <!-- Repeat for more images -->
+        </div>
+    </section>
 
-<section id='s4' class='card hidden center'>
-<h1 style='font-size:38px'>Fingerprint Verification</h1>
-<div class='ball'>🔐</div>
-<p id='fpStatus'>Authenticate fingerprint</p><br>
-<button onclick='fingerScan()'>Verify Fingerprint</button>
-</section>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-container">
+            <div class="about-img" data-aos="fade-right">
+                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=600&q=80" alt="Coach">
+            </div>
+            <div class="about-text" data-aos="fade-left">
+                <h2>MEET YOUR COACH</h2>
+                <p>I’m Coach Alex, a certified NASM trainer with 10+ years of experience helping beginners find their strength. My mission is to simplify fitness and build sustainable habits.</p>
+                <ul>
+                    <li><i class="fas fa-certificate"></i> NASM Certified Personal Trainer</li>
+                    <li><i class="fas fa-certificate"></i> Precision Nutrition Level 1</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-<section id='s5' class='card hidden'>
-<h1 style='font-size:38px;text-align:center'>Official Ballot</h1>
-<div class='grid'>
-<div class='party' onclick="pick(this,'TVK')"><div class='photo'>🧑</div><h2>TVK</h2><div class='symbol'>🔥</div><p>Vijay</p></div>
-<div class='party' onclick="pick(this,'DMK')"><div class='photo'>👨</div><h2>DMK</h2><div class='symbol'>☀️</div><p>Stalin</p></div>
-<div class='party' onclick="pick(this,'ADMK')"><div class='photo'>👤</div><h2>ADMK</h2><div class='symbol'>🍃</div><p>EPS</p></div>
-<div class='party' onclick="pick(this,'NTK')"><div class='photo'>🧔</div><h2>NTK</h2><div class='symbol'>🎤</div><p>Seeman</p></div>
-</div>
-<button class='full' onclick='castVote()'>Submit Vote</button>
-</section>
+    <!-- Services -->
+    <section id="services" class="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card" data-aos="flip-left">
+                <i class="fas fa-dumbbell"></i>
+                <h3>Muscle Building</h3>
+                <p>Structured hypertrophy programs designed for maximum gains.</p>
+                <p class="price">From $99/mo</p>
+            </div>
+            <div class="service-card" data-aos="flip-left">
+                <i class="fas fa-fire"></i>
+                <h3>Weight Loss</h3>
+                <p>High-intensity training combined with fat-loss nutrition.</p>
+                <p class="price">From $79/mo</p>
+            </div>
+            <div class="service-card" data-aos="flip-left">
+                <i class="fas fa-apple-whole"></i>
+                <h3>Diet Plans</h3>
+                <p>Customized macros and meal plans tailored to your lifestyle.</p>
+                <p class="price">From $49/mo</p>
+            </div>
+        </div>
+    </section>
 
-<section id='s6' class='card hidden center'>
-<div style='font-size:90px;color:#4ade80'>✔</div>
-<h1 style='font-size:40px'>Vote Successfully Cast</h1>
-<p id='receipt'></p><br>
-<p class='ok'>Auto logout in 5 seconds...</p>
-</section>
-</div>
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="contact-box">
+            <h2>START YOUR JOURNEY</h2>
+            <form id="contactForm">
+                <input type="text" placeholder="Full Name" required>
+                <input type="tel" placeholder="Phone Number" required>
+                <select>
+                    <option value="">Select Your Goal</option>
+                    <option value="weight-loss">Weight Loss</option>
+                    <option value="muscle">Muscle Building</option>
+                </select>
+                <button type="submit" class="btn-primary">Send Request</button>
+            </form>
+        </div>
+    </section>
 
-<script>
-const voters={
-'TN1001':{name:'Demo Voter 1',mobile:'9876543210'},
-'TN1002':{name:'Demo Voter 2',mobile:'9123456780'}
-};
-let generatedOtp='';
-let selected='';
-let voter='';
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/yournumber" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
-function gotoStep(n){
-for(let i=1;i<=6;i++){
- let el=document.getElementById('s'+i);
- if(el) el.classList.add('hidden');
-}
-document.getElementById('s'+n).classList.remove('hidden');
-window.scrollTo(0,0);
-}
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="socials">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2026 IRON WILL FITNESS. All rights reserved.</p>
+        </div>
+    </footer>
 
-function sendOtp(){
-const id=document.getElementById('voterId').value.trim();
-const mob=document.getElementById('mobile').value.trim();
-if(!voters[id]) return alert('Voter ID not found');
-if(localStorage.getItem('voted_'+id)) return alert('Vote already cast for this voter');
-if(mob!==voters[id].mobile) return alert('Mobile does not match voter record');
-voter=id;
-generatedOtp=Math.floor(100000+Math.random()*900000)+'';
-document.getElementById('otpBox').classList.remove('hidden');
-document.getElementById('demoOtp').innerText='Demo OTP: '+generatedOtp;
-}
-
-function verifyOtp(){
-if(document.getElementById('otpInput').value.trim()!==generatedOtp){
-alert('Invalid OTP'); return;
-}
-gotoStep(3)
-}
-
-function faceScan(){
-let t=document.getElementById('faceStatus');
-t.innerText='Scanning...';
-setTimeout(()=>{t.innerHTML='Aadhaar Face Match Successful ✓';setTimeout(()=>gotoStep(4),1200)},1800)
-}
-
-function fingerScan(){
-let t=document.getElementById('fpStatus');
-t.innerText='Matching fingerprint...';
-setTimeout(()=>{t.innerHTML='Fingerprint Verified ✓';setTimeout(()=>gotoStep(5),1200)},1800)
-}
-
-function pick(el,name){
-document.querySelectorAll('.party').forEach(p=>p.classList.remove('active'));
-el.classList.add('active');
-selected=name;
-}
-
-function castVote(){
-if(!selected) return alert('Select a candidate');
-localStorage.setItem('voted_'+voter,'yes');
-document.getElementById('receipt').innerHTML='Recorded vote for '+selected+'<br>Receipt: TN-'+Math.floor(Math.random()*999999);
-gotoStep(6);
-setTimeout(()=>location.reload(),5000);
-}
-</script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
