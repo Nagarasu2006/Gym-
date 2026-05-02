@@ -3,130 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IRON WILL | Professional Personal Training</title>
-    <!-- Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>ELITE PHYSIQUE | Premium Coaching</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+
     <nav class="navbar">
-        <div class="logo">IRON<span>WILL</span></div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#programs">Programs</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="burger">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
+        <div class="logo">ELITE<span>PHYSIQUE</span></div>
+        <div class="nav-menu">
+            <a href="#home">Home</a>
+            <a href="#about">The Coach</a>
+            <a href="#services">Services</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#contact" class="nav-cta">Apply Now</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header id="home" class="hero">
+    <!-- Hero Section with Overlay -->
+    <section id="home" class="hero-pro">
+        <div class="overlay"></div>
         <div class="hero-content" data-aos="fade-up">
-            <h1>TRANSFORM YOUR BODY IN <span class="highlight">90 DAYS</span></h1>
-            <p>Expert coaching for weight loss, muscle gain, and elite performance.</p>
-            <div class="hero-btns">
-                <a href="#contact" class="btn-primary">Book Consultation</a>
-                <a href="#programs" class="btn-secondary">View Programs</a>
+            <span class="badge">Limited Slots for May 2026</span>
+            <h1>EVOLVE <br> BEYOND <span class="text-stroke">LIMITS</span></h1>
+            <p>High-performance coaching for those who demand excellence.</p>
+            <div class="hero-actions">
+                <a href="#contact" class="btn-main">Get Started <i class="fas fa-arrow-right"></i></a>
+                <a href="https://instagram.com" class="btn-outline"><i class="fab fa-instagram"></i> Follow Results</a>
             </div>
-        </div>
-    </header>
-
-    <!-- Transformations -->
-    <section class="transformations">
-        <h2 class="section-title">Real Results</h2>
-        <div class="gallery">
-            <div class="card" data-aos="zoom-in">
-                <div class="before-after">
-                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=400&q=80" alt="Before/After">
-                    <p>Weight Loss: -15kg in 12 Weeks</p>
-                </div>
-            </div>
-            <!-- Repeat for more images -->
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="about-container">
-            <div class="about-img" data-aos="fade-right">
-                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=600&q=80" alt="Coach">
-            </div>
-            <div class="about-text" data-aos="fade-left">
-                <h2>MEET YOUR COACH</h2>
-                <p>I’m Coach Alex, a certified NASM trainer with 10+ years of experience helping beginners find their strength. My mission is to simplify fitness and build sustainable habits.</p>
+    <!-- Professional Stats -->
+    <section class="stats">
+        <div class="stat-item"><h2>500+</h2><p>Lives Transformed</p></div>
+        <div class="stat-item"><h2>10+</h2><p>Years Experience</p></div>
+        <div class="stat-item"><h2>24/7</h2><p>Support</p></div>
+    </section>
+
+    <!-- Pricing Table (Pro Feature) -->
+    <section id="pricing" class="pricing">
+        <h2 class="section-heading">Choose Your Path</h2>
+        <div class="pricing-grid">
+            <div class="price-card" data-aos="fade-up">
+                <h3>Base</h3>
+                <div class="amount">₹2,999<span>/mo</span></div>
                 <ul>
-                    <li><i class="fas fa-certificate"></i> NASM Certified Personal Trainer</li>
-                    <li><i class="fas fa-certificate"></i> Precision Nutrition Level 1</li>
+                    <li><i class="fas fa-check"></i> Custom Workout Plan</li>
+                    <li><i class="fas fa-check"></i> Basic Meal Guide</li>
+                    <li><i class="fas fa-xmark"></i> Weekly Check-ins</li>
                 </ul>
+                <button class="btn-buy">Select Plan</button>
+            </div>
+            <div class="price-card featured" data-aos="fade-up" data-aos-delay="100">
+                <div class="popular">Most Popular</div>
+                <h3>Elite Transformation</h3>
+                <div class="amount">₹7,499<span>/90 Days</span></div>
+                <ul>
+                    <li><i class="fas fa-check"></i> 1-on-1 Video Calls</li>
+                    <li><i class="fas fa-check"></i> Personalized Macro Plan</li>
+                    <li><i class="fas fa-check"></i> WhatsApp Support</li>
+                </ul>
+                <button class="btn-buy">Join the Elite</button>
             </div>
         </div>
     </section>
 
-    <!-- Services -->
-    <section id="services" class="services">
-        <h2 class="section-title">Our Services</h2>
-        <div class="services-grid">
-            <div class="service-card" data-aos="flip-left">
-                <i class="fas fa-dumbbell"></i>
-                <h3>Muscle Building</h3>
-                <p>Structured hypertrophy programs designed for maximum gains.</p>
-                <p class="price">From $99/mo</p>
+    <!-- WhatsApp and Social Footer -->
+    <footer class="pro-footer">
+        <div class="footer-grid">
+            <div class="footer-info">
+                <h3>ELITE PHYSIQUE</h3>
+                <p>Premium Fitness & Lifestyle Coaching.</p>
             </div>
-            <div class="service-card" data-aos="flip-left">
-                <i class="fas fa-fire"></i>
-                <h3>Weight Loss</h3>
-                <p>High-intensity training combined with fat-loss nutrition.</p>
-                <p class="price">From $79/mo</p>
+            <div class="footer-links">
+                <a href="https://wa.me/91XXXXXXXXXX" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
             </div>
-            <div class="service-card" data-aos="flip-left">
-                <i class="fas fa-apple-whole"></i>
-                <h3>Diet Plans</h3>
-                <p>Customized macros and meal plans tailored to your lifestyle.</p>
-                <p class="price">From $49/mo</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="contact-box">
-            <h2>START YOUR JOURNEY</h2>
-            <form id="contactForm">
-                <input type="text" placeholder="Full Name" required>
-                <input type="tel" placeholder="Phone Number" required>
-                <select>
-                    <option value="">Select Your Goal</option>
-                    <option value="weight-loss">Weight Loss</option>
-                    <option value="muscle">Muscle Building</option>
-                </select>
-                <button type="submit" class="btn-primary">Send Request</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- WhatsApp Float -->
-    <a href="https://wa.me/yournumber" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="socials">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-            </div>
-            <p>&copy; 2026 IRON WILL FITNESS. All rights reserved.</p>
         </div>
     </footer>
 
