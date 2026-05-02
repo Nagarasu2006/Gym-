@@ -1,143 +1,131 @@
+/* --- Root Variables for Elite Branding --- */
 :root {
-    --accent: #e63946; /* Professional Crimson */
-    --gold: #d4af37;
+    --accent: #ff0033; /* Pro Crimson */
     --bg: #050505;
-    --card-bg: #111111;
-    --text-main: #ffffff;
-    --text-dim: #a0a0a0;
+    --card: #121212;
+    --white: #ffffff;
+    --dim: #a0a0a0;
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     background-color: var(--bg);
-    color: var(--text-main);
+    color: var(--white);
     font-family: 'Inter', sans-serif;
-    margin: 0;
-    cursor: none; /* For the custom cursor */
+    line-height: 1.6;
+    overflow-x: hidden;
 }
 
-/* Custom Cursor */
-.cursor {
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--accent);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
-    transition: transform 0.1s ease;
-}
-
-/* Modern Navbar */
-.navbar {
+/* --- Navigation --- */
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 25px 8%;
+    padding: 20px 8%;
     position: fixed;
     width: 100%;
-    z-index: 100;
-    backdrop-filter: blur(10px);
-    background: rgba(0,0,0,0.7);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    z-index: 1000;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
-.logo { font-family: 'Syncopate', sans-serif; font-weight: 700; letter-spacing: 2px; }
+.logo {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+}
+
 .logo span { color: var(--accent); }
 
-.nav-menu a {
-    color: var(--text-main);
-    text-decoration: none;
-    margin-left: 30px;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: 0.3s;
-}
-
-.nav-cta {
-    background: var(--accent);
-    padding: 10px 20px;
-    border-radius: 50px;
-}
-
-/* Hero Section */
-.hero-pro {
+/* --- Hero Section --- */
+.hero {
     height: 100vh;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    padding: 0 10%;
-    background: url('https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.7), #000), 
+                url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
 }
 
-.hero-pro h1 {
+.hero h1 {
     font-family: 'Syncopate', sans-serif;
-    font-size: clamp(3rem, 8vw, 6rem);
-    line-height: 0.9;
+    font-size: clamp(2.5rem, 10vw, 6rem);
     margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
-.text-stroke {
-    -webkit-text-stroke: 1px white;
+.stroke {
+    -webkit-text-stroke: 1.5px white;
     color: transparent;
 }
 
-.badge {
-    color: var(--accent);
+/* --- Professional Buttons --- */
+.btn {
+    background: var(--accent);
+    color: white;
+    padding: 18px 45px;
+    text-decoration: none;
     font-weight: bold;
+    border-radius: 4px;
     text-transform: uppercase;
-    letter-spacing: 3px;
-    display: block;
-    margin-bottom: 10px;
+    transition: var(--transition);
+    display: inline-block;
 }
 
-/* Pricing Cards */
-.pricing { padding: 100px 10%; text-align: center; }
-.pricing-grid {
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255, 0, 51, 0.5);
+}
+
+/* --- Pricing Cards --- */
+.pricing { padding: 100px 8%; text-align: center; }
+
+.grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     margin-top: 50px;
 }
 
-.price-card {
-    background: var(--card-bg);
+.card {
+    background: var(--card);
     padding: 50px 30px;
-    border-radius: 20px;
+    border-radius: 15px;
     border: 1px solid rgba(255,255,255,0.05);
-    transition: 0.4s;
+    transition: var(--transition);
 }
 
-.price-card.featured {
-    border: 1px solid var(--accent);
-    transform: scale(1.05);
+.card:hover {
+    border-color: var(--accent);
+    transform: scale(1.03);
 }
 
-.price-card:hover {
-    background: #181818;
-    transform: translateY(-10px);
-}
+.price { font-size: 3.5rem; font-weight: 800; margin: 20px 0; }
 
-.amount { font-size: 3rem; font-weight: 700; margin: 20px 0; color: var(--accent); }
-.amount span { font-size: 1rem; color: var(--text-dim); }
-
-.btn-buy {
-    width: 100%;
-    padding: 15px;
-    border: none;
-    background: var(--accent);
-    color: white;
-    font-weight: bold;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-top: 20px;
-}
-
-.whatsapp-btn {
-    display: inline-block;
+/* --- WhatsApp Float --- */
+.wa-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
     background: #25d366;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
     color: white;
-    padding: 15px 30px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
+    z-index: 999;
 }
