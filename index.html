@@ -1,212 +1,3103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NAGARAJ | ELITE PERFORMANCE COACHING</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IT Career Atlas</title>
 
-    <style>
-        :root {
-            --primary: #ff0033;
-            --bg: #030303;
-            --card-bg: rgba(20, 20, 20, 0.95);
-            --border: rgba(255, 255, 255, 0.1);
-            --accent-gradient: linear-gradient(135deg, #ff0033 0%, #80001a 100%);
-        }
+<style>
+:root{
+  --bg:#f7faf9;
+  --surface:#ffffff;
+  --surface2:#f0f5f3;
+  --text:#17201d;
+  --muted:#68736f;
+  --border:#dfe7e4;
+  --accent:#0f9f78;
+  --accent2:#087a5d;
+  --danger:#dc5b5b;
+  --shadow:0 10px 30px rgba(20,40,35,.08);
+  --radius:16px;
+}
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            background-color: var(--bg);
-            color: #fff;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            overflow-x: hidden;
-        }
+*{box-sizing:border-box}
 
-        /* --- Navigation --- */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 25px 8%;
-            position: fixed;
-            width: 100%;
-            z-index: 2000;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
-        }
-        .logo { font-family: 'Syncopate', sans-serif; font-size: 1.4rem; letter-spacing: 5px; }
-        .logo span { color: var(--primary); }
+body{
+  margin:0;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
 
-        /* --- Hero --- */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: radial-gradient(circle at center, rgba(255, 0, 51, 0.1) 0%, transparent 70%), #000;
-            text-align: center;
-        }
-        .hero h1 {
-            font-family: 'Syncopate', sans-serif;
-            font-size: clamp(3rem, 10vw, 7rem);
-            line-height: 0.9;
-        }
-        .outline { -webkit-text-stroke: 1.5px #fff; color: transparent; }
+button,input,select{
+  font:inherit;
+}
 
-        /* --- Pricing & Payment --- */
-        .section { padding: 100px 8%; }
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
-        }
-        .package {
-            background: #0f0f0f;
-            padding: 60px 40px;
-            border-radius: 40px;
-            text-align: center;
-            border: 1px solid var(--border);
-            transition: 0.5s;
-        }
-        .package:hover { border-color: var(--primary); transform: translateY(-10px); }
-        .price { font-size: 4rem; font-weight: 800; margin: 20px 0; }
+button{
+  cursor:pointer;
+}
 
-        .btn-pay {
-            display: block;
-            width: 100%;
-            padding: 20px;
-            background: var(--accent-gradient);
-            color: #fff;
-            text-decoration: none;
-            font-weight: 800;
-            border-radius: 15px;
-            text-transform: uppercase;
-            cursor: pointer;
-            border: none;
-        }
+.app{
+  display:flex;
+  min-height:100vh;
+}
 
-        /* --- MODAL FOR GROUP JOINING --- */
-        .modal-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.95);
-            display: none; /* Hidden by default */
-            justify-content: center;
-            align-items: center;
-            z-index: 3000;
-        }
-        .modal-content {
-            background: var(--card-bg);
-            padding: 50px;
-            border-radius: 30px;
-            text-align: center;
-            max-width: 500px;
-            border: 1px solid var(--primary);
-        }
-        .btn-whatsapp {
-            background: #25d366;
-            color: #fff;
-            padding: 20px 40px;
-            display: inline-block;
-            text-decoration: none;
-            border-radius: 12px;
-            font-weight: 800;
-            margin-top: 25px;
-        }
+/* SIDEBAR */
 
-        /* --- Stats --- */
-        .stats-bar {
-            display: flex;
-            justify-content: space-around;
-            background: var(--primary);
-            padding: 40px;
-            font-family: 'Syncopate';
-            color: #000;
-            font-size: 14px;
-        }
-    </style>
+.sidebar{
+  width:250px;
+  background:#fff;
+  border-right:1px solid var(--border);
+  padding:22px 16px;
+  position:fixed;
+  left:0;
+  top:0;
+  bottom:0;
+  z-index:20;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:5px 10px 25px;
+}
+
+.logo-icon{
+  width:38px;
+  height:38px;
+  border-radius:11px;
+  background:var(--accent);
+  color:white;
+  display:grid;
+  place-items:center;
+  font-weight:800;
+}
+
+.logo strong{
+  font-size:16px;
+}
+
+.logo span{
+  display:block;
+  font-size:11px;
+  color:var(--muted);
+}
+
+.nav-title{
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  color:#98a39f;
+  padding:12px 12px 7px;
+}
+
+.nav button{
+  width:100%;
+  border:0;
+  background:transparent;
+  color:#53605b;
+  text-align:left;
+  padding:11px 12px;
+  border-radius:10px;
+  margin:2px 0;
+  transition:.2s;
+}
+
+.nav button:hover,
+.nav button.active{
+  background:#eaf7f3;
+  color:var(--accent2);
+}
+
+.main{
+  margin-left:250px;
+  width:calc(100% - 250px);
+}
+
+/* TOPBAR */
+
+.topbar{
+  height:68px;
+  background:rgba(255,255,255,.9);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 28px;
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+
+.search{
+  width:min(460px,50vw);
+  position:relative;
+}
+
+.search input{
+  width:100%;
+  border:1px solid var(--border);
+  border-radius:11px;
+  padding:11px 15px 11px 38px;
+  outline:none;
+  background:#fafcfb;
+}
+
+.search-icon{
+  position:absolute;
+  left:13px;
+  top:10px;
+  color:#8a9691;
+}
+
+.top-actions{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.icon-btn{
+  border:1px solid var(--border);
+  background:white;
+  border-radius:10px;
+  width:38px;
+  height:38px;
+}
+
+/* CONTENT */
+
+.content{
+  padding:34px;
+  max-width:1500px;
+  margin:auto;
+}
+
+.hero{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:24px;
+  padding:45px;
+  box-shadow:var(--shadow);
+  margin-bottom:28px;
+}
+
+.eyebrow{
+  color:var(--accent2);
+  font-weight:700;
+  font-size:13px;
+  margin-bottom:12px;
+}
+
+.hero h1{
+  font-size:clamp(32px,5vw,58px);
+  line-height:1;
+  margin:0 0 16px;
+  letter-spacing:-2px;
+}
+
+.hero p{
+  max-width:700px;
+  color:var(--muted);
+  font-size:17px;
+  line-height:1.6;
+}
+
+.hero-search{
+  margin-top:28px;
+  max-width:700px;
+  display:flex;
+  gap:10px;
+}
+
+.hero-search input{
+  flex:1;
+  padding:15px 17px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  outline:none;
+}
+
+.primary{
+  background:var(--accent);
+  color:white;
+  border:0;
+  border-radius:11px;
+  padding:13px 19px;
+  font-weight:700;
+}
+
+.primary:hover{
+  background:var(--accent2);
+}
+
+.section-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin:28px 0 15px;
+}
+
+.section-title h2{
+  margin:0;
+  font-size:21px;
+}
+
+.muted{
+  color:var(--muted);
+}
+
+/* CATEGORY GRID */
+
+.category-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:15px;
+}
+
+.category{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:20px;
+  transition:.2s;
+}
+
+.category:hover{
+  transform:translateY(-3px);
+  box-shadow:var(--shadow);
+  border-color:#b9d9d0;
+}
+
+.category-icon{
+  font-size:25px;
+  margin-bottom:13px;
+}
+
+.category h3{
+  margin:0 0 5px;
+}
+
+.role-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:15px;
+}
+
+.role{
+  background:var(--surface2);
+  border:0;
+  padding:7px 10px;
+  border-radius:8px;
+  color:#4b5954;
+  font-size:12px;
+}
+
+.role:hover{
+  background:#dff3ec;
+  color:var(--accent2);
+}
+
+/* DASHBOARD */
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
+
+.stat{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:15px;
+  padding:20px;
+}
+
+.stat-number{
+  font-size:28px;
+  font-weight:800;
+}
+
+.progress{
+  height:7px;
+  background:#e7eeeb;
+  border-radius:10px;
+  overflow:hidden;
+}
+
+.progress-bar{
+  height:100%;
+  background:var(--accent);
+  border-radius:10px;
+}
+
+/* ROADMAP */
+
+.roadmap-header{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  align-items:center;
+  margin-bottom:18px;
+}
+
+.roadmap-controls{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.roadmap-controls button,
+.filter{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:9px;
+  padding:8px 12px;
+}
+
+.map-wrap{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:18px;
+  min-height:620px;
+  overflow:auto;
+  position:relative;
+  box-shadow:var(--shadow);
+}
+
+.map{
+  min-width:1100px;
+  min-height:620px;
+  padding:50px;
+  position:relative;
+}
+
+.node{
+  position:absolute;
+  min-width:145px;
+  background:white;
+  border:2px solid #cbd9d5;
+  border-radius:13px;
+  padding:12px;
+  text-align:center;
+  box-shadow:0 6px 15px rgba(20,40,35,.06);
+  cursor:pointer;
+  transition:.2s;
+  z-index:2;
+}
+
+.node:hover{
+  transform:scale(1.04);
+  border-color:var(--accent);
+}
+
+.node.completed{
+  background:#e8f7f1;
+  border-color:var(--accent);
+}
+
+.node.learning{
+  border-color:#d49c38;
+}
+
+.node small{
+  display:block;
+  color:var(--muted);
+  font-size:10px;
+  margin-top:4px;
+}
+
+.line{
+  position:absolute;
+  height:2px;
+  background:#ccd8d4;
+  transform-origin:left center;
+  z-index:1;
+}
+
+/* DETAILS */
+
+.drawer{
+  position:fixed;
+  right:-440px;
+  top:0;
+  bottom:0;
+  width:420px;
+  background:white;
+  z-index:40;
+  box-shadow:-15px 0 40px rgba(0,0,0,.12);
+  transition:.3s;
+  overflow:auto;
+  padding:28px;
+}
+
+.drawer.open{
+  right:0;
+}
+
+.close{
+  float:right;
+  border:0;
+  background:#f0f4f2;
+  width:35px;
+  height:35px;
+  border-radius:9px;
+}
+
+.badge{
+  display:inline-block;
+  background:#e5f5ef;
+  color:var(--accent2);
+  padding:5px 9px;
+  border-radius:20px;
+  font-size:11px;
+  font-weight:700;
+}
+
+.detail h2{
+  margin-top:22px;
+}
+
+.detail-section{
+  border-top:1px solid var(--border);
+  padding:17px 0;
+}
+
+.detail-list{
+  padding-left:18px;
+  color:#58635f;
+  line-height:1.9;
+}
+
+/* CAREER VIEW */
+
+.career-header{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:27px;
+  margin-bottom:18px;
+}
+
+.career-header h1{
+  margin:7px 0;
+  font-size:34px;
+}
+
+.pill{
+  display:inline-block;
+  padding:6px 10px;
+  background:#f0f4f2;
+  border-radius:20px;
+  font-size:12px;
+  margin:3px;
+}
+
+.skill-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:12px;
+}
+
+.skill-card{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:17px;
+  cursor:pointer;
+}
+
+.skill-card:hover{
+  border-color:var(--accent);
+}
+
+.stars{
+  color:#e29a2d;
+  letter-spacing:1px;
+}
+
+/* COMPARE */
+
+.compare-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+
+.compare-box{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:15px;
+  padding:18px;
+}
+
+.compare-row{
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr;
+  padding:13px;
+  border-bottom:1px solid var(--border);
+}
+
+/* AI */
+
+.copilot{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  z-index:30;
+}
+
+.ai-button{
+  border:0;
+  background:var(--text);
+  color:white;
+  border-radius:50px;
+  padding:14px 20px;
+  box-shadow:0 10px 25px rgba(0,0,0,.2);
+  font-weight:700;
+}
+
+.ai-panel{
+  position:fixed;
+  right:-420px;
+  bottom:0;
+  width:400px;
+  height:620px;
+  background:white;
+  border:1px solid var(--border);
+  box-shadow:-10px 0 35px rgba(0,0,0,.15);
+  z-index:35;
+  transition:.3s;
+  display:flex;
+  flex-direction:column;
+}
+
+.ai-panel.open{
+  right:0;
+}
+
+.ai-head{
+  padding:17px;
+  border-bottom:1px solid var(--border);
+  display:flex;
+  justify-content:space-between;
+}
+
+.ai-messages{
+  flex:1;
+  overflow:auto;
+  padding:16px;
+}
+
+.message{
+  padding:11px 13px;
+  border-radius:12px;
+  margin-bottom:10px;
+  max-width:90%;
+  line-height:1.5;
+  font-size:13px;
+}
+
+.ai{
+  background:#eef5f2;
+}
+
+.user{
+  background:#dff4ec;
+  margin-left:auto;
+}
+
+.ai-input{
+  display:flex;
+  padding:12px;
+  border-top:1px solid var(--border);
+  gap:8px;
+}
+
+.ai-input input{
+  flex:1;
+  border:1px solid var(--border);
+  padding:10px;
+  border-radius:9px;
+}
+
+.ai-input button{
+  border:0;
+  background:var(--accent);
+  color:white;
+  padding:10px 14px;
+  border-radius:9px;
+}
+
+/* PAGES */
+
+.page{
+  display:none;
+}
+
+.page.active{
+  display:block;
+}
+
+/* TABLET / MOBILE */
+
+.mobile-nav{
+  display:none;
+}
+
+@media(max-width:900px){
+  .sidebar{
+    transform:translateX(-100%);
+  }
+
+  .main{
+    margin-left:0;
+    width:100%;
+  }
+
+  .stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .content{
+    padding:20px;
+  }
+
+  .hero{
+    padding:28px;
+  }
+
+  .mobile-nav{
+    display:flex;
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    background:white;
+    border-top:1px solid var(--border);
+    z-index:50;
+    justify-content:space-around;
+    padding:8px;
+  }
+
+  .mobile-nav button{
+    border:0;
+    background:none;
+    font-size:11px;
+    color:var(--muted);
+  }
+
+  .drawer{
+    width:100%;
+    right:-100%;
+  }
+
+  .ai-panel{
+    width:100%;
+    right:-100%;
+  }
+}
+
+@media(max-width:600px){
+  .topbar{
+    padding:0 15px;
+  }
+
+  .search{
+    width:55%;
+  }
+
+  .hero-search{
+    flex-direction:column;
+  }
+
+  .stats{
+    grid-template-columns:1fr;
+  }
+
+  .compare-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero h1{
+    letter-spacing:-1px;
+  }
+}
+</style>
 </head>
+
 <body>
 
-    <nav>
-        <div class="logo">NAGARAJ<span>.</span></div>
-    </nav>
+<div class="app">
 
-    <section class="hero">
-        <div data-aos="zoom-in">
-            <p style="letter-spacing: 10px; color: var(--primary);">AI POWERED FITNESS</p>
-            <h1>FORCE OF <br> <span class="outline">NATURE</span></h1>
-        </div>
-    </section>
+<!-- SIDEBAR -->
+<aside class="sidebar">
 
-    <div class="stats-bar">
-        <span>Precision Diets</span>
-        <span>AI Analytics</span>
-        <span>Elite Results</span>
+  <div class="logo">
+    <div class="logo-icon">A</div>
+    <div>
+      <strong>IT Career Atlas</strong>
+      <span>Career intelligence</span>
+    </div>
+  </div>
+
+  <div class="nav-title">Explore</div>
+
+  <nav class="nav">
+    <button class="active" onclick="showPage('explorer',this)">◈ Career Explorer</button>
+    <button onclick="showPage('map',this)">⌘ Career Map</button>
+    <button onclick="showPage('skills',this)">◇ Skills</button>
+    <button onclick="showPage('compare',this)">⇄ Compare</button>
+  </nav>
+
+  <div class="nav-title">My journey</div>
+
+  <nav class="nav">
+    <button onclick="showPage('roadmap',this)">◎ My Roadmap</button>
+    <button onclick="showPage('readiness',this)">◉ Job Readiness</button>
+    <button onclick="showPage('projects',this)">▣ Projects</button>
+    <button onclick="showPage('interview',this)">▤ Interview Prep</button>
+  </nav>
+
+  <div class="nav-title">Tools</div>
+
+  <nav class="nav">
+    <button onclick="toggleAI()">✦ AI Career Copilot</button>
+    <button onclick="focusSearch()">⌕ Search</button>
+    <button onclick="showPage('settings',this)">⚙ Settings</button>
+  </nav>
+
+</aside>
+
+<main class="main">
+
+<!-- TOP BAR -->
+<header class="topbar">
+
+  <div class="search">
+    <span class="search-icon">⌕</span>
+    <input id="globalSearch"
+           placeholder="Search careers, skills, topics..."
+           oninput="globalSearch(this.value)">
+  </div>
+
+  <div class="top-actions">
+    <button class="icon-btn" onclick="toggleTheme()">☼</button>
+    <button class="icon-btn" onclick="toggleAI()">✦</button>
+  </div>
+
+</header>
+
+<div class="content">
+
+<!-- EXPLORER -->
+<section id="explorer" class="page active">
+
+  <div class="hero">
+
+    <div class="eyebrow">YOUR MAP INTO TECH</div>
+
+    <h1>Find your path into tech.</h1>
+
+    <p>
+      Choose the IT role you want. Discover the skills, topics,
+      projects and interview preparation required to become job-ready.
+    </p>
+
+    <div class="hero-search">
+      <input id="roleSearch"
+             placeholder="What role do you want?"
+             oninput="searchRoles(this.value)">
+      <button class="primary" onclick="selectCareerFromSearch()">Explore path</button>
     </div>
 
-    <section id="plans" class="section">
-        <h2 style="font-family: 'Syncopate'; text-align: center;">CHOOSE YOUR <span style="color: var(--primary);">TRANSFORMATION</span></h2>
-        <div class="pricing-grid">
-            
-            <!-- Plan 1 -->
-            <div class="package" data-aos="fade-up">
-                <h3>90 DAY SHRED</h3>
-                <div class="price">₹4,999</div>
-                <p style="color: #666; margin-bottom: 30px;">Complete Body Recomposition</p>
-                <!-- Triggering Payment Logic -->
-                <button onclick="handlePayment('4999')" class="btn-pay">Pay & Join Group</button>
-            </div>
+    <div id="searchResults" class="role-list"></div>
 
-            <!-- Plan 2 -->
-            <div class="package" style="border-color: var(--primary);" data-aos="fade-up" data-aos-delay="200">
-                <h3>ELITE 1-ON-1</h3>
-                <div class="price">₹9,999</div>
-                <p style="color: #666; margin-bottom: 30px;">Direct Mentorship with Nagaraj</p>
-                <button onclick="handlePayment('9999')" class="btn-pay">Pay & Join Group</button>
-            </div>
+  </div>
 
-        </div>
-    </section>
+  <div class="section-title">
+    <h2>Explore career paths</h2>
+    <span class="muted">Choose a destination</span>
+  </div>
 
-    <!-- SUCCESS MODAL (This opens after payment click) -->
-    <div id="paymentModal" class="modal-overlay">
-        <div class="modal-content">
-            <i class="fas fa-check-circle" style="font-size: 4rem; color: #25d366; margin-bottom: 20px;"></i>
-            <h2 style="font-family: 'Syncopate';">PAYMENT INITIATED</h2>
-            <p style="margin-top: 15px; color: #ccc;">1. Complete the payment in your UPI App.<br>2. Once successful, click the button below to join the Private WhatsApp Group.</p>
-            <a href="https://chat.whatsapp.com/EyQT4bh58A0JpDSAqBlJcl?mode=gi_t" class="btn-whatsapp">
-                <i class="fab fa-whatsapp"></i> JOIN WHATSAPP GROUP
-            </a>
-            <p onclick="closeModal()" style="margin-top: 20px; font-size: 12px; cursor: pointer; color: #555;">Close Window</p>
-        </div>
+  <div id="categories" class="category-grid"></div>
+
+</section>
+
+
+<!-- CAREER MAP -->
+<section id="map" class="page">
+
+  <div class="roadmap-header">
+
+    <div>
+      <div class="eyebrow">INTERACTIVE CAREER MAP</div>
+      <h1 id="mapTitle">Backend Engineer</h1>
+      <span class="muted">Career → Skills → Topics → Practice → Job</span>
     </div>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 1000 });
+    <div class="roadmap-controls">
+      <select class="filter" onchange="setDifficulty(this.value)">
+        <option value="all">All levels</option>
+        <option value="beginner">Beginner</option>
+        <option value="intermediate">Intermediate</option>
+        <option value="advanced">Advanced</option>
+      </select>
+      <button onclick="resetProgress()">Reset progress</button>
+    </div>
 
-        // Payment Handling Logic
-        function handlePayment(amount) {
-            // 1. Open the UPI App (Mobile Only)
-            const upiUrl = `upi://pay?pa=9080985296@ybl&pn=Nagaraj&am=${amount}&cu=INR`;
-            window.location.href = upiUrl;
+  </div>
 
-            // 2. Wait 3 seconds then show the WhatsApp Group Modal
-            setTimeout(() => {
-                document.getElementById('paymentModal').style.display = 'flex';
-            }, 3000);
-        }
+  <div class="map-wrap">
+    <div id="mapCanvas" class="map"></div>
+  </div>
 
-        function closeModal() {
-            document.getElementById('paymentModal').style.display = 'none';
-        }
-    </script>
+</section>
+
+
+<!-- SKILLS -->
+<section id="skills" class="page">
+
+  <div class="section-title">
+    <div>
+      <div class="eyebrow">KNOWLEDGE BASE</div>
+      <h1>Skills</h1>
+    </div>
+  </div>
+
+  <div id="skillsGrid" class="skill-grid"></div>
+
+</section>
+
+
+<!-- CAREER DETAIL -->
+<section id="career" class="page">
+
+  <div id="careerContent"></div>
+
+</section>
+
+
+<!-- COMPARE -->
+<section id="compare" class="page">
+
+  <div class="career-header">
+    <div class="eyebrow">CAREER INTELLIGENCE</div>
+    <h1>Compare careers</h1>
+    <p class="muted">
+      Discover common skills and career-specific knowledge.
+    </p>
+
+    <div class="compare-grid">
+
+      <div class="compare-box">
+        <strong>Career A</strong>
+        <select id="compareA" class="filter" style="width:100%;margin-top:10px"></select>
+      </div>
+
+      <div class="compare-box">
+        <strong>Career B</strong>
+        <select id="compareB" class="filter" style="width:100%;margin-top:10px"></select>
+      </div>
+
+      <div class="compare-box">
+        <strong>Career C</strong>
+        <select id="compareC" class="filter" style="width:100%;margin-top:10px">
+          <option value="">None</option>
+        </select>
+      </div>
+
+    </div>
+
+    <button class="primary" style="margin-top:15px" onclick="compareCareers()">
+      Compare
+    </button>
+  </div>
+
+  <div id="comparison"></div>
+
+</section>
+
+
+<!-- MY ROADMAP -->
+<section id="roadmap" class="page">
+
+  <div class="career-header">
+    <div class="eyebrow">MY ROADMAP</div>
+    <h1>Your learning journey</h1>
+    <p class="muted">
+      Progress is saved automatically in your browser.
+    </p>
+  </div>
+
+  <div class="stats" id="roadmapStats"></div>
+
+  <div class="section-title">
+    <h2>Build my path</h2>
+  </div>
+
+  <div class="career-header">
+
+    <div class="skill-grid">
+
+      <div>
+        <label>Current experience</label>
+        <select id="experience" class="filter" style="width:100%;margin-top:7px">
+          <option>Beginner</option>
+          <option>Some programming</option>
+          <option>Intermediate</option>
+          <option>Experienced</option>
+        </select>
+      </div>
+
+      <div>
+        <label>Target role</label>
+        <select id="pathCareer" class="filter" style="width:100%;margin-top:7px"></select>
+      </div>
+
+      <div>
+        <label>Available time</label>
+        <select id="hours" class="filter" style="width:100%;margin-top:7px">
+          <option>5 hours/week</option>
+          <option>10 hours/week</option>
+          <option>20 hours/week</option>
+          <option>30+ hours/week</option>
+        </select>
+      </div>
+
+      <div>
+        <label>Goal</label>
+        <select id="goal" class="filter" style="width:100%;margin-top:7px">
+          <option>Internship</option>
+          <option>First job</option>
+          <option>Career switch</option>
+          <option>Promotion</option>
+          <option>Advanced specialization</option>
+        </select>
+      </div>
+
+    </div>
+
+    <button class="primary" style="margin-top:20px" onclick="generatePath()">
+      Build My Path
+    </button>
+
+  </div>
+
+  <div id="generatedPath"></div>
+
+</section>
+
+
+<!-- READINESS -->
+<section id="readiness" class="page">
+
+  <div class="career-header">
+
+    <div class="eyebrow">JOB READINESS ENGINE</div>
+
+    <h1>
+      <span id="readinessCareer">Backend Engineer</span>
+    </h1>
+
+    <div style="font-size:46px;font-weight:800;color:var(--accent)" id="readinessPercent">
+      0%
+    </div>
+
+    <p class="muted">
+      Your readiness is calculated from learning progress,
+      projects and interview preparation.
+    </p>
+
+  </div>
+
+  <div id="readinessList"></div>
+
+  <div class="career-header">
+    <h2>Your biggest gaps</h2>
+    <ol id="gaps"></ol>
+
+    <h2>Recommended next actions</h2>
+    <ol id="actions"></ol>
+  </div>
+
+</section>
+
+
+<!-- PROJECTS -->
+<section id="projects" class="page">
+
+  <div class="career-header">
+    <div class="eyebrow">BUILD EXPERIENCE</div>
+    <h1>Projects</h1>
+    <p class="muted">
+      Projects turn knowledge into evidence that you can build.
+    </p>
+  </div>
+
+  <div id="projectGrid" class="skill-grid"></div>
+
+</section>
+
+
+<!-- INTERVIEW -->
+<section id="interview" class="page">
+
+  <div class="career-header">
+    <div class="eyebrow">FINAL CHECKPOINT</div>
+    <h1>Interview preparation</h1>
+    <p class="muted">
+      Prepare for the subjects companies commonly evaluate.
+    </p>
+  </div>
+
+  <div id="interviewGrid" class="skill-grid"></div>
+
+</section>
+
+
+<!-- SETTINGS -->
+<section id="settings" class="page">
+
+  <div class="career-header">
+    <div class="eyebrow">PREFERENCES</div>
+    <h1>Settings</h1>
+
+    <p class="muted">
+      IT Career Atlas MVP stores learning progress locally.
+    </p>
+
+    <button class="primary" onclick="resetProgress()">
+      Clear all progress
+    </button>
+  </div>
+
+</section>
+
+</div>
+</main>
+
+</div>
+
+
+<!-- DETAIL DRAWER -->
+
+<aside id="drawer" class="drawer">
+
+  <button class="close" onclick="closeDrawer()">×</button>
+
+  <div id="detailContent"></div>
+
+</aside>
+
+
+<!-- AI COPILOT -->
+
+<div class="copilot">
+  <button class="ai-button" onclick="toggleAI()">
+    ✦ Career Copilot
+  </button>
+</div>
+
+<div id="aiPanel" class="ai-panel">
+
+  <div class="ai-head">
+    <strong>✦ Career Copilot</strong>
+    <button class="close" onclick="toggleAI()">×</button>
+  </div>
+
+  <div id="aiMessages" class="ai-messages">
+
+    <div class="message ai">
+      Hi! I'm your Career Copilot.<br><br>
+      Ask me about careers, skills, roadmaps or what you should learn next.
+    </div>
+
+  </div>
+
+  <div class="ai-input">
+    <input id="aiInput"
+           placeholder="Ask about your career..."
+           onkeydown="if(event.key==='Enter')askAI()">
+    <button onclick="askAI()">Send</button>
+  </div>
+
+</div>
+
+
+<!-- MOBILE NAV -->
+
+<div class="mobile-nav">
+  <button onclick="showPage('explorer')">⌂<br>Explore</button>
+  <button onclick="showPage('map')">⌘<br>Map</button>
+  <button onclick="showPage('roadmap')">◎<br>Roadmap</button>
+  <button onclick="showPage('compare')">⇄<br>Compare</button>
+  <button onclick="toggleAI()">✦<br>AI</button>
+</div>
+
+
+<script>
+
+/* =========================================================
+   CAREER DATABASE
+========================================================= */
+
+const careers = {
+
+"Backend Engineer":{
+ category:"Software Development",
+ description:"Builds APIs, services, databases and reliable systems behind applications.",
+ skills:["Python","DSA","SQL","Networking","REST APIs","Databases","Redis","Docker","Cloud","System Design"],
+ projects:["REST API","URL Shortener","E-commerce Backend","Chat Application","Distributed SaaS"],
+ interviews:["DSA","SQL","DBMS","Networking","Operating Systems","Backend","System Design"]
+},
+
+"Frontend Engineer":{
+ category:"Software Development",
+ description:"Builds responsive, accessible and interactive web applications.",
+ skills:["HTML","CSS","JavaScript","TypeScript","React","Git","APIs","Testing","Web Security"],
+ projects:["Portfolio","Dashboard","E-commerce UI","Real-time App"],
+ interviews:["JavaScript","React","CSS","Web Performance","Frontend System Design"]
+},
+
+"Full Stack Engineer":{
+ category:"Software Development",
+ description:"Works across frontend, backend, databases and deployment.",
+ skills:["HTML","CSS","JavaScript","React","Python","SQL","REST APIs","Docker","Cloud"],
+ projects:["Full Stack SaaS","E-commerce Platform","Social Application"],
+ interviews:["DSA","JavaScript","Backend","SQL","System Design"]
+},
+
+"Data Engineer":{
+ category:"Data",
+ description:"Designs and operates reliable systems that collect, transform and deliver data.",
+ skills:["Python","SQL","Databases","Data Modeling","ETL","Apache Spark","Kafka","Airflow","Cloud","Docker"],
+ projects:["ETL Pipeline","Streaming Pipeline","Data Warehouse","Lakehouse"],
+ interviews:["SQL","Python","Data Modeling","Spark","System Design"]
+},
+
+"Data Scientist":{
+ category:"Data",
+ description:"Uses statistics, programming and machine learning to solve data problems.",
+ skills:["Python","NumPy","Pandas","Statistics","Probability","SQL","Machine Learning","scikit-learn","Visualization"],
+ projects:["Customer Churn","Recommendation System","A/B Testing Analysis","Prediction Model"],
+ interviews:["Statistics","Python","SQL","Machine Learning","Case Studies"]
+},
+
+"Machine Learning Engineer":{
+ category:"AI / Machine Learning",
+ description:"Builds and deploys machine learning systems in production.",
+ skills:["Python","SQL","Statistics","Linear Algebra","Machine Learning","Deep Learning","PyTorch","APIs","Docker","Cloud","MLflow","MLOps"],
+ projects:["ML API","Recommendation Engine","Fraud Detection","Production ML Pipeline"],
+ interviews:["ML","Python","Statistics","System Design","MLOps"]
+},
+
+"Generative AI Engineer":{
+ category:"AI / Machine Learning",
+ description:"Builds production applications powered by LLMs, retrieval and AI agents.",
+ skills:["Python","APIs","LLM Fundamentals","Prompt Engineering","Embeddings","Vector Databases","RAG","Tool Calling","Agents","Evaluation","Guardrails","Docker","Cloud"],
+ projects:["AI Assistant","Document Intelligence","AI Search","Customer Support Agent","Research Agent"],
+ interviews:["LLMs","RAG","Embeddings","Agents","AI System Design"]
+},
+
+"DevOps Engineer":{
+ category:"Cloud / Infrastructure",
+ description:"Automates infrastructure, deployments, reliability and developer workflows.",
+ skills:["Linux","Shell","Git","Networking","CI/CD","Docker","Kubernetes","Terraform","Cloud","IAM","Monitoring","Prometheus","Grafana","Security"],
+ projects:["CI/CD Pipeline","Container Platform","Infrastructure Automation","Kubernetes Deployment"],
+ interviews:["Linux","Networking","Docker","Kubernetes","Cloud","System Design"]
+},
+
+"Cloud Engineer":{
+ category:"Cloud / Infrastructure",
+ description:"Designs, deploys and manages cloud infrastructure.",
+ skills:["Linux","Networking","AWS","Azure","GCP","IAM","Docker","Kubernetes","Terraform","Load Balancers","Monitoring"],
+ projects:["Cloud Web App","Serverless API","Infrastructure as Code"],
+ interviews:["Cloud","Networking","Security","Infrastructure"]
+},
+
+"Cybersecurity Engineer":{
+ category:"Cybersecurity",
+ description:"Protects applications, infrastructure and systems from security threats.",
+ skills:["Networking","Linux","TCP/IP","DNS","HTTP","TLS","Authentication","Encryption","Web Security","OWASP","Threat Modeling","Cloud Security"],
+ projects:["Security Scanner","Secure API","Threat Model","Vulnerability Lab"],
+ interviews:["Networking","Web Security","OWASP","Linux","Security Architecture"]
+},
+
+"QA Engineer":{
+ category:"Quality Engineering",
+ description:"Ensures software quality through testing, automation and defect prevention.",
+ skills:["Testing Fundamentals","Test Cases","API Testing","Selenium","Playwright","SQL","Git","CI/CD"],
+ projects:["Test Automation Framework","API Test Suite","E-commerce Testing"],
+ interviews:["Testing","Automation","SQL","API Testing"]
+},
+
+"Android Developer":{
+ category:"Mobile / Embedded",
+ description:"Builds Android applications using Kotlin and the Android platform.",
+ skills:["Kotlin","Android SDK","Jetpack Compose","Lifecycle","Navigation","Networking","Storage","Authentication"],
+ projects:["Weather App","Expense Tracker","Chat App","E-commerce App"],
+ interviews:["Kotlin","Android","OOP","Architecture"]
+},
+
+"Embedded Software Engineer":{
+ category:"Mobile / Embedded",
+ description:"Develops software that interacts directly with hardware and embedded systems.",
+ skills:["C","C++","Pointers","Memory","Data Structures","Microcontrollers","Embedded Linux","RTOS","UART","SPI","I2C","CAN"],
+ projects:["Sensor System","UART Driver","IoT Device","RTOS Application"],
+ interviews:["C","C++","Memory","Microcontrollers","RTOS"]
+}
+
+};
+
+
+/* =========================================================
+   SKILLS DATABASE
+========================================================= */
+
+const skills = {
+
+Python:{
+ importance:"★★★★★",
+ difficulty:"Beginner → Advanced",
+ prerequisites:["Programming Fundamentals"],
+ topics:{
+  "Fundamentals":["Variables","Data Types","Type Casting","Operators","Input / Output"],
+  "Control Flow":["if","elif","else","for","while","break","continue","pass"],
+  "Collections":["List","Tuple","Set","Dictionary","Comprehensions"],
+  "Functions":["Parameters","Return","*args","**kwargs","Lambda","Recursion"],
+  "OOP":["Class","Object","Constructor","Inheritance","Polymorphism","Encapsulation","Abstraction","Composition"],
+  "Errors":["try","except","else","finally","raise","Custom Exceptions"],
+  "Files":["Read","Write","Append","CSV","JSON"],
+  "Advanced":["Iterators","Generators","Decorators","Context Managers","Type Hints","Dataclasses","Async","Await"],
+  "Libraries":["os","sys","math","random","datetime","json","re","collections","itertools","pathlib","requests"]
+ }
+},
+
+DSA:{
+ importance:"★★★★★",
+ difficulty:"Beginner → Advanced",
+ prerequisites:["Programming"],
+ topics:{
+  "Complexity":["Big O","Time Complexity","Space Complexity"],
+  "Arrays":["Traversal","Searching","Prefix Sum","Two Pointers","Sliding Window"],
+  "Strings":["Palindrome","Anagrams","Frequency Counting","Pattern Matching"],
+  "Hashing":["Hash Map","Hash Set","Frequency Maps","Duplicate Detection"],
+  "Linked Lists":["Singly Linked List","Doubly Linked List","Insert","Delete","Reverse","Fast / Slow Pointer","Cycle Detection"],
+  "Stack":["Push","Pop","Peek","Monotonic Stack"],
+  "Queue":["Queue","Deque","Circular Queue","Priority Queue"],
+  "Sorting":["Bubble Sort","Selection Sort","Insertion Sort","Merge Sort","Quick Sort","Heap Sort","Counting Sort"],
+  "Searching":["Linear Search","Binary Search","Binary Search Variations"],
+  "Trees":["Binary Tree","BST","Traversals","Preorder","Inorder","Postorder","Level Order","Height","Lowest Common Ancestor"],
+  "Heap":["Min Heap","Max Heap","Top K"],
+  "Graphs":["BFS","DFS","Connected Components","Cycle Detection","Topological Sort","Dijkstra","Minimum Spanning Tree"],
+  "Recursion":["Base Case","Recursive Case","Backtracking"],
+  "Greedy":["Intervals","Scheduling","Activity Selection"],
+  "Dynamic Programming":["1D DP","2D DP","Knapsack","Subsequence","Grid Problems"]
+ }
+},
+
+SQL:{
+ importance:"★★★★★",
+ difficulty:"Beginner → Advanced",
+ prerequisites:["Basic Programming"],
+ topics:{
+  "Fundamentals":["SELECT","WHERE","ORDER BY","GROUP BY"],
+  "Joins":["INNER JOIN","LEFT JOIN","RIGHT JOIN","FULL JOIN"],
+  "Aggregation":["COUNT","SUM","AVG","MIN","MAX"],
+  "Advanced":["CTE","Subqueries","Window Functions"],
+  "Database Design":["Primary Keys","Foreign Keys","Normalization","Indexes"],
+  "Transactions":["ACID","COMMIT","ROLLBACK","Isolation"],
+  "Performance":["Query Plans","Index Optimization"]
+ }
+},
+
+React:{
+ importance:"★★★★★",
+ difficulty:"Intermediate",
+ prerequisites:["JavaScript","HTML","CSS"],
+ topics:{
+  "Core":["Components","Props","State","Hooks"],
+  "Routing":["React Router","Nested Routes"],
+  "Forms":["Controlled Inputs","Validation"],
+  "Data":["Fetch","API Integration","Loading States","Error States"],
+  "Architecture":["Context","State Management","Component Design"],
+  "Advanced":["Performance","Testing","Accessibility","Security"]
+ }
+},
+
+"Machine Learning":{
+ importance:"★★★★★",
+ difficulty:"Intermediate → Advanced",
+ prerequisites:["Python","Statistics"],
+ topics:{
+  "Foundations":["Supervised Learning","Unsupervised Learning"],
+  "Regression":["Linear Regression","Polynomial Regression"],
+  "Classification":["Logistic Regression","Decision Trees","Random Forest"],
+  "Clustering":["K-Means","Hierarchical Clustering"],
+  "Evaluation":["Accuracy","Precision","Recall","F1","ROC-AUC"],
+  "Feature Engineering":["Scaling","Encoding","Selection"],
+  "Production":["Model Serving","Monitoring","Drift"]
+ }
+},
+
+Docker:{
+ importance:"★★★★☆",
+ difficulty:"Intermediate",
+ prerequisites:["Linux"],
+ topics:{
+  "Basics":["Images","Containers","Dockerfile"],
+  "Networking":["Container Networking","Ports"],
+  "Storage":["Volumes","Bind Mounts"],
+  "Compose":["Docker Compose","Multi-container Apps"],
+  "Production":["Registries","Security","Optimization"]
+ }
+},
+
+"REST APIs":{
+ importance:"★★★★★",
+ difficulty:"Intermediate",
+ prerequisites:["HTTP","Programming"],
+ topics:{
+  "HTTP":["Methods","Status Codes","Headers"],
+  "Design":["Resources","Endpoints","Versioning"],
+  "Security":["Authentication","Authorization","JWT"],
+  "Implementation":["Validation","Error Handling","Pagination"],
+  "Testing":["API Testing","Integration Testing"]
+ }
+},
+
+"Networking":{
+ importance:"★★★★☆",
+ difficulty:"Intermediate",
+ prerequisites:["Computer Fundamentals"],
+ topics:{
+  "Internet":["TCP/IP","IP Addresses","Ports"],
+  "Protocols":["HTTP","HTTPS","DNS","TLS"],
+  "Infrastructure":["Load Balancers","Proxies","Firewalls"],
+  "Advanced":["Sockets","Latency","CDN"]
+ }
+},
+
+"Linux":{
+ importance:"★★★★☆",
+ difficulty:"Beginner → Advanced",
+ prerequisites:["Computer Fundamentals"],
+ topics:{
+  "Shell":["Commands","Pipes","Redirection","Shell Scripts"],
+  "Filesystem":["Files","Permissions","Processes"],
+  "Networking":["SSH","Ports","curl"],
+  "Administration":["Users","Services","Logs","Package Management"]
+ }
+},
+
+"Cloud":{
+ importance:"★★★★☆",
+ difficulty:"Intermediate → Advanced",
+ prerequisites:["Networking","Linux"],
+ topics:{
+  "Fundamentals":["Regions","Availability Zones","Compute","Storage"],
+  "AWS":["EC2","S3","RDS","Lambda"],
+  "Security":["IAM","Security Groups","Secrets"],
+  "Architecture":["Load Balancers","Auto Scaling","High Availability"]
+ }
+},
+
+"LLM Fundamentals":{
+ importance:"★★★★★",
+ difficulty:"Intermediate",
+ prerequisites:["Python","APIs"],
+ topics:{
+  "Models":["Tokens","Context Windows","Parameters"],
+  "Prompting":["Prompt Engineering","Few-shot","Structured Outputs"],
+  "Inference":["Temperature","Latency","Cost"],
+  "Production":["Evaluation","Guardrails","Observability"]
+ }
+},
+
+RAG:{
+ importance:"★★★★★",
+ difficulty:"Advanced",
+ prerequisites:["LLM Fundamentals","Embeddings"],
+ topics:{
+  "Pipeline":["Documents","Chunking","Embedding","Retrieval"],
+  "Search":["Semantic Search","Hybrid Search","Reranking"],
+  "Quality":["Evaluation","Grounding","Hallucination Reduction"]
+ }
+},
+
+"Kubernetes":{
+ importance:"★★★★★",
+ difficulty:"Advanced",
+ prerequisites:["Docker","Linux","Networking"],
+ topics:{
+  "Basics":["Pods","Deployments","Services"],
+  "Configuration":["ConfigMaps","Secrets"],
+  "Networking":["Ingress","Service Discovery"],
+  "Scaling":["Horizontal Pod Autoscaling"],
+  "Operations":["Monitoring","Rolling Updates","Troubleshooting"]
+ }
+}
+
+};
+
+
+/* =========================================================
+   CATEGORIES
+========================================================= */
+
+const categories = {
+
+"Software Development":{
+ icon:"⌘",
+ roles:["Frontend Engineer","Backend Engineer","Full Stack Engineer","Software Engineer","Mobile Developer","Web Developer"]
+},
+
+"Data":{
+ icon:"▦",
+ roles:["Data Analyst","Analytics Engineer","Data Engineer","Data Scientist","BI Engineer"]
+},
+
+"AI / Machine Learning":{
+ icon:"✦",
+ roles:["Machine Learning Engineer","AI Engineer","Generative AI Engineer","LLM Engineer","MLOps Engineer","NLP Engineer","Computer Vision Engineer"]
+},
+
+"Cloud / Infrastructure":{
+ icon:"☁",
+ roles:["DevOps Engineer","Cloud Engineer","Site Reliability Engineer","Platform Engineer","Infrastructure Engineer"]
+},
+
+"Cybersecurity":{
+ icon:"◉",
+ roles:["Cybersecurity Engineer","Application Security Engineer","Cloud Security Engineer","Security Engineer","SOC Analyst"]
+},
+
+"Quality Engineering":{
+ icon:"✓",
+ roles:["QA Engineer","Automation Engineer","SDET","Performance Engineer"]
+},
+
+"Mobile / Embedded":{
+ icon:"▣",
+ roles:["Android Developer","iOS Developer","Flutter Developer","Embedded Software Engineer","Firmware Engineer","IoT Engineer"]
+},
+
+"Systems / Specialized":{
+ icon:"◌",
+ roles:["Systems Engineer","Low-Level Software Engineer","Game Developer","Blockchain/Web3 Engineer","Robotics Software Engineer"]
+}
+
+};
+
+
+/* =========================================================
+   ROADMAP DATA
+========================================================= */
+
+const roadmapData = {
+
+"Backend Engineer":[
+ ["Backend Engineer","root",50,40],
+ ["Programming","skill",260,90],
+ ["SQL","skill",480,90],
+ ["Networking","skill",700,90],
+ ["Databases","skill",900,90],
+
+ ["Python","topic",180,210],
+ ["DSA","topic",350,210],
+ ["PostgreSQL","topic",500,210],
+ ["HTTP / REST","topic",680,210],
+ ["Redis","topic",850,210],
+
+ ["Authentication","topic",350,330],
+ ["Docker","topic",520,330],
+ ["Testing","topic",690,330],
+ ["Cloud","topic",860,330],
+
+ ["System Design","topic",560,450],
+ ["Production Project","project",560,550]
+],
+
+"Frontend Engineer":[
+ ["Frontend Engineer","root",50,250],
+ ["HTML","skill",250,70],
+ ["CSS","skill",470,70],
+ ["JavaScript","skill",690,70],
+ ["TypeScript","skill",910,70],
+ ["React","skill",580,230],
+ ["APIs","topic",380,350],
+ ["Testing","topic",580,350],
+ ["Accessibility","topic",780,350],
+ ["Performance","topic",580,470],
+ ["Production Project","project",580,560]
+],
+
+"Data Engineer":[
+ ["Data Engineer","root",50,250],
+ ["Python","skill",270,70],
+ ["SQL","skill",490,70],
+ ["Databases","skill",710,70],
+ ["ETL / ELT","skill",930,70],
+ ["Spark","topic",300,250],
+ ["Kafka","topic",500,250],
+ ["Airflow","topic",700,250],
+ ["Data Warehouses","topic",900,250],
+ ["Cloud","skill",600,400],
+ ["Production Pipeline","project",600,540]
+],
+
+"Data Scientist":[
+ ["Data Scientist","root",50,250],
+ ["Python","skill",270,70],
+ ["Statistics","skill",490,70],
+ ["SQL","skill",710,70],
+ ["Machine Learning","skill",930,70],
+ ["NumPy / Pandas","topic",300,250],
+ ["Visualization","topic",500,250],
+ ["Feature Engineering","topic",700,250],
+ ["Model Evaluation","topic",900,250],
+ ["ML Project","project",600,500]
+],
+
+"Machine Learning Engineer":[
+ ["ML Engineer","root",50,250],
+ ["Python","skill",250,70],
+ ["Statistics","skill",470,70],
+ ["Machine Learning","skill",690,70],
+ ["Deep Learning","skill",910,70],
+ ["PyTorch","topic",300,250],
+ ["Model Serving","topic",500,250],
+ ["Docker","skill",700,250],
+ ["MLOps","skill",900,250],
+ ["ML System Design","topic",600,410],
+ ["Production ML Project","project",600,530]
+],
+
+"Generative AI Engineer":[
+ ["GenAI Engineer","root",50,250],
+ ["Python","skill",250,70],
+ ["LLM Fundamentals","skill",470,70],
+ ["Embeddings","skill",690,70],
+ ["Vector Databases","skill",910,70],
+ ["RAG","topic",350,250],
+ ["Tool Calling","topic",550,250],
+ ["Agents","topic",750,250],
+ ["Evaluation","topic",950,250],
+ ["AI Application","project",600,430],
+ ["Production AI","project",600,550]
+],
+
+"DevOps Engineer":[
+ ["DevOps Engineer","root",50,250],
+ ["Linux","skill",250,70],
+ ["Networking","skill",470,70],
+ ["Git","skill",690,70],
+ ["CI/CD","skill",910,70],
+ ["Docker","topic",300,250],
+ ["Kubernetes","topic",500,250],
+ ["Terraform","topic",700,250],
+ ["Cloud","skill",900,250],
+ ["Monitoring","topic",500,400],
+ ["Production Infrastructure","project",700,530]
+],
+
+"Cybersecurity Engineer":[
+ ["Cybersecurity Engineer","root",50,250],
+ ["Networking","skill",270,70],
+ ["Linux","skill",490,70],
+ ["Security Fundamentals","skill",710,70],
+ ["Web Security","skill",930,70],
+ ["OWASP","topic",350,250],
+ ["Threat Modeling","topic",550,250],
+ ["Cloud Security","topic",750,250],
+ ["Incident Response","topic",950,250],
+ ["Security Project","project",650,480]
+],
+
+"Android Developer":[
+ ["Android Developer","root",50,250],
+ ["Kotlin","skill",270,70],
+ ["Android SDK","skill",490,70],
+ ["Jetpack Compose","skill",710,70],
+ ["Networking","skill",930,70],
+ ["Lifecycle","topic",350,250],
+ ["Navigation","topic",550,250],
+ ["Storage","topic",750,250],
+ ["Authentication","topic",950,250],
+ ["Android Project","project",650,480]
+],
+
+"Embedded Software Engineer":[
+ ["Embedded Engineer","root",50,250],
+ ["C","skill",270,70],
+ ["C++","skill",490,70],
+ ["Memory","skill",710,70],
+ ["Microcontrollers","skill",930,70],
+ ["RTOS","topic",350,250],
+ ["UART","topic",550,250],
+ ["SPI / I2C","topic",750,250],
+ ["CAN","topic",950,250],
+ ["Embedded Project","project",650,480]
+]
+
+};
+
+
+/* =========================================================
+   STATE
+========================================================= */
+
+let currentCareer = "Backend Engineer";
+let currentDifficulty = "all";
+let progress = JSON.parse(localStorage.getItem("atlasProgress") || "{}");
+
+
+/* =========================================================
+   INITIALIZATION
+========================================================= */
+
+function init(){
+
+  renderCategories();
+  renderSkills();
+  populateCareerSelectors();
+  renderMap(currentCareer);
+  renderCareer(currentCareer);
+  updateReadiness();
+  renderProjects();
+  renderInterviews();
+  renderRoadmapStats();
+
+}
+
+init();
+
+
+/* =========================================================
+   PAGE NAVIGATION
+========================================================= */
+
+function showPage(id,btn){
+
+  document.querySelectorAll(".page").forEach(p=>{
+    p.classList.remove("active");
+  });
+
+  const page=document.getElementById(id);
+
+  if(page){
+    page.classList.add("active");
+  }
+
+  document.querySelectorAll(".nav button").forEach(b=>{
+    b.classList.remove("active");
+  });
+
+  if(btn) btn.classList.add("active");
+
+  if(id==="readiness") updateReadiness();
+  if(id==="roadmap") renderRoadmapStats();
+}
+
+
+/* =========================================================
+   CATEGORY RENDER
+========================================================= */
+
+function renderCategories(){
+
+  const container=document.getElementById("categories");
+
+  container.innerHTML="";
+
+  Object.entries(categories).forEach(([name,data])=>{
+
+    const div=document.createElement("div");
+
+    div.className="category";
+
+    div.innerHTML=`
+      <div class="category-icon">${data.icon}</div>
+      <h3>${name}</h3>
+      <span class="muted">${data.roles.length} career paths</span>
+
+      <div class="role-list">
+        ${data.roles.map(role=>
+          `<button class="role" onclick="openCareer('${role}')">${role}</button>`
+        ).join("")}
+      </div>
+    `;
+
+    container.appendChild(div);
+
+  });
+
+}
+
+
+/* =========================================================
+   OPEN CAREER
+========================================================= */
+
+function openCareer(career){
+
+  currentCareer=career;
+
+  document.getElementById("mapTitle").textContent=career;
+  document.getElementById("readinessCareer").textContent=career;
+
+  renderMap(career);
+  renderCareer(career);
+  updateReadiness();
+
+  showPage("career");
+
+}
+
+
+/* =========================================================
+   CAREER DETAIL
+========================================================= */
+
+function renderCareer(career){
+
+  const data=careers[career] || {
+    category:"IT",
+    description:"Technology career path.",
+    skills:["Programming","Problem Solving","Git","Projects"],
+    projects:["Portfolio Project","Real World Application"],
+    interviews:["Technical Fundamentals","Problem Solving"]
+  };
+
+  document.getElementById("careerContent").innerHTML=`
+
+    <div class="career-header">
+
+      <span class="badge">${data.category}</span>
+
+      <h1>${career}</h1>
+
+      <p class="muted">${data.description}</p>
+
+      <div>
+        <span class="pill">Career destination</span>
+        <span class="pill">Interactive roadmap</span>
+        <span class="pill">Job readiness</span>
+      </div>
+
+    </div>
+
+    <div class="section-title">
+      <h2>Core skills</h2>
+      <button class="primary" onclick="showPage('map')">
+        Open Career Map
+      </button>
+    </div>
+
+    <div class="skill-grid">
+
+      ${data.skills.map(skill=>`
+
+        <div class="skill-card"
+             onclick="openSkill('${skill}')">
+
+          <strong>${skill}</strong>
+
+          <div class="stars">
+            ${importanceFor(career,skill)}
+          </div>
+
+          <div class="muted" style="font-size:12px;margin-top:8px">
+            Click to explore topics
+          </div>
+
+        </div>
+
+      `).join("")}
+
+    </div>
+
+    <div class="section-title">
+      <h2>Projects</h2>
+    </div>
+
+    <div class="skill-grid">
+
+      ${data.projects.map((p,i)=>`
+
+        <div class="skill-card">
+
+          <span class="badge">
+            ${i===0?"Beginner":i===1?"Intermediate":"Advanced"}
+          </span>
+
+          <h3>${p}</h3>
+
+          <p class="muted">
+            Build this project to turn your learning into practical experience.
+          </p>
+
+        </div>
+
+      `).join("")}
+
+    </div>
+
+    <div class="section-title">
+      <h2>Interview preparation</h2>
+    </div>
+
+    <div class="skill-grid">
+
+      ${data.interviews.map(topic=>`
+
+        <div class="skill-card"
+             onclick="openTopic('${topic}')">
+
+          <strong>${topic}</strong>
+
+          <p class="muted">
+            Interview relevance: High
+          </p>
+
+        </div>
+
+      `).join("")}
+
+    </div>
+
+  `;
+
+}
+
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+function renderSkills(){
+
+  const grid=document.getElementById("skillsGrid");
+
+  grid.innerHTML="";
+
+  Object.entries(skills).forEach(([name,data])=>{
+
+    grid.innerHTML+=`
+
+      <div class="skill-card"
+           onclick="openSkill('${name}')">
+
+        <span class="badge">${data.difficulty}</span>
+
+        <h3>${name}</h3>
+
+        <div class="stars">${data.importance}</div>
+
+        <p class="muted">
+          ${Object.keys(data.topics).length} topic groups
+        </p>
+
+      </div>
+
+    `;
+
+  });
+
+}
+
+
+/* =========================================================
+   IMPORTANCE ENGINE
+========================================================= */
+
+function importanceFor(career,skill){
+
+  const data=careers[career];
+
+  if(!data) return "★★★☆☆";
+
+  if(data.skills.includes(skill)){
+    return "★★★★★";
+  }
+
+  const related={
+    "Frontend Engineer":["Python","SQL","Docker"],
+    "Backend Engineer":["React","HTML","CSS"],
+    "Data Scientist":["Docker","Cloud"],
+    "Data Engineer":["Machine Learning","React"],
+    "Machine Learning Engineer":["Docker","Cloud","SQL"],
+    "Generative AI Engineer":["Docker","Cloud","SQL"],
+    "DevOps Engineer":["Python","SQL"],
+    "Cybersecurity Engineer":["Python","SQL"],
+  };
+
+  if(related[career]?.includes(skill)){
+    return "★★★☆☆";
+  }
+
+  return "★☆☆☆☆";
+}
+
+
+/* =========================================================
+   SKILL DETAIL
+========================================================= */
+
+function openSkill(name){
+
+  const data=skills[name];
+
+  if(!data){
+
+    openTopic(name);
+    return;
+
+  }
+
+  document.getElementById("detailContent").innerHTML=`
+
+    <span class="badge">SKILL</span>
+
+    <h2>${name}</h2>
+
+    <div class="stars">${data.importance}</div>
+
+    <p>
+      <strong>Difficulty:</strong> ${data.difficulty}
+    </p>
+
+    <div class="detail-section">
+
+      <strong>Prerequisites</strong>
+
+      <ul class="detail-list">
+        ${data.prerequisites.map(x=>`<li>${x}</li>`).join("")}
+      </ul>
+
+    </div>
+
+    <div class="detail-section">
+
+      <strong>Topics</strong>
+
+      ${Object.entries(data.topics).map(([group,items])=>`
+
+        <div style="margin-top:15px">
+
+          <strong>${group}</strong>
+
+          <div class="role-list">
+
+            ${items.map(topic=>`
+
+              <button class="role"
+                      onclick="openTopic('${topic}')">
+                ${topic}
+              </button>
+
+            `).join("")}
+
+          </div>
+
+        </div>
+
+      `).join("")}
+
+    </div>
+
+    <div class="detail-section">
+
+      <strong>Learning status</strong>
+
+      <div class="role-list">
+
+        <button class="role" onclick="setProgress('${name}','Not Started')">
+          Not Started
+        </button>
+
+        <button class="role" onclick="setProgress('${name}','Learning')">
+          Learning
+        </button>
+
+        <button class="role" onclick="setProgress('${name}','Practicing')">
+          Practicing
+        </button>
+
+        <button class="role" onclick="setProgress('${name}','Completed')">
+          Completed
+        </button>
+
+      </div>
+
+      <p id="status-${safeId(name)}"
+         class="muted">
+         Current status: ${progress[name] || "Not Started"}
+      </p>
+
+    </div>
+
+    <div class="detail-section">
+
+      <strong>Related careers</strong>
+
+      <ul class="detail-list">
+
+        ${Object.entries(careers)
+          .filter(([c,d])=>d.skills.includes(name))
+          .map(([c])=>`<li>${c}</li>`)
+          .join("") || "<li>Explore related careers</li>"}
+
+      </ul>
+
+    </div>
+
+  `;
+
+  document.getElementById("drawer").classList.add("open");
+
+}
+
+
+/* =========================================================
+   TOPIC DETAIL
+========================================================= */
+
+function openTopic(topic){
+
+  document.getElementById("detailContent").innerHTML=`
+
+    <span class="badge">TOPIC</span>
+
+    <h2>${topic}</h2>
+
+    <p class="muted">
+      A focused learning unit inside your ${currentCareer} roadmap.
+    </p>
+
+    <div class="detail-section">
+
+      <strong>Importance for ${currentCareer}</strong>
+
+      <div class="stars">★★★★★</div>
+
+    </div>
+
+    <div class="detail-section">
+
+      <strong>Difficulty</strong>
+
+      <p>Intermediate</p>
+
+    </div>
+
+    <div class="detail-section">
+
+      <strong>Prerequisites</strong>
+
+      <ul class="detail-list">
+        <li>Programming fundamentals</li>
+        <li>Problem solving</li>
+      </ul>
+
+    </div>
+
+    <div class="detail-section">
+
+      <strong>What you should know</strong>
+
+      <ul class="detail-list">
+        <li>Understand the core concept</li>
+        <li>Implement a basic example</li>
+        <li>Solve practice problems</li>
+        <li>Apply it inside a project</li>
+        <li>Explain it during an interview</li>
+      </ul>
+
+    </div>
+
+    <div class="detail-section">
+
+      <strong>Learning status</strong>
+
+      <div class="role-list">
+
+        <button class="role" onclick="setProgress('${topic}','Not Started')">
+          Not Started
+        </button>
+
+        <button class="role" onclick="setProgress('${topic}','Learning')">
+          Learning
+        </button>
+
+        <button class="role" onclick="setProgress('${topic}','Practicing')">
+          Practicing
+        </button>
+
+        <button class="role" onclick="setProgress('${topic}','Completed')">
+          Completed
+        </button>
+
+      </div>
+
+    </div>
+
+    <div class="detail-section">
+
+      <strong>Interview relevance</strong>
+
+      <p>
+        High — this topic can appear in technical interviews.
+      </p>
+
+    </div>
+
+  `;
+
+  document.getElementById("drawer").classList.add("open");
+
+}
+
+
+/* =========================================================
+   DRAWER
+========================================================= */
+
+function closeDrawer(){
+  document.getElementById("drawer").classList.remove("open");
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+function setProgress(name,status){
+
+  progress[name]=status;
+
+  localStorage.setItem(
+    "atlasProgress",
+    JSON.stringify(progress)
+  );
+
+  renderMap(currentCareer);
+  updateReadiness();
+  renderRoadmapStats();
+
+  const el=document.getElementById("status-"+safeId(name));
+
+  if(el){
+    el.textContent="Current status: "+status;
+  }
+
+}
+
+function resetProgress(){
+
+  if(confirm("Reset all learning progress?")){
+
+    progress={};
+
+    localStorage.removeItem("atlasProgress");
+
+    renderMap(currentCareer);
+    updateReadiness();
+    renderRoadmapStats();
+
+  }
+
+}
+
+function safeId(value){
+
+  return value
+    .replace(/[^a-zA-Z0-9]/g,"-")
+    .toLowerCase();
+
+}
+
+
+/* =========================================================
+   MAP ENGINE
+========================================================= */
+
+function renderMap(career){
+
+  const canvas=document.getElementById("mapCanvas");
+
+  canvas.innerHTML="";
+
+  const nodes=roadmapData[career] || roadmapData["Backend Engineer"];
+
+  const filtered=nodes.filter(n=>{
+
+    if(currentDifficulty==="all") return true;
+
+    if(n[1]==="root") return true;
+
+    return true;
+
+  });
+
+  /* connections */
+
+  for(let i=1;i<filtered.length;i++){
+
+    const parent=filtered[Math.max(0,i-1)];
+
+    const child=filtered[i];
+
+    createLine(
+      parent[2]+70,
+      parent[3]+30,
+      child[2]+70,
+      child[3]+30,
+      canvas
+    );
+
+  }
+
+  filtered.forEach(node=>{
+
+    const [name,type,x,y]=node;
+
+    const div=document.createElement("div");
+
+    div.className="node "+(progress[name]==="Completed"?"completed":"");
+
+    if(progress[name]==="Learning" ||
+       progress[name]==="Practicing"){
+      div.classList.add("learning");
+    }
+
+    div.style.left=x+"px";
+    div.style.top=y+"px";
+
+    div.innerHTML=`
+
+      <strong>${name}</strong>
+
+      <small>
+        ${type}
+        ${progress[name] ? " • "+progress[name] : ""}
+      </small>
+
+    `;
+
+    div.onclick=()=>{
+
+      if(type==="skill"){
+        openSkill(name);
+      }else{
+        openTopic(name);
+      }
+
+    };
+
+    canvas.appendChild(div);
+
+  });
+
+}
+
+
+function createLine(x1,y1,x2,y2,container){
+
+  const line=document.createElement("div");
+
+  line.className="line";
+
+  const dx=x2-x1;
+  const dy=y2-y1;
+
+  const length=Math.sqrt(dx*dx+dy*dy);
+  const angle=Math.atan2(dy,dx)*180/Math.PI;
+
+  line.style.width=length+"px";
+  line.style.left=x1+"px";
+  line.style.top=y1+"px";
+  line.style.transform=`rotate(${angle}deg)`;
+
+  container.appendChild(line);
+
+}
+
+function setDifficulty(value){
+
+  currentDifficulty=value;
+
+  renderMap(currentCareer);
+
+}
+
+
+/* =========================================================
+   JOB READINESS
+========================================================= */
+
+function calculateReadiness(){
+
+  const data=careers[currentCareer];
+
+  if(!data) return 0;
+
+  let total=0;
+  let completed=0;
+
+  data.skills.forEach(skill=>{
+
+    total++;
+
+    if(progress[skill]==="Completed"){
+      completed++;
+    }
+
+  });
+
+  const projectDone=
+    Object.keys(progress)
+      .filter(k=>progress[k]==="Completed")
+      .length;
+
+  const base=(completed/Math.max(total,1))*70;
+  const experience=Math.min(projectDone*4,15);
+
+  return Math.min(
+    100,
+    Math.round(base+experience)
+  );
+
+}
+
+
+function updateReadiness(){
+
+  const percent=calculateReadiness();
+
+  document.getElementById("readinessPercent").textContent=
+    percent+"%";
+
+  document.getElementById("readinessCareer").textContent=
+    currentCareer;
+
+  const data=careers[currentCareer];
+
+  const container=document.getElementById("readinessList");
+
+  container.innerHTML="";
+
+  data.skills.forEach(skill=>{
+
+    const value=
+      progress[skill]==="Completed" ? 100 :
+      progress[skill]==="Practicing" ? 75 :
+      progress[skill]==="Learning" ? 40 :
+      0;
+
+    container.innerHTML+=`
+
+      <div class="career-header">
+
+        <div style="display:flex;justify-content:space-between">
+
+          <strong>${skill}</strong>
+
+          <span>${value}%</span>
+
+        </div>
+
+        <div class="progress" style="margin-top:10px">
+
+          <div class="progress-bar"
+               style="width:${value}%"></div>
+
+        </div>
+
+      </div>
+
+    `;
+
+  });
+
+  const gaps=data.skills
+    .filter(s=>progress[s]!=="Completed")
+    .slice(0,4);
+
+  document.getElementById("gaps").innerHTML=
+    gaps.map(x=>`<li>${x}</li>`).join("");
+
+  document.getElementById("actions").innerHTML=
+    gaps.map(x=>`<li>Learn and practice ${x}</li>`).join("");
+
+}
+
+
+/* =========================================================
+   ROADMAP STATS
+========================================================= */
+
+function renderRoadmapStats(){
+
+  const data=careers[currentCareer];
+
+  let total=data.skills.length;
+
+  let done=data.skills.filter(
+    x=>progress[x]==="Completed"
+  ).length;
+
+  let percent=Math.round(done/total*100);
+
+  document.getElementById("roadmapStats").innerHTML=`
+
+    <div class="stat">
+      <div class="stat-number">${percent}%</div>
+      <div class="muted">Overall progress</div>
+    </div>
+
+    <div class="stat">
+      <div class="stat-number">${done}</div>
+      <div class="muted">Skills completed</div>
+    </div>
+
+    <div class="stat">
+      <div class="stat-number">${total-done}</div>
+      <div class="muted">Skills remaining</div>
+    </div>
+
+    <div class="stat">
+      <div class="stat-number">${careers[currentCareer].projects.length}</div>
+      <div class="muted">Recommended projects</div>
+    </div>
+
+  `;
+
+}
+
+
+/* =========================================================
+   PROJECTS
+========================================================= */
+
+function renderProjects(){
+
+  const grid=document.getElementById("projectGrid");
+
+  grid.innerHTML="";
+
+  Object.entries(careers).forEach(([career,data])=>{
+
+    data.projects.forEach((project,index)=>{
+
+      grid.innerHTML+=`
+
+        <div class="skill-card">
+
+          <span class="badge">
+            ${index===0?"Beginner":
+              index===1?"Intermediate":"Advanced"}
+          </span>
+
+          <h3>${project}</h3>
+
+          <p class="muted">${career}</p>
+
+          <button class="role"
+                  onclick="setProgress('${project}','Completed')">
+            Mark completed
+          </button>
+
+        </div>
+
+      `;
+
+    });
+
+  });
+
+}
+
+
+/* =========================================================
+   INTERVIEW
+========================================================= */
+
+function renderInterviews(){
+
+  const grid=document.getElementById("interviewGrid");
+
+  grid.innerHTML="";
+
+  Object.entries(careers).forEach(([career,data])=>{
+
+    data.interviews.forEach(topic=>{
+
+      grid.innerHTML+=`
+
+        <div class="skill-card">
+
+          <span class="badge">${career}</span>
+
+          <h3>${topic}</h3>
+
+          <p class="muted">
+            Interview preparation topic
+          </p>
+
+          <button class="role"
+                  onclick="setProgress('${topic}','Completed')">
+            Mark prepared
+          </button>
+
+        </div>
+
+      `;
+
+    });
+
+  });
+
+}
+
+
+/* =========================================================
+   CAREER SEARCH
+========================================================= */
+
+function searchRoles(query){
+
+  const results=document.getElementById("searchResults");
+
+  if(!query){
+
+    results.innerHTML="";
+    return;
+
+  }
+
+  const allRoles=[
+    ...Object.keys(careers),
+    ...Object.values(categories).flatMap(x=>x.roles)
+  ];
+
+  const matches=[
+    ...new Set(
+      allRoles.filter(
+        role=>role.toLowerCase().includes(query.toLowerCase())
+      )
+    )
+  ].slice(0,8);
+
+  results.innerHTML=matches.map(role=>
+    `<button class="role" onclick="openCareer('${role}')">
+      ${role}
+    </button>`
+  ).join("");
+
+}
+
+
+function selectCareerFromSearch(){
+
+  const input=document.getElementById("roleSearch");
+
+  const value=input.value.trim();
+
+  if(!value) return;
+
+  const match=Object.keys(careers)
+    .find(x=>x.toLowerCase()===value.toLowerCase());
+
+  if(match){
+    openCareer(match);
+  }else{
+
+    const nearest=Object.keys(careers)
+      .find(x=>x.toLowerCase().includes(value.toLowerCase()));
+
+    if(nearest) openCareer(nearest);
+
+  }
+
+}
+
+
+/* =========================================================
+   GLOBAL SEARCH
+========================================================= */
+
+function globalSearch(query){
+
+  if(!query) return;
+
+  const skillMatch=Object.keys(skills)
+    .find(x=>x.toLowerCase().includes(query.toLowerCase()));
+
+  const careerMatch=Object.keys(careers)
+    .find(x=>x.toLowerCase().includes(query.toLowerCase()));
+
+  if(skillMatch){
+
+    openSkill(skillMatch);
+
+  }else if(careerMatch){
+
+    openCareer(careerMatch);
+
+  }
+
+}
+
+function focusSearch(){
+
+  document.getElementById("globalSearch").focus();
+
+}
+
+
+/* =========================================================
+   COMPARE
+========================================================= */
+
+function populateCareerSelectors(){
+
+  const selects=[
+    document.getElementById("compareA"),
+    document.getElementById("compareB"),
+    document.getElementById("compareC"),
+    document.getElementById("pathCareer")
+  ];
+
+  selects.forEach(select=>{
+
+    Object.keys(careers).forEach(career=>{
+
+      const option=document.createElement("option");
+
+      option.value=career;
+      option.textContent=career;
+
+      select.appendChild(option);
+
+    });
+
+  });
+
+  document.getElementById("compareA").value="Backend Engineer";
+  document.getElementById("compareB").value="Data Engineer";
+  document.getElementById("pathCareer").value="Backend Engineer";
+
+}
+
+
+function compareCareers(){
+
+  const a=document.getElementById("compareA").value;
+  const b=document.getElementById("compareB").value;
+  const c=document.getElementById("compareC").value;
+
+  const names=[a,b];
+
+  if(c) names.push(c);
+
+  const sets=names.map(
+    name=>new Set(careers[name].skills)
+  );
+
+  const common=[
+    ...sets[0]
+  ].filter(skill=>
+    sets.every(set=>set.has(skill))
+  );
+
+  const unique=names.map((name,index)=>{
+
+    return careers[name].skills.filter(skill=>
+      !sets.some((set,i)=>
+        i!==index && set.has(skill)
+      )
+    );
+
+  });
+
+  document.getElementById("comparison").innerHTML=`
+
+    <div class="career-header">
+
+      <h2>Common Skills</h2>
+
+      <div class="role-list">
+
+        ${common.map(x=>
+          `<span class="pill">${x}</span>`
+        ).join("") || "<span class='muted'>No exact common skills in current dataset.</span>"}
+
+      </div>
+
+    </div>
+
+    <div class="career-header">
+
+      <h2>Career-specific skills</h2>
+
+      ${names.map((name,index)=>`
+
+        <div style="margin:20px 0">
+
+          <h3>${name}</h3>
+
+          <div class="role-list">
+
+            ${unique[index].map(x=>
+              `<span class="pill">${x}</span>`
+            ).join("") || "<span class='muted'>Mostly shared skills</span>"}
+
+          </div>
+
+        </div>
+
+      `).join("")}
+
+    </div>
+
+    <div class="career-header">
+
+      <h2>Learning scope</h2>
+
+      <div class="compare-row">
+
+        <strong>Metric</strong>
+        ${names.map(n=>`<strong>${n}</strong>`).join("")}
+
+      </div>
+
+      ${["Programming","SQL","DSA","Cloud","Projects","Interview"].map(metric=>`
+
+        <div class="compare-row">
+
+          <span>${metric}</span>
+
+          ${names.map(name=>`
+
+            <span>
+              ${metricScore(name,metric)}
+            </span>
+
+          `).join("")}
+
+        </div>
+
+      `).join("")}
+
+    </div>
+
+  `;
+
+}
+
+
+function metricScore(career,metric){
+
+  const data=careers[career];
+
+  const map={
+    Programming:data.skills.some(x=>["Python","C","C++","JavaScript","Kotlin"].includes(x)),
+    SQL:data.skills.includes("SQL"),
+    DSA:data.skills.includes("DSA"),
+    Cloud:data.skills.includes("Cloud")||data.skills.includes("Docker"),
+    Projects:data.projects.length,
+    Interview:data.interviews.length
+  };
+
+  const value=map[metric];
+
+  if(typeof value==="boolean"){
+    return value ? "High" : "Low";
+  }
+
+  return value ? value+" areas" : "—";
+
+}
+
+
+/* =========================================================
+   PERSONALIZED PATH
+========================================================= */
+
+function generatePath(){
+
+  const career=document.getElementById("pathCareer").value;
+  const hours=document.getElementById("hours").value;
+  const goal=document.getElementById("goal").value;
+
+  const data=careers[career];
+
+  const remaining=data.skills.filter(
+    skill=>progress[skill]!=="Completed"
+  );
+
+  const path=remaining.slice(0,8);
+
+  document.getElementById("generatedPath").innerHTML=`
+
+    <div class="career-header">
+
+      <div class="eyebrow">YOUR PERSONALIZED PATH</div>
+
+      <h2>${career}</h2>
+
+      <p class="muted">
+        Goal: ${goal} · Time: ${hours}
+      </p>
+
+      ${path.map((skill,index)=>`
+
+        <div style="
+          display:flex;
+          gap:15px;
+          align-items:center;
+          padding:15px 0;
+          border-bottom:1px solid var(--border)
+        ">
+
+          <div class="logo-icon"
+               style="width:34px;height:34px;font-size:13px">
+            ${index+1}
+          </div>
+
+          <div>
+            <strong>Stage ${index+1}: ${skill}</strong>
+            <div class="muted">
+              Learn → Practice → Project → Interview
+            </div>
+          </div>
+
+        </div>
+
+      `).join("")}
+
+    </div>
+
+  `;
+
+}
+
+
+/* =========================================================
+   AI CAREER COPILOT
+========================================================= */
+
+function toggleAI(){
+
+  document.getElementById("aiPanel")
+    .classList.toggle("open");
+
+}
+
+
+function askAI(){
+
+  const input=document.getElementById("aiInput");
+
+  const question=input.value.trim();
+
+  if(!question) return;
+
+  addMessage(question,"user");
+
+  input.value="";
+
+  setTimeout(()=>{
+
+    const answer=generateAIResponse(question);
+
+    addMessage(answer,"ai");
+
+  },400);
+
+}
+
+
+function addMessage(text,type){
+
+  const messages=document.getElementById("aiMessages");
+
+  const div=document.createElement("div");
+
+  div.className="message "+type;
+
+  div.innerHTML=text;
+
+  messages.appendChild(div);
+
+  messages.scrollTop=messages.scrollHeight;
+
+}
+
+
+function generateAIResponse(question){
+
+  const q=question.toLowerCase();
+
+  const career=currentCareer;
+
+  const data=careers[career];
+
+  if(q.includes("what should i learn next") ||
+     q.includes("learn next")){
+
+    const next=data.skills.find(
+      skill=>progress[skill]!=="Completed"
+    );
+
+    return `
+      Based on your current <strong>${career}</strong> roadmap,
+      your next priority should be <strong>${next || "advanced topics"}</strong>.
+      <br><br>
+      Follow the prerequisite graph rather than jumping randomly between topics.
+    `;
+
+  }
+
+  if(q.includes("backend")){
+
+    return `
+      To become a Backend Engineer, focus on:
+      <br><br>
+      <strong>Programming → DSA → SQL → Networking → APIs →
+      Databases → Caching → Docker → Cloud → System Design.</strong>
+      <br><br>
+      Build at least 2–3 backend projects and prepare DSA + SQL interviews.
+    `;
+
+  }
+
+  if(q.includes("python")){
+
+    const careersUsingPython=
+      Object.entries(careers)
+      .filter(([name,data])=>data.skills.includes("Python"))
+      .map(([name])=>name);
+
+    return `
+      Python is highly useful across:
+      <br><br>
+      ${careersUsingPython.map(x=>`• ${x}`).join("<br>")}
+      <br><br>
+      Its importance changes depending on the target career.
+    `;
+
+  }
+
+  if(q.includes("docker")){
+
+    return `
+      Docker packages an application and its dependencies into
+      a reproducible container.
+      <br><br>
+      For backend, DevOps, cloud and ML engineering,
+      it helps move applications consistently from development
+      to testing and production.
+    `;
+
+  }
+
+  if(q.includes("ready") ||
+     q.includes("job readiness")){
+
+    return `
+      Your current <strong>${career}</strong> readiness is
+      <strong>${calculateReadiness()}%</strong>.
+      <br><br>
+      Open <strong>Job Readiness</strong> to see your largest gaps
+      and recommended actions.
+    `;
+
+  }
+
+  if(q.includes("compare")){
+
+    return `
+      I can compare careers based on:
+      <br><br>
+      Skills, common knowledge, career-specific skills,
+      projects, interview areas and learning scope.
+      <br><br>
+      Try the <strong>Compare</strong> page.
+    `;
+
+  }
+
+  return `
+    I understand your current context as
+    <strong>${career}</strong>.
+    <br><br>
+    Try asking:
+    <br>
+    • What should I learn next?
+    <br>
+    • Am I ready for a job?
+    <br>
+    • What skills do I need?
+    <br>
+    • Compare this career with Data Engineer.
+    <br>
+    • Why do I need Docker?
+  `;
+
+}
+
+
+/* =========================================================
+   THEME
+========================================================= */
+
+function toggleTheme(){
+
+  const dark=
+    document.documentElement.dataset.theme==="dark";
+
+  if(dark){
+
+    delete document.documentElement.dataset.theme;
+
+    document.documentElement.style.setProperty(
+      "--bg","#f7faf9"
+    );
+
+    document.documentElement.style.setProperty(
+      "--surface","#ffffff"
+    );
+
+    document.documentElement.style.setProperty(
+      "--text","#17201d"
+    );
+
+  }else{
+
+    document.documentElement.dataset.theme="dark";
+
+    document.documentElement.style.setProperty(
+      "--bg","#101614"
+    );
+
+    document.documentElement.style.setProperty(
+      "--surface","#18201e"
+    );
+
+    document.documentElement.style.setProperty(
+      "--text","#edf5f2"
+    );
+
+  }
+
+}
+
+</script>
+
 </body>
 </html>
