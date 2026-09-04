@@ -1,1877 +1,1692 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IT Career Atlas — Choose the role. See the path.</title>
-<meta name="description" content="An interactive knowledge map for IT careers: explore roles, skills, topics, projects and interview prep, and track your path to job-ready.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<title>Elevate Your LinkedIn Presence</title>
+
 <style>
-/* ============ TOKENS ============ */
-:root{
-  --bg:#FFFFFF;
-  --bg-soft:#F6F9F8;
-  --surface:#FFFFFF;
-  --surface-raised:#FFFFFF;
-  --border:#E2E9E6;
-  --border-strong:#CDD8D3;
-  --text:#101E1B;
-  --text-muted:#5C6C67;
-  --text-faint:#93A29D;
-  --accent:#0E7C66;
-  --accent-strong:#0A5F4E;
-  --accent-soft:#E4F3EE;
-  --accent-soft-strong:#C9EAE0;
-  --beginner:#3178C6;
-  --intermediate:#C4791E;
-  --advanced:#C0392B;
-  --status-0:#E2E9E6;
-  --status-1:#BFE0D6;
-  --status-2:#6FBBA4;
-  --status-3:#0E7C66;
-  --radius-sm:8px;
-  --radius:14px;
-  --radius-lg:20px;
-  --shadow-sm: 0 1px 2px rgba(16,30,27,0.06);
-  --shadow: 0 2px 8px rgba(16,30,27,0.06), 0 10px 24px rgba(16,30,27,0.05);
-  --shadow-lg: 0 12px 32px rgba(16,30,27,0.14);
-  --font-display: 'Newsreader', Georgia, serif;
-  --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
-}
-[data-theme="dark"]{
-  --bg:#0B1210;
-  --bg-soft:#0F1815;
-  --surface:#121C19;
-  --surface-raised:#16211D;
-  --border:#233029;
-  --border-strong:#2E3C34;
-  --text:#EAF2EF;
-  --text-muted:#96A8A1;
-  --text-faint:#5E706A;
-  --accent:#2FBE9C;
-  --accent-strong:#5CD4B4;
-  --accent-soft:#132B24;
-  --accent-soft-strong:#173B31;
-  --status-0:#20302A;
-  --status-1:#1D4A3C;
-  --status-2:#28806A;
-  --status-3:#2FBE9C;
-  --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
-  --shadow: 0 4px 16px rgba(0,0,0,0.35);
-  --shadow-lg: 0 16px 40px rgba(0,0,0,0.5);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-*{box-sizing:border-box;}
-html,body{height:100%;}
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-  font-family:var(--font-ui);
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
+html {
+    scroll-behavior: smooth;
 }
-  
 
-<button id="backBtn" class="back-btn">‹</button>
-h1,h2,h3,.serif{font-family:var(--font-display); font-weight:500; letter-spacing:-0.01em;}
-code,.mono{font-family:var(--font-mono);}
-a{color:inherit;}
-button{font-family:var(--font-ui); cursor:pointer;}
-:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
-::selection{background:var(--accent-soft-strong);}
-@media (prefers-reduced-motion: reduce){ *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;} }
-
-/* ============ APP SHELL ============ */
-#app{display:flex; height:100vh; width:100vw;}
-
-/* Sidebar */
-#sidebar{
-  width:236px; flex:none; background:var(--bg-soft); border-right:1px solid var(--border);
-  display:flex; flex-direction:column; padding:20px 12px; gap:2px; overflow-y:auto;
+body {
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #131b2e;
+    line-height: 1.6;
+    background: #faf8ff;
+    overflow-x: hidden;
 }
-.brand{ display:flex; align-items:center; gap:10px; padding:6px 10px 18px 10px; }
-.brand-mark{
-  width:34px;height:34px;border-radius:10px;background:var(--accent);
-  display:flex;align-items:center;justify-content:center;flex:none;
-  color:#fff; font-family:var(--font-display); font-size:18px; font-weight:600;
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
 }
-.brand-name{font-family:var(--font-display); font-size:16.5px; font-weight:600; line-height:1.15;}
-.brand-sub{font-size:10.5px; color:var(--text-faint); font-family:var(--font-mono); letter-spacing:0.02em;}
-.nav-item{
-  display:flex; align-items:center; gap:11px; padding:9px 11px; border-radius:10px;
-  color:var(--text-muted); font-size:13.5px; font-weight:500; border:none; background:none; text-align:left; width:100%;
-  transition:background .12s ease, color .12s ease;
+
+/* ================= HERO ================= */
+
+.hero {
+    background: #faf8ff;
+    padding: 80px 40px 96px;
+    position: relative;
+    overflow: hidden;
 }
-.nav-item svg{width:17px;height:17px;flex:none;opacity:.85;}
-.nav-item:hover{background:var(--surface-raised); color:var(--text);}
-.nav-item.active{background:var(--accent-soft); color:var(--accent-strong); font-weight:600;}
-.nav-group-label{font-size:10.5px; text-transform:uppercase; color:var(--text-faint); letter-spacing:0.08em; padding:16px 11px 6px; font-weight:600;}
-.sidebar-foot{margin-top:auto; padding-top:10px; border-top:1px solid var(--border); display:flex; flex-direction:column; gap:2px;}
 
-/* Main */
-#main{flex:1; overflow-y:auto; position:relative; height:100vh;}
-.topbar{
-  position:sticky; top:0; z-index:20; background:color-mix(in srgb, var(--bg) 88%, transparent);
-  backdrop-filter:blur(10px); border-bottom:1px solid var(--border);
-  display:flex; align-items:center; gap:14px; padding:12px 28px; min-height:58px;
+.hero::before {
+    content: "";
+    position: absolute;
+    top: -160px;
+    right: -80px;
+    width: 550px;
+    height: 550px;
+    background: rgba(214,227,255,.4);
+    border-radius: 50%;
+    filter: blur(40px);
 }
-.topbar h2{font-size:17px; margin:0;}
-.topbar .path{font-size:12px; color:var(--text-faint); font-family:var(--font-mono);}
-.icon-btn{
-  width:34px;height:34px;border-radius:9px;border:1px solid var(--border);background:var(--surface);
-  display:flex;align-items:center;justify-content:center; color:var(--text-muted);
+
+.hero::after {
+    content: "";
+    position: absolute;
+    bottom: -100px;
+    left: -150px;
+    width: 420px;
+    height: 420px;
+    background: rgba(104,219,169,.2);
+    border-radius: 50%;
+    filter: blur(40px);
 }
-.icon-btn:hover{border-color:var(--border-strong); color:var(--text);}
-.icon-btn svg{width:16px;height:16px;}
-.view{padding:0 28px 60px; max-width:1180px; margin:0 auto;}
-.view.wide{max-width:none; padding-left:0; padding-right:0;}
 
-/* ============ HOME ============ */
-.hero{padding:64px 0 40px; text-align:left;}
-.hero .eyebrow{font-family:var(--font-mono); font-size:12px; color:var(--accent); letter-spacing:0.02em; margin-bottom:14px; display:flex; align-items:center; gap:8px;}
-.hero .eyebrow::before{content:""; width:6px;height:6px;border-radius:50%; background:var(--accent); display:inline-block;}
-.hero h1{font-size:46px; line-height:1.08; margin:0 0 14px; max-width:640px;}
-.hero p.sub{font-size:16px; color:var(--text-muted); max-width:520px; line-height:1.55; margin:0 0 30px;}
-.search-shell{position:relative; max-width:560px;}
-.search-box{
-  display:flex; align-items:center; gap:10px; border:1.5px solid var(--border-strong); border-radius:14px;
-  padding:13px 16px; background:var(--surface); box-shadow:var(--shadow-sm);
+.hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
 }
-.search-box:focus-within{border-color:var(--accent); box-shadow:0 0 0 4px var(--accent-soft);}
-.search-box svg{width:17px;height:17px; color:var(--text-faint); flex:none;}
-.search-box input{border:none; outline:none; background:none; font-size:15px; width:100%; color:var(--text); font-family:var(--font-ui);}
-.search-suggest{
-  position:absolute; top:calc(100% + 8px); left:0; right:0; background:var(--surface); border:1px solid var(--border);
-  border-radius:12px; box-shadow:var(--shadow-lg); overflow:hidden; z-index:30; max-height:320px; overflow-y:auto;
+
+.hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #e2e7ff;
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin-bottom: 24px;
 }
-.search-suggest .row{padding:10px 16px; font-size:14px; display:flex; justify-content:space-between; align-items:center;}
-.search-suggest .row:hover, .search-suggest .row.hi{background:var(--accent-soft); cursor:pointer;}
-.search-suggest .row .tag{font-size:10.5px; font-family:var(--font-mono); color:var(--text-faint);}
-.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px;}
-.chip{
-  padding:6px 13px; border-radius:100px; border:1px solid var(--border-strong); font-size:12.5px; color:var(--text-muted);
-  background:var(--surface);
+
+.hero-eyebrow::before {
+    content: "";
+    width: 9px;
+    height: 9px;
+    background: #0a66c2;
+    border-radius: 50%;
 }
-.chip:hover{border-color:var(--accent); color:var(--accent-strong); background:var(--accent-soft);}
 
-.section-head{display:flex; align-items:baseline; justify-content:space-between; margin:44px 0 16px;}
-.section-head h2{font-size:21px; margin:0;}
-.section-head .hint{font-size:12.5px; color:var(--text-faint);}
-
-.cat-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(260px,1fr)); gap:14px;}
-.cat-card{
-  border:1px solid var(--border); border-radius:var(--radius); padding:18px; background:var(--surface);
-  transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease; cursor:pointer;
+.hero-eyebrow span {
+    font-size: 11px;
+    font-weight: 700;
+    color: #004e99;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
-.cat-card:hover{transform:translateY(-2px); box-shadow:var(--shadow); border-color:var(--border-strong);}
-.cat-card .icon{width:34px;height:34px;border-radius:9px; background:var(--accent-soft); color:var(--accent-strong); display:flex; align-items:center; justify-content:center; margin-bottom:12px;}
-.cat-card .icon svg{width:17px;height:17px;}
-.cat-card h3{font-size:15.5px; margin:0 0 4px; font-family:var(--font-ui); font-weight:600;}
-.cat-card p{font-size:12.5px; color:var(--text-muted); margin:0 0 10px; line-height:1.5;}
-.cat-card .roles{font-size:11.5px; color:var(--text-faint); font-family:var(--font-mono);}
 
-/* mini graph preview on homepage */
-.preview-graph{border:1px solid var(--border); border-radius:var(--radius-lg); margin-top:40px; background:
-  radial-gradient(circle at 15% 30%, var(--accent-soft), transparent 55%), var(--bg-soft);
-  padding:0; overflow:hidden; height:260px; position:relative;}
-.preview-graph svg{width:100%; height:100%;}
-
-/* ============ CAREER GRID / EXPLORER ============ */
-.filter-row{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:18px;}
-.filter-pill{
-  padding:6px 13px; border-radius:100px; border:1px solid var(--border); font-size:12.5px; background:var(--surface); color:var(--text-muted);
+.hero-left h1 {
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 1.14;
+    margin-bottom: 24px;
+    letter-spacing: -1.5px;
 }
-.filter-pill.active{background:var(--accent); border-color:var(--accent); color:#fff; font-weight:600;}
-.role-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:12px; margin-top:20px;}
-.role-card{
-  border:1px solid var(--border); border-radius:var(--radius); padding:16px; background:var(--surface); position:relative;
-  transition:box-shadow .15s ease, border-color .15s ease;
+
+.highlight {
+    color: #0a66c2;
 }
-.role-card:hover{box-shadow:var(--shadow); border-color:var(--border-strong);}
-.role-card h4{margin:0 0 6px; font-size:14.5px; font-weight:600; font-family:var(--font-ui);}
-.role-card .cat{font-size:11px; color:var(--accent-strong); font-family:var(--font-mono); margin-bottom:10px; display:block;}
-.role-card .diff{font-size:11px; color:var(--text-faint);}
-.role-card .go{
-  margin-top:12px; font-size:12.5px; font-weight:600; color:var(--accent-strong); display:flex; align-items:center; gap:4px;
+
+.hero-left p {
+    font-size: 18px;
+    color: #414752;
+    line-height: 1.6;
+    max-width: 580px;
+    margin-bottom: 24px;
 }
-.role-card .ready-badge{position:absolute; top:14px; right:14px; font-size:10.5px; font-family:var(--font-mono); color:var(--text-faint);}
 
-/* ============ CAREER DETAIL ============ */
-.role-hero{display:flex; align-items:flex-start; justify-content:space-between; gap:24px; padding:36px 0 20px; flex-wrap:wrap;}
-.role-hero h1{font-size:34px; margin:0 0 8px;}
-.role-hero .cat-tag{font-family:var(--font-mono); font-size:12px; color:var(--accent-strong); margin-bottom:10px; display:block;}
-.role-hero p{max-width:600px; color:var(--text-muted); line-height:1.6; font-size:14.5px;}
-.role-meta{display:flex; gap:26px; margin-top:18px; flex-wrap:wrap;}
-.role-meta .m{font-size:12px;}
-.role-meta .m b{display:block; font-size:13.5px; color:var(--text); font-weight:600; margin-bottom:2px;}
-.role-meta .m span{color:var(--text-faint);}
-.ready-ring-wrap{display:flex; flex-direction:column; align-items:center; gap:6px; flex:none;}
-.ready-ring-wrap .lbl{font-size:11px; color:var(--text-faint); font-family:var(--font-mono);}
-
-.tab-row{display:flex; gap:4px; border-bottom:1px solid var(--border); margin:26px 0 0; overflow-x:auto;}
-.tab-btn{padding:10px 16px; font-size:13px; font-weight:600; color:var(--text-faint); border:none; background:none; border-bottom:2px solid transparent; white-space:nowrap;}
-.tab-btn.active{color:var(--accent-strong); border-color:var(--accent);}
-.tab-panel{padding:26px 0 10px;}
-
-.skill-pill-grid{display:flex; flex-wrap:wrap; gap:10px;}
-.skill-pill{
-  display:flex; align-items:center; gap:8px; padding:9px 14px; border:1px solid var(--border); border-radius:11px; background:var(--surface); font-size:13px;
+.hero-cta-group {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
 }
-.skill-pill .stars{font-size:10px; color:var(--accent); letter-spacing:1px;}
-.skill-pill .status-dot{width:8px;height:8px;border-radius:50%; flex:none;}
 
-.proj-cols{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
-.proj-col h5{font-size:11.5px; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); margin:0 0 10px; font-weight:700;}
-.proj-item{border:1px solid var(--border); border-radius:10px; padding:11px 13px; margin-bottom:8px; font-size:13px; display:flex; align-items:center; justify-content:space-between; gap:8px; background:var(--surface);}
-.proj-item .cb{width:16px;height:16px; border-radius:5px; border:1.5px solid var(--border-strong); flex:none;}
-.proj-item.done{border-color:var(--accent); background:var(--accent-soft);}
-.proj-item.done .cb{background:var(--accent); border-color:var(--accent);}
-
-.interview-list{display:flex; flex-direction:column; gap:8px;}
-.interview-item{border:1px solid var(--border); border-radius:10px; padding:12px 14px; display:flex; justify-content:space-between; align-items:center; background:var(--surface); font-size:13.5px;}
-.interview-item .cb{width:16px;height:16px; border-radius:5px; border:1.5px solid var(--border-strong); flex:none;}
-.interview-item.done{border-color:var(--accent); background:var(--accent-soft);}
-.interview-item.done .cb{background:var(--accent); border-color:var(--accent);}
-
-/* ============ MIND MAP ============ */
-.map-toolbar{display:flex; align-items:center; gap:10px; padding:12px 20px; border-bottom:1px solid var(--border); flex-wrap:wrap;}
-.map-toolbar select{
-  border:1px solid var(--border-strong); border-radius:9px; padding:8px 12px; background:var(--surface); font-size:13px; color:var(--text); font-family:var(--font-ui);
+.btn-primary,
+.btn-secondary {
+    padding: 15px 28px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
+    transition: .3s;
 }
-.map-toolbar .spacer{flex:1;}
-.legend{display:flex; gap:14px; align-items:center; font-size:11.5px; color:var(--text-muted);}
-.legend .dot{width:9px;height:9px;border-radius:50%; display:inline-block; margin-right:5px;}
-.map-canvas-wrap{position:relative; width:100%; height:calc(100vh - 160px); overflow:auto; background:
-  radial-gradient(circle, var(--border) 1px, transparent 1px) 0 0/22px 22px, var(--bg);}
-.map-canvas-wrap svg{display:block;}
-.mm-node-rect{fill:var(--surface); stroke:var(--border-strong); stroke-width:1.4; rx:11; transition:stroke .12s ease, fill .12s ease;}
-.mm-node-rect.root{fill:var(--accent); stroke:var(--accent);}
-.mm-node-rect:hover{stroke:var(--accent);}
-.mm-link{fill:none; stroke:var(--border-strong); stroke-width:1.6;}
-.mm-label{font-family:var(--font-ui); font-size:12.5px; fill:var(--text); pointer-events:none; font-weight:500;}
-.mm-label.root{fill:#fff; font-weight:700; font-size:13.5px;}
-.mm-sub{font-family:var(--font-mono); font-size:9.5px; fill:var(--text-faint); pointer-events:none;}
-.mm-toggle{cursor:pointer;}
-.mm-toggle circle{fill:var(--surface); stroke:var(--border-strong); stroke-width:1.2;}
-.mm-toggle text{font-size:11px; fill:var(--text-muted); font-family:var(--font-mono);}
-.mm-status-ring{fill:none; stroke-width:3;}
-.mm-node{cursor:pointer;}
 
-/* Detail panel */
-#overlay{position:fixed; inset:0; background:rgba(10,18,16,0.28); z-index:60; opacity:0; pointer-events:none; transition:opacity .18s ease;}
-#overlay.show{opacity:1; pointer-events:auto;}
-#detail-panel{
-  position:fixed; top:0; right:0; height:100vh; width:400px; max-width:92vw; background:var(--surface); z-index:61;
-  box-shadow:var(--shadow-lg); transform:translateX(100%); transition:transform .2s ease; overflow-y:auto; border-left:1px solid var(--border);
+.btn-primary {
+    background: #0a66c2;
+    color: white;
 }
-#detail-panel.show{transform:translateX(0);}
-.dp-head{padding:22px 22px 14px; border-bottom:1px solid var(--border); position:sticky; top:0; background:var(--surface); z-index:2;}
-.dp-head .close{position:absolute; top:18px; right:18px;}
-.dp-cat{font-family:var(--font-mono); font-size:11px; color:var(--accent-strong); text-transform:uppercase; letter-spacing:0.04em;}
-.dp-head h3{font-size:21px; margin:8px 0 0;}
-.dp-body{padding:18px 22px 40px;}
-.dp-row{margin-bottom:22px;}
-.dp-row .k{font-size:11px; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); font-weight:700; margin-bottom:8px;}
-.dp-stars{color:var(--accent); font-size:15px; letter-spacing:2px;}
-.dp-tag-row{display:flex; flex-wrap:wrap; gap:6px;}
-.dp-tag{font-size:11.5px; padding:5px 10px; border-radius:100px; background:var(--accent-soft); color:var(--accent-strong); font-weight:500;}
-.dp-tag.muted{background:var(--bg-soft); color:var(--text-muted);}
-.status-track{display:flex; gap:6px;}
-.status-opt{
-  flex:1; text-align:center; padding:8px 4px; border-radius:9px; border:1.4px solid var(--border); font-size:11px; color:var(--text-muted); font-weight:600;
+
+.btn-primary:hover {
+    background: #004e99;
+    transform: translateY(-2px);
 }
-.status-opt.active{background:var(--accent); border-color:var(--accent); color:#fff;}
-.dp-list{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:6px;}
-.dp-list li{font-size:13px; padding:8px 10px; border-radius:8px; background:var(--bg-soft); display:flex; align-items:center; gap:8px;}
-.dp-list li .b{width:5px;height:5px;border-radius:50%; background:var(--text-faint); flex:none;}
 
-/* ============ COMPARE ============ */
-.compare-picker{display:flex; gap:14px; align-items:center; margin:18px 0 30px; flex-wrap:wrap;}
-.compare-picker select{padding:10px 14px; border-radius:10px; border:1px solid var(--border-strong); font-size:14px; background:var(--surface); min-width:200px; font-family:var(--font-ui);}
-.compare-grid{display:grid; gap:1px; background:var(--border); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden;}
-.compare-row{display:grid; background:var(--surface);}
-.compare-cell{padding:12px 16px; font-size:13px;}
-.compare-cell.label{background:var(--bg-soft); font-weight:600; color:var(--text-muted); font-size:11.5px; text-transform:uppercase; letter-spacing:0.04em;}
-.venn-wrap{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin-top:26px;}
-.venn-box{border:1px solid var(--border); border-radius:var(--radius); padding:16px;}
-.venn-box h5{font-size:12.5px; margin:0 0 10px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.04em;}
-.venn-box.common{border-color:var(--accent); background:var(--accent-soft);}
-
-/* ============ JOB READINESS ============ */
-.readiness-hero{display:flex; align-items:center; gap:30px; padding:30px 0; flex-wrap:wrap;}
-.readiness-big{font-family:var(--font-display); font-size:56px; font-weight:600; color:var(--accent-strong);}
-.bar-row{display:flex; align-items:center; gap:14px; margin-bottom:14px;}
-.bar-row .name{width:150px; font-size:13px; color:var(--text-muted); flex:none;}
-.bar-track{flex:1; height:9px; background:var(--bg-soft); border-radius:100px; overflow:hidden;}
-.bar-fill{height:100%; background:var(--accent); border-radius:100px; transition:width .4s ease;}
-.bar-row .pct{width:40px; text-align:right; font-size:12px; font-family:var(--font-mono); color:var(--text-faint); flex:none;}
-.gap-list{display:flex; flex-direction:column; gap:8px;}
-.gap-item{display:flex; align-items:center; gap:10px; padding:10px 14px; border:1px solid var(--border); border-radius:10px; font-size:13px;}
-.gap-item .n{width:22px;height:22px;border-radius:50%; background:var(--advanced); color:#fff; font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center; flex:none;}
-
-/* ============ SEARCH / PROJECTS / INTERVIEW / ROADMAP pages ============ */
-.result-item{display:flex; justify-content:space-between; align-items:center; padding:13px 16px; border:1px solid var(--border); border-radius:11px; margin-bottom:8px; background:var(--surface);}
-.result-item .path{font-size:11px; color:var(--text-faint); font-family:var(--font-mono); margin-top:2px;}
-.empty-state{text-align:center; padding:70px 20px; color:var(--text-faint);}
-.empty-state svg{width:38px;height:38px; margin-bottom:12px; opacity:.5;}
-
-/* ============ AI COPILOT ============ */
-#copilot-btn{
-  position:fixed; bottom:24px; right:24px; z-index:50; background:var(--accent); color:#fff; border:none;
-  width:54px;height:54px;border-radius:50%; box-shadow:var(--shadow-lg); display:flex; align-items:center; justify-content:center;
+.btn-secondary {
+    background: #eaedff;
+    color: #131b2e;
 }
-#copilot-btn svg{width:22px;height:22px;}
-#copilot-panel{
-  position:fixed; bottom:24px; right:24px; z-index:55; width:380px; max-width:92vw; height:560px; max-height:78vh;
-  background:var(--surface); border-radius:18px; box-shadow:var(--shadow-lg); border:1px solid var(--border);
-  display:none; flex-direction:column; overflow:hidden;
-}
-#copilot-panel.show{display:flex;}
-.cp-head{padding:16px 18px; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:10px;}
-.cp-head .mark{width:28px;height:28px;border-radius:8px; background:var(--accent); display:flex; align-items:center; justify-content:center; color:#fff;}
-.cp-head .mark svg{width:14px;height:14px;}
-.cp-head h4{margin:0; font-size:14px;}
-.cp-head .sub{font-size:11px; color:var(--text-faint);}
-.cp-body{flex:1; overflow-y:auto; padding:16px 18px; display:flex; flex-direction:column; gap:12px;}
-.cp-msg{max-width:88%; font-size:13.5px; line-height:1.5; padding:10px 13px; border-radius:12px;}
-.cp-msg.ai{background:var(--bg-soft); align-self:flex-start; border-bottom-left-radius:3px;}
-.cp-msg.user{background:var(--accent); color:#fff; align-self:flex-end; border-bottom-right-radius:3px;}
-.cp-msg ul{margin:6px 0 0; padding-left:16px;}
-.cp-suggest{display:flex; flex-wrap:wrap; gap:6px; padding:0 18px 12px;}
-.cp-suggest button{font-size:11px; padding:6px 10px; border-radius:100px; border:1px solid var(--border); background:var(--surface); color:var(--text-muted);}
-.cp-input-row{display:flex; gap:8px; padding:12px; border-top:1px solid var(--border);}
-.cp-input-row input{flex:1; border:1px solid var(--border-strong); border-radius:10px; padding:10px 12px; font-size:13px; background:var(--bg-soft); color:var(--text); font-family:var(--font-ui);}
-.cp-input-row button{background:var(--accent); color:#fff; border:none; border-radius:10px; width:38px; display:flex; align-items:center; justify-content:center;}
-.cp-input-row button svg{width:15px;height:15px;}
 
-/* ============ MOBILE ============ */
-#bottomnav{display:none;}
-@media (max-width: 880px){
-  #sidebar{display:none;}
-  #app{flex-direction:column;}
-  #main{height:calc(100vh - 60px); padding-bottom:10px;}
-  #bottomnav{
-    display:flex; height:60px; border-top:1px solid var(--border); background:var(--bg-soft); order:2;
-    justify-content:space-around; align-items:center; flex:none;
-  }
-  #bottomnav button{background:none; border:none; display:flex; flex-direction:column; align-items:center; gap:3px; color:var(--text-faint); font-size:9.5px; flex:1;}
-  #bottomnav button.active{color:var(--accent-strong);}
-  #bottomnav svg{width:19px;height:19px;}
-  .hero h1{font-size:32px;}
-  .proj-cols{grid-template-columns:1fr;}
-  #copilot-panel{width:94vw; right:3vw; height:70vh;}
-  .role-hero{flex-direction:column;}
+.btn-secondary:hover {
+    background: #d6e3fe;
+}
+
+.hero-trust {
+    font-size: 13px;
+    color: #525f75;
+}
+
+.hero-trust::before {
+    content: "✓";
+    color: #007652;
+    font-weight: 900;
+    margin-right: 7px;
+}
+
+.hero-featured {
+    margin-top: 32px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(0,0,0,.08);
+}
+
+.hero-featured p {
+    font-size: 11px;
+    color: #727783;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.hero-featured-brands {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.hero-featured-brands span {
+    font-size: 18px;
+    font-weight: 800;
+    color: #697184;
+}
+
+/* ================= LINKEDIN CARD ================= */
+
+.hero-right {
+    display: flex;
+    justify-content: center;
+}
+
+.linkedin-card {
+    width: 100%;
+    max-width: 510px;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,.12);
+}
+
+.linkedin-header {
+    height: 125px;
+    padding: 18px;
+    background: linear-gradient(145deg,#0a66c2,#004e99,#283044);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.linkedin-header p {
+    color: rgba(255,255,255,.8);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.linkedin-url-badge {
+    background: rgba(255,255,255,.2);
+    color: white;
+    padding: 5px 9px;
+    border-radius: 4px;
+    font-size: 10px;
+}
+
+.linkedin-body {
+    padding: 24px;
+    margin-top: -55px;
+    position: relative;
+}
+
+.profile-avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 14px;
+    background: linear-gradient(135deg,#d6e3ff,#eaedff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0a66c2;
+    font-size: 38px;
+    font-weight: 800;
+    border: 5px solid white;
+    margin-bottom: 14px;
+}
+
+.profile-name {
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.profile-title {
+    font-size: 13px;
+    color: #414752;
+}
+
+.profile-location {
+    font-size: 13px;
+    color: #727783;
+    margin-bottom: 12px;
+}
+
+.profile-badges {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.badge {
+    padding: 4px 9px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.badge-topvoice {
+    background: #d6e3fe;
+    color: #58657b;
+}
+
+.badge-1st {
+    background: #85f8c4;
+    color: #002114;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 8px;
+    padding: 14px;
+    background: #f2f3ff;
+    border-radius: 9px;
+}
+
+.metric-value {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.metric-label {
+    font-size: 10px;
+    color: #525f75;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.metric-change {
+    font-size: 10px;
+    color: #007652;
+    font-weight: 700;
+}
+
+/* ================= FEATURES ================= */
+
+.features {
+    background: #f2f3ff;
+    padding: 96px 40px;
+}
+
+.section-header {
+    max-width: 680px;
+    margin-bottom: 48px;
+}
+
+.section-label {
+    font-size: 11px;
+    font-weight: 800;
+    color: #0a66c2;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.section-header h2 {
+    font-size: 40px;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.section-header p {
+    font-size: 18px;
+    color: #414752;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 24px;
+}
+
+.feature-card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    min-height: 270px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.04);
+}
+
+.feature-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 23px;
+    margin-bottom: 17px;
+}
+
+.feature-icon.blue {
+    background: #d6e3fe;
+}
+
+.feature-icon.green {
+    background: #85f8c4;
+}
+
+.feature-title {
+    font-size: 19px;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.feature-description {
+    font-size: 14px;
+    color: #414752;
+    margin-bottom: 20px;
+}
+
+.feature-tag {
+    border-top: 1px solid #eee;
+    padding-top: 14px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.feature-tag.blue {
+    color: #0a66c2;
+}
+
+.feature-tag.green {
+    color: #007652;
+}
+
+/* ================= CALLOUT ================= */
+
+.callout-banner {
+    margin-top: 48px;
+    background: #dae2fd;
+    padding: 40px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.callout-text {
+    font-size: 26px;
+    font-weight: 800;
+}
+
+.callout-text .muted {
+    color: #525f75;
+}
+
+.callout-btn {
+    border: none;
+    background: white;
+    padding: 13px 24px;
+    border-radius: 5px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* ================= FORM ================= */
+
+.form-section {
+    background: #283044;
+    padding: 96px 40px;
+}
+
+.form-container {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.form-left {
+    color: white;
+}
+
+.form-left h2 {
+    font-size: 40px;
+    line-height: 1.2;
+    margin: 15px 0;
+}
+
+.form-left p {
+    color: #dae2fd;
+    font-size: 17px;
+    margin-bottom: 22px;
+}
+
+.form-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-benefit {
+    color: #dae2fd;
+    font-size: 14px;
+}
+
+.form-benefit::before {
+    content: "✓";
+    color: #85f8c4;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.form-card {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0,0,0,.25);
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    border: none;
+    background: #f2f3ff;
+    padding: 13px;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 15px;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    box-shadow: 0 0 0 2px #0a66c2;
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.form-submit {
+    width: 100%;
+    border: none;
+    background: #007652;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+.form-submit:hover {
+    background: #005a3d;
+}
+
+.form-privacy {
+    text-align: center;
+    color: #727783;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+/* ================= AUDIT ================= */
+
+.audit-section {
+    background: #faf8ff;
+    padding: 96px 40px;
+}
+
+.audit-card {
+    max-width: 1100px;
+    margin: auto;
+    padding: 60px;
+    border-radius: 24px;
+    background: linear-gradient(145deg,#fff,#f2f3ff,#eaedff);
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 45px;
+    box-shadow: 0 20px 35px rgba(0,0,0,.1);
+}
+
+.audit-badge {
+    display: inline-block;
+    background: #d6e3ff;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.audit-left h2 {
+    font-size: 40px;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.audit-left p {
+    font-size: 17px;
+    color: #414752;
+    margin-bottom: 25px;
+}
+
+.audit-price-main {
+    font-size: 52px;
+    font-weight: 900;
+    color: #0a66c2;
+}
+
+.audit-price-currency {
+    color: #525f75;
+    font-size: 14px;
+}
+
+.audit-price-old {
+    color: #777;
+    text-decoration: line-through;
+    margin-left: 15px;
+}
+
+.audit-savings {
+    color: #007652;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.audit-scarcity {
+    background: #ffdad6;
+    color: #93000a;
+    padding: 9px 12px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: 700;
+    margin: 15px 0;
+}
+
+.btn-audit {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background: #0a66c2;
+    color: white;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.audit-right {
+    background: white;
+    padding: 35px;
+    border-radius: 15px;
+}
+
+.audit-title {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.audit-checklist {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.audit-item {
+    display: flex;
+    gap: 8px;
+}
+
+.audit-item::before {
+    content: "✓";
+    color: #007652;
+    font-weight: bold;
+}
+
+.audit-item-title {
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.audit-item-desc {
+    font-size: 12px;
+    color: #414752;
+}
+
+.audit-guarantee {
+    background: #f2f3ff;
+    padding: 12px;
+    border-radius: 7px;
+    margin-top: 20px;
+    font-size: 12px;
+    color: #525f75;
+}
+
+/* ================= TESTIMONIALS ================= */
+
+.testimonials {
+    background: #f2f3ff;
+    padding: 96px 40px;
+}
+
+.testimonials-grid {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 24px;
+}
+
+.testimonial-card {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.04);
+}
+
+.testimonial-stars {
+    color: #ffc107;
+    margin-bottom: 15px;
+}
+
+.testimonial-quote {
+    font-size: 14px;
+    font-style: italic;
+    margin-bottom: 22px;
+}
+
+.testimonial-author {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.testimonial-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 800;
+}
+
+.avatar1 {
+    background: #d6e3fe;
+}
+
+.avatar2 {
+    background: #d6e3ff;
+}
+
+.avatar3 {
+    background: #85f8c4;
+}
+
+.testimonial-info h4 {
+    font-size: 14px;
+}
+
+.testimonial-info p {
+    font-size: 12px;
+    color: #414752;
+}
+
+.testimonial-info .tag {
+    font-size: 10px;
+    color: #007652;
+    font-weight: 700;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    background: #131b2e;
+    color: #dae2fd;
+    text-align: center;
+    padding: 35px 20px;
+}
+
+footer h3 {
+    color: white;
+    margin-bottom: 8px;
+}
+
+footer p {
+    font-size: 13px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1000px) {
+
+    .hero-inner,
+    .form-container,
+    .audit-card {
+        grid-template-columns: 1fr;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-left h1 {
+        font-size: 46px;
+    }
+}
+
+@media (max-width: 650px) {
+
+    .hero,
+    .features,
+    .form-section,
+    .audit-section,
+    .testimonials {
+        padding: 60px 20px;
+    }
+
+    .hero-left h1 {
+        font-size: 38px;
+    }
+
+    .section-header h2,
+    .form-left h2,
+    .audit-left h2 {
+        font-size: 32px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row,
+    .audit-checklist {
+        grid-template-columns: 1fr;
+    }
+
+    .form-card,
+    .audit-card,
+    .audit-right {
+        padding: 25px;
+    }
+
+    .callout-banner {
+        padding: 25px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .callout-text {
+        font-size: 22px;
+    }
+
+    .linkedin-body {
+        padding: 20px;
+    }
 }
 </style>
 </head>
+
 <body>
 
-<div id="app">
-  <nav id="sidebar"></nav>
-  <main id="main">
-    <div class="topbar" id="topbar"></div>
-    <div id="content" class="view"></div>
-  </main>
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="container hero-inner">
+
+<div class="hero-left">
+
+<div class="hero-eyebrow">
+<span>LinkedIn Growth System</span>
 </div>
-<nav id="bottomnav"></nav>
 
-<div id="overlay"></div>
-<aside id="detail-panel"></aside>
+<h1>
+Turn Your LinkedIn Into a
+<span class="highlight">Lead-Generating Asset.</span>
+</h1>
 
-<button id="copilot-btn" aria-label="Open Career Copilot"></button>
-<div id="copilot-panel"></div>
+<p>
+Executive ghostwriting and personal branding designed to help founders,
+executives and professionals build authority, grow their network and
+generate high-quality opportunities on LinkedIn.
+</p>
+
+<div class="hero-cta-group">
+
+<a href="#contact" class="btn-primary">
+Get Your Free Strategy Call →
+</a>
+
+<a href="#audit" class="btn-secondary">
+See What's Included
+</a>
+
+</div>
+
+<div class="hero-trust">
+No long-term contracts. Cancel anytime.
+</div>
+
+<div class="hero-featured">
+
+<p>Trusted by professionals from</p>
+
+<div class="hero-featured-brands">
+<span>Google</span>
+<span>Microsoft</span>
+<span>Amazon</span>
+<span>Salesforce</span>
+</div>
+
+</div>
+
+</div>
+
+<!-- LINKEDIN CARD -->
+
+<div class="hero-right">
+
+<div class="linkedin-card">
+
+<div class="linkedin-header">
+
+<p>LinkedIn Profile</p>
+
+<div class="linkedin-url-badge">
+linkedin.com/in/executive
+</div>
+
+</div>
+
+<div class="linkedin-body">
+
+<div class="profile-avatar">
+IN
+</div>
+
+<div class="profile-name">
+Alex Morgan
+</div>
+
+<div class="profile-title">
+Founder & CEO | B2B Growth Strategist
+</div>
+
+<div class="profile-location">
+Bengaluru, India
+</div>
+
+<div class="profile-badges">
+
+<span class="badge badge-topvoice">
+Top Voice
+</span>
+
+<span class="badge badge-1st">
+1st Degree
+</span>
+
+</div>
+
+<div class="metrics-grid">
+
+<div class="metric">
+
+<div class="metric-value">82K</div>
+
+<div class="metric-label">
+Followers
+</div>
+
+<div class="metric-change">
+↑ 24%
+</div>
+
+</div>
+
+<div class="metric">
+
+<div class="metric-value">1.8M</div>
+
+<div class="metric-label">
+Views
+</div>
+
+<div class="metric-change">
+↑ 41%
+</div>
+
+</div>
+
+<div class="metric">
+
+<div class="metric-value">342</div>
+
+<div class="metric-label">
+Leads
+</div>
+
+<div class="metric-change">
+↑ 67%
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FEATURES -->
+
+<section class="features">
+
+<div class="container">
+
+<div class="section-header">
+
+<div class="section-label">
+What We Do
+</div>
+
+<h2>
+Everything You Need to Build a Powerful LinkedIn Presence
+</h2>
+
+<p>
+From strategy to daily execution, we handle the entire content engine
+so you can focus on running your business.
+</p>
+
+</div>
+
+
+<div class="features-grid">
+
+<div class="feature-card">
+
+<div>
+
+<div class="feature-icon blue">✍️</div>
+
+<div class="feature-title">
+Executive Ghostwriting
+</div>
+
+<div class="feature-description">
+Thought leadership posts written in your authentic voice,
+positioning you as an authority in your industry.
+</div>
+
+</div>
+
+<div class="feature-tag blue">
+2–4 posts per week
+</div>
+
+</div>
+
+
+<div class="feature-card">
+
+<div>
+
+<div class="feature-icon green">📈</div>
+
+<div class="feature-title">
+Growth Strategy
+</div>
+
+<div class="feature-description">
+Data-driven strategies designed to increase reach,
+engagement and meaningful connections.
+</div>
+
+</div>
+
+<div class="feature-tag green">
+Organic growth
+</div>
+
+</div>
+
+
+<div class="feature-card">
+
+<div>
+
+<div class="feature-icon blue">🎯</div>
+
+<div class="feature-title">
+Lead Generation
+</div>
+
+<div class="feature-description">
+Turn attention into conversations with strategic content
+and conversion-focused positioning.
+</div>
+
+</div>
+
+<div class="feature-tag blue">
+More qualified leads
+</div>
+
+</div>
+
+
+<div class="feature-card">
+
+<div>
+
+<div class="feature-icon green">💬</div>
+
+<div class="feature-title">
+Engagement Management
+</div>
+
+<div class="feature-description">
+Strategic commenting and engagement that gets your profile
+in front of the right audience.
+</div>
+
+</div>
+
+<div class="feature-tag green">
+Daily engagement
+</div>
+
+</div>
+
+</div>
+
+
+<div class="callout-banner">
+
+<div class="callout-text">
+
+Your expertise deserves
+<span class="highlight">more visibility.</span>
+<span class="muted">Let's make it happen.</span>
+
+</div>
+
+<a href="#contact" class="callout-btn">
+Start Growing →
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT FORM -->
+
+<section class="form-section" id="contact">
+
+<div class="form-container">
+
+<div class="form-left">
+
+<div class="section-label">
+Let's Talk
+</div>
+
+<h2>
+Ready to Become a LinkedIn Authority?
+</h2>
+
+<p>
+Tell us about your goals and we'll show you exactly how we can
+help you build your personal brand.
+</p>
+
+<div class="form-benefits">
+
+<div class="form-benefit">
+Free 30-minute strategy consultation
+</div>
+
+<div class="form-benefit">
+Personalized LinkedIn growth roadmap
+</div>
+
+<div class="form-benefit">
+No obligation or pressure
+</div>
+
+<div class="form-benefit">
+Response within 24 hours
+</div>
+
+</div>
+
+</div>
+
+
+<div class="form-card">
+
+<form id="leadForm">
+
+<div class="form-row">
+
+<div class="form-group">
+
+<label for="name">
+Full Name
+</label>
+
+<input
+type="text"
+id="name"
+placeholder="Your name"
+required
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="email">
+Email
+</label>
+
+<input
+type="email"
+id="email"
+placeholder="you@example.com"
+required
+>
+
+</div>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="company">
+Company
+</label>
+
+<input
+type="text"
+id="company"
+placeholder="Company name"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="linkedin">
+LinkedIn Profile
+</label>
+
+<input
+type="url"
+id="linkedin"
+placeholder="https://linkedin.com/in/yourname"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="message">
+What are you looking to achieve?
+</label>
+
+<textarea
+id="message"
+placeholder="Tell us about your goals..."
+></textarea>
+
+</div>
+
+
+<button type="submit" class="form-submit">
+Request My Strategy Call →
+</button>
+
+<div class="form-privacy">
+🔒 Your information is completely confidential.
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- AUDIT -->
+
+<section class="audit-section" id="audit">
+
+<div class="audit-card">
+
+<div class="audit-left">
+
+<div class="audit-badge">
+⚡ Limited Offer
+</div>
+
+<h2>
+LinkedIn Profile Audit
+</h2>
+
+<p>
+Get a detailed breakdown of your LinkedIn profile with actionable
+recommendations to improve your positioning, visibility and lead generation.
+</p>
+
+<div class="audit-price">
+
+<span class="audit-price-main">
+₹1,999
+</span>
+
+<span class="audit-price-currency">
+one-time
+</span>
+
+<span class="audit-price-old">
+₹4,999
+</span>
+
+<br>
+
+<span class="audit-savings">
+Save 60%
+</span>
+
+</div>
+
+<div class="audit-scarcity">
+Only 10 audits available this month
+</div>
+
+<button class="btn-audit" onclick="bookAudit()">
+Get My LinkedIn Audit →
+</button>
+
+</div>
+
+
+<div class="audit-right">
+
+<div class="audit-title">
+🔍 What's Included
+</div>
+
+<div class="audit-checklist">
+
+<div class="audit-item">
+
+<div>
+
+<div class="audit-item-title">
+Profile Positioning
+</div>
+
+<div class="audit-item-desc">
+Clarify your expertise and ideal audience.
+</div>
+
+</div>
+
+</div>
+
+
+<div class="audit-item">
+
+<div>
+
+<div class="audit-item-title">
+Headline Review
+</div>
+
+<div class="audit-item-desc">
+Create a stronger first impression.
+</div>
+
+</div>
+
+</div>
+
+
+<div class="audit-item">
+
+<div>
+
+<div class="audit-item-title">
+About Section
+</div>
+
+<div class="audit-item-desc">
+Improve storytelling and credibility.
+</div>
+
+</div>
+
+</div>
+
+
+<div class="audit-item">
+
+<div>
+
+<div class="audit-item-title">
+Content Strategy
+</div>
+
+<div class="audit-item-desc">
+Get topics tailored to your niche.
+</div>
+
+</div>
+
+</div>
+
+
+<div class="audit-item">
+
+<div>
+
+<div class="audit-item-title">
+Growth Opportunities
+</div>
+
+<div class="audit-item-desc">
+Identify ways to increase reach.
+</div>
+
+</div>
+
+</div>
+
+
+<div class="audit-item">
+
+<div>
+
+<div class="audit-item-title">
+Lead Generation
+</div>
+
+<div class="audit-item-desc">
+Improve profile-to-lead conversion.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="audit-guarantee">
+100% actionable recommendations. No generic advice.
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- TESTIMONIALS -->
+
+<section class="testimonials">
+
+<div class="container">
+
+<div class="section-header">
+
+<div class="section-label">
+Client Results
+</div>
+
+<h2>
+What Our Clients Say
+</h2>
+
+<p>
+Real results from professionals who transformed their LinkedIn presence.
+</p>
+
+</div>
+
+
+<div class="testimonials-grid">
+
+
+<div class="testimonial-card">
+
+<div class="testimonial-stars">
+★★★★★
+</div>
+
+<div class="testimonial-quote">
+"Within three months, my LinkedIn became one of our
+most reliable sources of inbound leads."
+</div>
+
+<div class="testimonial-author">
+
+<div class="testimonial-avatar avatar1">
+RM
+</div>
+
+<div class="testimonial-info">
+
+<h4>
+Rahul Mehta
+</h4>
+
+<p>
+Founder & CEO
+</p>
+
+<div class="tag">
++180% profile views
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="testimonial-card">
+
+<div class="testimonial-stars">
+★★★★★
+</div>
+
+<div class="testimonial-quote">
+"The content finally sounds like me. My network engagement
+has completely changed."
+</div>
+
+<div class="testimonial-author">
+
+<div class="testimonial-avatar avatar2">
+SK
+</div>
+
+<div class="testimonial-info">
+
+<h4>
+Sarah Kumar
+</h4>
+
+<p>
+VP Marketing
+</p>
+
+<div class="tag">
++240% engagement
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="testimonial-card">
+
+<div class="testimonial-stars">
+★★★★★
+</div>
+
+<div class="testimonial-quote">
+"I stopped worrying about what to post. The strategy and
+execution are handled end-to-end."
+</div>
+
+<div class="testimonial-author">
+
+<div class="testimonial-avatar avatar3">
+AJ
+</div>
+
+<div class="testimonial-info">
+
+<h4>
+Arjun Jain
+</h4>
+
+<p>
+Tech Executive
+</p>
+
+<div class="tag">
++95 qualified leads
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<h3>LinkedIn Authority</h3>
+
+<p>
+Executive Ghostwriting & Growth Strategy
+</p>
+
+<p>
+© 2026 All Rights Reserved.
+</p>
+
+</footer>
+
 
 <script>
-/* =========================================================================
-   IT CAREER ATLAS — data model + app
-   ========================================================================= */
 
-const ICONS = {
-  compass:'<path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M16 8l-3 5-5 3 3-5z" fill="currentColor" stroke="none"/>',
-  map:'<path d="M9 3L3 5v16l6-2 6 2 6-2V3l-6 2-6-2z"/><path d="M9 3v16M15 5v16"/>',
-  layers:'<path d="M12 2l9 5-9 5-9-5 9-5z"/><path d="M3 12l9 5 9-5"/><path d="M3 17l9 5 9-5"/>',
-  scale:'<path d="M12 3v18M7 21h10M5 7l3-3 3 3M16 7l3-3 3 3M3 7h5M16 7h5M4 7l-1 5a3 3 0 006 0zM20 7l-1 5a3 3 0 006 0z"/>',
-  route:'<circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h7a4 4 0 000-8H9a4 4 0 010-8h6"/>',
-  target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
-  code:'<path d="M8 5L3 12l5 7M16 5l5 7-5 7"/>',
-  briefcase:'<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/>',
-  bot:'<rect x="4" y="8" width="16" height="12" rx="3"/><circle cx="9" cy="14" r="1.3" fill="currentColor" stroke="none"/><circle cx="15" cy="14" r="1.3" fill="currentColor" stroke="none"/><path d="M12 8V4M9 4h6"/>',
-  search:'<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>',
-  settings:'<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 00.3 1.9l.1.1a2 2 0 11-2.9 2.9l-.1-.1a1.7 1.7 0 00-1.9-.3 1.7 1.7 0 00-1 1.6V21a2 2 0 11-4 0v-.2a1.7 1.7 0 00-1-1.5 1.7 1.7 0 00-1.9.3l-.1.1a2 2 0 11-2.9-2.9l.1-.1a1.7 1.7 0 00.3-1.9 1.7 1.7 0 00-1.6-1H3a2 2 0 110-4h.2a1.7 1.7 0 001.5-1 1.7 1.7 0 00-.3-1.9l-.1-.1a2 2 0 112.9-2.9l.1.1a1.7 1.7 0 001.9.3H9a1.7 1.7 0 001-1.6V3a2 2 0 114 0v.2a1.7 1.7 0 001 1.5 1.7 1.7 0 001.9-.3l.1-.1a2 2 0 112.9 2.9l-.1.1a1.7 1.7 0 00-.3 1.9V9a1.7 1.7 0 001.6 1H21a2 2 0 110 4h-.2a1.7 1.7 0 00-1.6 1z"/>',
-  chevronRight:'<path d="M9 18l6-6-6-6"/>',
-  chevronLeft:'<path d="M15 18l-6-6 6-6"/>',
-  x:'<path d="M18 6L6 18M6 6l12 12"/>',
-  send:'<path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/>',
-  sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
-  moon:'<path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z"/>',
-  book:'<path d="M4 19.5A2.5 2.5 0 016.5 17H20V4H6.5A2.5 2.5 0 004 6.5v13z"/><path d="M4 19.5V6.5"/>',
-  check:'<path d="M20 6L9 17l-5-5"/>',
-  plus:'<path d="M12 5v14M5 12h14"/>',
-  minus:'<path d="M5 12h14"/>',
-};
-function icon(name, cls){ return `<svg class="${cls||''}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${ICONS[name]||''}</svg>`; }
+document.getElementById("leadForm").addEventListener("submit", function(event) {
 
-/* -------------------------------------------------------------------------
-   SKILL LIBRARY — shared across careers. Each skill has topics -> subtopics.
-   ------------------------------------------------------------------------- */
-const SKILLS = {
-  "prog-fundamentals": { name:"Programming Fundamentals", category:"foundation", difficulty:"Beginner", topics:[
-    {id:"variables", name:"Variables & Data Types", subtopics:["Primitive types","Type casting","Constants","Naming conventions"]},
-    {id:"control-flow", name:"Control Flow", subtopics:["Conditionals","Loops","Break / continue","Nested logic"]},
-    {id:"functions", name:"Functions", subtopics:["Parameters","Return values","Scope","Recursion"]},
-    {id:"io", name:"Input / Output", subtopics:["Console I/O","Basic file I/O","Formatting output"]},
-  ]},
-  "python": { name:"Python", category:"programming", difficulty:"Intermediate", topics:[
-    {id:"fundamentals", name:"Fundamentals", subtopics:["Variables","Data types","Type casting","Operators"]},
-    {id:"collections", name:"Collections", subtopics:["List","Tuple","Set","Dictionary","Comprehensions"]},
-    {id:"functions", name:"Functions", subtopics:["*args / **kwargs","Default arguments","Lambda","Closures"]},
-    {id:"oop", name:"Object-Oriented Programming", subtopics:["Classes & objects","Inheritance","Polymorphism","Encapsulation","Abstraction"]},
-    {id:"errors", name:"Error Handling", subtopics:["try / except","finally","raise","Custom exceptions"]},
-    {id:"files", name:"Files & Serialization", subtopics:["Read / write","CSV","JSON"]},
-    {id:"advanced", name:"Advanced Python", subtopics:["Iterators & generators","Decorators","Context managers","Type hints","Async / await"]},
-    {id:"libraries", name:"Standard & External Libraries", subtopics:["os / sys / pathlib","itertools / collections","requests","Career-specific libraries"]},
-  ]},
-  "javascript": { name:"JavaScript", category:"programming", difficulty:"Intermediate", topics:[
-    {id:"fundamentals", name:"Fundamentals", subtopics:["Variables & scope","Data types","Operators","Template literals"]},
-    {id:"functions", name:"Functions & Closures", subtopics:["Function expressions","Arrow functions","Closures","this binding"]},
-    {id:"collections", name:"Arrays & Objects", subtopics:["Array methods","Object methods","Destructuring","Spread / rest"]},
-    {id:"async", name:"Asynchronous JS", subtopics:["Callbacks","Promises","async / await","Event loop"]},
-    {id:"dom", name:"DOM & Browser", subtopics:["DOM manipulation","Events","Fetch API","Storage APIs"]},
-    {id:"modern", name:"Modern JavaScript", subtopics:["Modules (ESM)","Classes","Iterators & generators"]},
-  ]},
-  "typescript": { name:"TypeScript", category:"programming", difficulty:"Intermediate", topics:[
-    {id:"types", name:"Type System", subtopics:["Basic types","Interfaces","Type aliases","Union & intersection"]},
-    {id:"generics", name:"Generics", subtopics:["Generic functions","Generic constraints","Utility types"]},
-    {id:"config", name:"Tooling", subtopics:["tsconfig","Strict mode","Declaration files"]},
-  ]},
-  "html-css": { name:"HTML & CSS", category:"programming", difficulty:"Beginner", topics:[
-    {id:"html", name:"HTML", subtopics:["Semantic HTML","Forms","Accessibility (a11y)","Meta & SEO basics"]},
-    {id:"css", name:"CSS", subtopics:["Box model","Flexbox","Grid","Responsive design","Animations & transitions"]},
-  ]},
-  "react": { name:"React", category:"programming", difficulty:"Intermediate", topics:[
-    {id:"core", name:"Core Concepts", subtopics:["Components","Props","State","JSX"]},
-    {id:"hooks", name:"Hooks", subtopics:["useState","useEffect","useMemo / useCallback","Custom hooks"]},
-    {id:"data", name:"Data & Routing", subtopics:["Context API","Routing","Forms","API integration","State management"]},
-    {id:"advanced", name:"Advanced React", subtopics:["Next.js","Performance optimization","Testing","Web accessibility","Deployment"]},
-  ]},
-  "dsa": { name:"Data Structures & Algorithms", category:"dsa", difficulty:"Advanced", topics:[
-    {id:"complexity", name:"Complexity Analysis", subtopics:["Big O","Time complexity","Space complexity"]},
-    {id:"arrays", name:"Arrays", subtopics:["Traversal","Searching","Prefix sum","Two pointers","Sliding window"]},
-    {id:"strings", name:"Strings", subtopics:["Palindrome","Anagrams","Frequency counting","Pattern matching"]},
-    {id:"hashing", name:"Hashing", subtopics:["Hash map","Hash set","Frequency maps","Duplicate detection"]},
-    {id:"linked-lists", name:"Linked Lists", subtopics:["Singly / doubly linked list","Insert / delete","Reverse","Fast & slow pointer","Cycle detection"]},
-    {id:"stack-queue", name:"Stack & Queue", subtopics:["Push / pop / peek","Monotonic stack","Deque","Circular queue","Priority queue"]},
-    {id:"sorting", name:"Sorting", subtopics:["Bubble / selection / insertion","Merge sort","Quick sort","Heap sort","Counting sort"]},
-    {id:"searching", name:"Searching", subtopics:["Linear search","Binary search","Binary search variations"]},
-    {id:"trees", name:"Trees", subtopics:["Binary tree / BST","Traversals (pre/in/post)","Level order","Height","Lowest common ancestor"]},
-    {id:"heap", name:"Heap", subtopics:["Min heap","Max heap","Top K problems"]},
-    {id:"graphs", name:"Graphs", subtopics:["BFS / DFS","Connected components","Cycle detection","Topological sort","Dijkstra","Minimum spanning tree"]},
-    {id:"recursion", name:"Recursion & Backtracking", subtopics:["Base / recursive case","Backtracking patterns"]},
-    {id:"greedy", name:"Greedy", subtopics:["Intervals","Scheduling","Activity selection"]},
-    {id:"dp", name:"Dynamic Programming", subtopics:["1D DP","2D DP","Knapsack","Subsequence problems","Grid problems"]},
-  ]},
-  "git": { name:"Git & Version Control", category:"foundation", difficulty:"Beginner", topics:[
-    {id:"basics", name:"Core Workflow", subtopics:["Commits","Branching","Merging","Rebasing"]},
-    {id:"collab", name:"Collaboration", subtopics:["Pull requests","Code review","Conflict resolution","Git flow"]},
-  ]},
-  "linux": { name:"Linux & Shell", category:"foundation", difficulty:"Beginner", topics:[
-    {id:"shell", name:"Shell Basics", subtopics:["File system","Permissions","Processes","Piping & redirection"]},
-    {id:"scripting", name:"Shell Scripting", subtopics:["Bash scripts","Cron jobs","Environment variables"]},
-  ]},
-  "networking": { name:"Networking", category:"foundation", difficulty:"Intermediate", topics:[
-    {id:"core", name:"Core Concepts", subtopics:["TCP/IP","DNS","HTTP / HTTPS","TLS"]},
-    {id:"applied", name:"Applied Networking", subtopics:["Load balancing","CDNs","Firewalls","VPNs"]},
-  ]},
-  "http-rest": { name:"HTTP & REST APIs", category:"backend", difficulty:"Intermediate", topics:[
-    {id:"http", name:"HTTP Fundamentals", subtopics:["Methods & status codes","Headers","Cookies & sessions"]},
-    {id:"rest", name:"REST API Design", subtopics:["Resource modeling","Versioning","Pagination","Rate limiting"]},
-    {id:"auth", name:"Authentication & Authorization", subtopics:["Sessions & tokens","OAuth 2.0","JWT","RBAC"]},
-  ]},
-  "sql": { name:"SQL", category:"database", difficulty:"Intermediate", topics:[
-    {id:"queries", name:"Querying", subtopics:["SELECT / WHERE","Joins","Subqueries","CTEs","Window functions"]},
-    {id:"design", name:"Database Design", subtopics:["Normalization","Keys & constraints","ER modeling"]},
-    {id:"performance", name:"Performance", subtopics:["Indexes","Query plans","Transactions & isolation"]},
-  ]},
-  "databases": { name:"Databases (SQL & NoSQL)", category:"database", difficulty:"Intermediate", topics:[
-    {id:"relational", name:"Relational Databases", subtopics:["PostgreSQL","MySQL","ORMs"]},
-    {id:"nosql", name:"NoSQL Databases", subtopics:["Document stores","Key-value stores","Redis & caching"]},
-  ]},
-  "docker": { name:"Docker & Containers", category:"cloud", difficulty:"Intermediate", topics:[
-    {id:"core", name:"Core Concepts", subtopics:["Images vs containers","Dockerfile","Volumes","Networking"]},
-    {id:"compose", name:"Orchestration Basics", subtopics:["Docker Compose","Multi-container apps"]},
-  ]},
-  "kubernetes": { name:"Kubernetes", category:"cloud", difficulty:"Advanced", topics:[
-    {id:"core", name:"Core Objects", subtopics:["Pods","Deployments","Services","ConfigMaps & secrets"]},
-    {id:"ops", name:"Operations", subtopics:["Scaling","Helm","Ingress","Observability"]},
-  ]},
-  "cloud": { name:"Cloud Platforms", category:"cloud", difficulty:"Intermediate", topics:[
-    {id:"core", name:"Core Services", subtopics:["Compute (EC2/VMs)","Storage (S3/Blob)","IAM","Networking (VPC)"]},
-    {id:"managed", name:"Managed Services", subtopics:["Managed databases","Serverless (Lambda/Functions)","Load balancers"]},
-  ]},
-  "ci-cd": { name:"CI/CD", category:"cloud", difficulty:"Intermediate", topics:[
-    {id:"pipelines", name:"Pipelines", subtopics:["Build automation","Test automation","Deployment strategies"]},
-    {id:"iac", name:"Infrastructure as Code", subtopics:["Terraform","Config management"]},
-  ]},
-  "system-design": { name:"System Design", category:"systemdesign", difficulty:"Advanced", topics:[
-    {id:"fundamentals", name:"Fundamentals", subtopics:["Scalability","Availability","Consistency (CAP)","Latency vs throughput"]},
-    {id:"components", name:"Building Blocks", subtopics:["Load balancers","Caching","Message queues","Sharding & replication"]},
-    {id:"case-studies", name:"Case Studies", subtopics:["Design a URL shortener","Design a chat system","Design a rate limiter"]},
-  ]},
-  "message-queues": { name:"Message Queues & Streaming", category:"backend", difficulty:"Advanced", topics:[
-    {id:"core", name:"Core Concepts", subtopics:["Producers & consumers","Kafka","RabbitMQ","Background jobs"]},
-  ]},
-  "testing-qa": { name:"Testing", category:"testing", difficulty:"Intermediate", topics:[
-    {id:"types", name:"Testing Types", subtopics:["Unit testing","Integration testing","End-to-end testing","Test doubles / mocks"]},
-    {id:"automation", name:"Test Automation", subtopics:["Selenium","Playwright","API testing","CI test pipelines"]},
-    {id:"strategy", name:"QA Strategy", subtopics:["Test planning","Bug lifecycle","Performance testing","Regression suites"]},
-  ]},
-  "spark-airflow": { name:"Big Data & Orchestration", category:"data", difficulty:"Advanced", topics:[
-    {id:"processing", name:"Processing", subtopics:["Apache Spark","Batch vs streaming","Kafka streaming"]},
-    {id:"orchestration", name:"Orchestration", subtopics:["Airflow DAGs","Scheduling","dbt"]},
-    {id:"warehouse", name:"Warehouses & Lakes", subtopics:["Data warehouses","Data lakes","BigQuery / Snowflake / Redshift"]},
-  ]},
-  "stats-ml-math": { name:"Statistics & Math for ML", category:"data", difficulty:"Advanced", topics:[
-    {id:"stats", name:"Statistics & Probability", subtopics:["Descriptive statistics","Probability distributions","Hypothesis testing","A/B testing"]},
-    {id:"linalg", name:"Linear Algebra", subtopics:["Vectors & matrices","Eigenvalues","Matrix operations"]},
-  ]},
-  "ml-fundamentals": { name:"Machine Learning", category:"ml", difficulty:"Advanced", topics:[
-    {id:"core", name:"Core ML", subtopics:["Regression","Classification","Clustering","Model evaluation"]},
-    {id:"features", name:"Feature Engineering", subtopics:["Data cleaning","Feature selection","Encoding & scaling"]},
-    {id:"tools", name:"Tooling", subtopics:["scikit-learn","Model tuning","Cross-validation"]},
-  ]},
-  "deep-learning": { name:"Deep Learning", category:"ml", difficulty:"Advanced", topics:[
-    {id:"core", name:"Neural Networks", subtopics:["Perceptrons","Backpropagation","CNNs","RNNs / Transformers"]},
-    {id:"frameworks", name:"Frameworks", subtopics:["PyTorch","TensorFlow","Model serving"]},
-  ]},
-  "mlops": { name:"MLOps", category:"ml", difficulty:"Advanced", topics:[
-    {id:"lifecycle", name:"ML Lifecycle", subtopics:["Experiment tracking (MLflow)","Model registry","Model monitoring"]},
-    {id:"deployment", name:"Deployment", subtopics:["Model serving APIs","Docker for ML","ML system design"]},
-  ]},
-  "genai": { name:"LLMs & Generative AI", category:"ml", difficulty:"Advanced", topics:[
-    {id:"fundamentals", name:"LLM Fundamentals", subtopics:["Tokens","Context windows","Prompt engineering","Structured outputs"]},
-    {id:"rag", name:"Retrieval-Augmented Generation", subtopics:["Embeddings","Vector databases","Chunking","Retrieval & reranking"]},
-    {id:"agents", name:"Agents & Tools", subtopics:["Function / tool calling","Agent workflows","Evaluation","Guardrails"]},
-    {id:"production", name:"Production AI", subtopics:["Observability","Cost optimization","Latency optimization","AI copilots & assistants"]},
-  ]},
-  "security-fundamentals": { name:"Security Fundamentals", category:"security", difficulty:"Intermediate", topics:[
-    {id:"core", name:"Core Concepts", subtopics:["Authentication","Authorization","Encryption","Hashing","Certificates"]},
-  ]},
-  "web-security": { name:"Web & Application Security", category:"security", difficulty:"Advanced", topics:[
-    {id:"owasp", name:"OWASP Top 10", subtopics:["SQL injection","XSS","CSRF","SSRF","Access control flaws"]},
-    {id:"engineering", name:"Security Engineering", subtopics:["Threat modeling","SAST / DAST","Dependency security","Secrets management"]},
-    {id:"cloud-sec", name:"Cloud & Ops Security", subtopics:["Cloud security posture","Incident response","Security monitoring"]},
-  ]},
-};
+    event.preventDefault();
 
-/* -------------------------------------------------------------------------
-   CATEGORIES + CAREERS
-   ------------------------------------------------------------------------- */
-const CATEGORIES = [
-  {id:"software", name:"Software Development", icon:"code", desc:"Build the products people use every day.", roles:["backend","frontend","fullstack"]},
-  {id:"data", name:"Data", icon:"layers", desc:"Turn raw data into pipelines, models and insight.", roles:["data-engineer","data-scientist"]},
-  {id:"ai-ml", name:"AI / Machine Learning", icon:"bot", desc:"Design intelligent systems and LLM-powered products.", roles:["ml-engineer","genai-engineer"]},
-  {id:"cloud", name:"Cloud / Infrastructure", icon:"route", desc:"Keep systems reliable, scalable and automated.", roles:["devops"]},
-  {id:"security", name:"Cybersecurity", icon:"target", desc:"Defend systems, data and infrastructure.", roles:["security-engineer"]},
-  {id:"quality", name:"Quality Engineering", icon:"check", desc:"Make sure software actually works.", roles:["sdet"]},
-];
+    const name = document.getElementById("name").value;
 
-// helper to build a career skill entry
-function S(skillId, importance, category, required){ return {skillId, importance, category, required: required!==false}; }
+    alert(
+        "Thanks " + name +
+        "! Your strategy call request has been received."
+    );
 
-const CAREERS = {
-  "backend": {
-    name:"Backend Engineer", category:"software", difficulty:"Intermediate",
-    description:"Designs and builds the server-side logic, APIs and data layer that power applications — the systems most users never see, but always depend on.",
-    responsibilities:["Design and build REST/GraphQL APIs","Model and optimize databases","Ensure reliability, security and performance","Own services in production"],
-    industries:["SaaS","Fintech","E-commerce","Enterprise software"],
-    technologies:["Python / Java / Node / Go","PostgreSQL","Redis","Docker","Kubernetes"],
-    scopeWeeks: 28,
-    skills:[
-      S("prog-fundamentals",5,"foundation"), S("python",5,"programming"), S("dsa",4,"dsa"),
-      S("git",4,"foundation"), S("linux",3,"foundation"), S("networking",3,"foundation"),
-      S("http-rest",5,"backend"), S("sql",5,"database"), S("databases",4,"database"),
-      S("message-queues",3,"backend"), S("testing-qa",3,"testing"), S("docker",4,"cloud"),
-      S("cloud",3,"cloud"), S("ci-cd",3,"cloud"), S("system-design",4,"systemdesign"),
-    ],
-    projects:{
-      beginner:["Build a REST API for a todo app","URL shortener service"],
-      intermediate:["E-commerce backend with payments","Real-time chat application"],
-      advanced:["Distributed rate limiter","Production-grade SaaS backend"],
-    },
-    interview:["DSA","SQL","Database design (DBMS)","Networking","Operating systems","REST API design","System design"],
-  },
-  "frontend": {
-    name:"Frontend Engineer", category:"software", difficulty:"Intermediate",
-    description:"Builds the interfaces people interact with directly — turning designs into fast, accessible, maintainable user experiences in the browser.",
-    responsibilities:["Implement responsive UI from design","Manage client-side state","Optimize performance & accessibility","Integrate with backend APIs"],
-    industries:["SaaS","E-commerce","Media","Agencies"],
-    technologies:["HTML/CSS","JavaScript","TypeScript","React","Next.js"],
-    scopeWeeks: 22,
-    skills:[
-      S("prog-fundamentals",4,"foundation"), S("html-css",5,"programming"), S("javascript",5,"programming"),
-      S("typescript",4,"programming"), S("react",5,"programming"), S("http-rest",3,"backend"),
-      S("git",4,"foundation"), S("testing-qa",3,"testing"), S("dsa",2,"dsa"), S("web-security",2,"security"),
-    ],
-    projects:{
-      beginner:["Personal portfolio site","Weather app with an API"],
-      intermediate:["E-commerce storefront UI","Dashboard with charts & auth"],
-      advanced:["Design-system component library","Performance-optimized SPA at scale"],
-    },
-    interview:["JavaScript fundamentals","React internals","CSS layout problems","Web performance","Accessibility","System design (frontend)"],
-  },
-  "fullstack": {
-    name:"Full Stack Engineer", category:"software", difficulty:"Advanced",
-    description:"Works across the entire stack — from database to UI — able to ship a complete feature end to end.",
-    responsibilities:["Build both API and UI layers","Own features end to end","Bridge frontend and backend concerns","Make full-stack architecture decisions"],
-    industries:["Startups","SaaS","Agencies","Product teams"],
-    technologies:["JavaScript/TypeScript","React","Node/Python","SQL","Cloud"],
-    scopeWeeks: 34,
-    skills:[
-      S("prog-fundamentals",5,"foundation"), S("javascript",5,"programming"), S("typescript",4,"programming"),
-      S("react",4,"programming"), S("python",3,"programming"), S("http-rest",5,"backend"),
-      S("sql",4,"database"), S("databases",4,"database"), S("dsa",3,"dsa"), S("git",4,"foundation"),
-      S("docker",3,"cloud"), S("cloud",3,"cloud"), S("testing-qa",3,"testing"), S("system-design",3,"systemdesign"),
-    ],
-    projects:{
-      beginner:["Full-stack blog platform","Bookmark manager with auth"],
-      intermediate:["Marketplace app (buyers & sellers)","Real-time collaboration tool"],
-      advanced:["Multi-tenant SaaS product","Production app with CI/CD & monitoring"],
-    },
-    interview:["JavaScript & Python fundamentals","DSA","SQL","REST API design","System design","Deployment & DevOps basics"],
-  },
-  "data-engineer": {
-    name:"Data Engineer", category:"data", difficulty:"Advanced",
-    description:"Builds the pipelines and infrastructure that move, clean and structure data so it can be trusted and used by analysts, scientists and products.",
-    responsibilities:["Build ETL/ELT pipelines","Design data warehouses & lakes","Ensure data quality & reliability","Optimize large-scale data processing"],
-    industries:["Fintech","E-commerce","Ad tech","Enterprise analytics"],
-    technologies:["Python","SQL","Spark","Kafka","Airflow","Snowflake/BigQuery"],
-    scopeWeeks: 30,
-    skills:[
-      S("python",5,"programming"), S("sql",5,"database"), S("databases",4,"database"),
-      S("spark-airflow",5,"data"), S("message-queues",4,"backend"), S("cloud",4,"cloud"),
-      S("docker",3,"cloud"), S("system-design",3,"systemdesign"), S("dsa",2,"dsa"), S("git",3,"foundation"),
-    ],
-    projects:{
-      beginner:["CSV-to-database ETL script","Simple scheduled data pipeline"],
-      intermediate:["Batch pipeline with Airflow","Streaming pipeline with Kafka"],
-      advanced:["Production data warehouse with dbt","Real-time analytics platform"],
-    },
-    interview:["SQL (advanced)","Data modeling","Pipeline design","Distributed systems basics","Python for data","System design (data)"],
-  },
-  "data-scientist": {
-    name:"Data Scientist", category:"data", difficulty:"Advanced",
-    description:"Uses statistics, experimentation and machine learning to answer business questions and turn data into decisions.",
-    responsibilities:["Explore & clean datasets","Run experiments & A/B tests","Build predictive models","Communicate insights to stakeholders"],
-    industries:["Tech","Fintech","Healthcare","Retail"],
-    technologies:["Python","Pandas/NumPy","SQL","scikit-learn","Visualization tools"],
-    scopeWeeks: 30,
-    skills:[
-      S("python",5,"programming"), S("stats-ml-math",5,"data"), S("sql",4,"database"),
-      S("ml-fundamentals",5,"ml"), S("deep-learning",2,"ml"), S("git",3,"foundation"), S("dsa",2,"dsa"),
-    ],
-    projects:{
-      beginner:["Exploratory data analysis report","Simple regression model"],
-      intermediate:["Customer churn prediction model","A/B test analysis pipeline"],
-      advanced:["End-to-end ML pipeline with deployment","Causal inference study"],
-    },
-    interview:["Statistics & probability","SQL","ML fundamentals","Case studies / product sense","Python (Pandas/NumPy)"],
-  },
-  "ml-engineer": {
-    name:"Machine Learning Engineer", category:"ai-ml", difficulty:"Advanced",
-    description:"Takes models from notebook to production — building the systems that train, serve and monitor machine learning at scale.",
-    responsibilities:["Build & train ML models","Deploy models as production services","Build ML pipelines & monitoring","Optimize inference performance"],
-    industries:["Tech","Autonomous systems","Fintech","Healthcare AI"],
-    technologies:["Python","PyTorch","Docker","Kubernetes","MLflow","Cloud"],
-    scopeWeeks: 32,
-    skills:[
-      S("python",5,"programming"), S("stats-ml-math",4,"data"), S("ml-fundamentals",5,"ml"),
-      S("deep-learning",5,"ml"), S("mlops",5,"ml"), S("docker",4,"cloud"), S("cloud",4,"cloud"),
-      S("sql",3,"database"), S("system-design",3,"systemdesign"), S("dsa",3,"dsa"),
-    ],
-    projects:{
-      beginner:["Train & serve a classifier via API","Image classification demo"],
-      intermediate:["ML pipeline with experiment tracking","Model monitoring dashboard"],
-      advanced:["Scalable model-serving platform","Production recommendation system"],
-    },
-    interview:["ML fundamentals","Deep learning","System design (ML)","Python & DSA","MLOps practices"],
-  },
-  "genai-engineer": {
-    name:"Generative AI Engineer", category:"ai-ml", difficulty:"Advanced",
-    description:"Builds production applications powered by large language models — RAG systems, agents and AI copilots that go beyond a chat demo.",
-    responsibilities:["Design prompts & structured outputs","Build RAG & retrieval systems","Build tool-using agents","Evaluate, monitor & optimize AI systems"],
-    industries:["AI startups","SaaS","Enterprise tooling","Developer tools"],
-    technologies:["Python","LLM APIs","Vector databases","LangChain/agents frameworks","Cloud"],
-    scopeWeeks: 24,
-    skills:[
-      S("python",5,"programming"), S("http-rest",4,"backend"), S("genai",5,"ml"),
-      S("ml-fundamentals",2,"ml"), S("databases",3,"database"), S("docker",3,"cloud"),
-      S("cloud",3,"cloud"), S("system-design",3,"systemdesign"),
-    ],
-    projects:{
-      beginner:["Simple chatbot with an LLM API","Prompt-based text summarizer"],
-      intermediate:["RAG-based document Q&A app","Customer support agent"],
-      advanced:["Multi-step agent workflow platform","Production AI copilot with observability"],
-    },
-    interview:["LLM fundamentals","RAG system design","Agent architecture","Prompt engineering","Evaluation & guardrails"],
-  },
-  "devops": {
-    name:"DevOps Engineer", category:"cloud", difficulty:"Advanced",
-    description:"Builds the infrastructure, automation and reliability practices that let teams ship software safely and often.",
-    responsibilities:["Build CI/CD pipelines","Manage cloud infrastructure","Automate with IaC","Monitor & respond to incidents"],
-    industries:["SaaS","Enterprise IT","Fintech","Cloud-native startups"],
-    technologies:["Linux","Docker","Kubernetes","Terraform","AWS/Azure/GCP","Prometheus/Grafana"],
-    scopeWeeks: 28,
-    skills:[
-      S("linux",5,"foundation"), S("networking",4,"foundation"), S("git",4,"foundation"),
-      S("ci-cd",5,"cloud"), S("docker",5,"cloud"), S("kubernetes",5,"cloud"), S("cloud",5,"cloud"),
-      S("system-design",3,"systemdesign"), S("security-fundamentals",3,"security"),
-    ],
-    projects:{
-      beginner:["Dockerize an existing app","Simple CI pipeline"],
-      intermediate:["Kubernetes cluster with Helm deploys","Infrastructure as code with Terraform"],
-      advanced:["Full observability stack (Prometheus/Grafana)","Zero-downtime deployment pipeline"],
-    },
-    interview:["Linux internals","Networking","Kubernetes","CI/CD design","Incident response","Cloud architecture"],
-  },
-  "security-engineer": {
-    name:"Cybersecurity Engineer", category:"security", difficulty:"Advanced",
-    description:"Protects systems, applications and data from threats — through secure design, testing and incident response.",
-    responsibilities:["Perform security assessments","Harden applications & infrastructure","Respond to incidents","Build secure-by-design systems"],
-    industries:["Finance","Government","Healthcare","Enterprise tech"],
-    technologies:["Linux","Networking","OWASP tooling","Cloud security","SIEM tools"],
-    scopeWeeks: 30,
-    skills:[
-      S("networking",5,"foundation"), S("linux",4,"foundation"), S("security-fundamentals",5,"security"),
-      S("web-security",5,"security"), S("cloud",3,"cloud"), S("python",3,"programming"), S("system-design",2,"systemdesign"),
-    ],
-    projects:{
-      beginner:["Set up a home lab & capture traffic","Basic vulnerability scan report"],
-      intermediate:["Web app penetration test","Build a SIEM alerting rule set"],
-      advanced:["Red-team engagement simulation","Cloud security posture audit"],
-    },
-    interview:["Networking fundamentals","OWASP Top 10","Threat modeling","Cryptography basics","Incident response"],
-  },
-  "sdet": {
-    name:"QA Engineer / SDET", category:"quality", difficulty:"Intermediate",
-    description:"Ensures software quality through manual and automated testing — building the safety net that lets teams ship with confidence.",
-    responsibilities:["Design test plans & cases","Build automated test suites","Perform API & UI testing","Track & triage defects"],
-    industries:["SaaS","E-commerce","Enterprise software","Fintech"],
-    technologies:["Python/Java","Selenium/Playwright","CI/CD","SQL"],
-    scopeWeeks: 20,
-    skills:[
-      S("prog-fundamentals",4,"foundation"), S("python",4,"programming"), S("testing-qa",5,"testing"),
-      S("http-rest",3,"backend"), S("sql",3,"database"), S("git",3,"foundation"), S("ci-cd",3,"cloud"), S("dsa",2,"dsa"),
-    ],
-    projects:{
-      beginner:["Automated test suite for a login flow","API test collection"],
-      intermediate:["End-to-end test framework with Playwright","CI-integrated regression suite"],
-      advanced:["Performance testing framework","Cross-browser test grid automation"],
-    },
-    interview:["Testing fundamentals","Automation frameworks","API testing","SQL for QA","Bug triage scenarios"],
-  },
-};
+    this.reset();
 
-/* Precompute reverse skill -> careers map */
-const SKILL_CAREERS = {};
-Object.entries(CAREERS).forEach(([cid,c])=>{
-  c.skills.forEach(s=>{
-    (SKILL_CAREERS[s.skillId] = SKILL_CAREERS[s.skillId]||[]).push(cid);
-  });
 });
 
-const READINESS_CATS = [
-  {id:"foundation", name:"Foundation"},
-  {id:"programming", name:"Programming"},
-  {id:"database", name:"Databases"},
-  {id:"backend", name:"Backend / APIs"},
-  {id:"data", name:"Data Engineering"},
-  {id:"ml", name:"Machine Learning"},
-  {id:"cloud", name:"Cloud / DevOps"},
-  {id:"security", name:"Security"},
-  {id:"testing", name:"Testing"},
-  {id:"dsa", name:"DSA"},
-  {id:"systemdesign", name:"System Design"},
-];
 
-/* -------------------------------------------------------------------------
-   STATE + PERSISTENCE
-   ------------------------------------------------------------------------- */
-const StatusEnum = ["not-started","learning","practicing","completed"];
-const StatusWeight = {"not-started":0, "learning":0.35, "practicing":0.65, "completed":1};
+function bookAudit() {
 
-const Store = {
-  load(){
-    try{ return JSON.parse(localStorage.getItem("ica_state")) || {progress:{}, projects:{}, interview:{}, theme:"light"}; }
-    catch(e){ return {progress:{}, projects:{}, interview:{}, theme:"light"}; }
-  },
-  save(state){ localStorage.setItem("ica_state", JSON.stringify(state)); }
-};
-let state = Store.load();
-function persist(){ Store.save(state); }
-
-function nodeKey(careerId, skillId, topicId, subIdx){
-  return [careerId, skillId, topicId||"", subIdx!==undefined?subIdx:""].join("::");
-}
-function getStatus(key){ return state.progress[key] || "not-started"; }
-function setStatus(key, status){ state.progress[key] = status; persist(); }
-function cycleStatus(key){
-  const cur = getStatus(key); const i = StatusEnum.indexOf(cur);
-  const next = StatusEnum[(i+1)%StatusEnum.length];
-  setStatus(key, next);
-  return next;
-}
-
-/* Compute a node's own status + aggregated status from children (for skill/topic rollups displayed on map) */
-function computeSkillProgress(careerId, skillId){
-  const skill = SKILLS[skillId]; if(!skill) return 0;
-  let total=0, sum=0;
-  skill.topics.forEach(t=>{
-    const tKey = nodeKey(careerId, skillId, t.id);
-    total++; sum += StatusWeight[getStatus(tKey)];
-    t.subtopics.forEach((st,i)=>{
-      const sKey = nodeKey(careerId, skillId, t.id, i);
-      total++; sum += StatusWeight[getStatus(sKey)];
+    document.getElementById("contact").scrollIntoView({
+        behavior: "smooth"
     });
-  });
-  const ownKey = nodeKey(careerId, skillId);
-  total++; sum += StatusWeight[getStatus(ownKey)];
-  return total? sum/total : 0;
+
 }
 
-function computeCareerReadiness(careerId){
-  const career = CAREERS[careerId];
-  const catAgg = {}; // catId -> {sum, weight}
-  career.skills.forEach(cs=>{
-    const prog = computeSkillProgress(careerId, cs.skillId); // 0..1
-    const cat = cs.category;
-    if(!catAgg[cat]) catAgg[cat]={sum:0, weight:0};
-    catAgg[cat].sum += prog*cs.importance;
-    catAgg[cat].weight += cs.importance;
-  });
-  // projects
-  const allProjects = [...career.projects.beginner, ...career.projects.intermediate, ...career.projects.advanced];
-  const doneProjects = allProjects.filter(p=> state.projects[careerId+"::"+p]).length;
-  const projectPct = allProjects.length ? doneProjects/allProjects.length : 0;
-  // interview
-  const doneInterview = career.interview.filter(t=> state.interview[careerId+"::"+t]).length;
-  const interviewPct = career.interview.length ? doneInterview/career.interview.length : 0;
-
-  const cats = Object.keys(catAgg).map(cat=>({
-    id:cat, name:(READINESS_CATS.find(r=>r.id===cat)||{name:cat}).name,
-    pct: Math.round((catAgg[cat].sum/catAgg[cat].weight)*100)
-  }));
-  cats.push({id:"projects", name:"Projects", pct:Math.round(projectPct*100)});
-  cats.push({id:"interview", name:"Interview Prep", pct:Math.round(interviewPct*100)});
-
-  const overall = Math.round(cats.reduce((a,c)=>a+c.pct,0)/cats.length);
-  return {overall, cats};
-}
-
-/* -------------------------------------------------------------------------
-   ROUTER
-   ------------------------------------------------------------------------- */
-const Nav = [
-  {id:"home", label:"Career Explorer", icon:"compass"},
-  {id:"map", label:"Career Map", icon:"map"},
-  {id:"skills", label:"Skills", icon:"layers"},
-  {id:"compare", label:"Compare", icon:"scale"},
-  {id:"roadmap", label:"My Roadmap", icon:"route"},
-  {id:"readiness", label:"Job Readiness", icon:"target"},
-  {id:"projects", label:"Projects", icon:"code"},
-  {id:"interview", label:"Interview Prep", icon:"briefcase"},
-  {id:"search", label:"Search", icon:"search"},
-  {id:"settings", label:"Settings", icon:"settings"},
-];
-const NavMobile = ["home","map","roadmap","readiness","search"];
-
-let route = {view:"home", params:{}};
-function go(view, params){ route = {view, params: params||{}}; render(); window.scrollTo(0,0); closePanel(); }
-
-/* -------------------------------------------------------------------------
-   SIDEBAR / TOPBAR / BOTTOM NAV
-   ------------------------------------------------------------------------- */
-function renderSidebar(){
-  const el = document.getElementById("sidebar");
-  el.innerHTML = `
-    <div class="brand">
-      <div class="brand-mark">A</div>
-      <div><div class="brand-name">IT Career Atlas</div><div class="brand-sub">v1.0 · knowledge map</div></div>
-    </div>
-    ${Nav.map(n=>`<button class="nav-item ${route.view===n.id?'active':''}" data-nav="${n.id}">${icon(n.icon)}<span>${n.label}</span></button>`).join("")}
-    <div class="sidebar-foot">
-      <button class="nav-item" id="theme-toggle">${icon(state.theme==="dark"?"sun":"moon")}<span>${state.theme==="dark"?"Light mode":"Dark mode"}</span></button>
-    </div>
-  `;
-  el.querySelectorAll("[data-nav]").forEach(b=>b.addEventListener("click",()=>go(b.dataset.nav)));
-  document.getElementById("theme-toggle").addEventListener("click", toggleTheme);
-}
-function renderBottomNav(){
-  const el = document.getElementById("bottomnav");
-  el.innerHTML = NavMobile.map(id=>{
-    const n = Nav.find(x=>x.id===id);
-    return `<button class="${route.view===id?'active':''}" data-nav="${id}">${icon(n.icon)}<span>${n.label.split(' ')[0]}</span></button>`;
-  }).join("");
-  el.querySelectorAll("[data-nav]").forEach(b=>b.addEventListener("click",()=>go(b.dataset.nav)));
-}
-function toggleTheme(){
-  state.theme = state.theme==="dark"?"light":"dark";
-  document.documentElement.setAttribute("data-theme", state.theme);
-  persist(); renderSidebar();
-}
-function renderTopbar(title, path){
-  document.getElementById("topbar").innerHTML = `
-    <h2>${title}</h2>
-    ${path?`<span class="path mono">${path}</span>`:""}
-    <div class="spacer"></div>
-    <button class="icon-btn" id="tb-search" aria-label="Search">${icon("search")}</button>
-  `;
-  document.getElementById("tb-search").addEventListener("click",()=>go("search"));
-}
-
-/* -------------------------------------------------------------------------
-   VIEW: HOME
-   ------------------------------------------------------------------------- */
-function allRoleEntries(){
-  return Object.entries(CAREERS).map(([id,c])=>({id, ...c}));
-}
-function renderHome(){
-  renderTopbar("Career Explorer");
-  const el = document.getElementById("content");
-  el.innerHTML = `
-    <div class="hero">
-      <div class="eyebrow">IT CAREER ATLAS</div>
-      <h1 class="serif">Find your path into tech.</h1>
-      <p class="sub">Choose the IT role you want. Discover the skills, topics, projects and interview preparation required to become job-ready.</p>
-      <div class="search-shell">
-        <div class="search-box">
-          ${icon("search")}
-          <input id="home-search" placeholder="What role do you want? Try “Backend Engineer”" autocomplete="off">
-        </div>
-        <div class="search-suggest" id="home-suggest" style="display:none;"></div>
-      </div>
-      <div class="chips">
-        ${["Backend Engineer","Frontend Engineer","Data Engineer","ML Engineer","GenAI Engineer","DevOps Engineer"].map(r=>{
-          const id = Object.keys(CAREERS).find(k=>CAREERS[k].name===r);
-          return `<button class="chip" data-role="${id}">${r}</button>`;
-        }).join("")}
-      </div>
-    </div>
-
-    <div class="preview-graph" id="home-graph"></div>
-
-    <div class="section-head"><h2 class="serif">Explore career paths</h2><span class="hint">${CATEGORIES.length} categories · ${Object.keys(CAREERS).length} roles</span></div>
-    <div class="cat-grid">
-      ${CATEGORIES.map(cat=>`
-        <div class="cat-card" data-cat="${cat.id}">
-          <div class="icon">${icon(cat.icon)}</div>
-          <h3>${cat.name}</h3>
-          <p>${cat.desc}</p>
-          <div class="roles">${cat.roles.map(r=>CAREERS[r].name).join(" · ")}</div>
-        </div>`).join("")}
-    </div>
-  `;
-  el.querySelectorAll("[data-role]").forEach(b=>b.addEventListener("click",()=>go("role",{id:b.dataset.role})));
-  el.querySelectorAll("[data-cat]").forEach(b=>b.addEventListener("click",()=>go("home-cat",{id:b.dataset.cat})));
-
-  drawHomeGraph();
-  setupHomeSearch();
-}
-function setupHomeSearch(){
-  const input = document.getElementById("home-search");
-  const box = document.getElementById("home-suggest");
-  input.addEventListener("input", ()=>{
-    const q = input.value.trim().toLowerCase();
-    if(!q){ box.style.display="none"; return; }
-    const matches = allRoleEntries().filter(r=>r.name.toLowerCase().includes(q)).slice(0,7);
-    if(!matches.length){ box.innerHTML = `<div class="row" style="color:var(--text-faint);">No roles match “${q}”</div>`; box.style.display="block"; return; }
-    box.innerHTML = matches.map(m=>`<div class="row" data-role="${m.id}"><span>${m.name}</span><span class="tag">${CATEGORIES.find(c=>c.id===m.category).name}</span></div>`).join("");
-    box.style.display="block";
-    box.querySelectorAll("[data-role]").forEach(r=>r.addEventListener("click",()=>go("role",{id:r.dataset.role})));
-  });
-  document.addEventListener("click",(e)=>{ if(!e.target.closest(".search-shell")) box.style.display="none"; });
-  input.addEventListener("keydown",(e)=>{
-    if(e.key==="Enter"){
-      const q = input.value.trim().toLowerCase();
-      const m = allRoleEntries().find(r=>r.name.toLowerCase().includes(q));
-      if(m) go("role",{id:m.id});
-    }
-  });
-}
-function drawHomeGraph(){
-  const wrap = document.getElementById("home-graph"); if(!wrap) return;
-  const w = wrap.clientWidth||900, h = 260;
-  const cx = 90, cy = h/2;
-  const skills = ["Python","SQL","APIs","Cloud","DSA"];
-  let svg = `<svg viewBox="0 0 ${w} ${h}">`;
-  skills.forEach((s,i)=>{
-    const tx = 300, ty = 40 + i*(h-80)/(skills.length-1);
-    svg += `<path class="mm-link" d="M${cx+70},${cy} C${(cx+tx)/2},${cy} ${(cx+tx)/2},${ty} ${tx-56},${ty}"/>`;
-  });
-  svg += `<rect class="mm-node-rect root" x="${cx-70}" y="${cy-22}" width="140" height="44" rx="12"></rect>`;
-  svg += `<text class="mm-label root" x="${cx}" y="${cy+5}" text-anchor="middle">YOUR ROLE</text>`;
-  skills.forEach((s,i)=>{
-    const tx = 300, ty = 40 + i*(h-80)/(skills.length-1);
-    svg += `<rect class="mm-node-rect" x="${tx-56}" y="${ty-18}" width="112" height="36" rx="10"></rect>`;
-    svg += `<text class="mm-label" x="${tx}" y="${ty+5}" text-anchor="middle">${s}</text>`;
-  });
-  // second layer, faded
-  skills.forEach((s,i)=>{
-    const tx = 300, ty = 40 + i*(h-80)/(skills.length-1);
-    for(let j=0;j<2;j++){
-      const tx2 = 560, ty2 = ty + (j===0?-14:14);
-      svg += `<path class="mm-link" d="M${tx+56},${ty} C${(tx+tx2)/2},${ty} ${(tx+tx2)/2},${ty2} ${tx2-4},${ty2}" opacity="0.35"/>`;
-    }
-  });
-  svg += `</svg>`;
-  wrap.innerHTML = svg;
-}
-
-function renderHomeCat(catId){
-  const cat = CATEGORIES.find(c=>c.id===catId);
-  renderTopbar(cat.name, "Career Explorer / "+cat.name);
-  const el = document.getElementById("content");
-  el.innerHTML = `
-    <div style="padding-top:26px;">
-      <p style="color:var(--text-muted); max-width:560px;">${cat.desc}</p>
-      <div class="role-grid">
-        ${cat.roles.map(rid=>roleCardHtml(rid)).join("")}
-      </div>
-    </div>
-  `;
-  bindRoleCards(el);
-}
-function roleCardHtml(rid){
-  const c = CAREERS[rid];
-  const readiness = computeCareerReadiness(rid).overall;
-  return `<div class="role-card" data-role="${rid}">
-    <span class="ready-badge">${readiness}% ready</span>
-    <h4>${c.name}</h4>
-    <span class="cat">${CATEGORIES.find(x=>x.id===c.category).name}</span>
-    <span class="diff">Difficulty: ${c.difficulty} · ~${c.scopeWeeks} wks</span>
-    <div class="go">Open roadmap ${icon("chevronRight")}</div>
-  </div>`;
-}
-function bindRoleCards(el){
-  el.querySelectorAll("[data-role]").forEach(b=>b.addEventListener("click",()=>go("role",{id:b.dataset.role})));
-}
-
-/* -------------------------------------------------------------------------
-   VIEW: ROLE DETAIL
-   ------------------------------------------------------------------------- */
-let roleTab = "skills";
-function renderRole(id){
-  const c = CAREERS[id]; if(!c){ go("home"); return; }
-  renderTopbar(c.name, CATEGORIES.find(x=>x.id===c.category).name+" / "+c.name);
-  const r = computeCareerReadiness(id);
-  const el = document.getElementById("content");
-  el.innerHTML = `
-    <div class="role-hero">
-      <div>
-        <span class="cat-tag mono">${CATEGORIES.find(x=>x.id===c.category).name.toUpperCase()}</span>
-        <h1 class="serif">${c.name}</h1>
-        <p>${c.description}</p>
-        <div class="role-meta">
-          <div class="m"><b>${c.difficulty}</b><span>Difficulty</span></div>
-          <div class="m"><b>~${c.scopeWeeks} weeks</b><span>Typical learning scope</span></div>
-          <div class="m"><b>${c.skills.length} skills</b><span>In roadmap</span></div>
-          <div class="m"><b>${c.industries.join(", ")}</b><span>Common industries</span></div>
-        </div>
-      </div>
-      <div class="ready-ring-wrap">
-        ${ringSvg(r.overall,84)}
-        <span class="lbl">JOB READY</span>
-      </div>
-    </div>
-
-    <div class="tab-row" id="role-tabs">
-      ${["skills","map","projects","interview","readiness"].map(t=>`<button class="tab-btn ${roleTab===t?'active':''}" data-tab="${t}">${({skills:"Core Skills",map:"Roadmap",projects:"Projects",interview:"Interview Prep",readiness:"Job Readiness"})[t]}</button>`).join("")}
-    </div>
-    <div class="tab-panel" id="role-tab-panel"></div>
-  `;
-  document.getElementById("role-tabs").querySelectorAll("[data-tab]").forEach(b=>b.addEventListener("click",()=>{ roleTab=b.dataset.tab; renderRole(id); }));
-  renderRoleTab(id);
-}
-function ringSvg(pct, size){
-  const r = size/2-6, c = 2*Math.PI*r;
-  const off = c - (pct/100)*c;
-  return `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">
-    <circle cx="${size/2}" cy="${size/2}" r="${r}" fill="none" stroke="var(--bg-soft)" stroke-width="7"/>
-    <circle cx="${size/2}" cy="${size/2}" r="${r}" fill="none" stroke="var(--accent)" stroke-width="7" stroke-linecap="round"
-      stroke-dasharray="${c}" stroke-dashoffset="${off}" transform="rotate(-90 ${size/2} ${size/2})"/>
-    <text x="${size/2}" y="${size/2+6}" text-anchor="middle" font-family="Inter" font-size="17" font-weight="700" fill="var(--text)">${pct}%</text>
-  </svg>`;
-}
-function renderRoleTab(id){
-  const c = CAREERS[id];
-  const panel = document.getElementById("role-tab-panel");
-  if(roleTab==="skills"){
-    panel.innerHTML = `<div class="skill-pill-grid">${c.skills.map(cs=>{
-      const skill = SKILLS[cs.skillId];
-      const prog = computeSkillProgress(id, cs.skillId);
-      const dot = prog>0.9?"var(--status-3)": prog>0.55?"var(--status-2)": prog>0.05?"var(--status-1)":"var(--status-0)";
-      return `<div class="skill-pill" data-skill="${cs.skillId}">
-        <span class="status-dot" style="background:${dot}"></span>
-        ${skill.name}
-        <span class="stars">${"★".repeat(cs.importance)}${"☆".repeat(5-cs.importance)}</span>
-      </div>`;
-    }).join("")}</div>`;
-    panel.querySelectorAll("[data-skill]").forEach(p=>p.addEventListener("click",()=>openDetail({type:"skill", careerId:id, skillId:p.dataset.skill})));
-  } else if(roleTab==="map"){
-    panel.innerHTML = `<div style="margin:-26px -28px 0;"><div class="map-canvas-wrap" id="role-map-wrap" style="height:560px;"></div></div>`;
-    drawMindMap("role-map-wrap", id);
-  } else if(roleTab==="projects"){
-    panel.innerHTML = `<div class="proj-cols">${["beginner","intermediate","advanced"].map(lvl=>`
-      <div class="proj-col">
-        <h5>${lvl}</h5>
-        ${c.projects[lvl].map(p=>{
-          const key = id+"::"+p; const done = !!state.projects[key];
-          return `<div class="proj-item ${done?'done':''}" data-proj="${key}"><span>${p}</span><span class="cb">${done?icon("check"):""}</span></div>`;
-        }).join("")}
-      </div>`).join("")}</div>`;
-    panel.querySelectorAll("[data-proj]").forEach(p=>p.addEventListener("click",()=>{
-      const key = p.dataset.proj; state.projects[key] = !state.projects[key]; persist(); renderRoleTab(id);
-    }));
-  } else if(roleTab==="interview"){
-    panel.innerHTML = `<div class="interview-list">${c.interview.map(t=>{
-      const key = id+"::"+t; const done = !!state.interview[key];
-      return `<div class="interview-item ${done?'done':''}" data-int="${key}"><span>${t}</span><span class="cb">${done?icon("check"):""}</span></div>`;
-    }).join("")}</div>`;
-    panel.querySelectorAll("[data-int]").forEach(p=>p.addEventListener("click",()=>{
-      const key = p.dataset.int; state.interview[key] = !state.interview[key]; persist(); renderRoleTab(id);
-    }));
-  } else if(roleTab==="readiness"){
-    panel.innerHTML = readinessBodyHtml(id);
-  }
-}
-
-/* -------------------------------------------------------------------------
-   MIND MAP (SVG tree with expand/collapse + click-to-inspect)
-   ------------------------------------------------------------------------- */
-const mapCollapse = {}; // per key -> bool collapsed
-
-function buildTree(careerId){
-  const c = CAREERS[careerId];
-  const root = {id:"root", label:c.name, kind:"root", children:[]};
-  c.skills.forEach(cs=>{
-    const skill = SKILLS[cs.skillId];
-    const skillKey = "s:"+cs.skillId;
-    const skillNode = {id:skillKey, label:skill.name, kind:"skill", skillId:cs.skillId, importance:cs.importance, children:[]};
-    skill.topics.forEach(t=>{
-      const topicKey = "t:"+cs.skillId+":"+t.id;
-      const topicNode = {id:topicKey, label:t.name, kind:"topic", skillId:cs.skillId, topicId:t.id, children:[]};
-      t.subtopics.forEach((st,i)=>{
-        topicNode.children.push({id:"st:"+cs.skillId+":"+t.id+":"+i, label:st, kind:"subtopic", skillId:cs.skillId, topicId:t.id, subIdx:i, children:[]});
-      });
-      skillNode.children.push(topicNode);
-    });
-    root.children.push(skillNode);
-  });
-  return root;
-}
-function layoutTree(node, careerId, mapId){
-  const rowH = 34, xGap = 230;
-  let leafCounter = 0;
-  function assign(n, depth){
-    n.depth = depth;
-    const cKey = mapId+":"+n.id;
-    n.isCollapsed = !!mapCollapse[cKey] && n.children.length>0;
-    if(n.children.length===0 || n.isCollapsed){
-      n.y = leafCounter*rowH; leafCounter++;
-    } else {
-      n.children.forEach(c=>assign(c, depth+1));
-      n.y = (n.children[0].y + n.children[n.children.length-1].y)/2;
-    }
-    n.x = 60 + depth*xGap;
-  }
-  assign(node, 0);
-  return {height: Math.max(leafCounter*rowH, 200)};
-}
-function statusColorFor(careerId, n){
-  let key;
-  if(n.kind==="skill") key = nodeKey(careerId, n.skillId);
-  else if(n.kind==="topic") key = nodeKey(careerId, n.skillId, n.topicId);
-  else if(n.kind==="subtopic") key = nodeKey(careerId, n.skillId, n.topicId, n.subIdx);
-  else return null;
-  const st = getStatus(key);
-  return {"not-started":"var(--status-0)","learning":"var(--status-1)","practicing":"var(--status-2)","completed":"var(--status-3)"}[st];
-}
-function drawMindMap(wrapId, careerId){
-  const wrap = document.getElementById(wrapId); if(!wrap) return;
-  const tree = buildTree(careerId);
-  const {height} = layoutTree(tree, careerId, wrapId);
-  const width = Math.max(wrap.clientWidth, 60 + 4*230 + 260);
-  const svgH = Math.max(height+60, wrap.clientHeight||500);
-
-  let defs = "";
-  let links = "";
-  let nodes = "";
-
-  function walk(n){
-    if(n.parent){
-      const p = n.parent;
-      const x1 = p.x + nodeWidthFor(p), y1 = p.y+16, x2 = n.x, y2 = n.y+16;
-      links += `<path class="mm-link" d="M${x1},${y1} C${(x1+x2)/2},${y1} ${(x1+x2)/2},${y2} ${x2},${y2}"/>`;
-    }
-    nodes += renderNodeSvg(n, careerId, wrapId);
-    if(!n.isCollapsed){ n.children.forEach(c=>{ c.parent = n; walk(c); }); }
-  }
-  tree.children.forEach(c=>{ c.parent = tree; });
-  // draw root manually then children
-  nodes += renderNodeSvg(tree, careerId, wrapId);
-  tree.children.forEach(c=>{ c.parent=tree; walk(c); });
-
-  wrap.innerHTML = `<svg width="${width}" height="${svgH}" viewBox="0 0 ${width} ${svgH}">${links}${nodes}</svg>`;
-
-  wrap.querySelectorAll("[data-toggle]").forEach(t=>{
-    t.addEventListener("click",(e)=>{
-      e.stopPropagation();
-      const key = wrapId+":"+t.dataset.toggle;
-      mapCollapse[key] = !mapCollapse[key];
-      drawMindMap(wrapId, careerId);
-    });
-  });
-  wrap.querySelectorAll("[data-node]").forEach(g=>{
-    g.addEventListener("click",()=>{
-      const d = JSON.parse(g.dataset.node);
-      openDetail({type:d.kind, careerId, skillId:d.skillId, topicId:d.topicId, subIdx:d.subIdx});
-    });
-  });
-}
-function nodeWidthFor(n){ return n.kind==="root"?160: n.kind==="skill"?190: n.kind==="topic"?190:230; }
-function renderNodeSvg(n, careerId, wrapId){
-  const w = nodeWidthFor(n), hgt = 32;
-  const x = n.x, y = n.y;
-  const isRoot = n.kind==="root";
-  const color = isRoot? null : statusColorFor(careerId, n);
-  const importanceDots = n.kind==="skill" ? `<g transform="translate(${x+w-8-n.importance*7},${y+hgt-8})">${Array.from({length:n.importance}).map((_,i)=>`<circle cx="${i*7}" cy="0" r="2" fill="var(--accent)"></circle>`).join("")}</g>` : "";
-  const hasChildren = n.children && n.children.length>0;
-  const nodeData = JSON.stringify({kind:n.kind, skillId:n.skillId, topicId:n.topicId, subIdx:n.subIdx}).replace(/"/g,"&quot;");
-  let out = `<g class="mm-node" data-node="${nodeData}">
-    <rect class="mm-node-rect ${isRoot?'root':''}" x="${x}" y="${y}" width="${w}" height="${hgt}" rx="10"
-      ${color?`style="stroke:${color}; stroke-width:2;"`:""}></rect>
-    <text class="mm-label ${isRoot?'root':''}" x="${x+14}" y="${y+hgt/2+4}">${truncate(n.label, n.kind==="root"?18:22)}</text>
-    ${importanceDots}
-  </g>`;
-  if(hasChildren){
-    out += `<g class="mm-toggle" data-toggle="${n.id}" transform="translate(${x+w},${y+hgt/2})">
-      <circle r="9"></circle>
-      <text x="0" y="4" text-anchor="middle">${n.isCollapsed?"+":"–"}</text>
-    </g>`;
-  }
-  return out;
-}
-function truncate(s,n){ return s.length>n? s.slice(0,n-1)+"…" : s; }
-
-function renderMapView(){
-  renderTopbar("Career Map", "Interactive roadmap");
-  const el = document.getElementById("content"); el.classList.add("wide");
-  const options = Object.entries(CAREERS).map(([id,c])=>`<option value="${id}" ${route.params.id===id?'selected':''}>${c.name}</option>`).join("");
-  el.innerHTML = `
-    <div class="map-toolbar">
-      <select id="map-career-select">${options}</select>
-      <div class="legend">
-        <span><span class="dot" style="background:var(--status-0)"></span>Not started</span>
-        <span><span class="dot" style="background:var(--status-1)"></span>Learning</span>
-        <span><span class="dot" style="background:var(--status-2)"></span>Practicing</span>
-        <span><span class="dot" style="background:var(--status-3)"></span>Completed</span>
-      </div>
-      <div class="spacer"></div>
-      <span style="font-size:11.5px; color:var(--text-faint);">Click a node to inspect · click ± to expand</span>
-    </div>
-    <div class="map-canvas-wrap" id="main-map-wrap"></div>
-  `;
-  const sel = document.getElementById("map-career-select");
-  const careerId = route.params.id || sel.value;
-  sel.value = careerId;
-  sel.addEventListener("change",()=>{ route.params.id = sel.value; drawMindMap("main-map-wrap", sel.value); });
-  drawMindMap("main-map-wrap", careerId);
-}
-
-/* -------------------------------------------------------------------------
-   DETAIL PANEL
-   ------------------------------------------------------------------------- */
-function openDetail(ctx){
-  const {type, careerId, skillId, topicId, subIdx} = ctx;
-  const overlay = document.getElementById("overlay");
-  const panel = document.getElementById("detail-panel");
-  overlay.classList.add("show"); panel.classList.add("show");
-  overlay.onclick = closePanel;
-
-  const skill = SKILLS[skillId];
-  const relatedCareers = (SKILL_CAREERS[skillId]||[]).map(cid=>CAREERS[cid].name);
-  let title, catLabel, importanceStars, difficulty, statusKey, coreList=[], breadcrumb;
-
-  if(type==="skill"){
-    title = skill.name; catLabel = "SKILL";
-    const cs = CAREERS[careerId].skills.find(s=>s.skillId===skillId);
-    importanceStars = cs? cs.importance : 3;
-    difficulty = skill.difficulty;
-    statusKey = nodeKey(careerId, skillId);
-    coreList = skill.topics.map(t=>t.name);
-    breadcrumb = CAREERS[careerId].name;
-  } else if(type==="topic"){
-    const topic = skill.topics.find(t=>t.id===topicId);
-    title = topic.name; catLabel = "TOPIC · "+skill.name.toUpperCase();
-    const cs = CAREERS[careerId].skills.find(s=>s.skillId===skillId);
-    importanceStars = cs? cs.importance : 3;
-    difficulty = skill.difficulty;
-    statusKey = nodeKey(careerId, skillId, topicId);
-    coreList = topic.subtopics;
-    breadcrumb = CAREERS[careerId].name+" / "+skill.name;
-  } else if(type==="subtopic"){
-    const topic = skill.topics.find(t=>t.id===topicId);
-    title = topic.subtopics[subIdx]; catLabel = "SUBTOPIC · "+topic.name.toUpperCase();
-    const cs = CAREERS[careerId].skills.find(s=>s.skillId===skillId);
-    importanceStars = cs? cs.importance : 3;
-    difficulty = skill.difficulty;
-    statusKey = nodeKey(careerId, skillId, topicId, subIdx);
-    coreList = [];
-    breadcrumb = CAREERS[careerId].name+" / "+skill.name+" / "+topic.name;
-  }
-
-  const curStatus = getStatus(statusKey);
-  panel.innerHTML = `
-    <div class="dp-head">
-      <button class="icon-btn close" id="dp-close">${icon("x")}</button>
-      <span class="dp-cat mono">${catLabel}</span>
-      <h3>${title}</h3>
-      <div style="font-size:11.5px; color:var(--text-faint); margin-top:4px;">${breadcrumb}</div>
-    </div>
-    <div class="dp-body">
-      <div class="dp-row">
-        <div class="k">Importance for ${CAREERS[careerId].name}</div>
-        <div class="dp-stars">${"★".repeat(importanceStars)}${"☆".repeat(5-importanceStars)}</div>
-      </div>
-      <div class="dp-row">
-        <div class="k">Difficulty</div>
-        <div class="dp-tag ${difficulty==='Advanced'?'':''}" style="background:var(--accent-soft); color:var(--accent-strong);">${difficulty}</div>
-      </div>
-      ${relatedCareers.length? `<div class="dp-row">
-        <div class="k">Required for</div>
-        <div class="dp-tag-row">${relatedCareers.map(r=>`<span class="dp-tag muted">${r}</span>`).join("")}</div>
-      </div>`:""}
-      ${coreList.length? `<div class="dp-row">
-        <div class="k">${type==="skill"?"Core topics":"Subtopics"}</div>
-        <ul class="dp-list">${coreList.map(c=>`<li><span class="b"></span>${c}</li>`).join("")}</ul>
-      </div>`:""}
-      <div class="dp-row">
-        <div class="k">Learning status</div>
-        <div class="status-track" id="dp-status">
-          ${StatusEnum.map(s=>`<button class="status-opt ${curStatus===s?'active':''}" data-status="${s}">${statusLabel(s)}</button>`).join("")}
-        </div>
-      </div>
-    </div>
-  `;
-  document.getElementById("dp-close").addEventListener("click", closePanel);
-  panel.querySelectorAll("[data-status]").forEach(b=>b.addEventListener("click",()=>{
-    setStatus(statusKey, b.dataset.status);
-    openDetail(ctx); // re-render panel
-    // re-render underlying view to reflect status changes
-    render(true);
-  }));
-}
-function statusLabel(s){ return {"not-started":"Not started","learning":"Learning","practicing":"Practicing","completed":"Completed"}[s]; }
-function closePanel(){
-  document.getElementById("overlay").classList.remove("show");
-  document.getElementById("detail-panel").classList.remove("show");
-}
-
-/* -------------------------------------------------------------------------
-   VIEW: SKILLS (browse skill library)
-   ------------------------------------------------------------------------- */
-function renderSkillsView(){
-  renderTopbar("Skills", "All skills in the knowledge base");
-  const el = document.getElementById("content");
-  const entries = Object.entries(SKILLS);
-  el.innerHTML = `
-    <div style="padding-top:24px;">
-      <div class="filter-row" id="skill-diff-filter">
-        ${["All","Beginner","Intermediate","Advanced"].map(d=>`<button class="filter-pill ${d==='All'?'active':''}" data-diff="${d}">${d}</button>`).join("")}
-      </div>
-      <div class="role-grid" id="skills-grid"></div>
-    </div>
-  `;
-  function draw(filter){
-    const grid = document.getElementById("skills-grid");
-    grid.innerHTML = entries.filter(([id,s])=>filter==="All"||s.difficulty===filter).map(([id,s])=>{
-      const careers = SKILL_CAREERS[id]||[];
-      return `<div class="role-card" data-skill="${id}">
-        <h4>${s.name}</h4>
-        <span class="cat">${s.topics.length} topics · ${s.difficulty}</span>
-        <div class="dp-tag-row">${careers.slice(0,3).map(c=>`<span class="dp-tag muted">${CAREERS[c].name}</span>`).join("")}${careers.length>3?`<span class="dp-tag muted">+${careers.length-3}</span>`:""}</div>
-      </div>`;
-    }).join("");
-    grid.querySelectorAll("[data-skill]").forEach(c=>c.addEventListener("click",()=>{
-      const careerId = (SKILL_CAREERS[c.dataset.skill]||[])[0];
-      if(careerId) openDetail({type:"skill", careerId, skillId:c.dataset.skill});
-    }));
-  }
-  document.getElementById("skill-diff-filter").querySelectorAll("[data-diff]").forEach(b=>b.addEventListener("click",()=>{
-    document.querySelectorAll("#skill-diff-filter .filter-pill").forEach(x=>x.classList.remove("active"));
-    b.classList.add("active"); draw(b.dataset.diff);
-  }));
-  draw("All");
-}
-
-/* -------------------------------------------------------------------------
-   VIEW: COMPARE
-   ------------------------------------------------------------------------- */
-function renderCompare(){
-  renderTopbar("Compare Careers");
-  const el = document.getElementById("content");
-  const ids = Object.keys(CAREERS);
-  const a = route.params.a || ids[0];
-  const b = route.params.b || ids[1];
-  el.innerHTML = `
-    <div style="padding-top:20px;">
-      <div class="compare-picker">
-        <select id="cmp-a">${ids.map(id=>`<option value="${id}" ${id===a?'selected':''}>${CAREERS[id].name}</option>`).join("")}</select>
-        <span style="color:var(--text-faint);">vs</span>
-        <select id="cmp-b">${ids.map(id=>`<option value="${id}" ${id===b?'selected':''}>${CAREERS[id].name}</option>`).join("")}</select>
-      </div>
-      <div id="cmp-body"></div>
-    </div>
-  `;
-  function draw(){
-    const ca = CAREERS[document.getElementById("cmp-a").value];
-    const cb = CAREERS[document.getElementById("cmp-b").value];
-    const idA = document.getElementById("cmp-a").value, idB = document.getElementById("cmp-b").value;
-    const setA = new Set(ca.skills.map(s=>s.skillId));
-    const setB = new Set(cb.skills.map(s=>s.skillId));
-    const common = [...setA].filter(s=>setB.has(s));
-    const onlyA = [...setA].filter(s=>!setB.has(s));
-    const onlyB = [...setB].filter(s=>!setA.has(s));
-    const readyA = computeCareerReadiness(idA).overall, readyB = computeCareerReadiness(idB).overall;
-    const body = document.getElementById("cmp-body");
-    const rows = [
-      ["Difficulty", ca.difficulty, cb.difficulty],
-      ["Learning scope", ca.scopeWeeks+" weeks", cb.scopeWeeks+" weeks"],
-      ["Total skills", ca.skills.length, cb.skills.length],
-      ["DSA emphasis", starsFor(ca,"dsa"), starsFor(cb,"dsa")],
-      ["Cloud emphasis", starsFor(ca,"cloud"), starsFor(cb,"cloud")],
-      ["Your readiness", readyA+"%", readyB+"%"],
-    ];
-    body.innerHTML = `
-      <div class="compare-grid" style="grid-template-columns:180px 1fr 1fr; margin-top:10px;">
-        <div class="compare-row" style="grid-template-columns:subgrid; grid-column:1/-1;">
-          <div class="compare-cell label">Metric</div>
-          <div class="compare-cell" style="font-weight:700;">${ca.name}</div>
-          <div class="compare-cell" style="font-weight:700;">${cb.name}</div>
-        </div>
-        ${rows.map(r=>`<div class="compare-row" style="grid-template-columns:subgrid; grid-column:1/-1;">
-          <div class="compare-cell label">${r[0]}</div>
-          <div class="compare-cell">${r[1]}</div>
-          <div class="compare-cell">${r[2]}</div>
-        </div>`).join("")}
-      </div>
-      <div class="venn-wrap">
-        <div class="venn-box common"><h5>Common skills (${common.length})</h5><div class="dp-tag-row">${common.map(s=>`<span class="dp-tag">${SKILLS[s].name}</span>`).join("")||'<span style="color:var(--text-faint); font-size:12px;">None</span>'}</div></div>
-        <div class="venn-box"><h5>${ca.name}-specific (${onlyA.length})</h5><div class="dp-tag-row">${onlyA.map(s=>`<span class="dp-tag muted">${SKILLS[s].name}</span>`).join("")||'<span style="color:var(--text-faint); font-size:12px;">None</span>'}</div></div>
-        <div class="venn-box"><h5>${cb.name}-specific (${onlyB.length})</h5><div class="dp-tag-row">${onlyB.map(s=>`<span class="dp-tag muted">${SKILLS[s].name}</span>`).join("")||'<span style="color:var(--text-faint); font-size:12px;">None</span>'}</div></div>
-      </div>
-    `;
-  }
-  function starsFor(career, cat){
-    const s = career.skills.find(x=>x.category===cat);
-    return s? "★".repeat(s.importance)+"☆".repeat(5-s.importance) : "—";
-  }
-  document.getElementById("cmp-a").addEventListener("change", draw);
-  document.getElementById("cmp-b").addEventListener("change", draw);
-  draw();
-}
-
-/* -------------------------------------------------------------------------
-   VIEW: MY ROADMAP (path generator)
-   ------------------------------------------------------------------------- */
-function renderRoadmap(){
-  renderTopbar("My Roadmap", "Build a personalized learning path");
-  const el = document.getElementById("content");
-  const ids = Object.keys(CAREERS);
-  el.innerHTML = `
-    <div style="padding-top:24px; max-width:640px;">
-      <div class="dp-row">
-        <div class="k">Target role</div>
-        <select id="rm-role" style="width:100%; padding:11px 14px; border-radius:10px; border:1px solid var(--border-strong); font-size:14px; background:var(--surface); font-family:var(--font-ui);">
-          ${ids.map(id=>`<option value="${id}">${CAREERS[id].name}</option>`).join("")}
-        </select>
-      </div>
-      <div class="dp-row">
-        <div class="k">Current experience</div>
-        <div class="filter-row" id="rm-exp">
-          ${["Beginner","Some programming","Intermediate","Experienced"].map((x,i)=>`<button class="filter-pill ${i===0?'active':''}" data-exp="${i}">${x}</button>`).join("")}
-        </div>
-      </div>
-      <div class="dp-row">
-        <div class="k">Available time</div>
-        <div class="filter-row" id="rm-time">
-          ${["5 hrs/wk","10 hrs/wk","20 hrs/wk","30+ hrs/wk"].map((x,i)=>`<button class="filter-pill ${i===1?'active':''}" data-time="${[5,10,20,30][i]}">${x}</button>`).join("")}
-        </div>
-      </div>
-      <button id="rm-generate" style="margin-top:8px; background:var(--accent); color:#fff; border:none; padding:12px 22px; border-radius:11px; font-weight:600; font-size:13.5px;">Generate my path</button>
-      <div id="rm-output" style="margin-top:34px;"></div>
-    </div>
-  `;
-  let exp = 0, hours = 10;
-  document.getElementById("rm-exp").querySelectorAll("[data-exp]").forEach(b=>b.addEventListener("click",()=>{
-    document.querySelectorAll("#rm-exp .filter-pill").forEach(x=>x.classList.remove("active")); b.classList.add("active"); exp = +b.dataset.exp;
-  }));
-  document.getElementById("rm-time").querySelectorAll("[data-time]").forEach(b=>b.addEventListener("click",()=>{
-    document.querySelectorAll("#rm-time .filter-pill").forEach(x=>x.classList.remove("active")); b.classList.add("active"); hours = +b.dataset.time;
-  }));
-  document.getElementById("rm-generate").addEventListener("click",()=>{
-    const careerId = document.getElementById("rm-role").value;
-    const out = document.getElementById("rm-output");
-    const path = generatePath(careerId, exp, hours);
-    out.innerHTML = `<div class="section-head" style="margin-top:0;"><h2 class="serif">Your path to ${CAREERS[careerId].name}</h2></div>
-      ${path.map((wk,i)=>`<div class="result-item" style="align-items:flex-start;">
-        <div><b>Week ${wk.range}</b><div class="path">${wk.items.join(" · ")}</div></div>
-      </div>`).join("")}`;
-  });
-}
-// Build a path following prerequisite-ish ordering: foundation -> language -> dsa -> domain skills -> systemdesign -> projects/interview
-function generatePath(careerId, expLevel, hoursPerWeek){
-  const career = CAREERS[careerId];
-  const order = ["foundation","programming","database","backend","data","ml","cloud","security","testing","dsa","systemdesign"];
-  let skillsSorted = [...career.skills].sort((a,b)=> order.indexOf(a.category)-order.indexOf(b.category) || b.importance-a.importance);
-  if(expLevel>=1) skillsSorted = skillsSorted.filter(s=> !(s.category==="foundation")); // skip pure basics if some experience
-  if(expLevel>=2) skillsSorted = skillsSorted.filter(s=> s.importance>=3 || s.category==="dsa"); // intermediate: focus on essentials
-  const topicsPerWeek = hoursPerWeek>=20? 3 : hoursPerWeek>=10? 2 : 1;
-  const items = [];
-  skillsSorted.forEach(cs=>{
-    const skill = SKILLS[cs.skillId];
-    skill.topics.forEach(t=> items.push(`${skill.name}: ${t.name}`));
-  });
-  items.push(`Projects: ${career.projects.beginner[0]}`);
-  items.push(`Projects: ${career.projects.intermediate[0]}`);
-  items.push(`Interview prep: ${career.interview.slice(0,3).join(", ")}`);
-
-  const weeks = [];
-  let cursor = 1;
-  for(let i=0;i<items.length;i+=topicsPerWeek){
-    const chunk = items.slice(i,i+topicsPerWeek);
-    weeks.push({range: cursor, items: chunk});
-    cursor++;
-  }
-  return weeks;
-}
-
-/* -------------------------------------------------------------------------
-   VIEW: JOB READINESS
-   ------------------------------------------------------------------------- */
-function readinessBodyHtml(careerId){
-  const r = computeCareerReadiness(careerId);
-  const sorted = [...r.cats].sort((a,b)=>a.pct-b.pct);
-  const gaps = sorted.slice(0,4);
-  return `
-    <div class="readiness-hero">
-      ${ringSvg(r.overall, 120)}
-      <div><div class="readiness-big">${r.overall}%</div><div style="color:var(--text-muted); font-size:13px;">Job ready for ${CAREERS[careerId].name}</div></div>
-    </div>
-    <div style="margin-top:10px;">
-      ${r.cats.map(c=>`<div class="bar-row"><div class="name">${c.name}</div><div class="bar-track"><div class="bar-fill" style="width:${c.pct}%"></div></div><div class="pct mono">${c.pct}%</div></div>`).join("")}
-    </div>
-    <div class="section-head"><h2 class="serif" style="font-size:17px;">Your biggest gaps</h2></div>
-    <div class="gap-list">
-      ${gaps.map((g,i)=>`<div class="gap-item"><span class="n">${i+1}</span><span>${g.name} — ${g.pct}% covered</span></div>`).join("")}
-    </div>
-    <div class="section-head"><h2 class="serif" style="font-size:17px;">Recommended next actions</h2></div>
-    <div class="gap-list">
-      ${gaps.slice(0,3).map((g,i)=>`<div class="gap-item"><span class="n" style="background:var(--accent);">${i+1}</span><span>Focus on ${g.name.toLowerCase()} — review topics and mark progress as you go</span></div>`).join("")}
-    </div>
-  `;
-}
-function renderReadiness(){
-  renderTopbar("Job Readiness");
-  const el = document.getElementById("content");
-  const ids = Object.keys(CAREERS);
-  const careerId = route.params.id || ids[0];
-  el.innerHTML = `
-    <div style="padding-top:20px;">
-      <select id="jr-select" style="padding:10px 14px; border-radius:10px; border:1px solid var(--border-strong); font-size:14px; background:var(--surface); font-family:var(--font-ui);">
-        ${ids.map(id=>`<option value="${id}" ${id===careerId?'selected':''}>${CAREERS[id].name}</option>`).join("")}
-      </select>
-      <div id="jr-body">${readinessBodyHtml(careerId)}</div>
-    </div>
-  `;
-  document.getElementById("jr-select").addEventListener("change",(e)=>{
-    document.getElementById("jr-body").innerHTML = readinessBodyHtml(e.target.value);
-  });
-}
-
-/* -------------------------------------------------------------------------
-   VIEW: PROJECTS / INTERVIEW (global browse)
-   ------------------------------------------------------------------------- */
-function renderProjectsView(){
-  renderTopbar("Projects");
-  const el = document.getElementById("content");
-  el.innerHTML = `<div style="padding-top:20px;">${Object.entries(CAREERS).map(([id,c])=>`
-    <div class="section-head" style="margin-top:30px;"><h2 class="serif" style="font-size:18px;">${c.name}</h2></div>
-    <div class="proj-cols">${["beginner","intermediate","advanced"].map(lvl=>`
-      <div class="proj-col"><h5>${lvl}</h5>${c.projects[lvl].map(p=>{
-        const key=id+"::"+p; const done=!!state.projects[key];
-        return `<div class="proj-item ${done?'done':''}" data-proj="${key}"><span>${p}</span><span class="cb">${done?icon("check"):""}</span></div>`;
-      }).join("")}</div>`).join("")}</div>
-  `).join("")}</div>`;
-  el.querySelectorAll("[data-proj]").forEach(p=>p.addEventListener("click",()=>{
-    state.projects[p.dataset.proj] = !state.projects[p.dataset.proj]; persist(); renderProjectsView();
-  }));
-}
-function renderInterviewView(){
-  renderTopbar("Interview Prep");
-  const el = document.getElementById("content");
-  el.innerHTML = `<div style="padding-top:20px;">${Object.entries(CAREERS).map(([id,c])=>`
-    <div class="section-head" style="margin-top:30px;"><h2 class="serif" style="font-size:18px;">${c.name}</h2></div>
-    <div class="interview-list">${c.interview.map(t=>{
-      const key=id+"::"+t; const done=!!state.interview[key];
-      return `<div class="interview-item ${done?'done':''}" data-int="${key}"><span>${t}</span><span class="cb">${done?icon("check"):""}</span></div>`;
-    }).join("")}</div>
-  `).join("")}</div>`;
-  el.querySelectorAll("[data-int]").forEach(p=>p.addEventListener("click",()=>{
-    state.interview[p.dataset.int] = !state.interview[p.dataset.int]; persist(); renderInterviewView();
-  }));
-}
-
-/* -------------------------------------------------------------------------
-   VIEW: SEARCH
-   ------------------------------------------------------------------------- */
-function buildSearchIndex(){
-  const idx = [];
-  Object.entries(CAREERS).forEach(([id,c])=> idx.push({type:"Career", label:c.name, path:"Career Explorer", action:()=>go("role",{id})}));
-  Object.entries(SKILLS).forEach(([id,s])=> idx.push({type:"Skill", label:s.name, path:"Skills", action:()=>{ const cid=(SKILL_CAREERS[id]||[])[0]; if(cid) openDetail({type:"skill", careerId:cid, skillId:id}); }}));
-  Object.entries(SKILLS).forEach(([sid,s])=> s.topics.forEach(t=> idx.push({type:"Topic", label:t.name, path:s.name, action:()=>{ const cid=(SKILL_CAREERS[sid]||[])[0]; if(cid) openDetail({type:"topic", careerId:cid, skillId:sid, topicId:t.id}); }})));
-  return idx;
-}
-const SEARCH_INDEX = buildSearchIndex();
-function renderSearch(){
-  renderTopbar("Search", "Careers, skills, topics & subtopics");
-  const el = document.getElementById("content");
-  el.innerHTML = `
-    <div style="padding-top:22px;">
-      <div class="search-box" style="max-width:560px;">${icon("search")}<input id="global-search" placeholder="Search the entire knowledge base…" autocomplete="off"></div>
-      <div id="search-results" style="margin-top:22px;"></div>
-    </div>
-  `;
-  const input = document.getElementById("global-search");
-  const results = document.getElementById("search-results");
-  function draw(q){
-    if(!q){ results.innerHTML = `<div class="empty-state">${icon("search")}<div>Start typing to search across roles, skills and topics.</div></div>`; return; }
-    const matches = SEARCH_INDEX.filter(m=>m.label.toLowerCase().includes(q.toLowerCase())).slice(0,40);
-    if(!matches.length){ results.innerHTML = `<div class="empty-state">${icon("search")}<div>No results for “${q}”.</div></div>`; return; }
-    results.innerHTML = matches.map((m,i)=>`<div class="result-item" data-i="${i}"><div><div>${m.label}</div><div class="path">${m.type} · ${m.path}</div></div>${icon("chevronRight")}</div>`).join("");
-    results.querySelectorAll("[data-i]").forEach(r=>r.addEventListener("click",()=>matches[+r.dataset.i].action()));
-  }
-  input.addEventListener("input",()=>draw(input.value.trim()));
-  draw("");
-}
-
-/* -------------------------------------------------------------------------
-   VIEW: SETTINGS
-   ------------------------------------------------------------------------- */
-function renderSettings(){
-  renderTopbar("Settings");
-  const el = document.getElementById("content");
-  const totalNodes = Object.values(state.progress).length;
-  el.innerHTML = `
-    <div style="padding-top:22px; max-width:520px;">
-      <div class="dp-row">
-        <div class="k">Appearance</div>
-        <div class="filter-row">
-          <button class="filter-pill ${state.theme==='light'?'active':''}" id="set-light">Light</button>
-          <button class="filter-pill ${state.theme==='dark'?'active':''}" id="set-dark">Dark</button>
-        </div>
-      </div>
-      <div class="dp-row">
-        <div class="k">Your data</div>
-        <p style="font-size:13px; color:var(--text-muted); margin:0 0 10px;">Progress is stored locally in your browser (localStorage). Nothing is sent to a server. You currently have <b>${totalNodes}</b> tracked items.</p>
-        <button class="filter-pill" id="set-reset" style="border-color:var(--advanced); color:var(--advanced);">Reset all progress</button>
-      </div>
-      <div class="dp-row">
-        <div class="k">About</div>
-        <p style="font-size:13px; color:var(--text-muted);">IT Career Atlas — an interactive knowledge map for IT careers. ${Object.keys(CAREERS).length} roles, ${Object.keys(SKILLS).length} skills, mapped down to topics and subtopics.</p>
-      </div>
-    </div>
-  `;
-  document.getElementById("set-light").addEventListener("click",()=>{ if(state.theme!=="light"){ toggleTheme(); renderSettings(); }});
-  document.getElementById("set-dark").addEventListener("click",()=>{ if(state.theme!=="dark"){ toggleTheme(); renderSettings(); }});
-  document.getElementById("set-reset").addEventListener("click",()=>{
-    if(confirm("Reset all tracked progress, projects and interview checklists? This can't be undone.")){
-      state.progress={}; state.projects={}; state.interview={}; persist(); renderSettings();
-    }
-  });
-}
-
-/* -------------------------------------------------------------------------
-   AI CAREER COPILOT (rule-based over the knowledge graph — no external calls)
-   ------------------------------------------------------------------------- */
-let cpHistory = [];
-let cpContext = {careerId:null};
-function renderCopilot(){
-  document.getElementById("copilot-btn").innerHTML = icon("bot");
-  const panel = document.getElementById("copilot-panel");
-  panel.innerHTML = `
-    <div class="cp-head">
-      <div class="mark">${icon("bot")}</div>
-      <div><h4>Career Copilot</h4><div class="sub">Ask about roles, skills & what's next</div></div>
-      <div class="spacer"></div>
-      <button class="icon-btn" id="cp-close">${icon("x")}</button>
-    </div>
-    <div class="cp-body" id="cp-body"></div>
-    <div class="cp-suggest" id="cp-suggest">
-      ${["What do I need for Backend Engineer?","Compare Backend and Data Engineer","I know Python and SQL. What's next?","What can I skip for frontend?"].map(q=>`<button data-q="${q}">${q}</button>`).join("")}
-    </div>
-    <div class="cp-input-row">
-      <input id="cp-input" placeholder="Ask the copilot…">
-      <button id="cp-send">${icon("send")}</button>
-    </div>
-  `;
-  document.getElementById("cp-close").addEventListener("click", ()=>panel.classList.remove("show"));
-  document.getElementById("cp-suggest").querySelectorAll("[data-q]").forEach(b=>b.addEventListener("click",()=>askCopilot(b.dataset.q)));
-  document.getElementById("cp-send").addEventListener("click", sendCopilotInput);
-  document.getElementById("cp-input").addEventListener("keydown",(e)=>{ if(e.key==="Enter") sendCopilotInput(); });
-  if(cpHistory.length===0){
-    pushCpMsg("ai", "Hi — I'm your Career Copilot. Ask me what a role needs, how two careers compare, or what to learn next based on skills you already know.");
-  } else {
-    renderCpHistory();
-  }
-}
-function sendCopilotInput(){
-  const input = document.getElementById("cp-input");
-  const q = input.value.trim(); if(!q) return;
-  input.value = "";
-  askCopilot(q);
-}
-function pushCpMsg(role, html){
-  cpHistory.push({role, html});
-  renderCpHistory();
-}
-function renderCpHistory(){
-  const body = document.getElementById("cp-body"); if(!body) return;
-  body.innerHTML = cpHistory.map(m=>`<div class="cp-msg ${m.role}">${m.html}</div>`).join("");
-  body.scrollTop = body.scrollHeight;
-}
-function findCareerInText(q){
-  const lower = q.toLowerCase();
-  return Object.entries(CAREERS).find(([id,c])=> lower.includes(c.name.toLowerCase()) || lower.includes(id.replace("-"," ")))?.[0];
-}
-function findAllCareersInText(q){
-  const lower = q.toLowerCase();
-  return Object.entries(CAREERS).filter(([id,c])=> lower.includes(c.name.toLowerCase())).map(([id])=>id);
-}
-function findSkillsInText(q){
-  const lower = q.toLowerCase();
-  return Object.entries(SKILLS).filter(([id,s])=> lower.includes(s.name.toLowerCase())).map(([id])=>id);
-}
-function askCopilot(q){
-  pushCpMsg("user", escapeHtml(q));
-  const lower = q.toLowerCase();
-  const careersMentioned = findAllCareersInText(q);
-  let careerId = careersMentioned[0] || cpContext.careerId;
-
-  setTimeout(()=>{
-    let answer = "";
-    if(careersMentioned.length>=2){
-      answer = copilotCompare(careersMentioned[0], careersMentioned[1]);
-    } else if(/compare/.test(lower) && careerId){
-      answer = "Tell me two roles to compare, e.g. “Compare Backend Engineer and Data Engineer.”";
-    } else if(/what should i (learn|do) next|next step|what.?s next/.test(lower)){
-      const knownSkills = findSkillsInText(q);
-      answer = copilotWhatsNext(careerId, knownSkills);
-    } else if(/skip|don.?t need|optional/.test(lower)){
-      answer = copilotOptional(careerId);
-    } else if(/why (do i need|is|learn)/.test(lower)){
-      const skillIds = findSkillsInText(q);
-      answer = copilotWhy(careerId, skillIds[0]);
-    } else if(/ready|readiness|job.?ready/.test(lower) && careerId){
-      const r = computeCareerReadiness(careerId);
-      answer = `You're at <b>${r.overall}%</b> job-ready for ${CAREERS[careerId].name}. Your weakest areas: ${[...r.cats].sort((a,b)=>a.pct-b.pct).slice(0,2).map(c=>c.name).join(", ")}. Check the <b>Job Readiness</b> tab for the full breakdown.`;
-    } else if(/(roadmap|path|plan)/.test(lower) && careerId){
-      const skills = CAREERS[careerId].skills.sort((a,b)=>b.importance-a.importance).slice(0,6);
-      answer = `A solid path to <b>${CAREERS[careerId].name}</b> usually starts with: <ul>${skills.map(s=>`<li>${SKILLS[s.skillId].name}</li>`).join("")}</ul>Open <b>My Roadmap</b> to generate a personalized, week-by-week plan based on your time and experience.`;
-    } else if(/common|shared|overlap/.test(lower) && careersMentioned.length===0){
-      answer = "Tell me which two roles, and I'll show the skills they share — e.g. “What skills are common between ML Engineer and GenAI Engineer?”";
-    } else if(/which career.*python|python.*most/.test(lower)){
-      const python = SKILL_CAREERS["python"]||[];
-      answer = `Python shows up heavily in: ${python.map(c=>CAREERS[c].name).join(", ")}.`;
-    } else if(careerId){
-      answer = copilotOverview(careerId);
-      cpContext.careerId = careerId;
-    } else {
-      answer = `I can help with things like: <ul><li>“What do I need for &lt;role&gt;?”</li><li>“Compare &lt;role A&gt; and &lt;role B&gt;”</li><li>“I know Python and SQL — what's next?”</li><li>“Am I ready for a &lt;role&gt; internship?”</li></ul>Try naming a specific role.`;
-    }
-    pushCpMsg("ai", answer);
-  }, 260);
-}
-function copilotOverview(careerId){
-  const c = CAREERS[careerId];
-  const essentials = c.skills.filter(s=>s.importance>=4).map(s=>SKILLS[s.skillId].name);
-  return `<b>${c.name}</b> — ${c.description}<br><br>Essential skills: ${essentials.join(", ")}.<br>Typical scope: ~${c.scopeWeeks} weeks. Difficulty: ${c.difficulty}.<br><br>Open the <b>Career Map</b> to explore the full interactive roadmap.`;
-}
-function copilotCompare(idA, idB){
-  const ca = CAREERS[idA], cb = CAREERS[idB];
-  const setA = new Set(ca.skills.map(s=>s.skillId)), setB = new Set(cb.skills.map(s=>s.skillId));
-  const common = [...setA].filter(s=>setB.has(s)).map(s=>SKILLS[s].name);
-  const onlyA = [...setA].filter(s=>!setB.has(s)).map(s=>SKILLS[s].name);
-  const onlyB = [...setB].filter(s=>!setA.has(s)).map(s=>SKILLS[s].name);
-  return `<b>${ca.name}</b> vs <b>${cb.name}</b><br><br>Shared: ${common.join(", ")||"—"}<br>${ca.name}-only: ${onlyA.join(", ")||"—"}<br>${cb.name}-only: ${onlyB.join(", ")||"—"}<br><br>Open <b>Compare</b> for a side-by-side view.`;
-}
-function copilotWhatsNext(careerId, knownSkillIds){
-  if(!careerId){ return "Which role are you aiming for? Name one and tell me what you already know."; }
-  const c = CAREERS[careerId];
-  const known = new Set(knownSkillIds);
-  const remaining = c.skills.filter(s=>!known.has(s.skillId)).sort((a,b)=>b.importance-a.importance);
-  if(!remaining.length) return `You've covered the core skill list for ${c.name} — focus on projects and interview prep next.`;
-  return `Given what you know, for <b>${c.name}</b> I'd learn next, in order:<ul>${remaining.slice(0,5).map(s=>`<li>${SKILLS[s.skillId].name} <span class="mono" style="color:var(--text-faint); font-size:11px;">(${"★".repeat(s.importance)})</span></li>`).join("")}</ul>`;
-}
-function copilotOptional(careerId){
-  if(!careerId) return "Tell me which role, and I'll flag which skills are optional versus essential for it.";
-  const c = CAREERS[careerId];
-  const optional = c.skills.filter(s=>s.importance<=2).map(s=>SKILLS[s.skillId].name);
-  return optional.length? `For <b>${c.name}</b>, lower-priority (optional/advanced-later) skills include: ${optional.join(", ")}. Everything else is essential or strongly recommended.` : `For ${c.name}, most listed skills are essential — there isn't much you can safely skip.`;
-}
-function copilotWhy(careerId, skillId){
-  if(!skillId) return "Which skill are you asking about? Name it directly, e.g. “Why do I need Docker?”";
-  const skill = SKILLS[skillId];
-  const careers = SKILL_CAREERS[skillId]||[];
-  const cs = careerId && CAREERS[careerId].skills.find(s=>s.skillId===skillId);
-  return `<b>${skill.name}</b> is used across: ${careers.map(c=>CAREERS[c].name).join(", ")}.${cs?` For ${CAREERS[careerId].name} specifically it's rated ${"★".repeat(cs.importance)}${"☆".repeat(5-cs.importance)} importance.`:""} Core topics: ${skill.topics.slice(0,4).map(t=>t.name).join(", ")}.`;
-}
-function escapeHtml(s){ const d=document.createElement("div"); d.innerText=s; return d.innerHTML; }
-
-/* -------------------------------------------------------------------------
-   MAIN RENDER / INIT
-   ------------------------------------------------------------------------- */
-function render(skipTopScroll){
-  document.getElementById("content").classList.remove("wide");
-  renderSidebar(); renderBottomNav();
-  switch(route.view){
-    case "home": renderHome(); break;
-    case "home-cat": renderHomeCat(route.params.id); break;
-    case "role": renderRole(route.params.id); break;
-    case "map": renderMapView(); break;
-    case "skills": renderSkillsView(); break;
-    case "compare": renderCompare(); break;
-    case "roadmap": renderRoadmap(); break;
-    case "readiness": renderReadiness(); break;
-    case "projects": renderProjectsView(); break;
-    case "interview": renderInterviewView(); break;
-    case "search": renderSearch(); break;
-    case "settings": renderSettings(); break;
-    default: renderHome();
-  }
-}
-
-document.documentElement.setAttribute("data-theme", state.theme);
-document.getElementById("copilot-btn").addEventListener("click", ()=>{
-  const panel = document.getElementById("copilot-panel");
-  panel.classList.toggle("show");
-  if(panel.classList.contains("show")) renderCopilot();
-});
-window.addEventListener("resize", ()=>{ if(route.view==="map") drawMindMap("main-map-wrap", route.params.id||Object.keys(CAREERS)[0]); });
-
-render();
 </script>
+
 </body>
 </html>
