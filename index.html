@@ -4,1685 +4,1906 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Elevate Your LinkedIn Presence</title>
+<title>FinAI - AI Personal Finance Manager</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    color: #131b2e;
-    line-height: 1.6;
-    background: #faf8ff;
-    overflow-x: hidden;
-}
-
-.container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 0 20px;
-}
-
-/* ================= HERO ================= */
-
-.hero {
-    background: #faf8ff;
-    padding: 80px 40px 96px;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero::before {
-    content: "";
-    position: absolute;
-    top: -160px;
-    right: -80px;
-    width: 550px;
-    height: 550px;
-    background: rgba(214,227,255,.4);
-    border-radius: 50%;
-    filter: blur(40px);
-}
-
-.hero::after {
-    content: "";
-    position: absolute;
-    bottom: -100px;
-    left: -150px;
-    width: 420px;
-    height: 420px;
-    background: rgba(104,219,169,.2);
-    border-radius: 50%;
-    filter: blur(40px);
-}
-
-.hero-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-    align-items: center;
-    position: relative;
-    z-index: 2;
-}
-
-.hero-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: #e2e7ff;
-    padding: 5px 12px;
-    border-radius: 20px;
-    margin-bottom: 24px;
-}
-
-.hero-eyebrow::before {
-    content: "";
-    width: 9px;
-    height: 9px;
-    background: #0a66c2;
-    border-radius: 50%;
-}
-
-.hero-eyebrow span {
-    font-size: 11px;
-    font-weight: 700;
-    color: #004e99;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.hero-left h1 {
-    font-size: 56px;
-    font-weight: 800;
-    line-height: 1.14;
-    margin-bottom: 24px;
-    letter-spacing: -1.5px;
-}
-
-.highlight {
-    color: #0a66c2;
-}
-
-.hero-left p {
-    font-size: 18px;
-    color: #414752;
-    line-height: 1.6;
-    max-width: 580px;
-    margin-bottom: 24px;
-}
-
-.hero-cta-group {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    margin-bottom: 24px;
-}
-
-.btn-primary,
-.btn-secondary {
-    padding: 15px 28px;
-    border-radius: 5px;
-    font-size: 14px;
-    font-weight: 700;
-    text-decoration: none;
-    display: inline-block;
-    transition: .3s;
-}
-
-.btn-primary {
-    background: #0a66c2;
-    color: white;
-}
-
-.btn-primary:hover {
-    background: #004e99;
-    transform: translateY(-2px);
-}
-
-.btn-secondary {
-    background: #eaedff;
-    color: #131b2e;
-}
-
-.btn-secondary:hover {
-    background: #d6e3fe;
-}
-
-.hero-trust {
-    font-size: 13px;
-    color: #525f75;
-}
-
-.hero-trust::before {
-    content: "✓";
-    color: #007652;
-    font-weight: 900;
-    margin-right: 7px;
-}
-
-.hero-featured {
-    margin-top: 32px;
-    padding-top: 18px;
-    border-top: 1px solid rgba(0,0,0,.08);
-}
-
-.hero-featured p {
-    font-size: 11px;
-    color: #727783;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 700;
-    margin-bottom: 12px;
-}
-
-.hero-featured-brands {
-    display: flex;
-    gap: 25px;
-    flex-wrap: wrap;
-}
-
-.hero-featured-brands span {
-    font-size: 18px;
-    font-weight: 800;
-    color: #697184;
-}
-
-/* ================= LINKEDIN CARD ================= */
-
-.hero-right {
-    display: flex;
-    justify-content: center;
-}
-
-.linkedin-card {
-    width: 100%;
-    max-width: 510px;
-    background: white;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,.12);
-}
-
-.linkedin-header {
-    height: 125px;
-    padding: 18px;
-    background: linear-gradient(145deg,#0a66c2,#004e99,#283044);
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-}
-
-.linkedin-header p {
-    color: rgba(255,255,255,.8);
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-}
 
-.linkedin-url-badge {
-    background: rgba(255,255,255,.2);
-    color: white;
-    padding: 5px 9px;
-    border-radius: 4px;
-    font-size: 10px;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
 }
 
-.linkedin-body {
-    padding: 24px;
-    margin-top: -55px;
-    position: relative;
+body{
+    background:#f5f7fb;
+    color:#172033;
 }
 
-.profile-avatar {
-    width: 96px;
-    height: 96px;
-    border-radius: 14px;
-    background: linear-gradient(135deg,#d6e3ff,#eaedff);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #0a66c2;
-    font-size: 38px;
-    font-weight: 800;
-    border: 5px solid white;
-    margin-bottom: 14px;
-}
-
-.profile-name {
-    font-size: 21px;
-    font-weight: 800;
-}
-
-.profile-title {
-    font-size: 13px;
-    color: #414752;
-}
-
-.profile-location {
-    font-size: 13px;
-    color: #727783;
-    margin-bottom: 12px;
-}
-
-.profile-badges {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 14px;
-}
-
-.badge {
-    padding: 4px 9px;
-    border-radius: 20px;
-    font-size: 10px;
-    font-weight: 700;
-}
-
-.badge-topvoice {
-    background: #d6e3fe;
-    color: #58657b;
-}
-
-.badge-1st {
-    background: #85f8c4;
-    color: #002114;
-}
-
-.metrics-grid {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 8px;
-    padding: 14px;
-    background: #f2f3ff;
-    border-radius: 9px;
-}
-
-.metric-value {
-    font-size: 20px;
-    font-weight: 800;
-}
-
-.metric-label {
-    font-size: 10px;
-    color: #525f75;
-    text-transform: uppercase;
-    font-weight: 700;
-}
-
-.metric-change {
-    font-size: 10px;
-    color: #007652;
-    font-weight: 700;
-}
-
-/* ================= FEATURES ================= */
-
-.features {
-    background: #f2f3ff;
-    padding: 96px 40px;
-}
-
-.section-header {
-    max-width: 680px;
-    margin-bottom: 48px;
-}
-
-.section-label {
-    font-size: 11px;
-    font-weight: 800;
-    color: #0a66c2;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 8px;
-}
-
-.section-header h2 {
-    font-size: 40px;
-    line-height: 1.2;
-    margin-bottom: 15px;
-}
-
-.section-header p {
-    font-size: 18px;
-    color: #414752;
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 24px;
-}
-
-.feature-card {
-    background: white;
-    padding: 25px;
-    border-radius: 16px;
-    min-height: 270px;
-    box-shadow: 0 2px 8px rgba(0,0,0,.04);
-}
-
-.feature-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 23px;
-    margin-bottom: 17px;
-}
-
-.feature-icon.blue {
-    background: #d6e3fe;
-}
-
-.feature-icon.green {
-    background: #85f8c4;
-}
+/* SIDEBAR */
 
-.feature-title {
-    font-size: 19px;
-    font-weight: 800;
-    margin-bottom: 8px;
+.sidebar{
+    position:fixed;
+    left:0;
+    top:0;
+    width:240px;
+    height:100vh;
+    background:#111827;
+    color:white;
+    padding:25px 15px;
 }
 
-.feature-description {
-    font-size: 14px;
-    color: #414752;
-    margin-bottom: 20px;
+.logo{
+    font-size:26px;
+    font-weight:bold;
+    padding:10px 15px 30px;
 }
 
-.feature-tag {
-    border-top: 1px solid #eee;
-    padding-top: 14px;
-    font-size: 13px;
-    font-weight: 700;
+.logo span{
+    color:#7c6cff;
 }
 
-.feature-tag.blue {
-    color: #0a66c2;
+.menu button{
+    width:100%;
+    border:0;
+    background:transparent;
+    color:#aeb7c7;
+    text-align:left;
+    padding:14px;
+    margin:4px 0;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:15px;
 }
 
-.feature-tag.green {
-    color: #007652;
+.menu button:hover,
+.menu button.active{
+    background:#252d3d;
+    color:white;
 }
 
-/* ================= CALLOUT ================= */
+/* MAIN */
 
-.callout-banner {
-    margin-top: 48px;
-    background: #dae2fd;
-    padding: 40px;
-    border-radius: 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
+.main{
+    margin-left:240px;
+    padding:30px;
 }
 
-.callout-text {
-    font-size: 26px;
-    font-weight: 800;
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
 }
 
-.callout-text .muted {
-    color: #525f75;
+.header h1{
+    font-size:28px;
 }
 
-.callout-btn {
-    border: none;
-    background: white;
-    padding: 13px 24px;
-    border-radius: 5px;
-    font-weight: 700;
-    cursor: pointer;
+.header p{
+    color:#718096;
+    margin-top:5px;
 }
 
-/* ================= FORM ================= */
-
-.form-section {
-    background: #283044;
-    padding: 96px 40px;
+.avatar{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    background:#e8e7ff;
+    color:#5146d8;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
 }
 
-.form-container {
-    max-width: 1100px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 50px;
-    align-items: center;
-}
+/* PAGE */
 
-.form-left {
-    color: white;
+.page{
+    display:none;
 }
 
-.form-left h2 {
-    font-size: 40px;
-    line-height: 1.2;
-    margin: 15px 0;
+.page.active{
+    display:block;
 }
 
-.form-left p {
-    color: #dae2fd;
-    font-size: 17px;
-    margin-bottom: 22px;
-}
+/* CARDS */
 
-.form-benefits {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+.grid{
+    display:grid;
+    gap:18px;
 }
 
-.form-benefit {
-    color: #dae2fd;
-    font-size: 14px;
+.stats{
+    grid-template-columns:repeat(4,1fr);
 }
 
-.form-benefit::before {
-    content: "✓";
-    color: #85f8c4;
-    font-weight: bold;
-    margin-right: 8px;
+.two{
+    grid-template-columns:1.4fr 1fr;
 }
 
-.form-card {
-    background: white;
-    padding: 40px;
-    border-radius: 16px;
-    box-shadow: 0 20px 50px rgba(0,0,0,.25);
+.three{
+    grid-template-columns:repeat(3,1fr);
 }
 
-.form-group {
-    margin-bottom: 16px;
+.card{
+    background:white;
+    border:1px solid #e6e9ef;
+    border-radius:16px;
+    padding:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.05);
 }
 
-.form-group label {
-    display: block;
-    font-size: 13px;
-    font-weight: 700;
-    margin-bottom: 6px;
+.card h2{
+    margin-bottom:12px;
 }
 
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    border: none;
-    background: #f2f3ff;
-    padding: 13px;
-    border-radius: 4px;
-    font-family: inherit;
-    font-size: 15px;
-    outline: none;
+.card h3{
+    margin-bottom:8px;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
-    box-shadow: 0 0 0 2px #0a66c2;
+.label{
+    color:#718096;
+    font-size:13px;
 }
 
-.form-group textarea {
-    min-height: 100px;
-    resize: vertical;
+.value{
+    font-size:26px;
+    font-weight:bold;
+    margin:10px 0;
 }
 
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
+.green{
+    color:#16a34a;
 }
 
-.form-submit {
-    width: 100%;
-    border: none;
-    background: #007652;
-    color: white;
-    padding: 15px;
-    border-radius: 5px;
-    font-size: 14px;
-    font-weight: 800;
-    cursor: pointer;
-    margin-top: 8px;
+.red{
+    color:#ef4444;
 }
 
-.form-submit:hover {
-    background: #005a3d;
+.purple{
+    color:#5b5cf0;
 }
 
-.form-privacy {
-    text-align: center;
-    color: #727783;
-    font-size: 12px;
-    margin-top: 10px;
+.small{
+    color:#718096;
+    font-size:13px;
 }
 
-/* ================= AUDIT ================= */
+/* BADGE */
 
-.audit-section {
-    background: #faf8ff;
-    padding: 96px 40px;
+.badge{
+    display:inline-block;
+    background:#eef2ff;
+    color:#5145cd;
+    padding:6px 10px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
 }
 
-.audit-card {
-    max-width: 1100px;
-    margin: auto;
-    padding: 60px;
-    border-radius: 24px;
-    background: linear-gradient(145deg,#fff,#f2f3ff,#eaedff);
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 45px;
-    box-shadow: 0 20px 35px rgba(0,0,0,.1);
-}
+/* PROGRESS */
 
-.audit-badge {
-    display: inline-block;
-    background: #d6e3ff;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 10px;
-    font-weight: 800;
-    margin-bottom: 15px;
+.progress{
+    height:9px;
+    background:#edf0f5;
+    border-radius:20px;
+    margin:10px 0;
+    overflow:hidden;
 }
 
-.audit-left h2 {
-    font-size: 40px;
-    line-height: 1.2;
-    margin-bottom: 15px;
+.progress-bar{
+    height:100%;
+    background:linear-gradient(90deg,#5b5cf0,#7c3aed);
+    border-radius:20px;
 }
 
-.audit-left p {
-    font-size: 17px;
-    color: #414752;
-    margin-bottom: 25px;
-}
+/* MONEY FLOW */
 
-.audit-price-main {
-    font-size: 52px;
-    font-weight: 900;
-    color: #0a66c2;
+.chart{
+    height:230px;
+    display:flex;
+    align-items:end;
+    gap:12px;
+    padding:25px 10px 5px;
 }
 
-.audit-price-currency {
-    color: #525f75;
-    font-size: 14px;
+.bar{
+    flex:1;
+    background:#7774ef;
+    border-radius:7px 7px 0 0;
 }
 
-.audit-price-old {
-    color: #777;
-    text-decoration: line-through;
-    margin-left: 15px;
+.months{
+    display:flex;
+    justify-content:space-between;
+    color:#718096;
+    font-size:12px;
 }
 
-.audit-savings {
-    color: #007652;
-    font-size: 11px;
-    font-weight: 800;
-    text-transform: uppercase;
-}
+/* DONUT */
 
-.audit-scarcity {
-    background: #ffdad6;
-    color: #93000a;
-    padding: 9px 12px;
-    border-radius: 5px;
-    font-size: 11px;
-    font-weight: 700;
-    margin: 15px 0;
+.donut{
+    width:175px;
+    height:175px;
+    border-radius:50%;
+    background:
+    conic-gradient(
+        #5b5cf0 0 38%,
+        #16a34a 38% 62%,
+        #f59e0b 62% 77%,
+        #ef4444 77% 88%,
+        #ddd 88% 100%
+    );
+    margin:20px auto;
+    position:relative;
 }
 
-.btn-audit {
-    width: 100%;
-    padding: 15px;
-    border: none;
-    border-radius: 5px;
-    background: #0a66c2;
-    color: white;
-    font-weight: 800;
-    cursor: pointer;
+.donut:after{
+    content:"";
+    position:absolute;
+    inset:35px;
+    background:white;
+    border-radius:50%;
 }
 
-.audit-right {
-    background: white;
-    padding: 35px;
-    border-radius: 15px;
+.donut-text{
+    position:absolute;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    z-index:2;
+    font-weight:bold;
 }
 
-.audit-title {
-    font-size: 20px;
-    font-weight: 800;
-    margin-bottom: 20px;
-}
+/* ALLOCATION */
 
-.audit-checklist {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 18px;
+.allocation{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:10px;
 }
 
-.audit-item {
-    display: flex;
-    gap: 8px;
+.allocation .mini{
+    background:#f8f9fc;
+    padding:15px;
+    text-align:center;
+    border-radius:10px;
 }
 
-.audit-item::before {
-    content: "✓";
-    color: #007652;
-    font-weight: bold;
+.mini strong{
+    display:block;
+    margin-top:8px;
+    font-size:18px;
 }
 
-.audit-item-title {
-    font-size: 13px;
-    font-weight: 800;
-}
+/* AI CARD */
 
-.audit-item-desc {
-    font-size: 12px;
-    color: #414752;
+.ai{
+    background:linear-gradient(135deg,#17143b,#33247c);
+    color:white;
 }
 
-.audit-guarantee {
-    background: #f2f3ff;
-    padding: 12px;
-    border-radius: 7px;
-    margin-top: 20px;
-    font-size: 12px;
-    color: #525f75;
+.ai p{
+    color:#d9d7ed;
 }
 
-/* ================= TESTIMONIALS ================= */
-
-.testimonials {
-    background: #f2f3ff;
-    padding: 96px 40px;
+.ai-box{
+    background:rgba(255,255,255,0.1);
+    padding:15px;
+    border-radius:10px;
+    margin-top:15px;
 }
 
-.testimonials-grid {
-    max-width: 1100px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 24px;
-}
+/* BUTTON */
 
-.testimonial-card {
-    background: white;
-    padding: 30px;
-    border-radius: 16px;
-    box-shadow: 0 2px 8px rgba(0,0,0,.04);
+.btn{
+    background:#5b5cf0;
+    color:white;
+    border:0;
+    padding:12px 18px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
 }
 
-.testimonial-stars {
-    color: #ffc107;
-    margin-bottom: 15px;
+.btn:hover{
+    opacity:.9;
 }
 
-.testimonial-quote {
-    font-size: 14px;
-    font-style: italic;
-    margin-bottom: 22px;
-}
+/* FORM */
 
-.testimonial-author {
-    border-top: 1px solid #eee;
-    padding-top: 20px;
-    display: flex;
-    gap: 12px;
-    align-items: center;
+.form{
+    display:grid;
+    gap:15px;
+    max-width:600px;
 }
 
-.testimonial-avatar {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: 800;
+.form label{
+    font-size:13px;
+    font-weight:bold;
 }
 
-.avatar1 {
-    background: #d6e3fe;
+.form input,
+.form select{
+    width:100%;
+    margin-top:7px;
+    padding:13px;
+    border:1px solid #dfe3eb;
+    border-radius:10px;
+    outline:none;
 }
 
-.avatar2 {
-    background: #d6e3ff;
+.form input:focus,
+.form select:focus{
+    border-color:#5b5cf0;
 }
 
-.avatar3 {
-    background: #85f8c4;
-}
+/* TABLE */
 
-.testimonial-info h4 {
-    font-size: 14px;
+table{
+    width:100%;
+    border-collapse:collapse;
 }
 
-.testimonial-info p {
-    font-size: 12px;
-    color: #414752;
+th,
+td{
+    padding:13px 8px;
+    border-bottom:1px solid #e7e9ef;
+    text-align:left;
 }
 
-.testimonial-info .tag {
-    font-size: 10px;
-    color: #007652;
-    font-weight: 700;
+th{
+    color:#718096;
+    font-size:12px;
 }
 
-/* ================= FOOTER ================= */
-
-footer {
-    background: #131b2e;
-    color: #dae2fd;
-    text-align: center;
-    padding: 35px 20px;
-}
+/* AI INPUT */
 
-footer h3 {
-    color: white;
-    margin-bottom: 8px;
+.ai-input{
+    display:flex;
+    gap:10px;
+    margin-top:20px;
 }
 
-footer p {
-    font-size: 13px;
+.ai-input input{
+    flex:1;
+    padding:13px;
+    border:0;
+    border-radius:10px;
+    outline:none;
 }
 
-/* ================= RESPONSIVE ================= */
+/* RESPONSIVE */
 
-@media (max-width: 1000px) {
+@media(max-width:1000px){
 
-    .hero-inner,
-    .form-container,
-    .audit-card {
-        grid-template-columns: 1fr;
+    .stats{
+        grid-template-columns:1fr 1fr;
     }
 
-    .features-grid {
-        grid-template-columns: repeat(2,1fr);
+    .two{
+        grid-template-columns:1fr;
     }
 
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-left h1 {
-        font-size: 46px;
+    .allocation{
+        grid-template-columns:1fr 1fr;
     }
 }
 
-@media (max-width: 650px) {
+@media(max-width:650px){
 
-    .hero,
-    .features,
-    .form-section,
-    .audit-section,
-    .testimonials {
-        padding: 60px 20px;
+    .sidebar{
+        width:70px;
     }
 
-    .hero-left h1 {
-        font-size: 38px;
+    .logo{
+        font-size:0;
+        text-align:center;
     }
 
-    .section-header h2,
-    .form-left h2,
-    .audit-left h2 {
-        font-size: 32px;
+    .logo:after{
+        content:"F";
+        font-size:25px;
     }
 
-    .features-grid {
-        grid-template-columns: 1fr;
+    .menu button{
+        font-size:0;
+        text-align:center;
     }
 
-    .form-row,
-    .audit-checklist {
-        grid-template-columns: 1fr;
+    .main{
+        margin-left:70px;
+        padding:15px;
     }
 
-    .form-card,
-    .audit-card,
-    .audit-right {
-        padding: 25px;
+    .stats,
+    .three{
+        grid-template-columns:1fr;
     }
 
-    .callout-banner {
-        padding: 25px;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .callout-text {
-        font-size: 22px;
-    }
-
-    .linkedin-body {
-        padding: 20px;
-    }
 }
+
 </style>
 </head>
 
+
 <body>
 
-<!-- HERO -->
+<!-- SIDEBAR -->
 
-<section class="hero">
+<aside class="sidebar">
 
-<div class="container hero-inner">
-
-<div class="hero-left">
-
-<div class="hero-eyebrow">
-<span>LinkedIn Growth System</span>
+<div class="logo">
+Fin<span>AI</span>
 </div>
 
-<h1>
-Turn Your LinkedIn Into a
-<span class="highlight">Lead-Generating Asset.</span>
+<div class="menu">
+
+<button class="active"
+onclick="showPage('dashboard',this)">
+🏠 &nbsp; Dashboard
+</button>
+
+<button onclick="showPage('income',this)">
+💰 &nbsp; Income
+</button>
+
+<button onclick="showPage('expenses',this)">
+💳 &nbsp; Expenses
+</button>
+
+<button onclick="showPage('goals',this)">
+🎯 &nbsp; Goals
+</button>
+
+<button onclick="showPage('investments',this)">
+📈 &nbsp; Investments
+</button>
+
+<button onclick="showPage('insurance',this)">
+🛡️ &nbsp; Insurance
+</button>
+
+<button onclick="showPage('ai',this)">
+🤖 &nbsp; AI Advisor
+</button>
+
+</div>
+
+</aside>
+
+
+<!-- MAIN -->
+
+<main class="main">
+
+<header class="header">
+
+<div>
+
+<h1 id="pageTitle">
+Good evening 👋
 </h1>
 
 <p>
-Executive ghostwriting and personal branding designed to help founders,
-executives and professionals build authority, grow their network and
-generate high-quality opportunities on LinkedIn.
-</p>
-
-<div class="hero-cta-group">
-
-<a href="#contact" class="btn-primary">
-Get Your Free Strategy Call →
-</a>
-
-<a href="#audit" class="btn-secondary">
-See What's Included
-</a>
-
-</div>
-
-<div class="hero-trust">
-No long-term contracts. Cancel anytime.
-</div>
-
-<div class="hero-featured">
-
-<p>Trusted by professionals from</p>
-
-<div class="hero-featured-brands">
-<span>Google</span>
-<span>Microsoft</span>
-<span>Amazon</span>
-<span>Salesforce</span>
-</div>
-
-</div>
-
-</div>
-
-<!-- LINKEDIN CARD -->
-
-<div class="hero-right">
-
-<div class="linkedin-card">
-
-<div class="linkedin-header">
-
-<p>LinkedIn Profile</p>
-
-<div class="linkedin-url-badge">
-linkedin.com/in/executive
-</div>
-
-</div>
-
-<div class="linkedin-body">
-
-<div class="profile-avatar">
-IN
-</div>
-
-<div class="profile-name">
-Alex Morgan
-</div>
-
-<div class="profile-title">
-Founder & CEO | B2B Growth Strategist
-</div>
-
-<div class="profile-location">
-Bengaluru, India
-</div>
-
-<div class="profile-badges">
-
-<span class="badge badge-topvoice">
-Top Voice
-</span>
-
-<span class="badge badge-1st">
-1st Degree
-</span>
-
-</div>
-
-<div class="metrics-grid">
-
-<div class="metric">
-
-<div class="metric-value">82K</div>
-
-<div class="metric-label">
-Followers
-</div>
-
-<div class="metric-change">
-↑ 24%
-</div>
-
-</div>
-
-<div class="metric">
-
-<div class="metric-value">1.8M</div>
-
-<div class="metric-label">
-Views
-</div>
-
-<div class="metric-change">
-↑ 41%
-</div>
-
-</div>
-
-<div class="metric">
-
-<div class="metric-value">342</div>
-
-<div class="metric-label">
-Leads
-</div>
-
-<div class="metric-change">
-↑ 67%
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- FEATURES -->
-
-<section class="features">
-
-<div class="container">
-
-<div class="section-header">
-
-<div class="section-label">
-What We Do
-</div>
-
-<h2>
-Everything You Need to Build a Powerful LinkedIn Presence
-</h2>
-
-<p>
-From strategy to daily execution, we handle the entire content engine
-so you can focus on running your business.
+Your money, organized intelligently.
 </p>
 
 </div>
 
-
-<div class="features-grid">
-
-<div class="feature-card">
-
-<div>
-
-<div class="feature-icon blue">✍️</div>
-
-<div class="feature-title">
-Executive Ghostwriting
+<div class="avatar">
+NN
 </div>
 
-<div class="feature-description">
-Thought leadership posts written in your authentic voice,
-positioning you as an authority in your industry.
+</header>
+
+
+<!-- ================= DASHBOARD ================= -->
+
+<section id="dashboard" class="page active">
+
+<div class="grid stats">
+
+<div class="card">
+
+<div class="label">
+Monthly Income
 </div>
 
+<div class="value">
+₹75,000
 </div>
 
-<div class="feature-tag blue">
-2–4 posts per week
-</div>
-
-</div>
-
-
-<div class="feature-card">
-
-<div>
-
-<div class="feature-icon green">📈</div>
-
-<div class="feature-title">
-Growth Strategy
-</div>
-
-<div class="feature-description">
-Data-driven strategies designed to increase reach,
-engagement and meaningful connections.
-</div>
-
-</div>
-
-<div class="feature-tag green">
-Organic growth
+<div class="green">
+↑ 8.4% vs last month
 </div>
 
 </div>
 
 
-<div class="feature-card">
+<div class="card">
 
-<div>
-
-<div class="feature-icon blue">🎯</div>
-
-<div class="feature-title">
-Lead Generation
+<div class="label">
+Total Expenses
 </div>
 
-<div class="feature-description">
-Turn attention into conversations with strategic content
-and conversion-focused positioning.
+<div class="value">
+₹31,450
 </div>
 
-</div>
-
-<div class="feature-tag blue">
-More qualified leads
+<div class="red">
+↑ 3.1% vs last month
 </div>
 
 </div>
 
 
-<div class="feature-card">
+<div class="card">
 
-<div>
-
-<div class="feature-icon green">💬</div>
-
-<div class="feature-title">
-Engagement Management
+<div class="label">
+Available to Invest
 </div>
 
-<div class="feature-description">
-Strategic commenting and engagement that gets your profile
-in front of the right audience.
+<div class="value purple">
+₹18,550
+</div>
+
+<div class="green">
+24.7% of income
 </div>
 
 </div>
 
-<div class="feature-tag green">
-Daily engagement
+
+<div class="card">
+
+<div class="label">
+Net Worth
+</div>
+
+<div class="value">
+₹4,82,300
+</div>
+
+<div class="green">
+↑ ₹22,400 this month
 </div>
 
 </div>
 
 </div>
 
-
-<div class="callout-banner">
-
-<div class="callout-text">
-
-Your expertise deserves
-<span class="highlight">more visibility.</span>
-<span class="muted">Let's make it happen.</span>
-
-</div>
-
-<a href="#contact" class="callout-btn">
-Start Growing →
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- CONTACT FORM -->
-
-<section class="form-section" id="contact">
-
-<div class="form-container">
-
-<div class="form-left">
-
-<div class="section-label">
-Let's Talk
-</div>
-
-<h2>
-Ready to Become a LinkedIn Authority?
-</h2>
-
-<p>
-Tell us about your goals and we'll show you exactly how we can
-help you build your personal brand.
-</p>
-
-<div class="form-benefits">
-
-<div class="form-benefit">
-Free 30-minute strategy consultation
-</div>
-
-<div class="form-benefit">
-Personalized LinkedIn growth roadmap
-</div>
-
-<div class="form-benefit">
-No obligation or pressure
-</div>
-
-<div class="form-benefit">
-Response within 24 hours
-</div>
-
-</div>
-
-</div>
-
-
-<div class="form-card">
-
-<form id="leadForm">
-
-<div class="form-row">
-
-<div class="form-group">
-
-<label for="name">
-Full Name
-</label>
-
-<input
-type="text"
-id="name"
-placeholder="Your name"
-required
->
-
-</div>
-
-
-<div class="form-group">
-
-<label for="email">
-Email
-</label>
-
-<input
-type="email"
-id="email"
-placeholder="you@example.com"
-required
->
-
-</div>
-
-</div>
-
-
-<div class="form-group">
-
-<label for="company">
-Company
-</label>
-
-<input
-type="text"
-id="company"
-placeholder="Company name"
->
-
-</div>
-
-
-<div class="form-group">
-
-<label for="linkedin">
-LinkedIn Profile
-</label>
-
-<input
-type="url"
-id="linkedin"
-placeholder="https://linkedin.com/in/yourname"
->
-
-</div>
-
-
-<div class="form-group">
-
-<label for="message">
-What are you looking to achieve?
-</label>
-
-<textarea
-id="message"
-placeholder="Tell us about your goals..."
-></textarea>
-
-</div>
-
-
-<button type="submit" class="form-submit">
-Request My Strategy Call →
-</button>
-
-<div class="form-privacy">
-🔒 Your information is completely confidential.
-</div>
-
-</form>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- AUDIT -->
-
-<section class="audit-section" id="audit">
-
-<div class="audit-card">
-
-<div class="audit-left">
-
-<div class="audit-badge">
-⚡ Limited Offer
-</div>
-
-<h2>
-LinkedIn Profile Audit
-</h2>
-
-<p>
-Get a detailed breakdown of your LinkedIn profile with actionable
-recommendations to improve your positioning, visibility and lead generation.
-</p>
-
-<div class="audit-price">
-
-<span class="audit-price-main">
-₹1,999
-</span>
-
-<span class="audit-price-currency">
-one-time
-</span>
-
-<span class="audit-price-old">
-₹4,999
-</span>
 
 <br>
 
-<span class="audit-savings">
-Save 60%
+
+<div class="grid two">
+
+<!-- CHART -->
+
+<div class="card">
+
+<div style="display:flex;justify-content:space-between">
+
+<div>
+
+<h2>
+Monthly Money Flow
+</h2>
+
+<div class="small">
+September 2026
+</div>
+
+</div>
+
+<span class="badge">
+Healthy
 </span>
 
 </div>
 
-<div class="audit-scarcity">
-Only 10 audits available this month
+
+<div class="chart">
+
+<div class="bar" style="height:55%"></div>
+<div class="bar" style="height:72%"></div>
+<div class="bar" style="height:48%"></div>
+<div class="bar" style="height:84%"></div>
+<div class="bar" style="height:64%"></div>
+<div class="bar" style="height:91%"></div>
+<div class="bar" style="height:77%"></div>
+
 </div>
 
-<button class="btn-audit" onclick="bookAudit()">
-Get My LinkedIn Audit →
+
+<div class="months">
+
+<span>Apr</span>
+<span>May</span>
+<span>Jun</span>
+<span>Jul</span>
+<span>Aug</span>
+<span>Sep</span>
+<span>Oct</span>
+
+</div>
+
+</div>
+
+
+<!-- EXPENSE BREAKDOWN -->
+
+<div class="card">
+
+<h2>
+Expense Breakdown
+</h2>
+
+<div class="donut">
+
+<div class="donut-text">
+
+₹31,450
+<br>
+<span class="small">
+spent
+</span>
+
+</div>
+
+</div>
+
+
+<div class="grid three">
+
+<div>
+🔵 Needs 38%
+</div>
+
+<div>
+🟢 Invest 24%
+</div>
+
+<div>
+🟡 Wants 15%
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<br>
+
+
+<!-- SMART ALLOCATION -->
+
+<div class="card">
+
+<div style="display:flex;justify-content:space-between">
+
+<h2>
+Smart Salary Allocation
+</h2>
+
+<span class="small">
+Based on ₹75,000 salary
+</span>
+
+</div>
+
+
+<div class="allocation">
+
+<div class="mini">
+
+<span class="small">
+Essentials
+</span>
+
+<strong>
+₹30K
+</strong>
+
+40%
+
+</div>
+
+
+<div class="mini">
+
+<span class="small">
+Investing
+</span>
+
+<strong>
+₹15K
+</strong>
+
+20%
+
+</div>
+
+
+<div class="mini">
+
+<span class="small">
+Emergency
+</span>
+
+<strong>
+₹7.5K
+</strong>
+
+10%
+
+</div>
+
+
+<div class="mini">
+
+<span class="small">
+Insurance
+</span>
+
+<strong>
+₹5K
+</strong>
+
+7%
+
+</div>
+
+
+<div class="mini">
+
+<span class="small">
+Goals
+</span>
+
+<strong>
+₹7.5K
+</strong>
+
+10%
+
+</div>
+
+</div>
+
+</div>
+
+
+<br>
+
+
+<!-- AI INSIGHT -->
+
+<div class="card ai">
+
+<span class="badge">
+✦ AI INSIGHT
+</span>
+
+<h2 style="margin-top:15px">
+You're on track
+</h2>
+
+<p>
+Your current savings rate gives you room to build your emergency fund and work toward long-term financial goals.
+</p>
+
+<div class="ai-box">
+
+💡 <b>Next step:</b>
+
+Build your emergency reserve before increasing higher-risk investments.
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= INCOME ================= -->
+
+<section id="income" class="page">
+
+<div class="card">
+
+<h2>
+Add Income
+</h2>
+
+<p class="small">
+Record salary, freelance income or business income.
+</p>
+
+<br>
+
+<div class="form">
+
+<label>
+
+Income Source
+
+<input
+id="incomeSource"
+placeholder="Monthly Salary"
+>
+
+</label>
+
+
+<label>
+
+Amount
+
+<input
+id="incomeAmount"
+type="number"
+placeholder="75000"
+>
+
+</label>
+
+
+<label>
+
+Income Type
+
+<select>
+
+<option>Salary</option>
+<option>Freelance</option>
+<option>Business</option>
+<option>Other</option>
+
+</select>
+
+</label>
+
+
+<button class="btn"
+onclick="addIncome()">
+
+Add Income
+
+</button>
+
+</div>
+
+</div>
+
+
+<br>
+
+
+<div class="card">
+
+<h2>
+Income History
+</h2>
+
+<table id="incomeTable">
+
+<tr>
+
+<th>
+Source
+</th>
+
+<th>
+Type
+</th>
+
+<th>
+Amount
+</th>
+
+<th>
+Date
+</th>
+
+</tr>
+
+
+<tr>
+
+<td>
+Monthly Salary
+</td>
+
+<td>
+Salary
+</td>
+
+<td>
+₹75,000
+</td>
+
+<td>
+01 Sep 2026
+</td>
+
+</tr>
+
+</table>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= EXPENSE ================= -->
+
+<section id="expenses" class="page">
+
+<div class="grid two">
+
+<div class="card">
+
+<h2>
+Add Expense
+</h2>
+
+<div class="form">
+
+<label>
+
+Description
+
+<input
+id="expenseDescription"
+placeholder="Groceries"
+>
+
+</label>
+
+
+<label>
+
+Amount
+
+<input
+id="expenseAmount"
+type="number"
+placeholder="2500"
+>
+
+</label>
+
+
+<label>
+
+Category
+
+<select id="expenseCategory">
+
+<option>Food</option>
+<option>Travel</option>
+<option>Rent</option>
+<option>Shopping</option>
+<option>Bills</option>
+<option>Health</option>
+<option>Other</option>
+
+</select>
+
+</label>
+
+
+<button class="btn"
+onclick="addExpense()">
+
+Add Expense
+
+</button>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>
+Budget Status
+</h2>
+
+
+<div>
+
+<div style="display:flex;justify-content:space-between">
+
+<span>
+Food
+</span>
+
+<b>
+₹6,200 / ₹8,000
+</b>
+
+</div>
+
+<div class="progress">
+
+<div
+class="progress-bar"
+style="width:78%">
+</div>
+
+</div>
+
+</div>
+
+
+<div>
+
+<div style="display:flex;justify-content:space-between">
+
+<span>
+Travel
+</span>
+
+<b>
+₹2,800 / ₹5,000
+</b>
+
+</div>
+
+<div class="progress">
+
+<div
+class="progress-bar"
+style="width:56%">
+</div>
+
+</div>
+
+</div>
+
+
+<div>
+
+<div style="display:flex;justify-content:space-between">
+
+<span>
+Shopping
+</span>
+
+<b>
+₹4,100 / ₹5,000
+</b>
+
+</div>
+
+<div class="progress">
+
+<div
+class="progress-bar"
+style="width:82%">
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<br>
+
+
+<div class="card">
+
+<h2>
+Recent Expenses
+</h2>
+
+<table id="expenseTable">
+
+<tr>
+
+<th>
+Description
+</th>
+
+<th>
+Category
+</th>
+
+<th>
+Amount
+</th>
+
+<th>
+Date
+</th>
+
+</tr>
+
+
+<tr>
+
+<td>
+Rent
+</td>
+
+<td>
+Rent
+</td>
+
+<td>
+₹12,000
+</td>
+
+<td>
+02 Sep
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+Groceries
+</td>
+
+<td>
+Food
+</td>
+
+<td>
+₹2,450
+</td>
+
+<td>
+05 Sep
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+Internet Bill
+</td>
+
+<td>
+Bills
+</td>
+
+<td>
+₹999
+</td>
+
+<td>
+07 Sep
+</td>
+
+</tr>
+
+</table>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= GOALS ================= -->
+
+<section id="goals" class="page">
+
+<div class="grid three">
+
+
+<div class="card">
+
+<span class="badge">
+Emergency Fund
+</span>
+
+<h2>
+₹1,20,000
+</h2>
+
+<p class="small">
+Target ₹1,80,000
+</p>
+
+<div class="progress">
+
+<div
+class="progress-bar"
+style="width:67%">
+</div>
+
+</div>
+
+67% complete
+
+</div>
+
+
+
+<div class="card">
+
+<span class="badge">
+New Laptop
+</span>
+
+<h2>
+₹52,000
+</h2>
+
+<p class="small">
+Target ₹80,000
+</p>
+
+<div class="progress">
+
+<div
+class="progress-bar"
+style="width:65%">
+</div>
+
+</div>
+
+65% complete
+
+</div>
+
+
+
+<div class="card">
+
+<span class="badge">
+Travel
+</span>
+
+<h2>
+₹18,500
+</h2>
+
+<p class="small">
+Target ₹50,000
+</p>
+
+<div class="progress">
+
+<div
+class="progress-bar"
+style="width:37%">
+</div>
+
+</div>
+
+37% complete
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- ================= INVESTMENTS ================= -->
+
+<section id="investments" class="page">
+
+<div class="card">
+
+<div style="display:flex;justify-content:space-between">
+
+<div>
+
+<h2>
+Investment Portfolio
+</h2>
+
+<p class="small">
+Total invested ₹2,45,000
+</p>
+
+</div>
+
+<div class="green">
+
++₹28,400
+(11.6%)
+
+</div>
+
+</div>
+
+
+<br>
+
+
+<table>
+
+<tr>
+
+<th>
+Asset
+</th>
+
+<th>
+Invested
+</th>
+
+<th>
+Current
+</th>
+
+<th>
+Return
+</th>
+
+</tr>
+
+
+<tr>
+
+<td>
+Index Mutual Fund
+</td>
+
+<td>
+₹1,00,000
+</td>
+
+<td>
+₹1,13,500
+</td>
+
+<td class="green">
++13.5%
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+Large Cap Fund
+</td>
+
+<td>
+₹60,000
+</td>
+
+<td>
+₹65,200
+</td>
+
+<td class="green">
++8.7%
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+Gold ETF
+</td>
+
+<td>
+₹35,000
+</td>
+
+<td>
+₹39,100
+</td>
+
+<td class="green">
++11.7%
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+Fixed Deposit
+</td>
+
+<td>
+₹50,000
+</td>
+
+<td>
+₹55,600
+</td>
+
+<td class="green">
++11.2%
+</td>
+
+</tr>
+
+</table>
+
+</div>
+
+
+<br>
+
+
+<div class="card ai">
+
+<span class="badge">
+AI PORTFOLIO REVIEW
+</span>
+
+<h2>
+Portfolio Analysis
+</h2>
+
+<p>
+Your portfolio contains equity, gold and fixed-income assets. Review your allocation periodically according to your goals, time horizon and risk tolerance.
+</p>
+
+<br>
+
+<button
+class="btn"
+onclick="portfolioReview()">
+
+Run AI Review
+
+</button>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= INSURANCE ================= -->
+
+<section id="insurance" class="page">
+
+<div class="grid two">
+
+
+<div class="card">
+
+<h2>
+🏥 Health Insurance
+</h2>
+
+<p class="small">
+Coverage
+</p>
+
+<h2>
+₹10,00,000
+</h2>
+
+<hr>
+
+<br>
+
+<div style="display:flex;justify-content:space-between">
+
+<span>
+Annual Premium
+</span>
+
+<b>
+₹14,500
+</b>
+
+</div>
+
+<br>
+
+<span class="badge">
+Active
+</span>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>
+🛡️ Term Insurance
+</h2>
+
+<p class="small">
+Coverage
+</p>
+
+<h2>
+₹1 Crore
+</h2>
+
+<hr>
+
+<br>
+
+<div style="display:flex;justify-content:space-between">
+
+<span>
+Annual Premium
+</span>
+
+<b>
+₹9,800
+</b>
+
+</div>
+
+<br>
+
+<span class="badge">
+Active
+</span>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- ================= AI ADVISOR ================= -->
+
+<section id="ai" class="page">
+
+<div class="card ai">
+
+<span class="badge">
+✦ FINAI ADVISOR
+</span>
+
+<h2 style="font-size:30px;margin-top:15px">
+
+Ask Your Money Assistant
+
+</h2>
+
+<p>
+Ask questions about your budget, savings, expenses, emergency fund or investment planning.
+</p>
+
+
+<div class="ai-input">
+
+<input
+id="aiQuestion"
+placeholder="How much should I save every month?"
+>
+
+<button
+class="btn"
+onclick="askAI()">
+
+Ask AI
+
 </button>
 
 </div>
 
 
-<div class="audit-right">
-
-<div class="audit-title">
-🔍 What's Included
-</div>
-
-<div class="audit-checklist">
-
-<div class="audit-item">
-
-<div>
-
-<div class="audit-item-title">
-Profile Positioning
-</div>
-
-<div class="audit-item-desc">
-Clarify your expertise and ideal audience.
-</div>
+<div
+id="aiAnswer"
+class="ai-box"
+style="display:none">
 
 </div>
 
 </div>
 
 
-<div class="audit-item">
-
-<div>
-
-<div class="audit-item-title">
-Headline Review
-</div>
-
-<div class="audit-item-desc">
-Create a stronger first impression.
-</div>
-
-</div>
-
-</div>
+<br>
 
 
-<div class="audit-item">
+<div class="grid three">
 
-<div>
 
-<div class="audit-item-title">
-About Section
-</div>
+<div class="card">
 
-<div class="audit-item-desc">
-Improve storytelling and credibility.
-</div>
+<h3>
+💰 Cash Flow
+</h3>
 
-</div>
+<p class="small">
+Understand where your monthly income goes.
+</p>
 
 </div>
 
 
-<div class="audit-item">
+<div class="card">
 
-<div>
+<h3>
+🛡️ Protection
+</h3>
 
-<div class="audit-item-title">
-Content Strategy
-</div>
-
-<div class="audit-item-desc">
-Get topics tailored to your niche.
-</div>
-
-</div>
+<p class="small">
+Track emergency funds and insurance needs.
+</p>
 
 </div>
 
 
-<div class="audit-item">
+<div class="card">
 
-<div>
+<h3>
+📈 Wealth Growth
+</h3>
 
-<div class="audit-item-title">
-Growth Opportunities
-</div>
-
-<div class="audit-item-desc">
-Identify ways to increase reach.
-</div>
+<p class="small">
+Monitor investments and financial goals.
+</p>
 
 </div>
 
-</div>
-
-
-<div class="audit-item">
-
-<div>
-
-<div class="audit-item-title">
-Lead Generation
-</div>
-
-<div class="audit-item-desc">
-Improve profile-to-lead conversion.
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-<div class="audit-guarantee">
-100% actionable recommendations. No generic advice.
-</div>
-
-</div>
 
 </div>
 
 </section>
 
 
-<!-- TESTIMONIALS -->
+</main>
 
-<section class="testimonials">
-
-<div class="container">
-
-<div class="section-header">
-
-<div class="section-label">
-Client Results
-</div>
-
-<h2>
-What Our Clients Say
-</h2>
-
-<p>
-Real results from professionals who transformed their LinkedIn presence.
-</p>
-
-</div>
-
-
-<div class="testimonials-grid">
-
-
-<div class="testimonial-card">
-
-<div class="testimonial-stars">
-★★★★★
-</div>
-
-<div class="testimonial-quote">
-"Within three months, my LinkedIn became one of our
-most reliable sources of inbound leads."
-</div>
-
-<div class="testimonial-author">
-
-<div class="testimonial-avatar avatar1">
-RM
-</div>
-
-<div class="testimonial-info">
-
-<h4>
-Rahul Mehta
-</h4>
-
-<p>
-Founder & CEO
-</p>
-
-<div class="tag">
-+180% profile views
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-<div class="testimonial-card">
-
-<div class="testimonial-stars">
-★★★★★
-</div>
-
-<div class="testimonial-quote">
-"The content finally sounds like me. My network engagement
-has completely changed."
-</div>
-
-<div class="testimonial-author">
-
-<div class="testimonial-avatar avatar2">
-SK
-</div>
-
-<div class="testimonial-info">
-
-<h4>
-Sarah Kumar
-</h4>
-
-<p>
-VP Marketing
-</p>
-
-<div class="tag">
-+240% engagement
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-<div class="testimonial-card">
-
-<div class="testimonial-stars">
-★★★★★
-</div>
-
-<div class="testimonial-quote">
-"I stopped worrying about what to post. The strategy and
-execution are handled end-to-end."
-</div>
-
-<div class="testimonial-author">
-
-<div class="testimonial-avatar avatar3">
-AJ
-</div>
-
-<div class="testimonial-info">
-
-<h4>
-Arjun Jain
-</h4>
-
-<p>
-Tech Executive
-</p>
-
-<div class="tag">
-+95 qualified leads
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- FOOTER -->
-
-<footer>
-
-<h3>LinkedIn Authority</h3>
-
-<p>
-Executive Ghostwriting & Growth Strategy
-</p>
-
-<p>
-© 2026 All Rights Reserved.
-</p>
-
-</footer>
 
 
 <script>
 
-document.getElementById("leadForm").addEventListener("submit", function(event) {
+/* PAGE NAVIGATION */
 
-    event.preventDefault();
+function showPage(page,button){
 
-    const name = document.getElementById("name").value;
+document
+.querySelectorAll(".page")
+.forEach(function(p){
 
-    alert(
-        "Thanks " + name +
-        "! Your strategy call request has been received."
-    );
-
-    this.reset();
+p.classList.remove("active");
 
 });
 
 
-function bookAudit() {
+document
+.getElementById(page)
+.classList.add("active");
 
-    document.getElementById("contact").scrollIntoView({
-        behavior: "smooth"
-    });
+
+document
+.querySelectorAll(".menu button")
+.forEach(function(btn){
+
+btn.classList.remove("active");
+
+});
+
+
+button.classList.add("active");
+
+
+const titles={
+
+dashboard:"Good evening 👋",
+
+income:"Income",
+
+expenses:"Expenses",
+
+goals:"Financial Goals",
+
+investments:"Investments",
+
+insurance:"Insurance",
+
+ai:"AI Finance Advisor"
+
+};
+
+
+document
+.getElementById("pageTitle")
+.innerText=titles[page];
+
+}
+
+
+/* ADD INCOME */
+
+function addIncome(){
+
+let source=
+document.getElementById("incomeSource").value;
+
+let amount=
+document.getElementById("incomeAmount").value;
+
+
+if(source==="" || amount===""){
+
+alert("Please enter income details.");
+
+return;
+
+}
+
+
+let table=
+document.getElementById("incomeTable");
+
+let row=
+table.insertRow(-1);
+
+
+row.innerHTML=`
+
+<td>${source}</td>
+
+<td>Income</td>
+
+<td>₹${Number(amount).toLocaleString("en-IN")}</td>
+
+<td>Today</td>
+
+`;
+
+
+alert("Income added successfully!");
+
+}
+
+
+/* ADD EXPENSE */
+
+function addExpense(){
+
+let description=
+document.getElementById("expenseDescription").value;
+
+let amount=
+document.getElementById("expenseAmount").value;
+
+let category=
+document.getElementById("expenseCategory").value;
+
+
+if(description==="" || amount===""){
+
+alert("Please enter expense details.");
+
+return;
+
+}
+
+
+let table=
+document.getElementById("expenseTable");
+
+let row=
+table.insertRow(-1);
+
+
+row.innerHTML=`
+
+<td>${description}</td>
+
+<td>${category}</td>
+
+<td>₹${Number(amount).toLocaleString("en-IN")}</td>
+
+<td>Today</td>
+
+`;
+
+
+alert("Expense added successfully!");
+
+}
+
+
+/* AI ADVISOR */
+
+function askAI(){
+
+let question=
+document.getElementById("aiQuestion")
+.value
+.toLowerCase();
+
+
+let answer=
+document.getElementById("aiAnswer");
+
+
+if(question===""){
+
+alert("Ask a financial question.");
+
+return;
+
+}
+
+
+let response=
+"Based on your current dashboard, focus on essential expenses, maintain an emergency reserve, keep appropriate insurance protection, and invest according to your goals and risk tolerance.";
+
+
+if(question.includes("save")){
+
+response=
+"Set a fixed monthly savings target immediately after receiving your salary. Automating that transfer can help you stay consistent.";
+
+}
+
+
+else if(question.includes("invest")){
+
+response=
+"Before increasing investment risk, make sure your emergency fund and insurance needs are adequately covered. Your investment allocation should match your goals and time horizon.";
+
+}
+
+
+else if(question.includes("expense")){
+
+response=
+"Review your largest spending categories every month. Set category budgets and monitor recurring expenses to improve your savings rate.";
+
+}
+
+
+else if(question.includes("emergency")){
+
+response=
+"Your emergency fund can be kept separate from investment money. A common planning target is several months of essential expenses, depending on your personal situation.";
+
+}
+
+
+answer.style.display="block";
+
+answer.innerHTML=
+"🤖 <b>FinAI:</b> "+response;
+
+}
+
+
+/* PORTFOLIO REVIEW */
+
+function portfolioReview(){
+
+alert(
+"AI Review Generated!\n\n"+
+"Review your asset allocation, emergency reserve, "+
+"insurance protection and investment time horizon "+
+"before making major portfolio changes."
+);
 
 }
 
