@@ -1,37 +1,2795 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>FinAI — AI-Powered Personal Finance Management</title>
-<meta name="description" content="FinAI analyzes your income, expenses, goals and investments to build a personalized financial allocation and wealth-building strategy." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FinAI — Personal Finance OS</title>
 
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%235B5CF0%22/><text x=%2250%22 y=%2268%22 font-size=%2258%22 font-family=%22Arial%22 font-weight=%22700%22 fill=%22white%22 text-anchor=%22middle%22>F</text></svg>" />
+<style>
+:root{
+  --bg:#f5f7fb;
+  --surface:#ffffff;
+  --surface2:#f8f9fc;
+  --text:#172033;
+  --muted:#737d90;
+  --border:#e5e9f0;
+  --primary:#5b5cf0;
+  --primary2:#7c3aed;
+  --green:#16a34a;
+  --red:#ef4444;
+  --orange:#f59e0b;
+  --blue:#2563eb;
+  --shadow:0 12px 35px rgba(20,25,45,.07);
+  --radius:18px;
+}
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lexend:wght@500;600;700&display=swap" rel="stylesheet">
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-<link rel="stylesheet" href="css/styles.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+body{
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+button,input,select{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+.app{
+  min-height:100vh;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+  position:fixed;
+  left:0;
+  top:0;
+  bottom:0;
+  width:250px;
+  background:#111827;
+  color:#fff;
+  padding:24px 15px;
+  z-index:100;
+}
+
+.logo{
+  font-size:26px;
+  font-weight:800;
+  padding:0 13px 30px;
+}
+
+.logo span{
+  color:#817cff;
+}
+
+.nav{
+  display:grid;
+  gap:5px;
+}
+
+.nav button{
+  border:0;
+  background:transparent;
+  color:#aeb7c7;
+  padding:13px 14px;
+  border-radius:11px;
+  text-align:left;
+  transition:.2s;
+}
+
+.nav button:hover,
+.nav button.active{
+  background:#272f40;
+  color:#fff;
+}
+
+/* MAIN */
+
+.main{
+  margin-left:250px;
+  padding:28px;
+  max-width:1700px;
+}
+
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:28px;
+}
+
+.title h1{
+  font-size:28px;
+}
+
+.title p{
+  color:var(--muted);
+  margin-top:5px;
+}
+
+.top-actions{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.icon-btn{
+  width:42px;
+  height:42px;
+  border:1px solid var(--border);
+  background:var(--surface);
+  border-radius:12px;
+}
+
+.avatar{
+  width:43px;
+  height:43px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:#e9e8ff;
+  color:#4f46e5;
+  font-weight:800;
+}
+
+/* PAGES */
+
+.page{
+  display:none;
+}
+
+.page.active{
+  display:block;
+}
+
+/* GRID */
+
+.grid{
+  display:grid;
+  gap:18px;
+}
+
+.stats{
+  grid-template-columns:repeat(4,1fr);
+}
+
+.two{
+  grid-template-columns:1.35fr 1fr;
+}
+
+.three{
+  grid-template-columns:repeat(3,1fr);
+}
+
+/* CARD */
+
+.card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:20px;
+  box-shadow:var(--shadow);
+}
+
+.card h2{
+  font-size:18px;
+  margin-bottom:8px;
+}
+
+.card h3{
+  margin-bottom:7px;
+}
+
+.muted{
+  color:var(--muted);
+}
+
+.small{
+  font-size:13px;
+}
+
+.stat-label{
+  color:var(--muted);
+  font-size:13px;
+}
+
+.stat-value{
+  font-size:26px;
+  font-weight:800;
+  margin:10px 0;
+}
+
+.green{
+  color:var(--green);
+}
+
+.red{
+  color:var(--red);
+}
+
+.orange{
+  color:var(--orange);
+}
+
+.primary{
+  color:var(--primary);
+}
+
+/* BUTTONS */
+
+.btn{
+  border:0;
+  padding:11px 16px;
+  border-radius:11px;
+  background:var(--primary);
+  color:#fff;
+  font-weight:700;
+}
+
+.btn:hover{
+  opacity:.9;
+}
+
+.btn.secondary{
+  background:#eef0ff;
+  color:#5046d8;
+}
+
+.btn.danger{
+  background:#fff0f0;
+  color:#dc2626;
+}
+
+/* BADGE */
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  padding:6px 10px;
+  border-radius:30px;
+  background:#eef0ff;
+  color:#5146d8;
+  font-size:12px;
+  font-weight:700;
+}
+
+/* PROGRESS */
+
+.progress{
+  width:100%;
+  height:9px;
+  background:#edf0f5;
+  border-radius:20px;
+  overflow:hidden;
+  margin:10px 0 6px;
+}
+
+.progress-bar{
+  height:100%;
+  background:linear-gradient(90deg,var(--primary),var(--primary2));
+  border-radius:20px;
+  transition:.5s;
+}
+
+/* CHART */
+
+.chart{
+  height:230px;
+  display:flex;
+  align-items:end;
+  gap:13px;
+  padding:20px 10px 4px;
+}
+
+.chart-bar{
+  flex:1;
+  min-height:10px;
+  background:linear-gradient(180deg,#716ff5,#5b5cf0);
+  border-radius:7px 7px 2px 2px;
+  transition:.4s;
+}
+
+.months{
+  display:flex;
+  justify-content:space-between;
+  color:var(--muted);
+  font-size:12px;
+}
+
+/* DONUT */
+
+.donut{
+  width:175px;
+  height:175px;
+  border-radius:50%;
+  margin:20px auto;
+  background:conic-gradient(
+    var(--primary) 0 38%,
+    var(--green) 38% 62%,
+    var(--orange) 62% 77%,
+    var(--red) 77% 88%,
+    #dfe3ea 88% 100%
+  );
+  position:relative;
+}
+
+.donut:after{
+  content:"";
+  position:absolute;
+  inset:34px;
+  background:var(--surface);
+  border-radius:50%;
+}
+
+.donut-center{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-content:center;
+  text-align:center;
+  z-index:2;
+  font-weight:800;
+}
+
+/* AI */
+
+.ai{
+  background:linear-gradient(135deg,#17143b,#392681);
+  color:#fff;
+  border:0;
+}
+
+.ai .muted{
+  color:#d8d5eb;
+}
+
+.ai-box{
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.1);
+  padding:15px;
+  border-radius:12px;
+  margin-top:15px;
+}
+
+/* ALLOCATION */
+
+.allocation{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
+  margin-top:16px;
+}
+
+.allocation-item{
+  background:var(--surface2);
+  border-radius:13px;
+  padding:15px;
+  text-align:center;
+}
+
+.allocation-item strong{
+  display:block;
+  font-size:19px;
+  margin:7px 0;
+}
+
+/* FORMS */
+
+.form{
+  display:grid;
+  gap:15px;
+}
+
+.form-group{
+  display:grid;
+  gap:7px;
+}
+
+.form-group label{
+  font-size:13px;
+  font-weight:700;
+}
+
+.form-group input,
+.form-group select{
+  width:100%;
+  padding:12px 13px;
+  border:1px solid var(--border);
+  background:var(--surface);
+  color:var(--text);
+  border-radius:10px;
+  outline:none;
+}
+
+.form-group input:focus,
+.form-group select:focus{
+  border-color:var(--primary);
+}
+
+/* TABLE */
+
+.table-wrap{
+  overflow-x:auto;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:600px;
+}
+
+th,td{
+  padding:13px 8px;
+  border-bottom:1px solid var(--border);
+  text-align:left;
+}
+
+th{
+  color:var(--muted);
+  font-size:12px;
+}
+
+/* GOAL */
+
+.goal{
+  margin-bottom:20px;
+}
+
+.goal:last-child{
+  margin-bottom:0;
+}
+
+.goal-header{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+}
+
+/* SCORE */
+
+.score{
+  width:150px;
+  height:150px;
+  margin:auto;
+  border-radius:50%;
+  background:conic-gradient(
+    var(--primary) 0deg,
+    var(--primary) var(--score),
+    #e9edf3 var(--score),
+    #e9edf3 360deg
+  );
+  display:grid;
+  place-items:center;
+  position:relative;
+}
+
+.score:after{
+  content:"";
+  position:absolute;
+  inset:15px;
+  background:var(--surface);
+  border-radius:50%;
+}
+
+.score-content{
+  position:relative;
+  z-index:2;
+  text-align:center;
+}
+
+.score-number{
+  font-size:30px;
+  font-weight:800;
+}
+
+/* INPUT ROW */
+
+.input-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+/* MODAL */
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.5);
+  z-index:300;
+  place-items:center;
+  padding:20px;
+}
+
+.modal.show{
+  display:grid;
+}
+
+.modal-box{
+  width:min(550px,100%);
+  background:var(--surface);
+  color:var(--text);
+  border-radius:20px;
+  padding:25px;
+}
+
+/* TOAST */
+
+.toast{
+  position:fixed;
+  right:25px;
+  bottom:25px;
+  background:#111827;
+  color:white;
+  padding:14px 18px;
+  border-radius:12px;
+  transform:translateY(100px);
+  opacity:0;
+  transition:.3s;
+  z-index:500;
+}
+
+.toast.show{
+  transform:translateY(0);
+  opacity:1;
+}
+
+/* MOBILE */
+
+.mobile-menu{
+  display:none;
+}
+
+@media(max-width:1100px){
+
+  .stats{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .two{
+    grid-template-columns:1fr;
+  }
+
+  .allocation{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:750px){
+
+  .sidebar{
+    width:70px;
+    padding:20px 8px;
+  }
+
+  .logo{
+    font-size:0;
+    text-align:center;
+  }
+
+  .logo:after{
+    content:"F";
+    font-size:26px;
+  }
+
+  .nav button{
+    font-size:0;
+    text-align:center;
+    padding:13px 5px;
+  }
+
+  .nav button:first-letter{
+    font-size:18px;
+  }
+
+  .main{
+    margin-left:70px;
+    padding:16px;
+  }
+
+  .stats,
+  .three{
+    grid-template-columns:1fr;
+  }
+
+  .topbar{
+    align-items:flex-start;
+  }
+
+  .allocation{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .input-row{
+    grid-template-columns:1fr;
+  }
+}
+
+</style>
 </head>
+
 <body>
-<div id="app">
-  <div class="auth-wrap"><div class="text-muted">Loading FinAI…</div></div>
+
+<div class="app">
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+<div class="logo">
+Fin<span>AI</span>
 </div>
 
-<!-- Data layer -->
-<script src="js/db.js"></script>
-<!-- Pure calculation engine -->
-<script src="js/calculations.js"></script>
-<!-- Rule-based AI advisory engine -->
-<script src="js/ai.js"></script>
-<!-- Chart helpers -->
-<script src="js/charts.js"></script>
-<!-- Page renderers -->
-<script src="js/pages.js"></script>
-<script src="js/pages2.js"></script>
-<!-- App shell / router (must load last) -->
-<script src="js/app.js"></script>
+<nav class="nav">
+
+<button class="active" onclick="navigate('dashboard',this)">
+🏠 Dashboard
+</button>
+
+<button onclick="navigate('income',this)">
+💰 Income
+</button>
+
+<button onclick="navigate('expenses',this)">
+💳 Expenses
+</button>
+
+<button onclick="navigate('budget',this)">
+📊 Budget
+</button>
+
+<button onclick="navigate('goals',this)">
+🎯 Goals
+</button>
+
+<button onclick="navigate('investments',this)">
+📈 Investments
+</button>
+
+<button onclick="navigate('insurance',this)">
+🛡️ Insurance
+</button>
+
+<button onclick="navigate('calculators',this)">
+🧮 Calculators
+</button>
+
+<button onclick="navigate('ai',this)">
+🤖 AI Advisor
+</button>
+
+</nav>
+
+</aside>
+
+
+<!-- MAIN -->
+
+<main class="main">
+
+<header class="topbar">
+
+<div class="title">
+
+<h1 id="pageTitle">
+Good morning 👋
+</h1>
+
+<p>
+Your complete personal finance command center.
+</p>
+
+</div>
+
+<div class="top-actions">
+
+<button class="icon-btn" onclick="toggleDarkMode()">
+🌙
+</button>
+
+<button class="icon-btn">
+🔔
+</button>
+
+<div class="avatar">
+NN
+</div>
+
+</div>
+
+</header>
+
+
+<!-- DASHBOARD -->
+
+<section id="dashboard" class="page active">
+
+<div class="grid stats">
+
+<div class="card">
+
+<div class="stat-label">
+Monthly Income
+</div>
+
+<div class="stat-value" id="dashboardIncome">
+₹75,000
+</div>
+
+<div class="green">
+Your current income
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="stat-label">
+Monthly Expenses
+</div>
+
+<div class="stat-value" id="dashboardExpense">
+₹31,450
+</div>
+
+<div class="red">
+Money spent this month
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="stat-label">
+Monthly Savings
+</div>
+
+<div class="stat-value primary" id="dashboardSavings">
+₹43,550
+</div>
+
+<div class="green" id="savingsRate">
+58.1% savings rate
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="stat-label">
+Net Worth
+</div>
+
+<div class="stat-value" id="dashboardNetWorth">
+₹4,82,300
+</div>
+
+<div class="green">
+↑ Growing
+</div>
+
+</div>
+
+</div>
+
+
+<br>
+
+
+<div class="grid two">
+
+<!-- CASH FLOW -->
+
+<div class="card">
+
+<div style="display:flex;justify-content:space-between;align-items:center">
+
+<div>
+
+<h2>Cash Flow</h2>
+
+<div class="small muted">
+Last 7 months
+</div>
+
+</div>
+
+<span class="badge">
+Healthy
+</span>
+
+</div>
+
+
+<div class="chart">
+
+<div class="chart-bar" style="height:50%"></div>
+<div class="chart-bar" style="height:65%"></div>
+<div class="chart-bar" style="height:55%"></div>
+<div class="chart-bar" style="height:72%"></div>
+<div class="chart-bar" style="height:60%"></div>
+<div class="chart-bar" style="height:88%"></div>
+<div class="chart-bar" style="height:75%"></div>
+
+</div>
+
+
+<div class="months">
+
+<span>Apr</span>
+<span>May</span>
+<span>Jun</span>
+<span>Jul</span>
+<span>Aug</span>
+<span>Sep</span>
+<span>Oct</span>
+
+</div>
+
+</div>
+
+
+<!-- FINANCIAL HEALTH -->
+
+<div class="card">
+
+<h2>
+Financial Health
+</h2>
+
+<div class="score" id="healthScoreCircle" style="--score:281deg">
+
+<div class="score-content">
+
+<div class="score-number" id="healthScore">
+78
+</div>
+
+<div class="small muted">
+/100
+</div>
+
+</div>
+
+</div>
+
+<div style="text-align:center">
+
+<span class="badge">
+Good Financial Health
+</span>
+
+<p class="small muted" style="margin-top:10px">
+Based on savings, emergency fund, debt,
+insurance and investments.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<br>
+
+
+<div class="grid two">
+
+<!-- EXPENSE -->
+
+<div class="card">
+
+<h2>
+Expense Breakdown
+</h2>
+
+<div class="donut">
+
+<div class="donut-center">
+
+₹31,450
+
+<span class="small muted">
+Monthly spend
+</span>
+
+</div>
+
+</div>
+
+<div class="grid three small">
+
+<div>🔵 Needs</div>
+<div>🟢 Savings</div>
+<div>🟡 Wants</div>
+
+</div>
+
+</div>
+
+
+<!-- AI INSIGHT -->
+
+<div class="card ai">
+
+<span class="badge">
+✦ AI INSIGHT
+</span>
+
+<h2 style="margin-top:15px">
+Your money snapshot
+</h2>
+
+<p class="muted">
+Your current savings capacity is strong. Focus on building your emergency reserve and maintaining consistent long-term investments.
+</p>
+
+<div class="ai-box">
+
+💡 <b>Recommended next action</b>
+
+<br><br>
+
+Review your monthly expenses and redirect unnecessary spending toward your highest-priority financial goal.
+
+</div>
+
+</div>
+
+</div>
+
+
+<br>
+
+
+<!-- SMART ALLOCATION -->
+
+<div class="card">
+
+<div style="display:flex;justify-content:space-between">
+
+<h2>
+Smart Money Allocation
+</h2>
+
+<span class="small muted">
+Based on current income
+</span>
+
+</div>
+
+<div class="allocation">
+
+<div class="allocation-item">
+
+<span class="small muted">
+Essentials
+</span>
+
+<strong>
+₹30,000
+</strong>
+
+40%
+
+</div>
+
+
+<div class="allocation-item">
+
+<span class="small muted">
+Investments
+</span>
+
+<strong>
+₹15,000
+</strong>
+
+20%
+
+</div>
+
+
+<div class="allocation-item">
+
+<span class="small muted">
+Emergency
+</span>
+
+<strong>
+₹7,500
+</strong>
+
+10%
+
+</div>
+
+
+<div class="allocation-item">
+
+<span class="small muted">
+Insurance
+</span>
+
+<strong>
+₹5,000
+</strong>
+
+7%
+
+</div>
+
+
+<div class="allocation-item">
+
+<span class="small muted">
+Goals
+</span>
+
+<strong>
+₹7,500
+</strong>
+
+10%
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- INCOME -->
+
+<section id="income" class="page">
+
+<div class="card">
+
+<h2>
+Add Income
+</h2>
+
+<p class="muted small">
+Record your salary, freelance income, business income or other earnings.
+</p>
+
+<br>
+
+<div class="input-row">
+
+<div class="form-group">
+
+<label>
+Income Source
+</label>
+
+<input
+id="incomeSource"
+placeholder="Monthly Salary"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Amount
+</label>
+
+<input
+id="incomeAmount"
+type="number"
+placeholder="75000"
+>
+
+</div>
+
+</div>
+
+<br>
+
+<button class="btn" onclick="addIncome()">
++ Add Income
+</button>
+
+</div>
+
+
+<br>
+
+
+<div class="card">
+
+<h2>
+Income History
+</h2>
+
+<div class="table-wrap">
+
+<table id="incomeTable">
+
+<thead>
+
+<tr>
+<th>Source</th>
+<th>Amount</th>
+<th>Date</th>
+<th>Action</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td>Monthly Salary</td>
+<td>₹75,000</td>
+<td>01 Sep 2026</td>
+<td>—</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- EXPENSES -->
+
+<section id="expenses" class="page">
+
+<div class="card">
+
+<h2>
+Add Expense
+</h2>
+
+<br>
+
+<div class="input-row">
+
+<div class="form-group">
+
+<label>
+Description
+</label>
+
+<input
+id="expenseName"
+placeholder="Groceries"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Amount
+</label>
+
+<input
+id="expenseValue"
+type="number"
+placeholder="2500"
+>
+
+</div>
+
+</div>
+
+<br>
+
+<div class="input-row">
+
+<div class="form-group">
+
+<label>
+Category
+</label>
+
+<select id="expenseCategory">
+
+<option>Food</option>
+<option>Rent</option>
+<option>Transport</option>
+<option>Shopping</option>
+<option>Healthcare</option>
+<option>Bills</option>
+<option>Entertainment</option>
+<option>Education</option>
+<option>Other</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Date
+</label>
+
+<input
+id="expenseDate"
+type="date"
+>
+
+</div>
+
+</div>
+
+<br>
+
+<button class="btn" onclick="addExpense()">
++ Add Expense
+</button>
+
+</div>
+
+
+<br>
+
+
+<div class="card">
+
+<h2>
+Recent Expenses
+</h2>
+
+<div class="table-wrap">
+
+<table id="expenseTable">
+
+<thead>
+
+<tr>
+
+<th>
+Expense
+</th>
+
+<th>
+Category
+</th>
+
+<th>
+Amount
+</th>
+
+<th>
+Date
+</th>
+
+<th>
+Action
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+Rent
+</td>
+
+<td>
+Rent
+</td>
+
+<td>
+₹12,000
+</td>
+
+<td>
+02 Sep
+</td>
+
+<td>
+—
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+Groceries
+</td>
+
+<td>
+Food
+</td>
+
+<td>
+₹2,450
+</td>
+
+<td>
+05 Sep
+</td>
+
+<td>
+—
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+Internet Bill
+</td>
+
+<td>
+Bills
+</td>
+
+<td>
+₹999
+</td>
+
+<td>
+07 Sep
+</td>
+
+<td>
+—
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- BUDGET -->
+
+<section id="budget" class="page">
+
+<div class="card">
+
+<div style="display:flex;justify-content:space-between">
+
+<div>
+
+<h2>
+Monthly Budget
+</h2>
+
+<p class="muted small">
+Monitor spending against your planned limits.
+</p>
+
+</div>
+
+<button class="btn" onclick="showToast('Budget feature ready for new categories')">
++ New Budget
+</button>
+
+</div>
+
+<br>
+
+
+<div class="goal">
+
+<div class="goal-header">
+
+<span>Food</span>
+
+<b>
+₹6,200 / ₹8,000
+</b>
+
+</div>
+
+<div class="progress">
+
+<div class="progress-bar" style="width:78%"></div>
+
+</div>
+
+<span class="small muted">
+78% used
+</span>
+
+</div>
+
+
+<div class="goal">
+
+<div class="goal-header">
+
+<span>Transport</span>
+
+<b>
+₹2,800 / ₹5,000
+</b>
+
+</div>
+
+<div class="progress">
+
+<div class="progress-bar" style="width:56%"></div>
+
+</div>
+
+<span class="small muted">
+56% used
+</span>
+
+</div>
+
+
+<div class="goal">
+
+<div class="goal-header">
+
+<span>Shopping</span>
+
+<b>
+₹4,100 / ₹5,000
+</b>
+
+</div>
+
+<div class="progress">
+
+<div class="progress-bar" style="width:82%"></div>
+
+</div>
+
+<span class="small orange">
+82% used
+</span>
+
+</div>
+
+
+<div class="goal">
+
+<div class="goal-header">
+
+<span>Entertainment</span>
+
+<b>
+₹1,200 / ₹3,000
+</b>
+
+</div>
+
+<div class="progress">
+
+<div class="progress-bar" style="width:40%"></div>
+
+</div>
+
+<span class="small muted">
+40% used
+</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- GOALS -->
+
+<section id="goals" class="page">
+
+<div class="grid three">
+
+<div class="card">
+
+<span class="badge">
+Emergency Fund
+</span>
+
+<h2 style="margin-top:14px">
+₹1,20,000
+</h2>
+
+<p class="muted small">
+Target ₹1,80,000
+</p>
+
+<div class="progress">
+
+<div class="progress-bar" style="width:67%"></div>
+
+</div>
+
+67% complete
+
+</div>
+
+
+<div class="card">
+
+<span class="badge">
+Laptop
+</span>
+
+<h2 style="margin-top:14px">
+₹52,000
+</h2>
+
+<p class="muted small">
+Target ₹80,000
+</p>
+
+<div class="progress">
+
+<div class="progress-bar" style="width:65%"></div>
+
+</div>
+
+65% complete
+
+</div>
+
+
+<div class="card">
+
+<span class="badge">
+Travel
+</span>
+
+<h2 style="margin-top:14px">
+₹18,500
+</h2>
+
+<p class="muted small">
+Target ₹50,000
+</p>
+
+<div class="progress">
+
+<div class="progress-bar" style="width:37%"></div>
+
+</div>
+
+37% complete
+
+</div>
+
+</div>
+
+<br>
+
+<div class="card">
+
+<h2>
+Create New Goal
+</h2>
+
+<div class="input-row">
+
+<div class="form-group">
+
+<label>
+Goal Name
+</label>
+
+<input id="goalName" placeholder="New Bike">
+
+</div>
+
+<div class="form-group">
+
+<label>
+Target Amount
+</label>
+
+<input id="goalAmount" type="number" placeholder="100000">
+
+</div>
+
+</div>
+
+<br>
+
+<button class="btn" onclick="createGoal()">
++ Create Goal
+</button>
+
+</div>
+
+</section>
+
+
+<!-- INVESTMENTS -->
+
+<section id="investments" class="page">
+
+<div class="grid stats">
+
+<div class="card">
+
+<div class="stat-label">
+Invested
+</div>
+
+<div class="stat-value">
+₹2,45,000
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="stat-label">
+Current Value
+</div>
+
+<div class="stat-value">
+₹2,73,400
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="stat-label">
+Total Gain
+</div>
+
+<div class="stat-value green">
+₹28,400
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="stat-label">
+Return
+</div>
+
+<div class="stat-value green">
+11.6%
+</div>
+
+</div>
+
+</div>
+
+<br>
+
+<div class="card">
+
+<h2>
+Investment Portfolio
+</h2>
+
+<div class="table-wrap">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Asset</th>
+<th>Invested</th>
+<th>Current</th>
+<th>Return</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>Index Mutual Fund</td>
+<td>₹1,00,000</td>
+<td>₹1,13,500</td>
+<td class="green">+13.5%</td>
+
+</tr>
+
+<tr>
+
+<td>Large Cap Fund</td>
+<td>₹60,000</td>
+<td>₹65,200</td>
+<td class="green">+8.7%</td>
+
+</tr>
+
+<tr>
+
+<td>Gold ETF</td>
+<td>₹35,000</td>
+<td>₹39,100</td>
+<td class="green">+11.7%</td>
+
+</tr>
+
+<tr>
+
+<td>Fixed Deposit</td>
+<td>₹50,000</td>
+<td>₹55,600</td>
+<td class="green">+11.2%</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<br>
+
+<div class="card ai">
+
+<span class="badge">
+✦ AI PORTFOLIO REVIEW
+</span>
+
+<h2 style="margin-top:15px">
+Portfolio Analysis
+</h2>
+
+<p class="muted">
+Your portfolio contains multiple asset types. Review diversification, time horizon and risk tolerance before making investment changes.
+</p>
+
+<br>
+
+<button class="btn secondary"
+onclick="portfolioReview()">
+
+Run AI Review
+
+</button>
+
+</div>
+
+</section>
+
+
+<!-- INSURANCE -->
+
+<section id="insurance" class="page">
+
+<div class="grid two">
+
+<div class="card">
+
+<h2>
+🏥 Health Insurance
+</h2>
+
+<p class="muted small">
+Coverage
+</p>
+
+<div class="stat-value">
+₹10,00,000
+</div>
+
+<hr>
+
+<br>
+
+<div style="display:flex;justify-content:space-between">
+
+<span>
+Annual Premium
+</span>
+
+<b>
+₹14,500
+</b>
+
+</div>
+
+<br>
+
+<span class="badge">
+Active
+</span>
+
+</div>
+
+
+<div class="card">
+
+<h2>
+🛡️ Term Insurance
+</h2>
+
+<p class="muted small">
+Coverage
+</p>
+
+<div class="stat-value">
+₹1 Crore
+</div>
+
+<hr>
+
+<br>
+
+<div style="display:flex;justify-content:space-between">
+
+<span>
+Annual Premium
+</span>
+
+<b>
+₹9,800
+</b>
+
+</div>
+
+<br>
+
+<span class="badge">
+Active
+</span>
+
+</div>
+
+</div>
+
+<br>
+
+<div class="card">
+
+<h2>
+Protection Checklist
+</h2>
+
+<br>
+
+<p>✅ Health insurance</p>
+<br>
+<p>✅ Term insurance</p>
+<br>
+<p>⚠️ Review coverage annually</p>
+<br>
+<p>⚠️ Keep policy documents updated</p>
+
+</div>
+
+</section>
+
+
+<!-- CALCULATORS -->
+
+<section id="calculators" class="page">
+
+<div class="grid two">
+
+<!-- SIP -->
+
+<div class="card">
+
+<h2>
+📈 SIP Calculator
+</h2>
+
+<p class="muted small">
+Estimate long-term investment growth.
+</p>
+
+<br>
+
+<div class="form">
+
+<div class="form-group">
+
+<label>
+Monthly SIP
+</label>
+
+<input id="sipAmount" type="number" value="10000">
+
+</div>
+
+<div class="form-group">
+
+<label>
+Expected Annual Return (%)
+</label>
+
+<input id="sipReturn" type="number" value="12">
+
+</div>
+
+<div class="form-group">
+
+<label>
+Duration (Years)
+</label>
+
+<input id="sipYears" type="number" value="20">
+
+</div>
+
+<button class="btn"
+onclick="calculateSIP()">
+
+Calculate SIP
+
+</button>
+
+</div>
+
+<br>
+
+<div class="card" style="background:var(--surface2)">
+
+<div class="small muted">
+Total Investment
+</div>
+
+<h2 id="sipInvested">
+₹0
+</h2>
+
+<div class="small muted">
+Estimated Value
+</div>
+
+<h2 id="sipValue" class="green">
+₹0
+</h2>
+
+<div class="small muted">
+Estimated Returns
+</div>
+
+<h2 id="sipProfit" class="primary">
+₹0
+</h2>
+
+</div>
+
+</div>
+
+
+<!-- EMERGENCY -->
+
+<div class="card">
+
+<h2>
+🚨 Emergency Fund Calculator
+</h2>
+
+<br>
+
+<div class="form">
+
+<div class="form-group">
+
+<label>
+Monthly Essential Expenses
+</label>
+
+<input
+id="essentialExpense"
+type="number"
+value="30000"
+>
+
+</div>
+
+<div class="form-group">
+
+<label>
+Target Months
+</label>
+
+<input
+id="targetMonths"
+type="number"
+value="6"
+>
+
+</div>
+
+<button class="btn"
+onclick="calculateEmergency()">
+
+Calculate
+
+</button>
+
+</div>
+
+<br>
+
+<div class="card" style="background:var(--surface2)">
+
+<div class="small muted">
+Recommended Emergency Fund
+</div>
+
+<h2 id="emergencyResult">
+₹1,80,000
+</h2>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- AI -->
+
+<section id="ai" class="page">
+
+<div class="card ai">
+
+<span class="badge">
+✦ FINAI AI ADVISOR
+</span>
+
+<h2 style="font-size:30px;margin-top:15px">
+Your Personal Money Assistant
+</h2>
+
+<p class="muted">
+Ask questions about savings, expenses, goals, emergency funds and investments.
+</p>
+
+<div style="margin-top:20px">
+
+<div class="ai-input" style="display:flex;gap:10px">
+
+<input
+id="aiQuestion"
+style="flex:1;padding:14px;border:0;border-radius:10px;outline:none"
+placeholder="How much should I save every month?"
+>
+
+<button class="btn"
+onclick="askAI()">
+
+Ask AI
+
+</button>
+
+</div>
+
+</div>
+
+<div id="aiAnswer"
+class="ai-box"
+style="display:none">
+
+</div>
+
+</div>
+
+
+<br>
+
+<div class="grid three">
+
+<div class="card">
+
+<h3>
+💰 Cash Flow
+</h3>
+
+<p class="muted small">
+Understand how your income is distributed.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+🛡️ Protection
+</h3>
+
+<p class="muted small">
+Monitor emergency funds and insurance.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+📈 Wealth
+</h3>
+
+<p class="muted small">
+Track investments and financial goals.
+</p>
+
+</div>
+
+</div>
+
+<br>
+
+<div class="card">
+
+<p class="small muted">
+
+⚠️ FinAI provides educational and financial-planning assistance.
+It is not a substitute for advice from a qualified financial professional.
+
+</p>
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div id="toast" class="toast">
+Saved successfully
+</div>
+
+
+<script>
+
+/* ===============================
+   DATA
+================================ */
+
+let finance = JSON.parse(
+localStorage.getItem("finaiData")
+) || {
+
+income:75000,
+
+expenses:31450,
+
+netWorth:482300,
+
+savings:43550,
+
+expensesList:[]
+
+};
+
+
+/* ===============================
+   NAVIGATION
+================================ */
+
+function navigate(page,button){
+
+document
+.querySelectorAll(".page")
+.forEach(p=>p.classList.remove("active"));
+
+document
+.getElementById(page)
+.classList.add("active");
+
+document
+.querySelectorAll(".nav button")
+.forEach(b=>b.classList.remove("active"));
+
+button.classList.add("active");
+
+const titles={
+
+dashboard:"Good morning 👋",
+
+income:"Income",
+
+expenses:"Expenses",
+
+budget:"Monthly Budget",
+
+goals:"Financial Goals",
+
+investments:"Investment Portfolio",
+
+insurance:"Insurance",
+
+calculators:"Financial Calculators",
+
+ai:"AI Finance Advisor"
+
+};
+
+document
+.getElementById("pageTitle")
+.innerText=titles[page];
+
+}
+
+
+/* ===============================
+   FORMAT MONEY
+================================ */
+
+function money(value){
+
+return "₹"+Number(value)
+.toLocaleString("en-IN");
+
+}
+
+
+/* ===============================
+   SAVE
+================================ */
+
+function saveData(){
+
+localStorage.setItem(
+"finaiData",
+JSON.stringify(finance)
+);
+
+}
+
+
+/* ===============================
+   DASHBOARD
+================================ */
+
+function updateDashboard(){
+
+document
+.getElementById("dashboardIncome")
+.innerText=money(finance.income);
+
+document
+.getElementById("dashboardExpense")
+.innerText=money(finance.expenses);
+
+finance.savings=
+finance.income-finance.expenses;
+
+document
+.getElementById("dashboardSavings")
+.innerText=money(finance.savings);
+
+let rate=
+finance.income>0
+?
+(finance.savings/finance.income)*100
+:
+0;
+
+document
+.getElementById("savingsRate")
+.innerText=
+rate.toFixed(1)+"% savings rate";
+
+let score=
+Math.min(
+100,
+Math.max(
+0,
+Math.round(
+50+
+rate*.4+
+(finance.netWorth>0?15:0)
+)
+)
+);
+
+document
+.getElementById("healthScore")
+.innerText=score;
+
+document
+.getElementById("healthScoreCircle")
+.style
+.setProperty("--score",(score*3.6)+"deg");
+
+saveData();
+
+}
+
+
+/* ===============================
+   ADD INCOME
+================================ */
+
+function addIncome(){
+
+let source=
+document.getElementById("incomeSource").value;
+
+let amount=
+Number(
+document.getElementById("incomeAmount").value
+);
+
+if(!source || !amount){
+
+showToast("Enter income details");
+
+return;
+
+}
+
+finance.income+=amount;
+
+let table=
+document
+.getElementById("incomeTable")
+.querySelector("tbody");
+
+let row=
+table.insertRow();
+
+row.innerHTML=`
+
+<td>${source}</td>
+
+<td>${money(amount)}</td>
+
+<td>Today</td>
+
+<td>
+<button class="btn danger"
+onclick="this.closest('tr').remove()">
+Delete
+</button>
+</td>
+
+`;
+
+updateDashboard();
+
+document.getElementById("incomeSource").value="";
+document.getElementById("incomeAmount").value="";
+
+showToast("Income added successfully");
+
+}
+
+
+/* ===============================
+   ADD EXPENSE
+================================ */
+
+function addExpense(){
+
+let name=
+document.getElementById("expenseName").value;
+
+let amount=
+Number(
+document.getElementById("expenseValue").value
+);
+
+let category=
+document.getElementById("expenseCategory").value;
+
+let date=
+document.getElementById("expenseDate").value
+||"Today";
+
+if(!name || !amount){
+
+showToast("Enter expense details");
+
+return;
+
+}
+
+finance.expenses+=amount;
+
+let table=
+document
+.getElementById("expenseTable")
+.querySelector("tbody");
+
+let row=
+table.insertRow();
+
+row.innerHTML=`
+
+<td>${name}</td>
+
+<td>${category}</td>
+
+<td>${money(amount)}</td>
+
+<td>${date}</td>
+
+<td>
+
+<button
+class="btn danger"
+onclick="this.closest('tr').remove()">
+
+Delete
+
+</button>
+
+</td>
+
+`;
+
+updateDashboard();
+
+document.getElementById("expenseName").value="";
+document.getElementById("expenseValue").value="";
+
+showToast("Expense added");
+
+}
+
+
+/* ===============================
+   GOAL
+================================ */
+
+function createGoal(){
+
+let name=
+document.getElementById("goalName").value;
+
+let amount=
+Number(
+document.getElementById("goalAmount").value
+);
+
+if(!name || !amount){
+
+showToast("Enter goal details");
+
+return;
+
+}
+
+showToast(
+`Goal "${name}" created for ${money(amount)}`
+);
+
+document.getElementById("goalName").value="";
+document.getElementById("goalAmount").value="";
+
+}
+
+
+/* ===============================
+   SIP CALCULATOR
+================================ */
+
+function calculateSIP(){
+
+let P=
+Number(
+document.getElementById("sipAmount").value
+);
+
+let annualRate=
+Number(
+document.getElementById("sipReturn").value
+);
+
+let years=
+Number(
+document.getElementById("sipYears").value
+);
+
+let monthlyRate=
+annualRate/12/100;
+
+let months=
+years*12;
+
+let futureValue=
+P*
+(
+((1+monthlyRate)**months-1)
+/
+monthlyRate
+)*
+(1+monthlyRate);
+
+let invested=
+P*months;
+
+let profit=
+futureValue-invested;
+
+document
+.getElementById("sipInvested")
+.innerText=
+money(invested);
+
+document
+.getElementById("sipValue")
+.innerText=
+money(Math.round(futureValue));
+
+document
+.getElementById("sipProfit")
+.innerText=
+money(Math.round(profit));
+
+}
+
+
+/* ===============================
+   EMERGENCY FUND
+================================ */
+
+function calculateEmergency(){
+
+let expense=
+Number(
+document.getElementById("essentialExpense").value
+);
+
+let months=
+Number(
+document.getElementById("targetMonths").value
+);
+
+let result=
+expense*months;
+
+document
+.getElementById("emergencyResult")
+.innerText=
+money(result);
+
+}
+
+
+/* ===============================
+   AI ADVISOR
+================================ */
+
+function askAI(){
+
+let question=
+document
+.getElementById("aiQuestion")
+.value
+.toLowerCase();
+
+let answer=
+document.getElementById("aiAnswer");
+
+if(!question){
+
+showToast("Ask a question");
+
+return;
+
+}
+
+let response=
+"Based on your current financial dashboard, maintain a healthy emergency reserve, control unnecessary expenses, and align investments with your goals and risk tolerance.";
+
+if(question.includes("save")){
+
+response=
+`Your current monthly savings are ${money(finance.savings)}.
+Your savings rate is ${((finance.savings/finance.income)*100).toFixed(1)}%.
+Consider setting an automatic monthly savings target and reviewing it every few months.`;
+
+}
+
+else if(question.includes("invest")){
+
+response=
+`Your current monthly income is ${money(finance.income)} and expenses are ${money(finance.expenses)}.
+Your estimated available surplus is ${money(finance.savings)}.
+Before increasing investment risk, consider your emergency fund, insurance and financial goals.`;
+
+}
+
+else if(question.includes("expense")){
+
+response=
+`Your current monthly expenses are ${money(finance.expenses)}.
+Review your largest categories and recurring expenses. Reducing unnecessary spending can increase your available savings.`;
+
+}
+
+else if(question.includes("emergency")){
+
+response=
+"Emergency funds are generally kept separately from long-term investments. A common planning approach is to build several months of essential expenses, depending on your personal circumstances.";
+
+}
+
+else if(question.includes("goal")){
+
+response=
+"Start with the target amount and target date. Calculate the required monthly contribution and compare it with your available monthly surplus.";
+
+}
+
+answer.style.display="block";
+
+answer.innerHTML=
+"🤖 <b>FinAI:</b><br><br>"+response;
+
+}
+
+
+/* ===============================
+   PORTFOLIO REVIEW
+================================ */
+
+function portfolioReview(){
+
+showToast(
+"AI portfolio review generated"
+);
+
+}
+
+
+/* ===============================
+   DARK MODE
+================================ */
+
+function toggleDarkMode(){
+
+document.body.classList.toggle("dark");
+
+if(document.body.classList.contains("dark")){
+
+document.documentElement.style.setProperty(
+"--bg",
+"#0b1020"
+);
+
+document.documentElement.style.setProperty(
+"--surface",
+"#151b2c"
+);
+
+document.documentElement.style.setProperty(
+"--surface2",
+"#1b2336"
+);
+
+document.documentElement.style.setProperty(
+"--text",
+"#f4f6fb"
+);
+
+document.documentElement.style.setProperty(
+"--muted",
+"#9ca7ba"
+);
+
+document.documentElement.style.setProperty(
+"--border",
+"#293247"
+);
+
+}else{
+
+document.documentElement.style.setProperty(
+"--bg",
+"#f5f7fb"
+);
+
+document.documentElement.style.setProperty(
+"--surface",
+"#ffffff"
+);
+
+document.documentElement.style.setProperty(
+"--surface2",
+"#f8f9fc"
+);
+
+document.documentElement.style.setProperty(
+"--text",
+"#172033"
+);
+
+document.documentElement.style.setProperty(
+"--muted",
+"#737d90"
+);
+
+document.documentElement.style.setProperty(
+"--border",
+"#e5e9f0"
+);
+
+}
+
+}
+
+
+/* ===============================
+   TOAST
+================================ */
+
+function showToast(message){
+
+let toast=
+document.getElementById("toast");
+
+toast.innerText=message;
+
+toast.classList.add("show");
+
+setTimeout(()=>{
+
+toast.classList.remove("show");
+
+},2500);
+
+}
+
+
+/* ===============================
+   INITIALIZE
+================================ */
+
+updateDashboard();
+
+calculateSIP();
+
+calculateEmergency();
+
+</script>
+
 </body>
 </html>
